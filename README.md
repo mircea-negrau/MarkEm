@@ -1,12 +1,13 @@
 # Software-Engineering
 
-Please use VS Code.
+### Please use VS Code.
+Open the integrated terminal from VS Code (CTRL + Shift + `).
 
 Front-end:
-1. cd/front-end
-2. yarn (1st run only)
-3. yarn start
+- cd/front-end
+- yarn (1st run only)
+- yarn start
 
 Back-end:
-1. cd/back-end
-2. F5
+- cd/back-end
+- F5
