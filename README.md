@@ -1,7 +1,7 @@
 # Software-Engineering
 
 ### Please use VS Code.
-Open the integrated terminal from VS Code (CTRL + Shift + `).
+Open the integrated terminal from VS Code.
 
 Front-end:
 - cd/front-end
