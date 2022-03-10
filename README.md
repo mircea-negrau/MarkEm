@@ -12,6 +12,9 @@ When working on an issue, please create a new branch specifically for it. <br/>
 Make sure the branch is created from the latest version of the `main` branch. <br/>
 To merge changes to `main` branch, please create a PR and ask a colleague to review it. <br/>
 
+### Database diagram
+![plot](./diagrams/Database%20diagram/database.PNG)
+
 ### Please use VS Code.
 > Open the integrated terminal from VS Code.
 >
