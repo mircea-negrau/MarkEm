@@ -1,50 +1,55 @@
 # Use Case Diagram Specifications
 
 ## Template
-### Name: `...`
-### Actors: `...`
-### Standard process: `...`
-### Alterantive process: `...`
-### Preconditions: `...`
-### Postconditions: `...`
+#### Name: `...`
+#### Actors: `...`
+#### Preconditions: `...`
+#### Postconditions: `...`
+#### Standard process: `...`
+#### Alterantive process: `...`
 
 <br>  
 <br>  
 
 ## Specifications
 
-### Name: `log out`
-### Actors: `User`
-### Standard process: `TODO`
-### Alterantive process: `TODO`
-### Preconditions: `TODO`
-### Postconditions: `TODO`
+### User use cases
+
+#### Name: `...`
+#### Actors: `...`
+#### Preconditions: `...`
+#### Postconditions: `...`
+#### Standard process: `...`
+#### Alterantive process: `...`
+
 ---  
 
-### Name: `log out`  
-### Actors: `User`  
-### Standard process: `TODO`
-### Alterantive process: `TODO`
-### Preconditions: `TODO`
-### Postconditions: `TODO`
+#### Name: `...`
+#### Actors: `...`
+#### Preconditions: `...`
+#### Postconditions: `...`
+#### Standard process: `...`
+#### Alterantive process: `...`
+
 ---    
 
-### Name: `view profile`  
-### Actors: `User`  
-### Standard process: `TODO`
-### Alterantive process: `TODO`
-### Preconditions: `TODO`
-### Postconditions: `TODO`
+#### Name: `...`
+#### Actors: `...`
+#### Preconditions: `...`
+#### Postconditions: `...`
+#### Standard process: `...`
+#### Alterantive process: `...`
+
 ---    
 
-### Name: `modify profile`  
-### Actors: `User`  
-### Standard process: `TODO`
-### Alterantive process: `TODO`
-### Preconditions: `TODO`
-### Postconditions: `TODO`
+#### Name: `...`
+#### Actors: `...`
+#### Preconditions: `...`
+#### Postconditions: `...`
+#### Standard process: `...`
+#### Alterantive process: `...`
+
 --- 
-`...`
 
 
 
