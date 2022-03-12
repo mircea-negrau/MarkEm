@@ -64,12 +64,185 @@
 ```
 #### Alterantive process: ```None```
 
---- 
+
 
 ### Student use cases
+#### Name: `enrol`  
+#### Actors: `Student`  
+#### Preconditions: `The student is logged in. The student presses the enrol button.`  
+#### Postconditions: `The enrolment is submitted and sent for verification`  
+#### Standard process:
+```
+1. The student fills the enrolment document.
+2. The information introduced is validated. If the validation fails, the process goes back to step 1.
+3. Upon pressing the submit button, the filled enrolment document is sent for verification.
+```
+#### Alterantive process: ```None```
+
+---
+
+#### Name: `view curriculum`  
+#### Actors: `Student`  
+#### Preconditions: `The student is logged in. The view curriculum button is pressed.`  
+#### Postconditions: `The curriculum for the student's current year of study is shown.`  
+#### Standard process:
+```
+1. The curriculum for the student's current year of study is shown.
+```
+#### Alterantive process: ```None```
+
+---
+
+#### Name: `view optional courses`  
+#### Actors: `Student`  
+#### Preconditions: `The student is logged in. The student presses the view optional courses button. The list of optionals is approved by the chief of department.`  
+#### Postconditions: `The list of optional courses is shown to the student.`  
+#### Standard process:
+```
+1. The list of optional courses is shown to the student.
+```
+#### Alterantive process:
+```1. A pop-up announces the student that the list of optionals is not ready yet.```
+
+---
+
+#### Name: `specify preference order`  
+#### Actors: `Student`  
+#### Preconditions: `The user is logged in. The student presses the view optional courses button.`  
+#### Postconditions: `The student's preference order is updated.`  
+#### Standard process:
+```
+1. The student modifies the preference order list that is shown at the top of the page.  
+That can be done by either reordering them, modifying the priority of an already choosen optional or  
+by dragging optionals from the list of all available optionals to the list of selected optionals. 
+2. The update preference order button is pressed.
+```
+#### Alterantive process: ```None```
+
+---
+
+#### Name: `sign contract`  
+#### Actors: `Student`  
+#### Preconditions: `The student presses the sign contract button. The chief of department has approved the list of optionals. The has specified their preference order.`  
+#### Postconditions: `The signed contract is sent for final verification to the department's secretariat.`  
+#### Standard process: 
+```
+1. The contract is shown to the student for review.
+2. The students signs the contract.
+3. The submit contract button is pressed.
+```
+#### Alterantive process:
+```
+The system alerts the user that they didn't specified their preference order.
+```
+
+---
+
+#### Name: `view grades`  
+#### Actors: `Student`  
+#### Preconditions: `The student is logged in. The view grades button is pressed.`  
+#### Postconditions: `The grades are shown to the student.`  
+#### Standard process:
+```
+1. The grades for the current semester are shown to the user.
+```
+#### Alterantive process:
+```
+1. The user chooses a different semester and the grades for the choosen semester are show.
+```
+
+
+
+## Teacher use cases
 #### Name: `...`  
 #### Actors: `...`  
 #### Preconditions: `...`  
 #### Postconditions: `...`  
 #### Standard process:  ```...```
 #### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+
+
+## Chief of department use cases
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+
+
+## Faculty staff use cases
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+---
+
+#### Name: `...`  
+#### Actors: `...`  
+#### Preconditions: `...`  
+#### Postconditions: `...`  
+#### Standard process:  ```...```
+#### Alterantive process: ```...```
+
+
+
