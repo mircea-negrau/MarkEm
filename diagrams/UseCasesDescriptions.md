@@ -154,21 +154,28 @@ The system alerts the user that they didn't specified their preference order.
 
 
 ## Teacher use cases
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
+#### Name: `propose optionals`  
+#### Actors: `Teacher`  
+#### Preconditions: `The techer is logged in. The propose optionals button is pressed. The teacher has at least a lecturer degree.`  
+#### Postconditions: `The teacher proposal is submitted.`  
+#### Standard process:
+```
+1. The teacher writes 1 or 2 optional course names.
+2. The teacher presses the submit button.
+```
 #### Alterantive process: ```...```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `grade student`  
+#### Actors: `Teacher`  
+#### Preconditions: `The techer is logged in. The grade student button is pressed.`  
+#### Postconditions: `Teacher's courses and the grades of every student in each of them are shown. Optionally: The grades are modified`  
+#### Standard process:
+```
+1. The teacher inputs/modifies the grade of one or more students.
+```
+#### Alterantive process: ```None```
 
 
 
@@ -228,21 +235,28 @@ The system alerts the user that they didn't specified their preference order.
 
 
 ## Faculty staff use cases
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `generate document`  
+#### Actors: `Faculty staff`  
+#### Preconditions: `The faculty staff is logged in.`  
+#### Postconditions: `The generate document menu is shown. The choosen document is generated.`  
+#### Standard process:
+```1. The faculty staff chooses the document from the list of available documents.```
+```2. The faculty staff preses the generate button.```
+```3. Te choosen document is generated and shown to the faculty staff.```
+#### Alterantive process: ```None```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `print document`  
+#### Actors: `Faculty staff`  
+#### Preconditions: `The faculty staff is logged in. The faculty staff generated a document and pressed the print button.`  
+#### Postconditions: `A list with the available printers and the option to print the document is shown.`  
+#### Standard process:
+```
+1. The faculty staff presses the print button.
+2. A list with the available printers and the option to print the document is shown.
+```
+#### Alterantive process: ```None```
 
 
 
