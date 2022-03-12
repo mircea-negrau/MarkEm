@@ -61,6 +61,7 @@
 1. The user modify their profile information. (https://www.quora.com/How-should-we-conjugate-verbs-with-the-singular-they?share=1)
 2. The information introduced is validated. If the validation fails, the process goes back to step 1.
 3. The user presses the save button.
+4. The systems shows confirmation.
 ```
 #### Alterantive process: ```None```
 
@@ -75,7 +76,8 @@
 ```
 1. The student fills the enrolment document.
 2. The information introduced is validated. If the validation fails, the process goes back to step 1.
-3. Upon pressing the submit button, the filled enrolment document is sent for verification.
+3. Press the submit button.
+4. The systems shows confirmation.
 ```
 #### Alterantive process: ```None```
 
@@ -102,7 +104,7 @@
 1. The list of optional courses is shown to the student.
 ```
 #### Alterantive process:
-```1. A pop-up announces the student that the list of optionals is not ready yet.```
+```1. The system notifies that the list of optionals is not ready yet.```
 
 ---
 
@@ -112,10 +114,9 @@
 #### Postconditions: `The student's preference order is updated.`  
 #### Standard process:
 ```
-1. The student modifies the preference order list that is shown at the top of the page.  
-That can be done by either reordering them, modifying the priority of an already choosen optional or  
-by dragging optionals from the list of all available optionals to the list of selected optionals. 
-2. The update preference order button is pressed.
+1. Modify the preference order list.
+2. Press the update preference order button .
+3. The systems shows confirmation.
 ```
 #### Alterantive process: ```None```
 
@@ -128,8 +129,9 @@ by dragging optionals from the list of all available optionals to the list of se
 #### Standard process: 
 ```
 1. The contract is shown to the student for review.
-2. The students signs the contract.
-3. The submit contract button is pressed.
+2. Sign the contract.
+3. Press the submit button.
+4. The systems shows confirmation.
 ```
 #### Alterantive process:
 ```
@@ -144,12 +146,10 @@ The system alerts the user that they didn't specified their preference order.
 #### Postconditions: `The grades are shown to the student.`  
 #### Standard process:
 ```
-1. The grades for the current semester are shown to the user.
+1. The grades are displayed.
+2. Choose semester, which takes the student back to step 1.
 ```
-#### Alterantive process:
-```
-1. The user chooses a different semester and the grades for the choosen semester are show.
-```
+#### Alterantive process: ```None```
 
 
 
@@ -160,77 +160,94 @@ The system alerts the user that they didn't specified their preference order.
 #### Postconditions: `The teacher proposal is submitted.`  
 #### Standard process:
 ```
-1. The teacher writes 1 or 2 optional course names.
-2. The teacher presses the submit button.
+1. Write 1 or 2 optional course names.
+2. Press the submit button.
+3. The systems shows confirmation.
 ```
-#### Alterantive process: ```...```
+#### Alterantive process: ```None```
 
 ---
 
 #### Name: `grade student`  
 #### Actors: `Teacher`  
 #### Preconditions: `The techer is logged in. The grade student button is pressed.`  
-#### Postconditions: `Teacher's courses and the grades of every student in each of them are shown. Optionally: The grades are modified`  
+#### Postconditions: `The grade/grades are modified.`  
 #### Standard process:
 ```
-1. The teacher inputs/modifies the grade of one or more students.
+1. Enter/modify grade.
+2. The systems shows confirmation.
 ```
 #### Alterantive process: ```None```
 
 
 
 ## Chief of department use cases
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `view optionals list`  
+#### Actors: `Chief of department`  
+#### Preconditions: `The chief of department is logged in. The chief of department presses the view optionals list button.`  
+#### Postconditions: `The proposed optionals list is shown.`  
+#### Standard process:
+```
+1. The proposed optionals list is shown.
+```
+#### Alterantive process: ```None```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `approve optionals list`  
+#### Actors: `Chief of department`  
+#### Preconditions: `The chief of department is logged in. The chief of department presses the aprove optionals list button. All the teachers having at least a lecturer degree proposed a list of at most 2 optional courses.`  
+#### Postconditions: `The optionals list is approved and the process of assigning optional courses takes place.`  
+#### Standard process:
+```
+1. The optionals list is approved.
+2. The chief of department selects a maximum number of students to attend each course.
+3. The decision is uploaded on the appropriate page of the faculty site.
+4. The process of assigning optional courses to students takes place.
+5. The systems shows confirmation.
+```
+#### Alterantive process: ```None```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `specify optionals capacity`  
+#### Actors: `Chief of department`  
+#### Preconditions: `The chief of department is logged in. The optionals list is approved.`  
+#### Postconditions: `The assignation of optional courses to students starts.`  
+#### Standard process: 
+```
+1. Specify the capacity for each optional course.
+2. The systems shows confirmation.
+```
+#### Alterantive process: ```None```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `view results`  
+#### Actors: `Chief of department`  
+#### Preconditions: `The chief of department is logged in. The chief of department presses the view results button.`   
+#### Postconditions: `The demanded teacher/discpline is shown.`  
+#### Standard process:
+```
+1. Select the kind of results (teacher's results or discipline's results).
+2. Select the type of results (best results/worst results).
+3. The syste shows the demanded teacher/discipline.
+```
+#### Alterantive process: ```None```
 
 ---
 
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
-
----
-
-#### Name: `...`  
-#### Actors: `...`  
-#### Preconditions: `...`  
-#### Postconditions: `...`  
-#### Standard process:  ```...```
-#### Alterantive process: ```...```
+#### Name: `view teacher's disciplines`  
+#### Actors: `Chief of department`  
+#### Preconditions: `The chief of department is logged in. The chief of department presses the view teacher's disciplines button.`  
+#### Postconditions: `The disciplines given by a teacher in a semester or in an academic year are shown.`  
+#### Standard process:
+```
+1. Select the teacher.
+2. Select the semester/year.
+3. The demanded disciplines are shown.
+```
+#### Alterantive process: ```None```
 
 
 
@@ -240,9 +257,11 @@ The system alerts the user that they didn't specified their preference order.
 #### Preconditions: `The faculty staff is logged in.`  
 #### Postconditions: `The generate document menu is shown. The choosen document is generated.`  
 #### Standard process:
-```1. The faculty staff chooses the document from the list of available documents.```
-```2. The faculty staff preses the generate button.```
-```3. Te choosen document is generated and shown to the faculty staff.```
+```
+1. The faculty staff chooses the document from the list of available documents.
+2. The faculty staff preses the generate button.
+3. The choosen document is generated and shown.
+```
 #### Alterantive process: ```None```
 
 ---
