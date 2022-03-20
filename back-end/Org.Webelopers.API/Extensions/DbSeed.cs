@@ -49,7 +49,6 @@ namespace Org.Webelopers.Api.Extensions
                     Username = $"TestStudent{i}",
                     EmailHash = "dummyEmailHash",
                     PasswordHash = "dummyPasswordHash",
-                    Salt = "dummySalt",
                     FirstName = $"firstName{i}",
                     LastName = $"firstName{i}",
                     DateOfBirth = 732624581,

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
@@ -15,13 +16,12 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public string Username { get; set; }
 
         [Required]
+        [JsonIgnore]
         public string EmailHash { get; set; }
 
         [Required]
+        [JsonIgnore]
         public string PasswordHash { get; set; }
-
-        [Required]
-        public string Salt { get; set; }
 
         [Required]
         [StringLength(128)]

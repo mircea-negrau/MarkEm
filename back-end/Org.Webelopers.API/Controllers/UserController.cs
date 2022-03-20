@@ -20,7 +20,7 @@ namespace Org.Webelopers.Api.Controllers
             _logger.LogInformation("OKAY");
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public IEnumerable<Teacher> Get() => _context.Teachers;
     }
 }
