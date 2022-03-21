@@ -22,9 +22,6 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public string PasswordHash { get; set; }
 
         [Required]
-        public string Salt { get; set; }
-
-        [Required]
         [StringLength(128)]
         public string FirstName { get; set; }
 

@@ -23,6 +23,12 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [ForeignKey("Id")]
         public Guid TeacherId { get; set; }
 
+        [Required]
+        public bool IsApproved { get; set; }
+
+        [Required]
+        public int MaxNumberOfStudent { get; set; }
+
         #region References
 
         public virtual StudySemester Semester { get; set; }
