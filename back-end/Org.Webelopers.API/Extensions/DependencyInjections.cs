@@ -8,8 +8,7 @@ namespace Org.Webelopers.Api.Extensions
     {
         public static void ConfigureDependencies(this IServiceCollection services)
         {
-            services.AddScoped<JwtService>();
-            services.AddScoped<IStudentAuthService, StudentAuthService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }
