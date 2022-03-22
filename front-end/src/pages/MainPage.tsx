@@ -1,23 +1,32 @@
 import { FunctionComponent, useEffect, useState } from 'react'
+import { SECURE_API } from '../utility/api'
+
+interface Student {
+  id: string
+  username: string
+  firstName: string
+  lastName: string
+}
 
 export const MainPage: FunctionComponent = () => {
   const [name, setName] = useState('')
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    ;async () => {
-      const response = await fetch('https://localhost:5001/auth/student', {
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include'
-      })
-
-      const content = await response.json()
-      setName(content.FirstName + ' ' + content.LastName)
-    }
+    ;(async () => {
+      await SECURE_API.get('/auth/user')
+        .then(response => {
+          const content: Student = response.data
+          setName(content.firstName + ' ' + content.lastName)
+        })
+        .catch()
+      setIsReady(true)
+    })()
   })
 
   return (
     <div>
-      <p>{name ? 'Hello ' + name : 'You are not logged in!'}</p>
+      {isReady && <p>{name ? 'Hello ' + name : 'You are not logged in!'}</p>}
     </div>
   )
 }

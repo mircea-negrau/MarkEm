@@ -1,24 +1,24 @@
-import { FunctionComponent, SyntheticEvent, useState } from 'react'
+import localforage from 'localforage'
+import { FunctionComponent, SyntheticEvent, useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { API } from '../utility/api'
+import jwt_decode from 'jwt-decode'
+import { useSelector } from 'react-redux'
 
 export const LoginPage: FunctionComponent = () => {
+  const globalState = useSelector((state: AppState) => state.global)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [redirect, setRedirect] = useState(false)
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault()
-    await fetch('https://localhost:5001/auth/login/student', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({
-        username,
-        password
-      })
-    })
-
-    setRedirect(true)
+    const response = await API.post('/auth', { username, password })
+    if (response.status == 200) {
+      const token = response.data
+      await localforage.setItem<string>('academic_access_token', token)
+      setRedirect(true)
+    }
   }
 
   if (redirect) {
