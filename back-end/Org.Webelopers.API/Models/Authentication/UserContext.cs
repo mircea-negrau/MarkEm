@@ -8,27 +8,27 @@ namespace Org.Webelopers.Api.Models.Authentication
     {
         public Guid Id { get; set; }
         public string Username { get; set; }
-        public UserType Role { get; set; }
+        public string Role { get; set; }
 
         public UserContext(Student student)
         {
             Id = student.Id;
             Username = student.Username;
-            Role = UserType.Student;
+            Role = "Student";
         }
 
         public UserContext(Teacher teacher)
         {
             Id = teacher.Id;
             Username = teacher.Username;
-            Role = UserType.Teacher;
+            Role = "Teacher";
         }
 
         public UserContext(Admin admin)
         {
             Id = admin.Id;
             Username = admin.Username;
-            Role = UserType.Admin;
+            Role = "Admin";
         }
     }
 }
