@@ -8,6 +8,7 @@ using Org.Webelopers.Api.Contracts.Auth;
 using Org.Webelopers.Api.Models.Authentication;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -31,7 +32,6 @@ namespace Org.Webelopers.Api.Controllers
             _configuration = configuration;
             _logger = logger;
             _authService = authService;
-            _logger.LogInformation("OKAY");
         }
 
         [AllowAnonymous]
@@ -43,8 +43,10 @@ namespace Org.Webelopers.Api.Controllers
             var user = _authService.Authenticate(login.Username, login.Password);
             if (user == null)
             {
+                _logger.LogInformation($"Authentication for {login.Username} failed!");
                 return NotFound(new { message = "Invalid credentials!" });
             }
+            _logger.LogInformation($"Logged in {login.Username} ");
             string token = Generate(user);
             return Ok(token);
         }
@@ -57,14 +59,14 @@ namespace Org.Webelopers.Api.Controllers
             var claims = new[]
             {
                 new Claim("Id", user.Id.ToString()),
-                new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Username)
+                new Claim("Role", user.Role.ToString()),
+                new Claim("Username", user.Username)
             };
 
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],
                 _configuration["JwtConfig:Audience"],
                 claims,
-                //expires: DateTime.Now.AddHours(2),
+                expires: DateTime.Now.AddSeconds(10),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
