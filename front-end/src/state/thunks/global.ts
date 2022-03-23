@@ -21,7 +21,7 @@ export const login = createAsyncThunk(
       await localforage.setItem('AMS_access_token', responseContent)
       return responseContent
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   }
 )

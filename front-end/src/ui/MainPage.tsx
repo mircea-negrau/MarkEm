@@ -30,6 +30,13 @@ export const MainPage: FunctionComponent = () => {
             You are not a teacher, {state.username}! <br />
             Nothing to show you here!
           </p>
+          <button
+            onClick={() => {
+              dispatch(logout())
+            }}
+          >
+            Logout
+          </button>
         </>
       )}
     </div>
