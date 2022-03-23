@@ -1,0 +1,79 @@
+﻿[*.cs]
+
+# CA1001: Types that own disposable fields should be disposable
+dotnet_diagnostic.CA1001.severity =error
+dotnet_diagnostic.RemoveUnnecessaryImportsFixable.severity=error
+dotnet_diagnostic.IDE0005.severity = error
+# IDE0040: Add accessibility modifiers
+dotnet_diagnostic.IDE0040.severity = error
+# IDE0051: Remove unused private member
+dotnet_diagnostic.IDE0051.severity=error
+# IDE0051: Remove unused private member
+dotnet_diagnostic.IDE0052.severity=error
+# IDE0059: Unnecessary assignment to a value
+dotnet_diagnostic.IDE0059.severity = error
+# CA1822: Make member static
+dotnet_diagnostic.CA1822.severity = error
+# Prefer "var" everywhere
+dotnet_diagnostic.IDE0007.severity =silent
+csharp_style_var_for_built_in_types =false:suggestion
+csharp_style_var_when_type_is_apparent = true:error
+csharp_style_var_elsewhere =false:silent
+csharp_using_directive_placement=outside_namespace:error
+csharp_style_unused_value_assignment_preference=discard_variable:error
+dotnet_diagnostic.CA1507.severity=error
+csharp_style_expression_bodied_methods=when_on_single_line:suggestion
+csharp_style_expression_bodied_operators=when_on_single_line:error
+csharp_style_expression_bodied_properties=when_on_single_line:error
+csharp_style_expression_bodied_indexers=when_on_single_line:silent
+csharp_style_expression_bodied_accessors=when_on_single_line:silent
+csharp_style_expression_bodied_lambdas=when_on_single_line:error
+csharp_style_expression_bodied_local_functions=when_on_single_line:silent
+dotnet_diagnostic.xUnit2017.severity=error
+dotnet_diagnostic.xUnit2018.severity=error
+dotnet_diagnostic.IDE0043.severity=error
+dotnet_diagnostic.IDE0076.severity=error
+dotnet_diagnostic.IDE0077.severity=error
+dotnet_diagnostic.ASP0000.severity=error
+dotnet_diagnostic.CA1070.severity=error
+dotnet_diagnostic.IDE0022.severity=silent
+# RCS1037: Remove trailing white-space.
+dotnet_diagnostic.RCS1037.severity=error
+# Use pattern matching to avoid is check followed by a cast (with variable)
+dotnet_diagnostic.IDE0020.severity=error
+# Remove unreachable code
+dotnet_diagnostic.IDE0035.severity=error
+
+# CS0108: Member hides inherited member; missing new keyword
+dotnet_diagnostic.CS0108.severity = error
+
+[*.{cs,vb}]
+dotnet_style_qualification_for_field=false:error
+dotnet_style_qualification_for_property=false:error
+dotnet_style_qualification_for_method=false:error
+dotnet_style_qualification_for_event=false:error
+dotnet_code_quality_unused_parameters=all:error
+dotnet_style_readonly_field=true:error
+dotnet_style_coalesce_expression=true:error
+dotnet_style_null_propagation=true:error
+dotnet_style_object_initializer=true:error
+dotnet_style_collection_initializer=true:error
+dotnet_style_prefer_conditional_expression_over_assignment=true:suggestion
+dotnet_style_prefer_conditional_expression_over_return=true:suggestion
+dotnet_style_explicit_tuple_names=true:error
+dotnet_style_prefer_inferred_tuple_names=true:error
+dotnet_diagnostic.CA1069.severity=error
+dotnet_diagnostic.CA1707.severity=warning
+dotnet_diagnostic.CA1708.severity=error
+dotnet_diagnostic.CA1008.severity=error
+dotnet_diagnostic.CA1054.severity=suggestion
+dotnet_diagnostic.CA1055.severity=suggestion
+dotnet_diagnostic.CA1056.severity=suggestion
+dotnet_diagnostic.CA1063.severity=error
+dotnet_diagnostic.CA1721.severity=error
+dotnet_diagnostic.CA1724.severity=error
+dotnet_diagnostic.CA1828.severity=error
+csharp_preferred_modifier_order=public, private, protected, internal, static, extern, new, virtual, abstract, sealed, override, readonly, unsafe, volatile, async:error
+max_line_length=140
+[*.vb]
+dotnet_diagnostic.CA1047.severity=error
