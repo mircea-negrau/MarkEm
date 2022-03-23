@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: #18181E;
+    background: #c8d8e4;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff
+    color: black;
   }
 
   a,

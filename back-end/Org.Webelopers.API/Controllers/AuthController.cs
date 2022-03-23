@@ -66,7 +66,7 @@ namespace Org.Webelopers.Api.Controllers
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],
                 _configuration["JwtConfig:Audience"],
                 claims,
-                expires: DateTime.Now.AddSeconds(10),
+                expires: DateTime.Now.AddHours(14),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
