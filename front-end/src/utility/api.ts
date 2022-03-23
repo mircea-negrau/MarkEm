@@ -8,7 +8,7 @@ export const SECURE_API = axios.create({
 })
 
 SECURE_API.interceptors.request.use(async config => {
-  const token = await localforage.getItem<string>('academic_access_token')
+  const token = await localforage.getItem<string>('AMS_access_token')
   const headers = config.headers
   if (headers != null) {
     headers.Authorization = token ? `Bearer ${token}` : ''
