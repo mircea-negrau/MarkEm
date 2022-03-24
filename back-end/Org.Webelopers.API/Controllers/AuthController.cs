@@ -59,8 +59,8 @@ namespace Org.Webelopers.Api.Controllers
             var claims = new[]
             {
                 new Claim("Id", user.Id.ToString()),
-                new Claim("Role", user.Role.ToString()),
-                new Claim("Username", user.Username)
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Username)
             };
 
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],

@@ -1,5 +1,4 @@
 ﻿using Org.Webelopers.Api.Models.DbEntities;
-using Org.Webelopers.Api.Models.Types;
 using System;
 
 namespace Org.Webelopers.Api.Models.Authentication
