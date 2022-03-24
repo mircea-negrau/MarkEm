@@ -1,4 +1,5 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.Webelopers.Api.Contracts.Contract;
 using Org.Webelopers.Api.Contracts.Curriculum;
@@ -31,9 +32,12 @@ namespace Org.Webelopers.Api.Controllers
             _gradeService = gradeService;
         }
 
+        
         [HttpPost("enroll")]
+        [Authorize(Roles ="Student")]
         public StudyContract EnrollStudent(StudyYear studyyear, Student student)
         {
+
             var contract = _contractService.EnrollStudent(studyyear, student);
             return contract;
         }
