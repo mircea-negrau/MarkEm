@@ -23,8 +23,8 @@ const initialState: GlobalStateType = {
 export interface UserDetails {
   Id: string
   aud: string
-  Role: string
-  Username: string
+  'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': string
+  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': string
   iss: string
   exp: number
 }
@@ -38,12 +38,13 @@ export const globalSlice = createSlice({
     },
     setUserDetails: (state, action: PayloadAction<UserDetails>) => {
       state.userId = action.payload.Id
-      state.userRole = action.payload.Role as
-        | 'Student'
-        | 'Teacher'
-        | 'Admin'
-        | 'Guest'
-      state.username = action.payload.Username
+      state.userRole = action.payload[
+        'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+      ] as 'Student' | 'Teacher' | 'Admin' | 'Guest'
+      state.username =
+        action.payload[
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
+        ]
       state.expiration = action.payload.exp
     }
   },
