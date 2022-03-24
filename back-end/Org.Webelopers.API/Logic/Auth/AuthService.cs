@@ -1,4 +1,4 @@
-﻿using Org.Webelopers.Api.Contracts.Auth;
+﻿using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.Authentication;
 using System.Linq;

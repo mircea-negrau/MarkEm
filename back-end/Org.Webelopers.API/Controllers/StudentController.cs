@@ -1,10 +1,8 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Org.Webelopers.Api.Contracts.Contract;
-using Org.Webelopers.Api.Contracts.Curriculum;
-using Org.Webelopers.Api.Contracts.Grades;
-using Org.Webelopers.Api.Contracts.OptionalCourse;
+using Org.Webelopers.Api.Contracts;
+
 
 using Org.Webelopers.Api.Models.DbEntities;
 

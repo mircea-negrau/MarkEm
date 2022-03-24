@@ -2,7 +2,7 @@
 using Org.Webelopers.Api.Models.DbEntities;
 using System.Collections.Generic;
 
-namespace Org.Webelopers.Api.Contracts.Grades
+namespace Org.Webelopers.Api.Contracts
 {
     public interface IGradesService
     {
