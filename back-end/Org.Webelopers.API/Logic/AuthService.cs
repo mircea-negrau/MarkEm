@@ -41,11 +41,11 @@ namespace Org.Webelopers.Api.Logic.Auth
             return null;
         }
 
-        public UserContext Register(string userType, string username, string password,string email, string firstName, string lastName)
+        public UserContext Register(string userType, string username, string password, string email, string firstName, string lastName)
         {
             var student = _context.Students.FirstOrDefault(x => x.Username == username);
             if (student != null)
-                return null;  
+                return null;
             var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
             if (teacher != null)
                 return null;
@@ -55,7 +55,7 @@ namespace Org.Webelopers.Api.Logic.Auth
 
             switch (userType)
             {
-                
+
                 case "Student":
                     student = new Student()
                     {
@@ -70,7 +70,7 @@ namespace Org.Webelopers.Api.Logic.Auth
 
                     _context.Add(student);
                     _context.SaveChanges();
-                    return new UserContext(student);         
+                    return new UserContext(student);
                 case "Teacher":
                     teacher = new Teacher()
                     {
@@ -105,13 +105,13 @@ namespace Org.Webelopers.Api.Logic.Auth
                 default:
                     return null;
 
-                   
+
             }
-                
-                
+
+
 
             return null;
         }
-        
+
     }
 }

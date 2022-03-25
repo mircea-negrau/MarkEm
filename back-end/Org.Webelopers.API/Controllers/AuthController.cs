@@ -68,7 +68,7 @@ namespace Org.Webelopers.Api.Controllers
                 return StatusCode(409, $"User '{register.Username}' already exists.");
             }
             _logger.LogInformation($"Registered {register.Username} ");
-     
+
             return Ok();
         }
 
