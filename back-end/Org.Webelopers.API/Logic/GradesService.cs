@@ -3,6 +3,7 @@ using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Org.Webelopers.Api.Logic
 {
@@ -26,9 +27,30 @@ namespace Org.Webelopers.Api.Logic
             });
             _context.SaveChanges();
         }
+        public void DeleteGrade(Guid gradeId)
+        {
+            var grade = _context.Grades.FirstOrDefault(x => x.Id == gradeId);
+            if (grade != null)
+            {
+                _context.Remove(grade);
+                _context.SaveChanges();
+            }
+        }
+        public List<CourseGrade> GetStudentGrades(Guid studentId)
+        {
+            return _context.Grades.Where(x => x.StudentId == studentId).ToList();
+        }
 
-        public void DeleteGrade(int classid, int studentid) => throw new NotImplementedException();
-        public List<CourseGrade> GetStudentGrades(int studentid) => throw new NotImplementedException();
-        public void UpdateGrade(CourseGrade newgrade) => throw new NotImplementedException();
+        public void UpdateGrade(Guid gradeId, short grade)
+        {
+            var studentGrade = _context.Grades.FirstOrDefault(x => x.Id == gradeId);
+
+            if (studentGrade != null)
+            {
+                studentGrade.Grade = grade;
+                _context.SaveChanges();
+            }
+
+        }
     }
 }
