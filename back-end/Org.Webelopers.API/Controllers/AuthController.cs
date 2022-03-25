@@ -51,6 +51,27 @@ namespace Org.Webelopers.Api.Controllers
             return Ok(token);
         }
 
+        [AllowAnonymous]
+        [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        public IActionResult Register([FromBody] RegisterDto register)
+        {
+            var EmailHash = BCrypt.Net.BCrypt.HashPassword(register.Email);
+            var PasswordHash = BCrypt.Net.BCrypt.HashPassword(register.Password);
+            var user = _authService.Register(register.UserType, register.Username, PasswordHash,
+                EmailHash, register.FirstName, register.LastName);
+
+            if (user == null)
+            {
+                _logger.LogInformation($"Register for {register.Username} failed!");
+                return StatusCode(409, $"User '{register.Username}' already exists.");
+            }
+            _logger.LogInformation($"Registered {register.Username} ");
+
+            return Ok();
+        }
+
         private string Generate(UserContext user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtConfig:Secret"]));
