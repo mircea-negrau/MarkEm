@@ -7,28 +7,9 @@ Each faculty may have different specialisations both for the undergraduate and m
 Each faculty year will have a contract of studies, a curriculum (list of mandatory disciplines + 1 optional discipline).<br/>
 
 ### Branch and Pull Request policy
-! Please follow the `{issueId}-branch-name` template.<br/><br/>
-When working on an issue, please create a new branch specifically for it. <br/>
-Make sure the branch is created from the latest version of the `main` branch. <br/>
-To merge changes to `main` branch, please create a PR and ask a colleague to review it. <br/>
+! Please follow the `{issueId}-branch-name` template.
+- Branch flow: <br/>
+main <- develop <- custom-branch
 
-### Use Case diagram
-![plot](./diagrams/UseCaseDiagramV2.png)
-
-### Database diagram
-![plot](./diagrams/Database%20diagram/database.PNG)
-
-### Class diagram
-![plot](./diagrams/Class%20diagram/diagram.png)
-
-### Please use VS Code.
-> Open the integrated terminal from VS Code.
->
-> Front-end:
-> - cd/front-end
-> - yarn (1st run only)
-> - yarn start
-
-> Back-end:
-> - cd/back-end
-> - F5
+#### Please use VS Code for Front-end directory (yarn start).
+#### Please use Visual Studio for Back-end directory.
