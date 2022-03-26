@@ -3,41 +3,76 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { login } from '../state/thunks/global'
+import Image from '../assets/login-icon.png'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import PersonIcon from '@mui/icons-material/Person'
+import { Button, Checkbox, CircularProgress, TextField } from '@mui/material'
+import { FetchStatus } from '../utility/fetchStatus'
 
-const FormField = styled.input`
-  border: 1px solid grey;
-  border-radius: 50px;
-  padding: 0px 15px;
-  text-align: center;
-  height: 30px;
-  margin-bottom: 15px;
-  width: 250px;
-  outline-width: 0;
+const GreyTextField = styled(TextField)`
+  & label.Mui-focused {
+    color: #96a2b4;
+  }
+  & label.Mui {
+    color: #96a2b4;
+  }
+  & .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: #96a2b4;
+    }
+  }
 
-  :last-of-type {
-    margin-bottom: 20px;
+  .MuiOutlinedInput-notchedOutline {
+    border-color: #96a2b4;
+  }
+  .MuiFormLabel-root {
+    color: #96a2b4;
+  }
+  .MuiInputBase-input {
+    color: #96a2b4;
   }
 `
 
-const Button = styled.button`
-  background-color: #52ab98;
-  color: white;
+const LoginButton = styled(Button)<{ available: boolean }>`
+  background-color: ${props =>
+    props.available ? '#3f51b5' : '#0f1218'} !important;
+  color: ${props =>
+    props.available ? 'white' : 'rgba(255, 255, 255, 0.23)'} !important;
   border-color: transparent;
-  border-radius: 50px;
-  height: 40px;
+  border-radius: 5px;
+  height: 50px;
+  padding: 0px 16px;
   font-weight: 600;
-
-  :hover {
-    cursor: pointer;
-  }
 `
 
 export const LoginPage: FunctionComponent = () => {
   const state = useSelector((state: AppState) => state.global)
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+
   const dispatch = useDispatch()
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const validationSchema = Yup.object({
+    username: Yup.string()
+      // .email('Enter a valid email')
+      .required('Username is required'),
+    password: Yup.string()
+      .min(8, 'Password should be of minimum 8 characters length')
+      .required('Password is required')
+  })
+
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: ''
+    },
+    validationSchema: validationSchema,
+    onSubmit: values => {
+      dispatch(login(values))
+    }
+  })
 
   useEffect(() => {
     if (state.accessToken != '') {
@@ -45,60 +80,173 @@ export const LoginPage: FunctionComponent = () => {
     }
   }, [state.accessToken])
 
+  let icon = <></>
+  if (isPasswordVisible)
+    icon = (
+      <Visibility
+        style={{ color: '#96a2b4', cursor: 'pointer' }}
+        onClick={() => {
+          setIsPasswordVisible(false)
+        }}
+      />
+    )
+  else
+    icon = (
+      <VisibilityOffIcon
+        style={{ color: '#96a2b4', cursor: 'pointer' }}
+        onClick={() => {
+          setIsPasswordVisible(true)
+        }}
+      />
+    )
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        margin: 0,
-        left: '50%',
-        top: '50%',
-        position: 'absolute',
-        transform: 'translateY(-50%) translateX(-50%)',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <form
+    <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
+      <div
         style={{
+          width: '50%',
+          height: '100%',
+          backgroundImage: `url(${Image})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover'
+        }}
+      />
+      <div
+        style={{
+          width: '50%',
+          height: '100%',
+          backgroundColor: '#11141b',
           display: 'flex',
           flexDirection: 'column',
-          padding: '100px 50px',
-          backgroundColor: '#2b6777',
-          borderRadius: '50px'
-        }}
-        onSubmit={e => {
-          e.preventDefault()
-          dispatch(login({ username, password }))
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
-        <p
+        <div
           style={{
-            color: '#f2f2f2',
-            textAlign: 'center',
-            paddingBottom: '40px',
-            fontSize: '24px'
+            width: '410px',
+            maxWidth: '100%',
+            marginTop: 'auto',
+            marginBottom: 'auto'
           }}
         >
-          Sign in
-        </p>
-        <FormField
-          type="text"
-          placeholder="Username"
-          required
-          autoFocus
-          onChange={e => setUsername(e.target.value)}
-        />
-        <FormField
-          type="password"
-          placeholder="Password"
-          required
-          autoFocus
-          onChange={e => setPassword(e.target.value)}
-        />
-        <hr style={{ width: '100%', marginBottom: '25px' }} />
-        <Button type="submit">Sign in</Button>
-      </form>
+          <form
+            style={{
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+            onSubmit={formik.handleSubmit}
+          >
+            <p
+              style={{
+                color: '#96a2b4',
+                fontFamily: 'Roboto, sans-serif',
+                fontSize: '28px',
+                fontWeight: '500',
+                marginBottom: '7px'
+              }}
+            >
+              {"Welcome to Mark'Em"}
+            </p>
+            <div
+              style={{
+                display: 'flex',
+                width: '100%'
+              }}
+            >
+              <p
+                style={{
+                  color: '#96a2b4',
+                  fontFamily: 'Roboto, sans-serif',
+                  fontSize: '18px',
+                  paddingBottom: '30px'
+                }}
+              >
+                Need an account?
+              </p>
+              <a
+                href="#"
+                style={{
+                  color: '#3699ff',
+                  fontFamily: 'Roboto, sans-serif',
+                  fontSize: '18px',
+                  paddingBottom: '30px'
+                }}
+              >
+                &nbsp;Sign Up
+              </a>
+            </div>
+            <p
+              style={{
+                color: '#96a2b4',
+                fontFamily: 'Roboto, sans-serif',
+                fontSize: '28px',
+                fontWeight: '500',
+                marginBottom: '20px'
+              }}
+            >
+              Sign in
+            </p>
+            <GreyTextField
+              fullWidth
+              id="username"
+              name="username"
+              label="Username"
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              error={formik.touched.username && Boolean(formik.errors.username)}
+              helperText={formik.touched.username && formik.errors.username}
+              variant="filled"
+              InputProps={{
+                endAdornment: <PersonIcon style={{ color: '#96a2b4' }} />
+              }}
+              style={{ paddingBottom: '30px' }}
+            />
+            <GreyTextField
+              fullWidth
+              id="password"
+              name="password"
+              label="Password"
+              type={isPasswordVisible ? 'text' : 'password'}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+              variant="filled"
+              InputProps={{
+                endAdornment: icon
+              }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                paddingTop: '15px',
+                paddingBottom: '50px',
+                alignItems: 'center'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Checkbox style={{ alignSelf: 'start' }} />
+                <p>Remember me</p>
+              </div>
+              <p>Forgot password?</p>
+            </div>
+            <LoginButton
+              available={
+                formik.values.username != '' && formik.values.password != ''
+              }
+              type="submit"
+            >
+              {state.accessTokenStatus != FetchStatus.loading && 'Login'}
+              {state.accessTokenStatus === FetchStatus.loading && (
+                <CircularProgress size={18} style={{ color: 'yellow' }} />
+              )}
+            </LoginButton>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
