@@ -53,6 +53,7 @@ export const globalSlice = createSlice({
       if (action.payload) {
         state.accessToken = action.payload
       }
+      state.accessTokenStatus = FetchStatus.success
     })
 
     builder.addCase(login.pending, state => {
@@ -65,6 +66,7 @@ export const globalSlice = createSlice({
 
     builder.addCase(logout.fulfilled, state => {
       state.accessToken = ''
+      state.accessTokenStatus = FetchStatus.success
     })
 
     builder.addCase(logout.pending, state => {
