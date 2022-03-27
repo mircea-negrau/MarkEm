@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
   a:visited,
   a:active {
     text-decoration: none;
-    color: #F7C366;
   }
 
   html,
