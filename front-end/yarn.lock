@@ -6304,6 +6304,11 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
+material-ui-flags@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/material-ui-flags/-/material-ui-flags-1.2.4.tgz#8eb6130b1cdef58df038f66dc8b286780f2dba23"
+  integrity sha512-547k+KkQ5Dei0Pqaztp7RtwRlI71BZ98rbzuuNX/Bw7nZ1vtBTCnaXLMQ6jVxpFJ9ckS4rjg503EZtb7QnYJsA==
+
 mdn-data@2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
@@ -7569,6 +7574,11 @@ react-app-polyfill@^3.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
+
+react-country-flag@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-3.0.2.tgz#54c37abe2c87251e95b0f40bb4c09b000f4669e7"
+  integrity sha512-JPaz+q3QD0/nZtHBKj5x3O7r/SgSG9kxbymdaIU0RqlDAcorJIe4KV0DFhWIdKh69q5cPVkIVERcMYGZdvXgAA==
 
 react-dev-utils@^12.0.0:
   version "12.0.0"

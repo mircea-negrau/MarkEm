@@ -6,6 +6,7 @@ import { globalActions, UserDetails } from '../../state/slices/global'
 import { Navigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import { logout } from '../../state/thunks/global'
+import { DefaultScaffold } from '../../ui-kit/DefaultScaffold'
 
 export const AuthComponent: FunctionComponent = props => {
   const state = useSelector((state: AppState) => state.global)
@@ -44,8 +45,9 @@ export const AuthComponent: FunctionComponent = props => {
 
   return (
     <>
-      {isValidating && <p>Loading...</p>}
-      {!isValidating && isAuthorised && props.children}
+      {!isValidating && isAuthorised && (
+        <DefaultScaffold>{props.children}</DefaultScaffold>
+      )}
       {!isValidating && !isAuthorised && <Navigate to="/login" />}
     </>
   )

@@ -3,7 +3,11 @@ import { GlobalStyle } from './ui-kit/styles/global-styles'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LoginPage } from './ui/LoginPage'
 import { AuthComponent } from './ui/Authentication/AuthComponent'
-import { MainPage } from './ui/MainPage'
+import { Dashboard } from './ui/Dashboard'
+import { TimeTable } from './ui/TimeTable'
+import { Contracts } from './ui/Contracts'
+import { Homework } from './ui/Homework'
+import { Settings } from './ui/Settings'
 
 const App: FunctionComponent = () => {
   return (
@@ -12,10 +16,42 @@ const App: FunctionComponent = () => {
       <BrowserRouter>
         <Routes>
           <Route
-            path={'/'}
+            index
             element={
               <AuthComponent>
-                <MainPage />
+                <Dashboard />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/time-table'}
+            element={
+              <AuthComponent>
+                <TimeTable />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/contracts'}
+            element={
+              <AuthComponent>
+                <Contracts />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/homework'}
+            element={
+              <AuthComponent>
+                <Homework />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/settings'}
+            element={
+              <AuthComponent>
+                <Settings />
               </AuthComponent>
             }
           />
