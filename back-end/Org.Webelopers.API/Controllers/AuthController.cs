@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Logic.Constants;
 using Org.Webelopers.Api.Models.Authentication;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
@@ -80,12 +79,9 @@ namespace Org.Webelopers.Api.Controllers
 
             var claims = new[]
             {
-                new Claim(CustomClaimTypes.UserId, user.Id.ToString()),
-                new Claim(CustomClaimTypes.Role, user.Role),
-                new Claim(CustomClaimTypes.Username, user.Username),
-                new Claim(CustomClaimTypes.FirstName, user.FirstName),
-                new Claim(CustomClaimTypes.LastName, user.LastName),
-                new Claim(CustomClaimTypes.DateOfBirth, user.DateOfBirth.ToString())
+                new Claim("Id", user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Username)
             };
 
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],
