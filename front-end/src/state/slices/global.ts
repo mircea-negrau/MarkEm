@@ -8,6 +8,9 @@ interface GlobalStateType {
   userId: string
   userRole: 'Student' | 'Teacher' | 'Admin' | 'Guest'
   username: string
+  firstName: string
+  lastName: string
+  dateOfBirth?: string
   expiration: number
 }
 
@@ -17,14 +20,20 @@ const initialState: GlobalStateType = {
   userId: '',
   userRole: 'Guest',
   username: '',
+  firstName: '',
+  lastName: '',
+  dateOfBirth: undefined,
   expiration: 0
 }
 
 export interface UserDetails {
-  Id: string
+  uid: string
   aud: string
-  Role: string
-  Username: string
+  role: string
+  username: string
+  firstName: string
+  lastName: string
+  dateOfBirth: string
   iss: string
   exp: number
 }
@@ -37,14 +46,13 @@ export const globalSlice = createSlice({
       state.accessToken = action.payload
     },
     setUserDetails: (state, action: PayloadAction<UserDetails>) => {
-      state.userId = action.payload.Id
-      state.userRole = action.payload.Role as
-        | 'Student'
-        | 'Teacher'
-        | 'Admin'
-        | 'Guest'
-      state.username = action.payload.Username
+      state.userId = action.payload.uid
+      state.userRole = action.payload.role as 'Student' | 'Teacher' | 'Admin'
+      state.username = action.payload.username
       state.expiration = action.payload.exp
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.dateOfBirth = action.payload.dateOfBirth ?? undefined
     }
   },
   extraReducers: builder => {
@@ -52,6 +60,7 @@ export const globalSlice = createSlice({
       if (action.payload) {
         state.accessToken = action.payload
       }
+      state.accessTokenStatus = FetchStatus.success
     })
 
     builder.addCase(login.pending, state => {
@@ -64,6 +73,7 @@ export const globalSlice = createSlice({
 
     builder.addCase(logout.fulfilled, state => {
       state.accessToken = ''
+      state.accessTokenStatus = FetchStatus.success
     })
 
     builder.addCase(logout.pending, state => {

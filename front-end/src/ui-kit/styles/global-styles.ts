@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: #18181E;
+    background: #232b3e;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff
+    color: #96a2b4;
   }
 
   a,
@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
   a:visited,
   a:active {
     text-decoration: none;
-    color: #F7C366;
   }
 
   html,

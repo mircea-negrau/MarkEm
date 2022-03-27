@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using Org.Webelopers.Api.Contracts.Auth;
+using Org.Webelopers.Api.Contracts;
+using Org.Webelopers.Api.Logic.Constants;
 using Org.Webelopers.Api.Models.Authentication;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
@@ -51,6 +52,27 @@ namespace Org.Webelopers.Api.Controllers
             return Ok(token);
         }
 
+        [AllowAnonymous]
+        [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        public IActionResult Register([FromBody] RegisterDto register)
+        {
+            var EmailHash = BCrypt.Net.BCrypt.HashPassword(register.Email);
+            var PasswordHash = BCrypt.Net.BCrypt.HashPassword(register.Password);
+            var user = _authService.Register(register.UserType, register.Username, PasswordHash,
+                EmailHash, register.FirstName, register.LastName);
+
+            if (user == null)
+            {
+                _logger.LogInformation($"Register for {register.Username} failed!");
+                return StatusCode(409, $"User '{register.Username}' already exists.");
+            }
+            _logger.LogInformation($"Registered {register.Username} ");
+
+            return Ok();
+        }
+
         private string Generate(UserContext user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtConfig:Secret"]));
@@ -58,15 +80,18 @@ namespace Org.Webelopers.Api.Controllers
 
             var claims = new[]
             {
-                new Claim("Id", user.Id.ToString()),
-                new Claim("Role", user.Role.ToString()),
-                new Claim("Username", user.Username)
+                new Claim(CustomClaimTypes.UserId, user.Id.ToString()),
+                new Claim(CustomClaimTypes.Role, user.Role),
+                new Claim(CustomClaimTypes.Username, user.Username),
+                new Claim(CustomClaimTypes.FirstName, user.FirstName),
+                new Claim(CustomClaimTypes.LastName, user.LastName),
+                new Claim(CustomClaimTypes.DateOfBirth, user.DateOfBirth.ToString())
             };
 
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],
                 _configuration["JwtConfig:Audience"],
                 claims,
-                expires: DateTime.Now.AddSeconds(10),
+                expires: DateTime.Now.AddHours(14),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
