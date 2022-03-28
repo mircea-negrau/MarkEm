@@ -5,12 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Dto;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
 using System.Text;
 
 namespace Org.Webelopers.Api.Controllers
