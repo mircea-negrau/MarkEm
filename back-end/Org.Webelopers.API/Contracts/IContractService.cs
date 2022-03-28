@@ -7,10 +7,8 @@ namespace Org.Webelopers.Api.Contracts
 {
     public interface IContractService
     {
-        //   public StudyContract EnrollStudent(StudyYear studyyear, Student student);
-        //   public void DisenrollStudent(int studentid)
-        //   ;
         public Guid AddContract(Guid studentId);
+        public StudyContract GetContractById(Guid contractId);
         public void RemoveContract(Guid contractId);
         public void EnrollStudent(Guid studentId, Guid yearId);
         public void SetGroupId(Guid contractId, Guid groupId);

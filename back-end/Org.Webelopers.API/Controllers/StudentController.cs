@@ -19,35 +19,35 @@ namespace Org.Webelopers.Api.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<AuthController> _logger;
-        //private readonly IContractService _contractService;
-        //private readonly ICurriculumService _curriculumService;
+        private readonly IContractService _contractService;
+        private readonly ICurriculumService _curriculumService;
         //private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
         public StudentController(
             IConfiguration configuration,
             ILogger<AuthController> logger,
-            //IContractService contractService,
-            //ICurriculumService curriculumService,
+            IContractService contractService,
+            ICurriculumService curriculumService,
             //IOptionalCourseService optionalService,
             IGradesService gradeService
             )
         {
             _configuration = configuration;
             _logger = logger;
-            //_contractService = contractService;
-            //_curriculumService = curriculumService;
+            _contractService = contractService;
+            _curriculumService = curriculumService;
             //_optionalCourseService = optionalService;
             _gradeService = gradeService;
         }
 
 
-        //[HttpPost("enroll")]
-        //[Authorize(Roles = "Student")]
-        //public StudyContract EnrollStudent(StudyYear studyyear, Student student)
-        //{
-        //    var contract = _contractService.EnrollStudent(studyyear, student);
-        //    return contract;
-        //}
+        [HttpPost("enroll")]
+        [Authorize(Roles = "Student")]
+        public IActionResult EnrollStudent([FromBody] EnrollDto enroll)
+        {
+            _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
+            return Ok();
+        }
 
         // Dummy method
         [HttpPost("dummy")]
@@ -88,11 +88,12 @@ namespace Org.Webelopers.Api.Controllers
             return (JwtSecurityToken)validatedToken;
         }
 
-        //[HttpPost("disenroll")]
-        //public void DisenrollStudent(int studentid)
-        //{
-        //    _contractService.DisenrollStudent(studentid);
-        //}
+        /*[HttpPost("disenroll")]
+        [Authorize(Roles = "Student")]
+        public void DisenrollStudent(Guid studentId, Guid yearId)
+        {    
+            
+        }*/
 
         //[HttpGet("contracts/number")]
         //public int GerNumberOfContracts(int studentid)
