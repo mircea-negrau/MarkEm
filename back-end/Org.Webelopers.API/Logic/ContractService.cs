@@ -16,6 +16,10 @@ namespace Org.Webelopers.Api.Logic
             _context = context;
         }
 
+        public StudyContract GetContractById(Guid contractId)
+        {
+            return _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractId);
+        }
         public void AddContract(Guid studentId)
         {
             _context.StudyContracts.Add(new StudyContract()
