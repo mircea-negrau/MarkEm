@@ -253,12 +253,18 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(studyContract => studyContract.Group)
                 .WithMany(group => group.Contracts)
                 .HasForeignKey(studyContract => studyContract.GroupId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
             builder
                 .HasOne(studyContract => studyContract.OptionalCourse)
                 .WithMany()
                 .HasForeignKey(studyContract => studyContract.OptionalCourseId)
                 .OnDelete(DeleteBehavior.SetNull);
+            builder
+                .HasOne(studyContract => studyContract.Year)
+                .WithMany()
+                .HasForeignKey(studyContract => studyContract.YearId)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
 
         private static void OptionalCoursePreferenceConfigure(EntityTypeBuilder<OptionalCoursePreference> builder)
