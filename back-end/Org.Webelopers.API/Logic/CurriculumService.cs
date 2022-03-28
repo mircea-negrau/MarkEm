@@ -20,37 +20,39 @@ namespace Org.Webelopers.Api.Logic
         {
             return _context.Courses.Where(x => x.SemesterId == semesterId).ToList();
         }
-        public List<Course> GetStudentEnrolledCourses(Guid studentId)
+        public Tuple<List<Course>, List<OptionalCourse>> GetStudentEnrolledCourses(Guid studentId)
         {
             var contracts = _context.StudyContracts.Where(x => x.StudentId == studentId).ToList();
 
-            List<Course> result = new List<Course>();
+            List<Course> resultCourse = new List<Course>();
+            List<OptionalCourse> resultOptional = new List<OptionalCourse>();
 
-            /*foreach(StudyContract contract in contracts)
+            foreach (StudyContract contract in contracts)
             {
-                var yearId = contract.YearId;
+                var yearId = (Guid)contract.YearId;
 
-                var list = _context.Courses.Where(course => course.)
-            }*/
+                List<Course> yearCourse = GetYearCurriculum(yearId);
+                resultCourse = resultCourse.Concat(yearCourse).ToList();
 
-            //Can't give curriculum because we have optionalcourses and normal courses, different types
-            //
+                resultOptional.Add(contract.OptionalCourse);
 
-            return null;
+            }
+
+            return Tuple.Create(resultCourse, resultOptional);
         }
 
         public List<Course> GetYearCurriculum(Guid yearId)
         {
-            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).ToList();
+            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id);
 
-            if (semesters.Count == 0)
-                return null;
+            if (semesters.Count() == 0)
+                return new List<Course>();
 
             List<Course> curriculum = new List<Course>();
 
             foreach (var semester in semesters)
             {
-                List<Course> list = _context.Courses.Where(course => course.SemesterId == semester.Id).ToList();
+                List<Course> list = _context.Courses.Where(course => course.SemesterId == semester).ToList();
 
                 if (list.Count != 0)
                 {

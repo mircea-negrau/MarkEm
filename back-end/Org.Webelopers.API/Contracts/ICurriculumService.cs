@@ -7,7 +7,7 @@ namespace Org.Webelopers.Api.Contracts
 {
     public interface ICurriculumService
     {
-        public List<Course> GetStudentEnrolledCourses(Guid studentId);
+        public Tuple<List<Course>, List<OptionalCourse>> GetStudentEnrolledCourses(Guid studentId);
         public List<Course> GetSemesterCurriculum(Guid semesterId);
         public List<Course> GetYearCurriculum(Guid yearId);
     }
