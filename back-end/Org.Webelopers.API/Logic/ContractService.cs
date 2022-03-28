@@ -20,20 +20,25 @@ namespace Org.Webelopers.Api.Logic
         {
             return _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractId);
         }
-        public void AddContract(Guid studentId)
+        public Guid AddContract(Guid studentId)
         {
             var numberOfContracts = _context.StudyContracts.Where(contract => contract.StudentId == studentId).Count();
 
             if (numberOfContracts >= 2)
-                return;
+                return Guid.Empty;
 
-            _context.StudyContracts.Add(new StudyContract()
+            var contract = new StudyContract()
             {
                 StudentId = studentId,
                 Id = Guid.NewGuid()
-            });
+            };
+
+            _context.StudyContracts.Add(contract);
 
             _context.SaveChanges();
+
+            return contract.Id;
+
         }
 
         public void RemoveContract(Guid contractId)
@@ -56,6 +61,13 @@ namespace Org.Webelopers.Api.Logic
                     _context.SaveChanges();
                 }
 
+        }
+
+        public void EnrollStudent(Guid studentId, Guid yearId)
+        {
+            var contractId = AddContract(studentId);
+
+            SetYearId(contractId, yearId);
         }
         public void SetYearId(Guid contractId, Guid yearId)
         {

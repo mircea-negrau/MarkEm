@@ -10,8 +10,9 @@ namespace Org.Webelopers.Api.Contracts
         //   public StudyContract EnrollStudent(StudyYear studyyear, Student student);
         //   public void DisenrollStudent(int studentid)
         //   ;
-        public void AddContract(Guid studentId);
+        public Guid AddContract(Guid studentId);
         public void RemoveContract(Guid contractId);
+        public void EnrollStudent(Guid studentId, Guid yearId);
         public void SetGroupId(Guid contractId, Guid groupId);
         public void SetYearId(Guid contractId, Guid yearId);
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId);
