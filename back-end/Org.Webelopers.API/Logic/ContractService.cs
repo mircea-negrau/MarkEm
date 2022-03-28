@@ -22,11 +22,18 @@ namespace Org.Webelopers.Api.Logic
         }
         public void AddContract(Guid studentId)
         {
+            var numberOfContracts = _context.StudyContracts.Where(contract => contract.StudentId == studentId).Count();
+
+            if (numberOfContracts >= 2)
+                return;
+
             _context.StudyContracts.Add(new StudyContract()
             {
                 StudentId = studentId,
                 Id = Guid.NewGuid()
             });
+
+            _context.SaveChanges();
         }
 
         public void RemoveContract(Guid contractId)
@@ -35,6 +42,7 @@ namespace Org.Webelopers.Api.Logic
             if (contract != null)
             {
                 _context.StudyContracts.Remove(contract);
+                _context.SaveChanges();
             }
         }
         public void SetGroupId(Guid contractId, Guid groupId)
@@ -43,7 +51,11 @@ namespace Org.Webelopers.Api.Logic
 
             if (contract.SignedAt != null)
                 if (contract != null)
+                {
                     contract.GroupId = groupId;
+                    _context.SaveChanges();
+                }
+
         }
         public void SetYearId(Guid contractId, Guid yearId)
         {
@@ -51,7 +63,11 @@ namespace Org.Webelopers.Api.Logic
 
             if (contract.SignedAt != null)
                 if (contract != null)
+                {
                     contract.YearId = yearId;
+                    _context.SaveChanges();
+                }
+
         }
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId)
         {
@@ -59,7 +75,11 @@ namespace Org.Webelopers.Api.Logic
 
             if (contract.SignedAt != null)
                 if (contract != null)
+                {
                     contract.OptionalCourseId = optionalCourseId;
+                    _context.SaveChanges();
+                }
+
         }
 
         public List<Course> GetContractCourses(Guid contractid)
