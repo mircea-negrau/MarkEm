@@ -16,12 +16,17 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid StudentId { get; set; }
 
         [ForeignKey("Id")]
-        public Guid GroupId { get; set; }
+        public Guid? GroupId { get; set; }
 
         [ForeignKey("Id")]
         public Guid? OptionalCourseId { get; set; }
 
+        [ForeignKey("Id")]
+        public Guid? YearId { get; set; }
+
         #region References
+
+        public virtual StudyYear Year { get; set; }
 
         public virtual Student Student { get; set; }
 
