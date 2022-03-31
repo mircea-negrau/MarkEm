@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -43,6 +44,7 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpPost("enroll")]
         [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult EnrollStudent([FromBody] EnrollDto enroll)
         {
             _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
@@ -88,37 +90,37 @@ namespace Org.Webelopers.Api.Controllers
             return (JwtSecurityToken)validatedToken;
         }
 
-        /*[HttpPost("disenroll")]
+        [HttpPost("disenroll")]
         [Authorize(Roles = "Student")]
-        public void DisenrollStudent(Guid studentId, Guid yearId)
-        {    
-            
-        }*/
+        public void DisenrollStudent([FromBody] Guid contractId)
+        {
+            _contractService.RemoveContract(contractId);
+        }
 
-        //[HttpGet("contracts/number")]
-        //public int GerNumberOfContracts(int studentid)
-        //{
-        //    return _contractService.GetNumberOfContracts(studentid);
-        //}
+        [HttpGet("contracts/number")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult GerNumberOfContracts([FromBody] Guid studentid)
+        {
+            return Ok(_contractService.GetNumberOfContracts(studentid));
+        }
 
         //// Implement so it works like courses/{courseId}
-        ////[HttpGet("courses")]
-        ////public List<Course> GetContractClasses(int contractid)
-        ////{
-        ////    return _contractService.GetContractClasses(contractid);
-        ////}
+        [HttpGet("courses/contract")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult GetContractClasses([FromBody] Guid contractId)
+        {
+            return Ok(_contractService.GetContractCourses(contractId));
+        }
 
-        //[HttpGet("courses/all")]
-        //public List<Course> GetAllEnrolledClasses(int studentid)
-        //{
-        //    return _contractService.GetAllStudentClasses(studentid);
-        //}
-        //[HttpPost("sign")]
-        //public void SignContract(int studentid, int contractid)
-        //{
-        //    _contractService.SignContract(studentid, contractid);
-        //}
-        //[HttpGet("optionalCourses/all")]
+        [HttpPost("sign")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult SignContract([FromBody] Guid contractid)
+        {
+            _contractService.SignContract(contractid);
+            return Ok();
+        }
+
+        [HttpGet("optionalCourses/all")]
         //public List<Course> GetOptionalCourses()
         //{
         //    return _optionalCourseService.getOptionalCourses();
@@ -128,15 +130,18 @@ namespace Org.Webelopers.Api.Controllers
         // {
         //    //  TODO
         // }*/
-        //[HttpGet("getgrades")]
-        //public List<CourseGrade> GetGrades(int studentid)
-        //{
-        //    return _gradeService.GetStudentGrades(studentid);
-        //}
-        //[HttpGet("getyearcourses")]
-        //public List<Course> GetYearCourses(int year)
-        //{
-        //    return _curriculumService.GetYearCurriculum(year);
-        //}
+
+        [HttpGet("getgrades")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult GetGrades([FromBody] Guid studentId)
+        {
+            return Ok(_gradeService.GetStudentGrades(studentId));
+        }
+
+        [HttpGet("getyearcourses")]
+        public IActionResult GetYearCourses([FromBody] Guid yearId)
+        {
+            return Ok(_curriculumService.GetYearCurriculum(yearId));
+        }
     }
 }
