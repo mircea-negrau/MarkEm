@@ -153,18 +153,26 @@ namespace Org.Webelopers.Api.Controllers
         [HttpGet("courses/contract")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetContractClasses([FromBody] Guid contractId)
         {
-            var response = _contractService.GetContractCourses(contractId);
-
-            if (response != null)
+            try
             {
-                return Ok(_contractService.GetContractCourses(contractId));
+                var response = _contractService.GetContractCourses(contractId);
+                if (response != null)
+                {
+                    return Ok(_contractService.GetContractCourses(contractId));
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return NotFound();
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
         }
 
