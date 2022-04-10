@@ -45,9 +45,25 @@ namespace Org.Webelopers.Api.Controllers
         [HttpPost("enroll")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult EnrollStudent([FromBody] EnrollDto enroll)
         {
-            _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
+            try
+            {
+                _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+
             return Ok();
         }
 
@@ -92,31 +108,87 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpPost("disenroll")]
         [Authorize(Roles = "Student")]
-        public void DisenrollStudent([FromBody] Guid contractId)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult DisenrollStudent([FromBody] Guid contractId)
         {
-            _contractService.RemoveContract(contractId);
+            try
+            {
+                _contractService.RemoveContract(contractId);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+
+            return Ok();
+
         }
 
         [HttpGet("contracts/number")]
+        [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GerNumberOfContracts([FromBody] Guid studentid)
         {
-            return Ok(_contractService.GetNumberOfContracts(studentid));
+            try
+            {
+                return Ok(_contractService.GetNumberOfContracts(studentid));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
         }
 
         //// Implement so it works like courses/{courseId}
         [HttpGet("courses/contract")]
+        [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetContractClasses([FromBody] Guid contractId)
         {
-            return Ok(_contractService.GetContractCourses(contractId));
+            var response = _contractService.GetContractCourses(contractId);
+
+            if (response != null)
+            {
+                return Ok(_contractService.GetContractCourses(contractId));
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         [HttpPost("sign")]
+        [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult SignContract([FromBody] Guid contractid)
         {
-            _contractService.SignContract(contractid);
+            try
+            {
+                _contractService.SignContract(contractid);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+
+
             return Ok();
         }
 
@@ -131,17 +203,40 @@ namespace Org.Webelopers.Api.Controllers
         //    //  TODO
         // }*/
 
-        [HttpGet("getgrades")]
+        [HttpGet("grades/all")]
+        [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetGrades([FromBody] Guid studentId)
         {
-            return Ok(_gradeService.GetStudentGrades(studentId));
+            try
+            {
+                return Ok(_gradeService.GetStudentGrades(studentId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
         }
 
-        [HttpGet("getyearcourses")]
+        [HttpGet("courses/year")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetYearCourses([FromBody] Guid yearId)
         {
-            return Ok(_curriculumService.GetYearCurriculum(yearId));
+            try
+            {
+                return Ok(_curriculumService.GetYearCurriculum(yearId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
         }
     }
 }

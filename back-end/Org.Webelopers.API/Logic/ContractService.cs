@@ -49,6 +49,10 @@ namespace Org.Webelopers.Api.Logic
                 _context.StudyContracts.Remove(contract);
                 _context.SaveChanges();
             }
+            else
+            {
+                throw new ArgumentException("There is no contract with this id");
+            }
         }
         public void SetGroupId(Guid contractId, Guid groupId)
         {
@@ -67,18 +71,24 @@ namespace Org.Webelopers.Api.Logic
         {
             var contractId = AddContract(studentId);
 
+            var contract = _context.StudyContracts.FirstOrDefault(contr => contr.StudentId == studentId && contr.YearId == yearId);
+
+            if (contract != null)
+            {
+                throw new ArgumentException("This student already has a contract for this year");
+            }
+
             SetYearId(contractId, yearId);
         }
         public void SetYearId(Guid contractId, Guid yearId)
         {
             var contract = _context.StudyContracts.FirstOrDefault(contr => contr.Id == contractId);
 
-            if (contract.SignedAt != null)
-                if (contract != null)
-                {
-                    contract.YearId = yearId;
-                    _context.SaveChanges();
-                }
+            if (contract != null)
+            {
+                contract.YearId = yearId;
+                _context.SaveChanges();
+            }
 
         }
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId)
@@ -97,11 +107,12 @@ namespace Org.Webelopers.Api.Logic
         public List<Course> GetContractCourses(Guid contractid)
         {
             var contract = _context.StudyContracts.FirstOrDefault(contr => contr.Id == contractid);
+            _context.SaveChanges();
             if (contract == null)
                 return null;
 
             var yearId = contract.YearId;
-            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id);
+            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id).ToList();
 
             if (semesters.Count() == 0)
                 return null;
@@ -133,6 +144,10 @@ namespace Org.Webelopers.Api.Logic
             {
                 contract.SignedAt = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
                 _context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Contract doesn't exist");
             }
         }
 

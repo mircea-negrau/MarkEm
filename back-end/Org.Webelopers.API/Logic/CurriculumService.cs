@@ -43,10 +43,7 @@ namespace Org.Webelopers.Api.Logic
 
         public List<Course> GetYearCurriculum(Guid yearId)
         {
-            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id);
-
-            if (semesters.Count() == 0)
-                return new List<Course>();
+            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id).ToList();
 
             List<Course> curriculum = new List<Course>();
 
@@ -59,9 +56,7 @@ namespace Org.Webelopers.Api.Logic
                     curriculum = curriculum.Concat(list).ToList();
                 }
             }
-
             return curriculum;
-
         }
     }
 }
