@@ -9,12 +9,14 @@ import * as Yup from 'yup'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import PersonIcon from '@mui/icons-material/Person'
-import { Button, Checkbox, CircularProgress, TextField } from '@mui/material'
+import { Autocomplete, Button, Checkbox, CircularProgress, TextField } from '@mui/material'
 import { FetchStatus } from '../utility/fetchStatus'
-import { Button1 } from '../ui-kit/Button'
 import React from 'react'
 import { ArrowDropDown, FormatAlignJustify } from '@mui/icons-material'
 import { border, height, width } from '@mui/system'
+import { ClassNames } from '@emotion/react'
+
+const roleOptions = ['Student', 'Teacher', 'Admin'];
 
 
 
@@ -42,6 +44,7 @@ const GreyTextField = styled(TextField)`
   }
 `
 
+
 const RegisterButton = styled(Button) <{ available: boolean }>`
   background-color: ${props =>
     props.available ? '#3f51b5' : '#0f1218'} !important;
@@ -54,12 +57,36 @@ const RegisterButton = styled(Button) <{ available: boolean }>`
   font-weight: 600;
 `
 
+
+
 export const RegisterPage: FunctionComponent = () => {
   const state = useSelector((state: AppState) => state.global)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-  const [userRole, setUserRole] = useState('Student')
+  const [userRole, setUserRole] = useState(roleOptions[0])
 
   const dispatch = useDispatch()
+
+  const Dropdown = ({
+    options
+  }) => {
+    return (
+      <select
+        value={userRole}
+        onChange={e => [setUserRole(e.target.value), formik.values.userType = e.target.value]}
+        style={{
+          background: '#0f1218',
+          color: '#96a2b4',
+          height: '40px',
+          fontSize: '20px',
+          width: "50%"
+
+        }}>
+        {options.map(o => (
+          <option key={o} value={o}>{o}</option>
+        ))}
+      </select>
+    );
+  };
 
   const validationSchema = Yup.object({
     username: Yup.string()
@@ -117,7 +144,6 @@ export const RegisterPage: FunctionComponent = () => {
         }}
       />
     )
-  console.log(formik.values)
   return (
     <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
       <div
@@ -251,23 +277,8 @@ export const RegisterPage: FunctionComponent = () => {
                 style={{ paddingBottom: '30px', width: '50%' }}
               />
             </div>
-            <select
-              name="roles"
-              value={userRole}
-              onChange={e => setUserRole(e.target.value)}
-              style={{
-                background: '#0f1218',
-                color: '#96a2b4',
-                height: '40px',
-                fontSize: '20px',
-                width: "50%"
 
-              }}>
-
-              <option value="Student" label="Student" >Student</option>
-              <option value="Teacher" label="Teacher">Teacher</option>
-              <option value="Admin" label="Admin"> Admin</option>
-            </select>
+            <Dropdown options={roleOptions} />
 
             <div
               style={{
@@ -308,7 +319,7 @@ export const RegisterPage: FunctionComponent = () => {
             </RegisterButton>
           </form>
         </div>
-      </div>
+      </div >
     </div >
   )
 }
