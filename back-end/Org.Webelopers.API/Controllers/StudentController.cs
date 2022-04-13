@@ -22,14 +22,14 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ILogger<AuthController> _logger;
         private readonly IContractService _contractService;
         private readonly ICurriculumService _curriculumService;
-        //private readonly IOptionalCourseService _optionalCourseService;
+        private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
         public StudentController(
             IConfiguration configuration,
             ILogger<AuthController> logger,
             IContractService contractService,
             ICurriculumService curriculumService,
-            //IOptionalCourseService optionalService,
+            IOptionalCourseService optionalService,
             IGradesService gradeService
             )
         {
@@ -37,7 +37,7 @@ namespace Org.Webelopers.Api.Controllers
             _logger = logger;
             _contractService = contractService;
             _curriculumService = curriculumService;
-            //_optionalCourseService = optionalService;
+            _optionalCourseService = optionalService;
             _gradeService = gradeService;
         }
 
@@ -201,15 +201,47 @@ namespace Org.Webelopers.Api.Controllers
         }
 
         [HttpGet("optionalCourses/all")]
-        //public List<Course> GetOptionalCourses()
-        //{
-        //    return _optionalCourseService.getOptionalCourses();
-        //}
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetOptionalCourses()
+        {
+            try
+            {
+                return Ok(_optionalCourseService.GetOptionalCourses());
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+        }
 
-        ///* public void SetOptionalCoursesPreference(int studentid, List<OptionalCoursePreference> preferences)
-        // {
-        //    //  TODO
-        // }*/
+        [HttpPost("optionalCourses/setPreference")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreference([FromBody]CoursePreferenceDto dto)
+         {
+            try
+            {
+                var response = _optionalCourseService.SetStudentOptionalCoursesPreference(dto.Preference, dto.ContractId, dto.OptionalCourseId);
+                if (response)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+            
+         }
 
         [HttpGet("grades/all")]
         [Authorize(Roles = "Student")]
