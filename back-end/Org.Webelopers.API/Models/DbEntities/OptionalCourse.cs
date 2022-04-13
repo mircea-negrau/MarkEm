@@ -25,7 +25,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         [Required]
         public bool IsApproved { get; set; }
-        
+        [Required]
         public bool IsProposed { get; set; }
 
         [Required]

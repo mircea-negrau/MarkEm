@@ -13,6 +13,7 @@ namespace Org.Webelopers.Api.Extensions
             services.AddScoped<IGradesService, GradesService>();
             services.AddScoped<ICurriculumService, CurriculumService>();
             services.AddScoped<IContractService, ContractService>();
+            services.AddScoped<IOptionalCourseService, OptionalCourseService>();
         }
     }
 }
