@@ -14,10 +14,11 @@ namespace Org.Webelopers.Api.Contracts
         public void SetGroupId(Guid contractId, Guid groupId);
         public void SetYearId(Guid contractId, Guid yearId);
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId);
-        public int GetNumberOfContracts(Guid studentid);
-        public List<Course> GetContractCourses(Guid contractid);
+        public int GetNumberOfContracts(Guid studentId);
+        public List<Course> GetContractCourses(Guid contractId);
         public void SignContract(Guid contractId);
-        public OptionalCourse GetOptionalCourse(Guid contractid);
+        public OptionalCourse GetOptionalCourse(Guid contractId);
+        public List<StudyContract> GetStudentContracts(Guid studentId);
 
     }
 }
