@@ -210,7 +210,7 @@ namespace Org.Webelopers.Api.Controllers
             {
                 return Ok(_optionalCourseService.GetOptionalCourses());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return NotFound();
@@ -221,8 +221,8 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult SetOptionalCoursesPreference([FromBody]CoursePreferenceDto dto)
-         {
+        public IActionResult SetOptionalCoursesPreference([FromBody] CoursePreferenceDto dto)
+        {
             try
             {
                 var response = _optionalCourseService.SetStudentOptionalCoursesPreference(dto.Preference, dto.ContractId, dto.OptionalCourseId);
@@ -235,13 +235,13 @@ namespace Org.Webelopers.Api.Controllers
                     return NotFound();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return NotFound();
             }
-            
-         }
+
+        }
 
         [HttpGet("grades/all")]
         [Authorize(Roles = "Student")]
@@ -270,6 +270,24 @@ namespace Org.Webelopers.Api.Controllers
             try
             {
                 return Ok(_curriculumService.GetYearCurriculum(yearId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("contracts/all")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetStudentCourses([FromBody] Guid studentId)
+        {
+            try
+            {
+                return Ok(_contractService.GetStudentContracts(studentId));
             }
             catch (Exception ex)
             {

@@ -155,5 +155,11 @@ namespace Org.Webelopers.Api.Logic
         {
             return _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractid).OptionalCourse;
         }
+
+        public List<StudyContract> GetStudentContracts(Guid studentId)
+        {
+            return _context.StudyContracts.Where(contract => contract.StudentId == studentId).ToList();
+        }
+
     }
 }
