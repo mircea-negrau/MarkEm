@@ -283,7 +283,7 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetStudentCourses([FromBody] Guid studentId)
+        public IActionResult GetStudentCourses([FromQuery] Guid studentId)
         {
             try
             {
