@@ -9,6 +9,9 @@ import { Contracts } from './ui/Contracts'
 import { Homework } from './ui/Homework'
 import { Settings } from './ui/Settings'
 
+import { RegisterPage } from './ui/RegisterPage'
+
+
 const App: FunctionComponent = () => {
   return (
     <>
@@ -56,6 +59,9 @@ const App: FunctionComponent = () => {
             }
           />
           <Route path={'/login'} element={<LoginPage />} />
+
+          <Route path={'/register'} element={<RegisterPage />} />
+
         </Routes>
       </BrowserRouter>
     </>

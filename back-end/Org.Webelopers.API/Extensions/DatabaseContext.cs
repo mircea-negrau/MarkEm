@@ -203,6 +203,9 @@ namespace Org.Webelopers.Api.Extensions
                 .WithMany(teacher => teacher.OptionalCourses)
                 .HasForeignKey(course => course.TeacherId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .Property(course => course.IsProposed)
+                .HasDefaultValue(false);
         }
 
         private static void CourseGradeConfigure(EntityTypeBuilder<CourseGrade> builder)
@@ -253,12 +256,18 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(studyContract => studyContract.Group)
                 .WithMany(group => group.Contracts)
                 .HasForeignKey(studyContract => studyContract.GroupId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
             builder
                 .HasOne(studyContract => studyContract.OptionalCourse)
                 .WithMany()
                 .HasForeignKey(studyContract => studyContract.OptionalCourseId)
                 .OnDelete(DeleteBehavior.SetNull);
+            builder
+                .HasOne(studyContract => studyContract.Year)
+                .WithMany()
+                .HasForeignKey(studyContract => studyContract.YearId)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
 
         private static void OptionalCoursePreferenceConfigure(EntityTypeBuilder<OptionalCoursePreference> builder)
