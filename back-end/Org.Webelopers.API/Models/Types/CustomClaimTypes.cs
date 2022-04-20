@@ -1,4 +1,4 @@
-﻿namespace Org.Webelopers.Api.Logic.Constants
+﻿namespace Org.Webelopers.Api.Models.Types
 {
     public class CustomClaimTypes
     {

@@ -5,8 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Logic.Constants;
-using Org.Webelopers.Api.Models.Authentication;
+using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
 using System;
@@ -58,22 +57,21 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult Register([FromBody] RegisterDto register)
         {
-            var EmailHash = BCrypt.Net.BCrypt.HashPassword(register.Email);
-            var PasswordHash = BCrypt.Net.BCrypt.HashPassword(register.Password);
-            var user = _authService.Register(register.UserType, register.Username, PasswordHash,
-                EmailHash, register.FirstName, register.LastName);
+            string emailHash = BCrypt.Net.BCrypt.HashPassword(register.Email);
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(register.Password);
+            var user = _authService.Register(register.UserType, register.Username, passwordHash, emailHash, register.FirstName, register.LastName);
 
             if (user == null)
             {
                 _logger.LogInformation($"Register for {register.Username} failed!");
-                return StatusCode(409, $"User '{register.Username}' already exists.");
+                return Conflict($"User '{register.Username}' already exists.");
             }
             _logger.LogInformation($"Registered {register.Username} ");
 
             return Ok();
         }
 
-        private string Generate(UserContext user)
+        private string Generate(AccountContext user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtConfig:Secret"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

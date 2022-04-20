@@ -1,8 +1,7 @@
 ﻿using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
-using Org.Webelopers.Api.Models.Authentication;
 using Org.Webelopers.Api.Models.DbEntities;
-using System;
+using Org.Webelopers.Api.Models.Types;
 using System.Linq;
 
 namespace Org.Webelopers.Api.Logic.Auth
@@ -10,108 +9,78 @@ namespace Org.Webelopers.Api.Logic.Auth
     public class AuthService : IAuthService
     {
         private readonly DatabaseContext _context;
+
         public AuthService(DatabaseContext context)
         {
             _context = context;
         }
 
-        public UserContext Authenticate(string username, string password)
+        public AccountContext Authenticate(string username, string password)
         {
             var student = _context.Students.FirstOrDefault(x => x.Username == username);
             if (student != null)
             {
-                return BCrypt.Net.BCrypt.Verify(password, student.PasswordHash)
-                    ? new UserContext(student)
-                    : null;
+                return ValidatePassword(password, student, UserRoles.Student);
             }
             var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
             if (teacher != null)
             {
-                return BCrypt.Net.BCrypt.Verify(password, teacher.PasswordHash)
-                    ? new UserContext(teacher)
-                    : null;
+                return ValidatePassword(password, teacher, UserRoles.Teacher);
             }
             var admin = _context.Admins.FirstOrDefault(x => x.Username == username);
             if (admin != null)
             {
-                return BCrypt.Net.BCrypt.Verify(password, admin.PasswordHash)
-                    ? new UserContext(admin)
-                    : null;
+                return ValidatePassword(password, admin, UserRoles.Admin);
             }
             return null;
         }
 
-        public UserContext Register(string userType, string username, string password, string email, string firstName, string lastName)
+        public AccountContext Register(string userType, string username, string passwordHash, string emailHash, string firstName, string lastName)
         {
-            var student = _context.Students.FirstOrDefault(x => x.Username == username);
-            if (student != null)
+            if (IsUsernameTaken(username))
+            {
                 return null;
-            var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
-            if (teacher != null)
-                return null;
-            var admin = _context.Admins.FirstOrDefault(x => x.Username == username);
-            if (admin != null)
-                return null;
+            }
 
             switch (userType)
             {
-
-                case "Student":
-                    student = new Student()
-                    {
-                        Id = Guid.NewGuid(),
-                        Username = username,
-                        EmailHash = email,
-                        PasswordHash = password,
-                        FirstName = firstName,
-                        LastName = lastName,
-                        DateOfBirth = null
-                    };
-
+                case UserRoles.Student:
+                    var student = new Student(username, emailHash, passwordHash, firstName, lastName, null);
                     _context.Add(student);
                     _context.SaveChanges();
-                    return new UserContext(student);
-                case "Teacher":
-                    teacher = new Teacher()
-                    {
-                        Id = Guid.NewGuid(),
-                        Username = username,
-                        PasswordHash = password,
-                        EmailHash = email,
-                        FirstName = firstName,
-                        LastName = lastName,
-                        DateOfBirth = null,
-                        TeacherDegreeId = null
-                    };
-
+                    return new AccountContext(student, UserRoles.Student);
+                case UserRoles.Teacher:
+                    var teacher = new Teacher(username, passwordHash, emailHash, firstName, lastName, null, null);
                     _context.Add(teacher);
                     _context.SaveChanges();
-                    return new UserContext(teacher);
-
-                case "Admin":
-                    admin = new Admin()
-                    {
-                        Id = Guid.NewGuid(),
-                        Username = username,
-                        PasswordHash = password,
-                        EmailHash = email,
-                        FirstName = firstName,
-                        LastName = lastName
-                    };
-
+                    return new AccountContext(teacher, UserRoles.Teacher);
+                case UserRoles.Admin:
+                    var admin = new Admin(username, passwordHash, emailHash, firstName, lastName);
                     _context.Add(admin);
                     _context.SaveChanges();
-                    return new UserContext(admin);
+                    return new AccountContext(admin, UserRoles.Admin);
                 default:
                     return null;
-
-
             }
-
-
-
-            return null;
         }
 
+        private bool IsUsernameTaken(string username)
+        {
+            var student = _context.Students.FirstOrDefault(x => x.Username == username);
+            if (student != null)
+                return true;
+            var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
+            if (teacher != null)
+                return true;
+            var admin = _context.Admins.FirstOrDefault(x => x.Username == username);
+            if (admin != null)
+                return true;
+            return false;
+        }
+
+        private static AccountContext ValidatePassword(string password, Account account, string userRole) =>
+            BCrypt.Net.BCrypt.Verify(password, account.PasswordHash)
+                ? new AccountContext(account, userRole)
+                : null;
     }
 }
