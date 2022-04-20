@@ -69,20 +69,3 @@ export const logout = createAsyncThunk('logout', async () => {
     console.log(error)
   }
 })
-
-export const GetAllContracts = createAsyncThunk('getAllContracts', async () => {
-  try {
-    const token = (await localforage.getItem('AMS_access_token')) as string
-    const decoded = jwt_decode(token) as UserDetails
-    console.log(decoded)
-
-    const response = await SECURE_API.get(
-      `/student/contracts/all?studentId=${decoded.uid}`
-    )
-    const responseContent: StudyContractType[] = response.data
-    console.log(responseContent)
-    return responseContent
-  } catch (error) {
-    alert(error)
-  }
-})
