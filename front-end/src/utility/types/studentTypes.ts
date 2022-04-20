@@ -1,5 +1,5 @@
 export interface StudyContractType {
-  Id: string
+  id: string
   signedAt?: number
   studentId: string
   groupId?: string
