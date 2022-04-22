@@ -2,15 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Dto;
 using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Text;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -18,27 +14,28 @@ namespace Org.Webelopers.Api.Controllers
     [Route("student")]
     public class StudentController : Controller
     {
-        private readonly IConfiguration _configuration;
         private readonly ILogger<AuthController> _logger;
         private readonly IContractService _contractService;
         private readonly ICurriculumService _curriculumService;
         private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
+        private readonly IAuthTokenService _authTokenService;
+
         public StudentController(
-            IConfiguration configuration,
             ILogger<AuthController> logger,
             IContractService contractService,
             ICurriculumService curriculumService,
             IOptionalCourseService optionalService,
-            IGradesService gradeService
+            IGradesService gradeService,
+            IAuthTokenService authTokenService
             )
         {
-            _configuration = configuration;
             _logger = logger;
             _contractService = contractService;
             _curriculumService = curriculumService;
             _optionalCourseService = optionalService;
             _gradeService = gradeService;
+            _authTokenService = authTokenService;
         }
 
 
@@ -73,7 +70,7 @@ namespace Org.Webelopers.Api.Controllers
         public IActionResult Dummy([FromBody] GradeDto gradeDto)
         {
             var authorization = HttpContext.Request.Headers["Authorization"];
-            var token = Verify(authorization);
+            var token = _authTokenService.ValidateAuthToken(authorization);
             Guid studentId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "Id")?.Value);
             _logger.LogInformation(authorization.ToString());
             try
@@ -85,25 +82,6 @@ namespace Org.Webelopers.Api.Controllers
             {
                 return NotFound("Student or course ID is invalid!");
             }
-        }
-
-        private JwtSecurityToken Verify(string jwt)
-        {
-            if (jwt.Contains("Bearer"))
-            {
-                jwt = jwt.Split("Bearer ")[1];
-            }
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var secureKey = _configuration["JwtConfig:Secret"];
-            byte[] key = Encoding.ASCII.GetBytes(secureKey);
-            tokenHandler.ValidateToken(jwt, new TokenValidationParameters
-            {
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuerSigningKey = true,
-                ValidateIssuer = false,
-                ValidateAudience = false
-            }, out SecurityToken validatedToken);
-            return (JwtSecurityToken)validatedToken;
         }
 
         [HttpPost("disenroll")]
@@ -160,14 +138,9 @@ namespace Org.Webelopers.Api.Controllers
             try
             {
                 var response = _contractService.GetContractCourses(contractId);
-                if (response != null)
-                {
-                    return Ok(_contractService.GetContractCourses(contractId));
-                }
-                else
-                {
-                    return NotFound();
-                }
+                return response != null
+                    ? Ok(_contractService.GetContractCourses(contractId))
+                    : NotFound();
             }
             catch (Exception ex)
             {
@@ -225,15 +198,10 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                var response = _optionalCourseService.SetStudentOptionalCoursesPreference(dto.Preference, dto.ContractId, dto.OptionalCourseId);
-                if (response)
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return NotFound();
-                }
+                bool response = _optionalCourseService.SetStudentOptionalCoursesPreference(dto.Preference, dto.ContractId, dto.OptionalCourseId);
+                return response
+                    ? Ok()
+                    : NotFound();
             }
             catch (Exception ex)
             {

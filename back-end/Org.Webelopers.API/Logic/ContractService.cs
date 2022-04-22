@@ -22,7 +22,7 @@ namespace Org.Webelopers.Api.Logic
         }
         public Guid AddContract(Guid studentId)
         {
-            var numberOfContracts = _context.StudyContracts.Where(contract => contract.StudentId == studentId).Count();
+            int numberOfContracts = _context.StudyContracts.Where(contract => contract.StudentId == studentId).Count();
 
             if (numberOfContracts >= 2)
                 return Guid.Empty;
@@ -109,13 +109,17 @@ namespace Org.Webelopers.Api.Logic
             var contract = _context.StudyContracts.FirstOrDefault(contr => contr.Id == contractid);
             _context.SaveChanges();
             if (contract == null)
+            {
                 return null;
+            }
 
             var yearId = contract.YearId;
             var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).Select(sem => sem.Id).ToList();
 
-            if (semesters.Count() == 0)
+            if (semesters.Count == 0)
+            {
                 return null;
+            }
 
             List<Course> curriculum = new List<Course>();
 
