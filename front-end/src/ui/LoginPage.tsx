@@ -36,7 +36,7 @@ const GreyTextField = styled(TextField)`
   }
 `
 
-const LoginButton = styled(Button) <{ available: boolean }>`
+const LoginButton = styled(Button)<{ available: boolean }>`
   background-color: ${props =>
     props.available ? '#3f51b5' : '#0f1218'} !important;
   color: ${props =>
