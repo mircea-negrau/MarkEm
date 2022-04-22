@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -160,9 +162,21 @@ namespace Org.Webelopers.Api.Logic
             return _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractid).OptionalCourse;
         }
 
-        public List<StudyContract> GetStudentContracts(Guid studentId)
+        public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId)
         {
-            return _context.StudyContracts.Where(contract => contract.StudentId == studentId).ToList();
+            return _context.StudyContracts.Where(contract => contract.StudentId == studentId)
+                .Include(x => x.Year)
+                .ThenInclude(x => x.Specialisation)
+                .ThenInclude(x => x.StudyDegree)
+                .ThenInclude(x => x.Faculty)
+                .Select(x => new ContractEnriched
+                {
+                    Id = x.Id,
+                    SignedAt = x.SignedAt,
+                    Specialisation = x.Year.Specialisation.Name,
+                    Faculty = x.Year.Specialisation.StudyDegree.Faculty.Name
+                })
+                .ToList();
         }
 
     }

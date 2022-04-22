@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Org.Webelopers.Api.Models.DbEntities;
 
-namespace Org.Webelopers.Api.Models.OptionalCoursesService
+namespace Org.Webelopers.Api.Models.Persistence.OptionalCoursesService
 {
     public class OptionalCoursesAssignmentResults
     {

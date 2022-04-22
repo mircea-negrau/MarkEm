@@ -255,7 +255,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                return Ok(_contractService.GetStudentContracts(studentId));
+                return Ok(_contractService.GetStudentContractsEnriched(studentId));
             }
             catch (Exception ex)
             {

@@ -4,7 +4,7 @@ using System.Linq;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
-using Org.Webelopers.Api.Models.OptionalCoursesService;
+using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
 
 namespace Org.Webelopers.Api.Logic
 {
@@ -23,12 +23,12 @@ namespace Org.Webelopers.Api.Logic
         {
             // parameters conditions checking
             if (preference < 0) { return false; }
-            
+
             var contract = _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractId);
             if (contract == null) return false; // if no contract was found
 
             if (_context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null) { return false; } // if no optional course was found
-            
+
             // add/update the preference
             var optionalCoursePreference = _context.OptionalCoursePreferences.FirstOrDefault(coursePreference => coursePreference.StudyContractId == contractId &&
                 coursePreference.OptionalCourseId == optionalCourseId);
@@ -48,7 +48,7 @@ namespace Org.Webelopers.Api.Logic
                 optionalCoursePreference.Preference = preference;
             }
             _context.SaveChanges();
-            
+
             return true;
         }
 
@@ -60,7 +60,7 @@ namespace Org.Webelopers.Api.Logic
             if (credits < 1) { return false; }
             if (_context.StudySemesters.FirstOrDefault(semester => semester.Id == semesterId) == null) { return false; }
             if (_context.Teachers.FirstOrDefault(teacher => teacher.Id == teacherId) == null) { return false; }
-            if (_context.OptionalCourses.FirstOrDefault(course => course.TeacherId == teacherId && 
+            if (_context.OptionalCourses.FirstOrDefault(course => course.TeacherId == teacherId &&
                                                             course.Name == name) == null) { return false; }
 
             _context.OptionalCourses.Add(new OptionalCourse()
@@ -68,10 +68,10 @@ namespace Org.Webelopers.Api.Logic
                 Credits = credits,
                 Id = Guid.NewGuid(),
                 IsApproved = false,
-                
+
             });
             _context.SaveChanges();
-            
+
             return true;
         }
 
@@ -88,7 +88,7 @@ namespace Org.Webelopers.Api.Logic
 
             optionalCourse.IsProposed = true;
             _context.SaveChanges();
-            
+
             return true;
         }
 
@@ -99,7 +99,7 @@ namespace Org.Webelopers.Api.Logic
 
             optionalCourse.IsApproved = true;
             _context.SaveChanges();
-            
+
             return true;
         }
 
@@ -111,10 +111,10 @@ namespace Org.Webelopers.Api.Logic
 
             optionalCourse.MaxNumberOfStudent = maxNumberOfStudents;
             _context.SaveChanges();
-            
+
             return true;
         }
-        
+
         /// <summary>
         /// Get the number of preferences of an optional course.
         /// </summary>
@@ -124,15 +124,15 @@ namespace Org.Webelopers.Api.Logic
             _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
                 ? -1
                 : _context.OptionalCoursePreferences.Count(preference => preference.OptionalCourseId == optionalCourseId);
-        
+
         /// <summary>
         /// Gets the number of students enrolled in an optional course.
         /// </summary>
         /// <param name="optionalCourseId">the id of the optional course</param>
         /// <returns>The number of students enrolled in the given optional course. -1, if there's no optional course with the given id</returns>
         private int GetNumberOfEnrollments(Guid optionalCourseId) =>
-            _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null 
-                ? -1 
+            _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
+                ? -1
                 : _context.StudyContracts.Count(contract => contract.OptionalCourse.Id == optionalCourseId);
 
         public OptionalCoursesAssignmentResults StartOptionalCoursesAssignment()
@@ -141,7 +141,7 @@ namespace Org.Webelopers.Api.Logic
             var selectedOptionalCourses = _context.OptionalCourses.Where(course => course.IsApproved && GetNumberOfFollowers(course.Id) >= 20);
             int numberOfStudentsWithRandomOptionalCourseAssigned = 0;
             int numberOfStudentsWithNoOptionalCourseAssigned = 0;
-            
+
             // 2. for each student, assign the the optional course with the highest priority that is selected
             foreach (StudyContract studyContract in _context.StudyContracts)
             {
@@ -149,8 +149,8 @@ namespace Org.Webelopers.Api.Logic
                     .Where(preference => preference.StudyContract == studyContract)
                     .OrderBy(preference => preference.Preference)
                     .Select(preference => preference.OptionalCourseId) // the OptionalCourseIds of the preference of studyContract, sorted by preference value
-                    .FirstOrDefault(courseId => 
-                        courseId  == selectedOptionalCourses
+                    .FirstOrDefault(courseId =>
+                        courseId == selectedOptionalCourses
                             .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
                             .Select(course => course.Id)
                             .FirstOrDefault(id => id == courseId));
@@ -162,7 +162,7 @@ namespace Org.Webelopers.Api.Logic
                         .Select(course => course.Id).FirstOrDefault();
                 }
 
-                if (selectedPreferenceOptionalCourseId == Guid.Empty) 
+                if (selectedPreferenceOptionalCourseId == Guid.Empty)
                     numberOfStudentsWithNoOptionalCourseAssigned++;
                 else
                 {
