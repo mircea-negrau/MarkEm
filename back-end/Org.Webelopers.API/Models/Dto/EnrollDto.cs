@@ -6,5 +6,6 @@ namespace Org.Webelopers.Api.Models.Dto
     {
         public Guid StudentID { get; set; }
         public Guid YearId { get; set; }
+
     }
 }

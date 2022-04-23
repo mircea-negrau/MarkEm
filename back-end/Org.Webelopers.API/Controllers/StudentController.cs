@@ -89,7 +89,7 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult DisenrollStudent([FromBody] Guid contractId)
+        public IActionResult DisenrollStudent([FromQuery] Guid contractId)
         {
             try
             {
