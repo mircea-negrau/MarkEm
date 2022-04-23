@@ -71,14 +71,14 @@ namespace Org.Webelopers.Api.Logic
 
         public void EnrollStudent(Guid studentId, Guid yearId)
         {
-            var contractId = AddContract(studentId);
-
             var contract = _context.StudyContracts.FirstOrDefault(contr => contr.StudentId == studentId && contr.YearId == yearId);
 
             if (contract != null)
             {
                 throw new ArgumentException("This student already has a contract for this year");
             }
+
+            var contractId = AddContract(studentId);
 
             SetYearId(contractId, yearId);
         }
