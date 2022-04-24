@@ -22,6 +22,9 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         [ForeignKey("Id")]
         public Guid TeacherId { get; set; }
+        
+        [Required]
+        public bool IsProposed { get; set; }
 
         [Required]
         public bool IsApproved { get; set; }

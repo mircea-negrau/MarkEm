@@ -11,9 +11,6 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid Id { get; set; }
 
         [ForeignKey("Id")]
-        public Guid StudyYearId { get; set; }
-
-        [ForeignKey("Id")]
         public Guid? TutorTeacherId { get; set; }
 
         [ForeignKey("Id")]
