@@ -7,6 +7,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
     public class StudentContractSemester
     {
         [Key]
+        [Required]
         public Guid Id { get; set; }
         
         [ForeignKey("Id")]
