@@ -23,7 +23,7 @@ namespace Org.Webelopers.Api.Extensions
         public virtual DbSet<CourseGrade> Grades { get; set; }
         public virtual DbSet<OptionalCourse> OptionalCourses { get; set; }
         public virtual DbSet<OptionalCourseGrade> OptionalGrades { get; set; }
-        public virtual DbSet<StudyContract> StudyContracts { get; set; }
+        public virtual DbSet<StudentContract> StudyContracts { get; set; }
         public virtual DbSet<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
 
         #region Configuration
@@ -44,7 +44,7 @@ namespace Org.Webelopers.Api.Extensions
             modelBuilder.Entity<CourseGrade>(CourseGradeConfigure);
             modelBuilder.Entity<OptionalCourse>(OptionalCourseConfigure);
             modelBuilder.Entity<OptionalCourseGrade>(OptionalCourseGradeConfigure);
-            modelBuilder.Entity<StudyContract>(StudyContractConfigure);
+            modelBuilder.Entity<StudentContract>(StudyContractConfigure);
             modelBuilder.Entity<OptionalCoursePreference>(OptionalCoursePreferenceConfigure);
             modelBuilder.Seed();
         }
@@ -239,7 +239,7 @@ namespace Org.Webelopers.Api.Extensions
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private static void StudyContractConfigure(EntityTypeBuilder<StudyContract> builder)
+        private static void StudyContractConfigure(EntityTypeBuilder<StudentContract> builder)
         {
             builder
                 .Property(studyContract => studyContract.Id)

@@ -23,7 +23,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual OptionalCourse OptionalCourse { get; set; }
 
-        public virtual StudyContract StudyContract { get; set; }
+        public virtual StudentContract StudyContract { get; set; }
 
         #endregion
     }

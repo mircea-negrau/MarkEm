@@ -24,7 +24,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual StudyYear StudyYear { get; set; }
         public virtual Teacher TutorTeacher { get; set; }
         public virtual Student LeaderStudent { get; set; }
-        public virtual List<StudyContract> Contracts { get; set; }
+        public virtual List<StudentContract> Contracts { get; set; }
 
         #endregion
     }

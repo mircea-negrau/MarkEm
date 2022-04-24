@@ -235,12 +235,12 @@ namespace Org.Webelopers.Api.Extensions
             }
             modelBuilder.Entity<OptionalCourse>().HasData(optionalCourses);
 
-            var studyContracts = new List<StudyContract>();
+            var studyContracts = new List<StudentContract>();
             for (int i = 0; i < students.Count; i++)
             {
                 var group = groups[i % groups.Count];
                 var availableOptionals = optionals[group.StudyYearId];
-                studyContracts.Add(new StudyContract
+                studyContracts.Add(new StudentContract
                 {
                     Id = Guid.NewGuid(),
                     SignedAt = 1647781930,
@@ -252,7 +252,7 @@ namespace Org.Webelopers.Api.Extensions
                 {
                     availableOptionals = optionals[group.StudyYearId];
                     group = groups[(i + RandomNumberGenerator.GetInt32(50)) % groups.Count];
-                    studyContracts.Add(new StudyContract
+                    studyContracts.Add(new StudentContract
                     {
                         Id = Guid.NewGuid(),
                         SignedAt = 1647781930,
@@ -262,7 +262,7 @@ namespace Org.Webelopers.Api.Extensions
                     });
                 }
             }
-            modelBuilder.Entity<StudyContract>().HasData(studyContracts);
+            modelBuilder.Entity<StudentContract>().HasData(studyContracts);
         }
     }
 }
