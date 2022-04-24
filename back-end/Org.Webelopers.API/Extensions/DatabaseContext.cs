@@ -9,6 +9,8 @@ namespace Org.Webelopers.Api.Extensions
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
+        public virtual DbSet<Account> Accounts { get; set; }
+            // <-- done until here
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
@@ -30,6 +32,8 @@ namespace Org.Webelopers.Api.Extensions
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Account>(AccountConfigure);
+            // <-- done until here
             modelBuilder.Entity<Admin>(AdminConfigure);
             modelBuilder.Entity<Student>(StudentConfigure);
             modelBuilder.Entity<Teacher>(TeacherConfigure);
@@ -48,28 +52,47 @@ namespace Org.Webelopers.Api.Extensions
             modelBuilder.Entity<OptionalCoursePreference>(OptionalCoursePreferenceConfigure);
             modelBuilder.Seed();
         }
+
+        private static void AccountConfigure(EntityTypeBuilder<Account> builder)
+        {
+            builder
+                .Property(account => account.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(account => account.Role)
+                .WithMany(role => role.Accounts)
+                .HasForeignKey(account => account.RoleId);
+            // .OnDelete(DeleteBehavior.);
+        }
+        // <-- done until here
         private static void AdminConfigure(EntityTypeBuilder<Admin> builder)
         {
             builder
-                .Property(admin => admin.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
+                .HasOne(admin => admin.Account)
+                .WithOne()
+                .HasForeignKey<Admin>(admin => admin.AccountId);
+                // .OnDelete(DeleteBehavior.);
         }
 
         private static void StudentConfigure(EntityTypeBuilder<Student> builder)
         {
             builder
-                .Property(student => student.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
+                .HasOne(student => student.Account)
+                .WithOne()
+                .HasForeignKey<Student>(student => student.AccountId);
+                // .OnDelete(DeleteBehavior.);
         }
 
         private static void TeacherConfigure(EntityTypeBuilder<Teacher> builder)
         {
             builder
-                .Property(teacher => teacher.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
+                .HasOne(teacher => teacher.Account)
+                .WithOne()
+                .HasForeignKey<Teacher>(teacher => teacher.AccountId);
+                // .OnDelete(DeleteBehavior.);
             builder
                 .HasOne(teacher => teacher.TeacherDegree)
-                .WithMany()
+                .WithMany(degree => degree.Teachers)
                 .HasForeignKey(teacher => teacher.TeacherDegreeId)
                 .OnDelete(DeleteBehavior.SetNull);
         }

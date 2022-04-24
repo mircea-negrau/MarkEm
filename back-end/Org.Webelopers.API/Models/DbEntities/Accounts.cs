@@ -49,6 +49,12 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Required]
         [ForeignKey("Id")]
         public Guid AccountId { get; set; }
+
+        #region References
+
+        public virtual Account Account { get; set; }
+
+        #endregion
     }
 
     public class Student
@@ -60,6 +66,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
+        public virtual Account Account { get; set; }
+        
         public virtual List<CourseGrade> Grades { get; set; }
 
         public virtual List<OptionalCourseGrade> OptionalGrades { get; set; }
@@ -80,6 +88,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid TeacherDegreeId { get; set; }
 
         #region References
+        
+        public virtual Account Account { get; set; }
 
         public virtual TeacherDegree TeacherDegree { get; set; }
 

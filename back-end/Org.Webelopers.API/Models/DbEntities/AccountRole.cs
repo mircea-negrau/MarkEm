@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Org.Webelopers.Api.Models.DbEntities
@@ -9,5 +10,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Required]
         public Guid Id { get; set; }
         public string Role { get; set; }
+
+        #region References
+
+        public virtual List<Account> Accounts { get; set; }
+
+        #endregion
     }
 }
