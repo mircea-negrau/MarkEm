@@ -355,3 +355,5 @@ MigrationBackup/
 local.settings.json
 
 /src/Org.Front.Adapter.LocalKeyVault/KeyVaultData/*.pem
+
+/.idea/

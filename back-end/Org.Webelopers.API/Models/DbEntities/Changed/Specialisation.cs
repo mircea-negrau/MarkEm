@@ -13,9 +13,18 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Required]
         [StringLength(128)]
         public string Name { get; set; }
+        
+        [Required]
+        public short Semesters { get; set; }
+        
+        [ForeignKey(("Id"))]
+        public Guid FacultyId { get; set; }
 
         [ForeignKey("Id")]
         public Guid StudyDegreeId { get; set; }
+        
+        [ForeignKey("Id")]
+        public Guid StudyLineId { get; set; }
 
         #region References
 

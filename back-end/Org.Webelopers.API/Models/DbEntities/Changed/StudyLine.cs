@@ -1,18 +1,20 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class TeacherDegree
+    public class StudyLine
     {
         [Key]
         [Required]
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(128)]
+        [StringLength(256)]
         public string Name { get; set; }
-
-        public int Rank { get; set; }
+        
+        [Required]
+        [StringLength(8)]
+        public string ShortName { get; set; }
     }
 }

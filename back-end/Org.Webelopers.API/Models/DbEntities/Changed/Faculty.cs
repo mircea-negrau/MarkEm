@@ -5,22 +5,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class StudyDegree
+    public class Faculty
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(256)]
+        [StringLength(128)]
         public string Name { get; set; }
 
         [ForeignKey("Id")]
-        public Guid FacultyId { get; set; }
+        public Guid? ChiefOfDepartmentId { get; set; }
 
         #region References
 
-        public virtual Faculty Faculty { get; set; }
-        public virtual List<Specialisation> Specialisations { get; set; }
+        public virtual Teacher ChiefOfDepartment { get; set; }
+
+        public virtual List<StudyDegree> StudyDegrees { get; set; } //  // TODO: check + keep/replace/remove
 
         #endregion
     }

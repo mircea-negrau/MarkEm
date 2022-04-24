@@ -28,10 +28,10 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [StringLength(128)]
         public string LastName { get; set; }
 
-        public byte[] Picture { get; set; }
+        public byte[] Picture { get; set; } // TODO: maybe move to a Profile class and table
 
         [StringLength(1024)]
-        public string About { get; set; }
+        public string About { get; set; } // TODO: maybe move to a Profile class and table
 
         [ForeignKey("Id")]
         public Guid RoleId { get; set; }
