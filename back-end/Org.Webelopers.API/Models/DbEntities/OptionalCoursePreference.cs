@@ -14,7 +14,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public short Preference { get; set; }
 
         [ForeignKey("Id")]
-        public Guid StudyContractId { get; set; }
+        public Guid StudyContractId { get; set; } // TODO: rename to StudentContractSemesterId
 
         [ForeignKey("Id")]
         public Guid OptionalCourseId { get; set; }
