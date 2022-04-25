@@ -27,8 +27,13 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid StudyLineId { get; set; }
 
         #region References
+        
+        public virtual Faculty Faculty { get; set; }
 
         public virtual StudyDegree StudyDegree { get; set; }
+        
+        public virtual StudyLine StudyLine { get; set; }
+        
         public virtual List<StudyYear> StudyYears { get; set; }
 
         #endregion

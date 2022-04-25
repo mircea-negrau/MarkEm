@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,7 +25,10 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Student Student { get; set; }
 
+        public virtual StudyYear StudyYear { get; set; }
         public virtual Group Group { get; set; }
+
+        public virtual List<StudentContractSemester> SemesterContracts { get; set; }
 
         #endregion
     }

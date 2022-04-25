@@ -39,6 +39,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual Teacher Teacher { get; set; }
 
         public virtual List<OptionalCourseGrade> Grades { get; set; }
+        
+        public virtual List<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
 
         #endregion
     }

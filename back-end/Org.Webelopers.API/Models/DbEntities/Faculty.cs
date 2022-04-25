@@ -21,7 +21,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Teacher ChiefOfDepartment { get; set; }
 
-        public virtual List<StudyDegree> StudyDegrees { get; set; } //  // TODO: check + keep/replace/remove
+        public virtual List<Specialisation> Specialisations { get; set; }
 
         #endregion
     }

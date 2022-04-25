@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,5 +22,17 @@ namespace Org.Webelopers.Api.Models.DbEntities
         
         [ForeignKey("Id")]
         public Guid OptionalCoursePreferenceId { get; set; }
+
+        #region References
+
+        public virtual StudentContract StudentContract { get; set; }
+        
+        public virtual StudySemester StudySemester { get; set; }
+        
+        public virtual List<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
+        
+        public virtual List<SemesterContractCourse> SemesterContractCourses { get; set; }
+
+        #endregion
     }
 }

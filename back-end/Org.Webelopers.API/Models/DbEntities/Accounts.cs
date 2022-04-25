@@ -91,11 +91,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
         
         public virtual Account Account { get; set; }
 
-        public virtual TeacherDegree TeacherDegree { get; set; }
-
         public virtual List<Course> Courses { get; set; }
 
         public virtual List<OptionalCourse> OptionalCourses { get; set; }
+        
+        public virtual TeacherDegree TeacherDegree { get; set; }
 
         #endregion
     }

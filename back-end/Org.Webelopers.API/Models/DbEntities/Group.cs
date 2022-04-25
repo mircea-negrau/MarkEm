@@ -18,10 +18,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
-        public virtual StudyYear StudyYear { get; set; }
         public virtual Teacher TutorTeacher { get; set; }
         public virtual Student LeaderStudent { get; set; }
         public virtual List<StudentContract> Contracts { get; set; }
+        
+        public virtual List<SemesterContractCourse> SemesterContractCourses { get; set; }
 
         #endregion
     }

@@ -30,6 +30,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual Teacher Teacher { get; set; }
 
         public virtual List<CourseGrade> Grades { get; set; }
+        
+        public virtual List<SemesterContractCourse> SemesterContractCourses { get; set; }
 
         #endregion
     }

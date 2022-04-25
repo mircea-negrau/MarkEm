@@ -17,5 +17,15 @@ namespace Org.Webelopers.Api.Models.DbEntities
         
         [ForeignKey("Id")]
         public Guid GroupId { get; set; }
+
+        #region References
+
+        public virtual Course Course { get; set; }
+        
+        public virtual StudentContractSemester StudentContractSemester { get; set; }
+        
+        public virtual Group Group { get; set; }
+
+        #endregion
     }
 }

@@ -25,9 +25,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
         #region References
 
         public virtual Specialisation Specialisation { get; set; }
+        
         public virtual Student StudentLeader { get; set; }
-        public virtual List<Group> Groups { get; set; }
+        
         public virtual List<StudySemester> Semesters { get; set; }
+        
         public virtual List<StudentContract> Contracts { get; set; }
 
         #endregion

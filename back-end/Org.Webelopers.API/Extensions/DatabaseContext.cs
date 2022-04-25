@@ -9,48 +9,61 @@ namespace Org.Webelopers.Api.Extensions
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
+        public virtual DbSet<AccountRole> Roles { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
-            // <-- done until here
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<TeacherDegree> TeacherDegrees { get; set; }
         public virtual DbSet<Faculty> Faculties { get; set; }
         public virtual DbSet<StudyDegree> StudyDegrees { get; set; }
+        public virtual DbSet<StudyLine> StudyLines { get; set; }
         public virtual DbSet<Specialisation> Specialisations { get; set; }
         public virtual DbSet<StudyYear> StudyYears { get; set; }
-        public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<StudySemester> StudySemesters { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<CourseGrade> Grades { get; set; }
         public virtual DbSet<OptionalCourse> OptionalCourses { get; set; }
         public virtual DbSet<OptionalCourseGrade> OptionalGrades { get; set; }
-        public virtual DbSet<StudentContract> StudyContracts { get; set; }
         public virtual DbSet<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
+        public virtual DbSet<StudentContract> Contracts { get; set; }
+        public virtual DbSet<StudentContractSemester> SemesterContracts { get; set; }
+        public virtual DbSet<SemesterContractCourse> SemesterContractCourses { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
 
         #region Configuration
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AccountRole>(RoleConfigure);
             modelBuilder.Entity<Account>(AccountConfigure);
-            // <-- done until here
             modelBuilder.Entity<Admin>(AdminConfigure);
             modelBuilder.Entity<Student>(StudentConfigure);
             modelBuilder.Entity<Teacher>(TeacherConfigure);
             modelBuilder.Entity<TeacherDegree>(TeacherDegreeConfigure);
             modelBuilder.Entity<Faculty>(FacultyConfigure);
             modelBuilder.Entity<StudyDegree>(StudyDegreeConfigure);
+            modelBuilder.Entity<StudyLine>(StudyLineConfigure);
             modelBuilder.Entity<Specialisation>(SpecialisationConfigure);
             modelBuilder.Entity<StudyYear>(StudyYearConfigure);
-            modelBuilder.Entity<Group>(GroupConfigure);
             modelBuilder.Entity<StudySemester>(StudySemesterConfigure);
             modelBuilder.Entity<Course>(CourseConfigure);
             modelBuilder.Entity<CourseGrade>(CourseGradeConfigure);
             modelBuilder.Entity<OptionalCourse>(OptionalCourseConfigure);
             modelBuilder.Entity<OptionalCourseGrade>(OptionalCourseGradeConfigure);
-            modelBuilder.Entity<StudentContract>(StudyContractConfigure);
             modelBuilder.Entity<OptionalCoursePreference>(OptionalCoursePreferenceConfigure);
+            modelBuilder.Entity<StudentContract>(StudentContractConfigure);
+            modelBuilder.Entity<StudentContractSemester>(StudentContractSemesterConfigure);
+            modelBuilder.Entity<SemesterContractCourse>(SemesterContractCourseConfigure);
+            modelBuilder.Entity<Group>(GroupConfigure);
             modelBuilder.Seed();
+        }
+
+        private static void RoleConfigure(EntityTypeBuilder<AccountRole> builder)
+        {
+            builder
+                .Property(role => role.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
         }
 
         private static void AccountConfigure(EntityTypeBuilder<Account> builder)
@@ -62,9 +75,9 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(account => account.Role)
                 .WithMany(role => role.Accounts)
                 .HasForeignKey(account => account.RoleId);
-            // .OnDelete(DeleteBehavior.);
+                // .OnDelete(DeleteBehavior.);
         }
-        // <-- done until here
+        
         private static void AdminConfigure(EntityTypeBuilder<Admin> builder)
         {
             builder
@@ -121,22 +134,35 @@ namespace Org.Webelopers.Api.Extensions
             builder
                 .Property(studyDegree => studyDegree.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(studyDegree => studyDegree.Faculty)
-                .WithMany(faculty => faculty.StudyDegrees)
-                .HasForeignKey(studyDegree => studyDegree.FacultyId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
+
+        private static void StudyLineConfigure(EntityTypeBuilder<StudyLine> builder)
+        {
+            builder
+                .Property(studyLine => studyLine.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+        }
+
 
         private static void SpecialisationConfigure(EntityTypeBuilder<Specialisation> builder)
         {
             builder
-                .Property(faculty => faculty.Id)
+                .Property(specialisation => specialisation.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(specialisation => specialisation.Faculty)
+                .WithMany(faculty => faculty.Specialisations)
+                .HasForeignKey(specialisation => specialisation.FacultyId)
+                .OnDelete(DeleteBehavior.Cascade);
             builder
                 .HasOne(specialisation => specialisation.StudyDegree)
                 .WithMany(studyDegree => studyDegree.Specialisations)
                 .HasForeignKey(specialisation => specialisation.StudyDegreeId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(specialisation => specialisation.StudyLine)
+                .WithMany(x => x.Specialisations)
+                .HasForeignKey(specialisation => specialisation.StudyLineId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
@@ -154,31 +180,6 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(studyYear => studyYear.StudentLeader)
                 .WithOne()
                 .HasForeignKey<StudyYear>(studyYear => studyYear.StudentLeaderUserId)
-                .OnDelete(DeleteBehavior.SetNull);
-        }
-
-        private static void GroupConfigure(EntityTypeBuilder<Group> builder)
-        {
-            builder
-                .Property(group => group.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .Property(group => group.LeaderStudentId)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(group => group.StudyYear)
-                .WithMany(studyYear => studyYear.Groups)
-                .HasForeignKey(group => group.StudyYearId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasOne(group => group.LeaderStudent)
-                .WithOne()
-                .HasForeignKey<Group>(group => group.LeaderStudentId)
-                .OnDelete(DeleteBehavior.SetNull);
-            builder
-                .HasOne(group => group.TutorTeacher)
-                .WithOne()
-                .HasForeignKey<Group>(group => group.TutorTeacherId)
                 .OnDelete(DeleteBehavior.SetNull);
         }
 
@@ -211,23 +212,6 @@ namespace Org.Webelopers.Api.Extensions
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private static void OptionalCourseConfigure(EntityTypeBuilder<OptionalCourse> builder)
-        {
-            builder
-                .Property(course => course.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(course => course.Semester)
-                .WithMany(semester => semester.OptionalCourses)
-                .HasForeignKey(course => course.SemesterId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasOne(course => course.Teacher)
-                .WithMany(teacher => teacher.OptionalCourses)
-                .HasForeignKey(course => course.TeacherId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
-
         private static void CourseGradeConfigure(EntityTypeBuilder<CourseGrade> builder)
         {
             builder
@@ -242,6 +226,23 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(courseGrade => courseGrade.Student)
                 .WithMany(student => student.Grades)
                 .HasForeignKey(courseGrade => courseGrade.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
+        private static void OptionalCourseConfigure(EntityTypeBuilder<OptionalCourse> builder)
+        {
+            builder
+                .Property(course => course.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(course => course.Semester)
+                .WithMany(semester => semester.OptionalCourses)
+                .HasForeignKey(course => course.SemesterId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(course => course.Teacher)
+                .WithMany(teacher => teacher.OptionalCourses)
+                .HasForeignKey(course => course.TeacherId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
@@ -262,43 +263,102 @@ namespace Org.Webelopers.Api.Extensions
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private static void StudyContractConfigure(EntityTypeBuilder<StudentContract> builder)
-        {
-            builder
-                .Property(studyContract => studyContract.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(studyContract => studyContract.Student)
-                .WithMany(student => student.Contracts)
-                .HasForeignKey(studyContract => studyContract.StudentId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasOne(studyContract => studyContract.Group)
-                .WithMany(group => group.Contracts)
-                .HasForeignKey(studyContract => studyContract.GroupId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder
-                .HasOne(studyContract => studyContract.OptionalCourse)
-                .WithMany()
-                .HasForeignKey(studyContract => studyContract.OptionalCourseId)
-                .OnDelete(DeleteBehavior.SetNull);
-        }
-
         private static void OptionalCoursePreferenceConfigure(EntityTypeBuilder<OptionalCoursePreference> builder)
         {
             builder
                 .Property(optionalCoursePreference => optionalCoursePreference.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
             builder
-                .HasOne(optionalCoursePreference => optionalCoursePreference.StudyContract)
-                .WithMany(studyContract => studyContract.OptionalPreferences)
-                .HasForeignKey(optionalCoursePreference => optionalCoursePreference.StudyContractId)
+                .HasOne(optionalCoursePreference => optionalCoursePreference.StudentContractSemester)
+                .WithMany(studyContract => studyContract.OptionalCoursePreferences)
+                .HasForeignKey(optionalCoursePreference => optionalCoursePreference.StudentContractSemesterId)
                 .OnDelete(DeleteBehavior.NoAction);
             builder
                 .HasOne(optionalCoursePreference => optionalCoursePreference.OptionalCourse)
-                .WithMany()
+                .WithMany(course => course.OptionalCoursePreferences)
                 .HasForeignKey(optionalCoursePreference => optionalCoursePreference.OptionalCourseId)
                 .OnDelete(DeleteBehavior.Cascade);
+        }
+
+        private static void StudentContractConfigure(EntityTypeBuilder<StudentContract> builder)
+        {
+            builder
+                .Property(studentContract => studentContract.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(studentContract => studentContract.Student)
+                .WithMany(student => student.Contracts)
+                .HasForeignKey(studentContract => studentContract.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(studentContract => studentContract.StudyYear)
+                .WithMany(year => year.Contracts)
+                .HasForeignKey(studentContract => studentContract.StudyYearId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(studyContract => studyContract.Group)
+                .WithMany(group => group.Contracts)
+                .HasForeignKey(studyContract => studyContract.GroupId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
+        private static void StudentContractSemesterConfigure(EntityTypeBuilder<StudentContractSemester> builder)
+        {
+            builder
+                .Property(contractSemester => contractSemester.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(studentContractSemester => studentContractSemester.StudySemester)
+                .WithMany(studySemester => studySemester.SemesterContracts)
+                .HasForeignKey(semester => semester.StudySemesterId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(contractSemester => contractSemester.StudentContract)
+                .WithMany(contract => contract.SemesterContracts)
+                .HasForeignKey(contractSemester => contractSemester.StudentContractId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
+        private static void SemesterContractCourseConfigure(EntityTypeBuilder<SemesterContractCourse> builder)
+        {
+            builder
+                .Property(semesterContractCourse => semesterContractCourse.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(semesterContractCourse => semesterContractCourse.Course)
+                .WithMany(course => course.SemesterContractCourses)
+                .HasForeignKey(semesterContractCourse => semesterContractCourse.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(semesterContractCourse => semesterContractCourse.StudentContractSemester)
+                .WithMany(contractSemester => contractSemester.SemesterContractCourses)
+                .HasForeignKey(semesterContractCourse => semesterContractCourse.StudentContractSemesterId)
+                .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(semesterContractCourse => semesterContractCourse.Group)
+                .WithMany(group => group.SemesterContractCourses)
+                .HasForeignKey(semesterContractCourse => semesterContractCourse.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
+        private static void GroupConfigure(EntityTypeBuilder<Group> builder)
+        {
+            builder
+                .Property(group => group.Id)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder // TODO: is this required?
+                .Property(group => group.LeaderStudentId)
+                .HasValueGenerator<SequentialGuidValueGenerator>();
+            builder
+                .HasOne(group => group.TutorTeacher)
+                .WithOne()
+                .HasForeignKey<Group>(group => group.TutorTeacherId)
+                .OnDelete(DeleteBehavior.SetNull);
+            builder
+                .HasOne(group => group.LeaderStudent)
+                .WithOne()
+                .HasForeignKey<Group>(group => group.LeaderStudentId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
         #endregion

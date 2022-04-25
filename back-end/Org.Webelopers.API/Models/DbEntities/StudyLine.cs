@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Org.Webelopers.Api.Models.DbEntities
@@ -16,5 +17,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Required]
         [StringLength(8)]
         public string ShortName { get; set; }
+
+        #region References
+
+        public virtual List<Specialisation> Specialisations { get; set; } 
+
+        #endregion
     }
 }
