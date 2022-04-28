@@ -13,6 +13,10 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(256)]
+        public string Username { get; set; }
+
+        [Required]
         [JsonIgnore]
         public string EmailHash { get; set; }
 
@@ -55,6 +59,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual Account Account { get; set; }
 
         #endregion
+        }
     }
 
     public class Student
@@ -78,7 +83,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
     }
 
     public class Teacher
-    {
+        {
         [Key]
         [Required]
         [ForeignKey("Id")]
@@ -88,15 +93,32 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid TeacherDegreeId { get; set; }
 
         #region References
-        
+
         public virtual Account Account { get; set; }
 
         public virtual List<Course> Courses { get; set; }
 
         public virtual List<OptionalCourse> OptionalCourses { get; set; }
-        
+
         public virtual TeacherDegree TeacherDegree { get; set; }
 
         #endregion
+    }
+
+    public class AccountContext : Account
+    {
+        public AccountContext(Account account, string userRole)
+        {
+            Id = account.Id;
+            Role = userRole;
+            Username = account.Username;
+            EmailHash = account.EmailHash;
+            PasswordHash = account.PasswordHash;
+            FirstName = account.FirstName;
+            LastName = account.LastName;
+            DateOfBirth = account.DateOfBirth;
+        }
+
+        public string Role { get; set; }
     }
 }

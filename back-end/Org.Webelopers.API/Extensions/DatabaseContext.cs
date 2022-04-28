@@ -244,6 +244,9 @@ namespace Org.Webelopers.Api.Extensions
                 .WithMany(teacher => teacher.OptionalCourses)
                 .HasForeignKey(course => course.TeacherId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder
+                .Property(course => course.IsProposed)
+                .HasDefaultValue(false);
         }
 
         private static void OptionalCourseGradeConfigure(EntityTypeBuilder<OptionalCourseGrade> builder)

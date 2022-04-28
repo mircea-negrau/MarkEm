@@ -2,15 +2,27 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
-import { login } from '../state/thunks/global'
+import { login, register } from '../state/thunks/global'
 import Image from '../assets/login-icon.png'
-import { useFormik } from 'formik'
+import { Field, Form, Formik, useFormik } from 'formik'
 import * as Yup from 'yup'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import PersonIcon from '@mui/icons-material/Person'
-import { Button, Checkbox, CircularProgress, TextField } from '@mui/material'
+import {
+  Autocomplete,
+  Button,
+  Checkbox,
+  CircularProgress,
+  TextField
+} from '@mui/material'
 import { FetchStatus } from '../utility/fetchStatus'
+import React from 'react'
+import { ArrowDropDown, FormatAlignJustify } from '@mui/icons-material'
+import { border, height, width } from '@mui/system'
+import { ClassNames } from '@emotion/react'
+
+const roleOptions = ['Student', 'Teacher', 'Admin']
 
 const GreyTextField = styled(TextField)`
   & label.Mui-focused {
@@ -36,7 +48,7 @@ const GreyTextField = styled(TextField)`
   }
 `
 
-const LoginButton = styled(Button)<{ available: boolean }>`
+const RegisterButton = styled(Button)<{ available: boolean }>`
   background-color: ${props =>
     props.available ? '#3f51b5' : '#0f1218'} !important;
   color: ${props =>
@@ -48,29 +60,61 @@ const LoginButton = styled(Button)<{ available: boolean }>`
   font-weight: 600;
 `
 
-export const LoginPage: FunctionComponent = () => {
+export const RegisterPage: FunctionComponent = () => {
   const state = useSelector((state: AppState) => state.global)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const [userRole, setUserRole] = useState(roleOptions[0])
 
   const dispatch = useDispatch()
 
+  const Dropdown = ({ options }) => {
+    return (
+      <select
+        value={userRole}
+        onChange={e => [
+          setUserRole(e.target.value),
+          (formik.values.userType = e.target.value)
+        ]}
+        style={{
+          background: '#0f1218',
+          color: '#96a2b4',
+          height: '40px',
+          fontSize: '20px',
+          width: '50%'
+        }}
+      >
+        {options.map(o => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+    )
+  }
+
   const validationSchema = Yup.object({
-    username: Yup.string()
-      // .email('Enter a valid email')
-      .required('Username is required'),
+    username: Yup.string().required('Username is required'),
     password: Yup.string()
       .min(8, 'Password should be of minimum 8 characters length')
-      .required('Password is required')
+      .required('Password is required'),
+    email: Yup.string().required('Email is required'),
+    firstName: Yup.string().required('First Name is required'),
+    lastName: Yup.string().required('Last Name is required'),
+    userType: Yup.string().required('Role is required')
   })
 
   const formik = useFormik({
     initialValues: {
+      userType: userRole,
       username: '',
-      password: ''
+      password: '',
+      email: '',
+      firstName: '',
+      lastName: ''
     },
     validationSchema: validationSchema,
     onSubmit: values => {
-      dispatch(login(values))
+      dispatch(register(values))
     }
   })
 
@@ -99,7 +143,6 @@ export const LoginPage: FunctionComponent = () => {
         }}
       />
     )
-
   return (
     <div style={{ display: 'flex', width: '100%', height: '100vh' }}>
       <div
@@ -138,45 +181,12 @@ export const LoginPage: FunctionComponent = () => {
             }}
             onSubmit={formik.handleSubmit}
           >
-            <p
-              style={{
-                color: '#96a2b4',
-                fontFamily: 'Roboto, sans-serif',
-                fontSize: '28px',
-                fontWeight: '500',
-                marginBottom: '7px'
-              }}
-            >
-              {"Welcome to Mark'Em"}
-            </p>
             <div
               style={{
                 display: 'flex',
                 width: '100%'
               }}
-            >
-              <p
-                style={{
-                  color: '#96a2b4',
-                  fontFamily: 'Roboto, sans-serif',
-                  fontSize: '18px',
-                  paddingBottom: '30px'
-                }}
-              >
-                Need an account?
-              </p>
-              <a
-                href="register"
-                style={{
-                  color: '#3699ff',
-                  fontFamily: 'Roboto, sans-serif',
-                  fontSize: '18px',
-                  paddingBottom: '30px'
-                }}
-              >
-                &nbsp;Sign Up
-              </a>
-            </div>
+            />
             <p
               style={{
                 color: '#96a2b4',
@@ -186,7 +196,7 @@ export const LoginPage: FunctionComponent = () => {
                 marginBottom: '20px'
               }}
             >
-              Sign in
+              Create an account
             </p>
             <GreyTextField
               fullWidth
@@ -217,7 +227,58 @@ export const LoginPage: FunctionComponent = () => {
               InputProps={{
                 endAdornment: icon
               }}
+              style={{ paddingBottom: '30px' }}
             />
+            <GreyTextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+              variant="filled"
+              style={{ paddingBottom: '30px' }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                width: '100%'
+              }}
+            >
+              <GreyTextField
+                fullWidth
+                id="firstName"
+                name="firstName"
+                label="First name"
+                value={formik.values.firstName}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                variant="filled"
+                style={{
+                  paddingBottom: '30px',
+                  width: '50%',
+                  paddingRight: '20px'
+                }}
+              />
+              <GreyTextField
+                fullWidth
+                id="lastName"
+                name="lastName"
+                label="Last Name"
+                value={formik.values.lastName}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                variant="filled"
+                style={{ paddingBottom: '30px', width: '50%' }}
+              />
+            </div>
+
+            <Dropdown options={roleOptions} />
+
             <div
               style={{
                 display: 'flex',
@@ -227,23 +288,36 @@ export const LoginPage: FunctionComponent = () => {
                 alignItems: 'center'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Checkbox style={{ alignSelf: 'start' }} />
-                <p>Remember me</p>
-              </div>
-              <p>Forgot password?</p>
+              <p>
+                Already have an account ?
+                <a
+                  href="login"
+                  style={{
+                    color: '#3699ff',
+                    fontFamily: 'Roboto, sans-serif',
+                    fontSize: '18px',
+                    paddingBottom: '30px'
+                  }}
+                >
+                  &nbsp;Sign In
+                </a>
+              </p>
             </div>
-            <LoginButton
+            <RegisterButton
               available={
-                formik.values.username != '' && formik.values.password != ''
+                formik.values.username != '' &&
+                formik.values.password != '' &&
+                formik.values.email != '' &&
+                formik.values.firstName != '' &&
+                formik.values.lastName != ''
               }
               type="submit"
             >
-              {state.accessTokenStatus != FetchStatus.loading && 'Login'}
+              {state.accessTokenStatus != FetchStatus.loading && 'Register'}
               {state.accessTokenStatus === FetchStatus.loading && (
                 <CircularProgress size={18} style={{ color: 'yellow' }} />
               )}
-            </LoginButton>
+            </RegisterButton>
           </form>
         </div>
       </div>

@@ -26,16 +26,15 @@ namespace Org.Webelopers.Api.Extensions
             for (int i = 0; i < 100; i++)
             {
                 teachers.Add(new Teacher
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestTeacher{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                    DateOfBirth = 732624581,
-                    TeacherDegreeId = teacherDegrees[i % teacherDegrees.Count].Id
-                });
+                (
+                    username: $"TestTeacher{i}",
+                    emailHash: "dummyEmailHash",
+                    passwordHash: "dummyPasswordHash",
+                    firstName: $"firstName{i}",
+                    lastName: $"firstName{i}",
+                    dateOfBirth: 732624581,
+                    teacherDegreeId: teacherDegrees[i % teacherDegrees.Count].Id
+                ));
             }
             modelBuilder.Entity<Teacher>().HasData(teachers);
 
@@ -43,30 +42,28 @@ namespace Org.Webelopers.Api.Extensions
             for (int i = 0; i < 324; i++)
             {
                 students.Add(new Student
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestStudent{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                    DateOfBirth = 732624581,
-                });
+                (
+                    username: $"TestStudent{i}",
+                    emailHash: "dummyEmailHash",
+                    passwordHash: "dummyPasswordHash",
+                    firstName: $"firstName{i}",
+                    lastName: $"firstName{i}",
+                    dateOfBirth: 732624581
+                ));
             }
             modelBuilder.Entity<Student>().HasData(students);
 
             var admins = new List<Admin>();
             for (int i = 0; i < 100; i++)
             {
-                admins.Add(new Admin
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestAdmin{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                });
+                admins.Add(new Admin(
+                    username: $"TestAdmin{i}",
+                    emailHash: "dummyEmailHash",
+                    passwordHash: "dummyPasswordHash",
+                    firstName: $"firstName{i}",
+                    lastName: $"firstName{i}"
+                    )
+                 );
             }
             modelBuilder.Entity<Admin>().HasData(admins);
 
