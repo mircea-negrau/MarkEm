@@ -20,7 +20,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
-        public virtual Course Course { get; set; }
+        public virtual MandatoryCourse Course { get; set; }
         
         public virtual StudentContractSemester StudentContractSemester { get; set; }
         

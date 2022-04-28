@@ -9,7 +9,6 @@ namespace Org.Webelopers.Api.Extensions
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
-        public virtual DbSet<AccountRole> Roles { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Student> Students { get; set; }
@@ -21,8 +20,8 @@ namespace Org.Webelopers.Api.Extensions
         public virtual DbSet<Specialisation> Specialisations { get; set; }
         public virtual DbSet<StudyYear> StudyYears { get; set; }
         public virtual DbSet<StudySemester> StudySemesters { get; set; }
-        public virtual DbSet<Course> Courses { get; set; }
-        public virtual DbSet<CourseGrade> Grades { get; set; }
+        public virtual DbSet<MandatoryCourse> Courses { get; set; }
+        public virtual DbSet<MandatoryCourseGrade> Grades { get; set; }
         public virtual DbSet<OptionalCourse> OptionalCourses { get; set; }
         public virtual DbSet<OptionalCourseGrade> OptionalGrades { get; set; }
         public virtual DbSet<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
@@ -35,7 +34,6 @@ namespace Org.Webelopers.Api.Extensions
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AccountRole>(RoleConfigure);
             modelBuilder.Entity<Account>(AccountConfigure);
             modelBuilder.Entity<Admin>(AdminConfigure);
             modelBuilder.Entity<Student>(StudentConfigure);
@@ -47,8 +45,8 @@ namespace Org.Webelopers.Api.Extensions
             modelBuilder.Entity<Specialisation>(SpecialisationConfigure);
             modelBuilder.Entity<StudyYear>(StudyYearConfigure);
             modelBuilder.Entity<StudySemester>(StudySemesterConfigure);
-            modelBuilder.Entity<Course>(CourseConfigure);
-            modelBuilder.Entity<CourseGrade>(CourseGradeConfigure);
+            modelBuilder.Entity<MandatoryCourse>(CourseConfigure);
+            modelBuilder.Entity<MandatoryCourseGrade>(MandatoryCourseGradeConfigure);
             modelBuilder.Entity<OptionalCourse>(OptionalCourseConfigure);
             modelBuilder.Entity<OptionalCourseGrade>(OptionalCourseGradeConfigure);
             modelBuilder.Entity<OptionalCoursePreference>(OptionalCoursePreferenceConfigure);
@@ -59,32 +57,20 @@ namespace Org.Webelopers.Api.Extensions
             modelBuilder.Seed();
         }
 
-        private static void RoleConfigure(EntityTypeBuilder<AccountRole> builder)
-        {
-            builder
-                .Property(role => role.Id)
-                .HasValueGenerator<SequentialGuidValueGenerator>();
-        }
-
         private static void AccountConfigure(EntityTypeBuilder<Account> builder)
         {
             builder
                 .Property(account => account.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(account => account.Role)
-                .WithMany(role => role.Accounts)
-                .HasForeignKey(account => account.RoleId);
-                // .OnDelete(DeleteBehavior.);
         }
-        
+
         private static void AdminConfigure(EntityTypeBuilder<Admin> builder)
         {
             builder
                 .HasOne(admin => admin.Account)
                 .WithOne()
                 .HasForeignKey<Admin>(admin => admin.AccountId);
-                // .OnDelete(DeleteBehavior.);
+            // .OnDelete(DeleteBehavior.);
         }
 
         private static void StudentConfigure(EntityTypeBuilder<Student> builder)
@@ -93,7 +79,7 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(student => student.Account)
                 .WithOne()
                 .HasForeignKey<Student>(student => student.AccountId);
-                // .OnDelete(DeleteBehavior.);
+            // .OnDelete(DeleteBehavior.);
         }
 
         private static void TeacherConfigure(EntityTypeBuilder<Teacher> builder)
@@ -102,7 +88,7 @@ namespace Org.Webelopers.Api.Extensions
                 .HasOne(teacher => teacher.Account)
                 .WithOne()
                 .HasForeignKey<Teacher>(teacher => teacher.AccountId);
-                // .OnDelete(DeleteBehavior.);
+            // .OnDelete(DeleteBehavior.);
             builder
                 .HasOne(teacher => teacher.TeacherDegree)
                 .WithMany(degree => degree.Teachers)
@@ -195,7 +181,7 @@ namespace Org.Webelopers.Api.Extensions
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private static void CourseConfigure(EntityTypeBuilder<Course> builder)
+        private static void CourseConfigure(EntityTypeBuilder<MandatoryCourse> builder)
         {
             builder
                 .Property(course => course.Id)
@@ -212,7 +198,7 @@ namespace Org.Webelopers.Api.Extensions
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        private static void CourseGradeConfigure(EntityTypeBuilder<CourseGrade> builder)
+        private static void MandatoryCourseGradeConfigure(EntityTypeBuilder<MandatoryCourseGrade> builder)
         {
             builder
                 .Property(courseGrade => courseGrade.Id)
@@ -327,11 +313,12 @@ namespace Org.Webelopers.Api.Extensions
             builder
                 .Property(semesterContractCourse => semesterContractCourse.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasOne(semesterContractCourse => semesterContractCourse.Course)
-                .WithMany(course => course.SemesterContractCourses)
-                .HasForeignKey(semesterContractCourse => semesterContractCourse.CourseId)
-                .OnDelete(DeleteBehavior.Cascade);
+            // Todo: fix
+            //builder
+            //    .HasOne(semesterContractCourse => semesterContractCourse.Course)
+            //    .WithMany(course => course.SemesterContractCourses)
+            //    .HasForeignKey(semesterContractCourse => semesterContractCourse.CourseId)
+            //    .OnDelete(DeleteBehavior.Cascade);
             builder
                 .HasOne(semesterContractCourse => semesterContractCourse.StudentContractSemester)
                 .WithMany(contractSemester => contractSemester.SemesterContractCourses)

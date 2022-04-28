@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class Course
+    public class MandatoryCourse
     {
         [Key]
         public Guid Id { get; set; }
@@ -29,9 +29,9 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Teacher Teacher { get; set; }
 
-        public virtual List<CourseGrade> Grades { get; set; }
-        
-        public virtual List<SemesterContractCourse> SemesterContractCourses { get; set; }
+        public virtual List<MandatoryCourseGrade> Grades { get; set; }
+
+        public virtual List<StudentEnrolledCourse> SemesterContractCourses { get; set; }
 
         #endregion
     }

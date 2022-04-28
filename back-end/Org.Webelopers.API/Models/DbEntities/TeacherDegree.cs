@@ -7,7 +7,6 @@ namespace Org.Webelopers.Api.Models.DbEntities
     public class TeacherDegree
     {
         [Key]
-        [Required]
         public Guid Id { get; set; }
 
         [Required]

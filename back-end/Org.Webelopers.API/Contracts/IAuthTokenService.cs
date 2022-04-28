@@ -5,7 +5,7 @@ namespace Org.Webelopers.Api.Contracts
 {
     public interface IAuthTokenService
     {
-        public string GenerateAuthToken(AccountContext user);
+        public string GenerateAuthToken(Account user);
 
         public JwtSecurityToken ValidateAuthToken(string jwtToken);
     }

@@ -24,30 +24,32 @@ namespace Org.Webelopers.Api.Logic
             // parameters conditions checking
             if (preference < 0) { return false; }
 
-            var contract = _context.StudyContracts.FirstOrDefault(contract => contract.Id == contractId);
+            var contract = _context.Contracts.FirstOrDefault(contract => contract.Id == contractId);
             if (contract == null) return false; // if no contract was found
 
             if (_context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null) { return false; } // if no optional course was found
 
             // add/update the preference
-            var optionalCoursePreference = _context.OptionalCoursePreferences.FirstOrDefault(coursePreference => coursePreference.StudyContractId == contractId &&
-                coursePreference.OptionalCourseId == optionalCourseId);
-            if (optionalCoursePreference == null)
-            {
-                optionalCoursePreference = new OptionalCoursePreference()
-                {
-                    Id = Guid.NewGuid(),
-                    Preference = preference,
-                    StudyContractId = contractId,
-                    OptionalCourseId = optionalCourseId
-                };
-                _context.OptionalCoursePreferences.Add(optionalCoursePreference);
-            }
-            else
-            {
-                optionalCoursePreference.Preference = preference;
-            }
-            _context.SaveChanges();
+
+            // TODO: Update to fit database rebuilt version
+            //var optionalCoursePreference = _context.OptionalCoursePreferences.FirstOrDefault(coursePreference => coursePreference.StudyContractId == contractId &&
+            //    coursePreference.OptionalCourseId == optionalCourseId);
+            //if (optionalCoursePreference == null)
+            //{
+            //    optionalCoursePreference = new OptionalCoursePreference()
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        Preference = preference,
+            //StudyContractId = contractId, 
+            //        OptionalCourseId = optionalCourseId
+            //    };
+            //    _context.OptionalCoursePreferences.Add(optionalCoursePreference);
+            //}
+            //else
+            //{
+            //    optionalCoursePreference.Preference = preference;
+            //}
+            //_context.SaveChanges();
 
             return true;
         }
@@ -57,20 +59,22 @@ namespace Org.Webelopers.Api.Logic
         public bool AddOptionalCourse(string name, short credits, Guid semesterId, Guid teacherId)
         {
             // parameters conditions checking
-            if (credits < 1) { return false; }
-            if (_context.StudySemesters.FirstOrDefault(semester => semester.Id == semesterId) == null) { return false; }
-            if (_context.Teachers.FirstOrDefault(teacher => teacher.Id == teacherId) == null) { return false; }
-            if (_context.OptionalCourses.FirstOrDefault(course => course.TeacherId == teacherId &&
-                                                            course.Name == name) == null) { return false; }
 
-            _context.OptionalCourses.Add(new OptionalCourse()
-            {
-                Credits = credits,
-                Id = Guid.NewGuid(),
-                IsApproved = false,
+            // TODO: Update to fit database rebuilt version
+            //if (credits < 1) { return false; }
+            //if (_context.StudySemesters.FirstOrDefault(semester => semester.Id == semesterId) == null) { return false; }
+            //if (_context.Teachers.FirstOrDefault(teacher => teacher.Id == teacherId) == null) { return false; }
+            //if (_context.OptionalCourses.FirstOrDefault(course => course.TeacherId == teacherId &&
+            //                                                course.Name == name) == null) { return false; }
 
-            });
-            _context.SaveChanges();
+            //_context.OptionalCourses.Add(new OptionalCourse()
+            //{
+            //    Credits = credits,
+            //    Id = Guid.NewGuid(),
+            //    IsApproved = false,
+
+            //});
+            //_context.SaveChanges();
 
             return true;
         }
@@ -130,10 +134,12 @@ namespace Org.Webelopers.Api.Logic
         /// </summary>
         /// <param name="optionalCourseId">the id of the optional course</param>
         /// <returns>The number of students enrolled in the given optional course. -1, if there's no optional course with the given id</returns>
-        private int GetNumberOfEnrollments(Guid optionalCourseId) =>
-            _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
-                ? -1
-                : _context.StudyContracts.Count(contract => contract.OptionalCourse.Id == optionalCourseId);
+        //private int GetNumberOfEnrollments(Guid optionalCourseId) =>
+        //    _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
+        //        ? -1
+        //    : 0;
+        //Todo: Update to fit database rebuilt version
+        //: _context.Contracts.Count(contract => contract.OptionalCourse.Id == optionalCourseId);
 
         public OptionalCoursesAssignmentResults StartOptionalCoursesAssignment()
         {
@@ -143,34 +149,36 @@ namespace Org.Webelopers.Api.Logic
             int numberOfStudentsWithNoOptionalCourseAssigned = 0;
 
             // 2. for each student, assign the the optional course with the highest priority that is selected
-            foreach (StudyContract studyContract in _context.StudyContracts)
-            {
-                var selectedPreferenceOptionalCourseId = _context.OptionalCoursePreferences
-                    .Where(preference => preference.StudyContract == studyContract)
-                    .OrderBy(preference => preference.Preference)
-                    .Select(preference => preference.OptionalCourseId) // the OptionalCourseIds of the preference of studyContract, sorted by preference value
-                    .FirstOrDefault(courseId =>
-                        courseId == selectedOptionalCourses
-                            .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-                            .Select(course => course.Id)
-                            .FirstOrDefault(id => id == courseId));
+            
+            // Todo: Update to fit database rebuilt version
+            //foreach (StudyContract studyContract in _context.StudyContracts)
+            //{
+            //    var selectedPreferenceOptionalCourseId = _context.OptionalCoursePreferences
+            //        .Where(preference => preference.StudyContract == studyContract)
+            //        .OrderBy(preference => preference.Preference)
+            //        .Select(preference => preference.OptionalCourseId) // the OptionalCourseIds of the preference of studyContract, sorted by preference value
+            //        .FirstOrDefault(courseId =>
+            //            courseId == selectedOptionalCourses
+            //                .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
+            //                .Select(course => course.Id)
+            //                .FirstOrDefault(id => id == courseId));
 
-                if (selectedPreferenceOptionalCourseId == Guid.Empty)
-                {
-                    selectedPreferenceOptionalCourseId = selectedOptionalCourses
-                        .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-                        .Select(course => course.Id).FirstOrDefault();
-                }
+            //    if (selectedPreferenceOptionalCourseId == Guid.Empty)
+            //    {
+            //        selectedPreferenceOptionalCourseId = selectedOptionalCourses
+            //            .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
+            //            .Select(course => course.Id).FirstOrDefault();
+            //    }
 
-                if (selectedPreferenceOptionalCourseId == Guid.Empty)
-                    numberOfStudentsWithNoOptionalCourseAssigned++;
-                else
-                {
-                    numberOfStudentsWithRandomOptionalCourseAssigned++;
-                    studyContract.OptionalCourseId = selectedPreferenceOptionalCourseId;
-                }
-            }
-            _context.SaveChanges();
+            //    if (selectedPreferenceOptionalCourseId == Guid.Empty)
+            //        numberOfStudentsWithNoOptionalCourseAssigned++;
+            //    else
+            //    {
+            //        numberOfStudentsWithRandomOptionalCourseAssigned++;
+            //        studyContract.OptionalCourseId = selectedPreferenceOptionalCourseId;
+            //    }
+            //}
+            //_context.SaveChanges();
             return new OptionalCoursesAssignmentResults(selectedOptionalCourses.ToList(), numberOfStudentsWithRandomOptionalCourseAssigned, numberOfStudentsWithNoOptionalCourseAssigned);
         }
     }

@@ -19,7 +19,7 @@ namespace Org.Webelopers.Api.Logic
             _configuration = configuration;
         }
 
-        public string GenerateAuthToken(AccountContext user)
+        public string GenerateAuthToken(Account user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtConfig:Secret"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -31,7 +31,6 @@ namespace Org.Webelopers.Api.Logic
                 new Claim(CustomClaimTypes.Username, user.Username),
                 new Claim(CustomClaimTypes.FirstName, user.FirstName),
                 new Claim(CustomClaimTypes.LastName, user.LastName),
-                new Claim(CustomClaimTypes.DateOfBirth, user.DateOfBirth.ToString())
             };
 
             var token = new JwtSecurityToken(_configuration["JwtConfig:Issuer"],

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class CourseGrade
+    public class MandatoryCourseGrade
     {
         [Key]
         public Guid Id { get; set; }
@@ -25,7 +25,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Student Student { get; set; }
 
-        public virtual Course Course { get; set; }
+        public virtual MandatoryCourse Course { get; set; }
 
         #endregion
     }

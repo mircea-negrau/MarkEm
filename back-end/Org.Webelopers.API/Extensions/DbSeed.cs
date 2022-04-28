@@ -190,12 +190,12 @@ namespace Org.Webelopers.Api.Extensions
             }
             modelBuilder.Entity<StudySemester>().HasData(semesters);
 
-            var courses = new List<Course>();
+            var courses = new List<MandatoryCourse>();
             for (int i = 0; i < semesters.Count; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    courses.Add(new Course
+                    courses.Add(new MandatoryCourse
                     {
                         Id = Guid.NewGuid(),
                         Name = $"Course{i * j}",
@@ -205,7 +205,7 @@ namespace Org.Webelopers.Api.Extensions
                     });
                 }
             }
-            modelBuilder.Entity<Course>().HasData(courses);
+            modelBuilder.Entity<MandatoryCourse>().HasData(courses);
 
             var optionalCourses = new List<OptionalCourse>();
             var optionals = new Dictionary<Guid, List<OptionalCourse>>();

@@ -9,10 +9,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
         public short Grade { get; set; }
 
-        [Required]
         public long CreatedAt { get; set; }
 
         [ForeignKey("Id")]

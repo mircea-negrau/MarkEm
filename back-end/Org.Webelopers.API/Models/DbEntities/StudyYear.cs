@@ -10,10 +10,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
         public short StartYear { get; set; }
 
-        [Required]
         public short EndYear { get; set; }
 
         [ForeignKey("Id")]
