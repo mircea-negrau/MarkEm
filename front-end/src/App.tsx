@@ -10,6 +10,8 @@ import { Homework } from './ui/Homework'
 import { Settings } from './ui/Settings'
 
 import { RegisterPage } from './ui/RegisterPage'
+import { ProfilePage } from './ui/ProfilePage'
+import { ErrorPage } from './ui/ErrorPage'
 
 const App: FunctionComponent = () => {
   return (
@@ -57,6 +59,15 @@ const App: FunctionComponent = () => {
               </AuthComponent>
             }
           />
+          <Route
+            path={'/profile/:username'}
+            element={
+              <AuthComponent>
+                <ProfilePage />
+              </AuthComponent>
+            }
+          />
+          <Route path={'/error'} element={<ErrorPage />} />
           <Route path={'/login'} element={<LoginPage />} />
 
           <Route path={'/register'} element={<RegisterPage />} />

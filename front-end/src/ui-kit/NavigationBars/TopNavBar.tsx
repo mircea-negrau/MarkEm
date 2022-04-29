@@ -87,10 +87,16 @@ export const TopNavBar: FunctionComponent = () => {
               color: '#e6e6e6',
               cursor: 'pointer'
             }}
+            onClick={() => {
+              window.location.replace(`/profile/${state.username}`)
+            }}
           >
             {state.firstName + ' ' + state.lastName}
           </p>
           <div
+            onClick={() => {
+              window.location.replace(`/profile/${state.username}`)
+            }}
             style={{
               width: '32px',
               height: '32px',

@@ -15,6 +15,7 @@ namespace Org.Webelopers.Api.Extensions
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<IOptionalCourseService, OptionalCourseService>();
             services.AddScoped<IAuthTokenService, AuthTokenService>();
+            services.AddScoped<IProfileService, ProfileService>();
         }
     }
 }
