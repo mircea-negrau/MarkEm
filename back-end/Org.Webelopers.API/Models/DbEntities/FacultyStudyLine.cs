@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class StudyLine
+    public class FacultyStudyLine
     {
         [Key]
         [Required]
@@ -13,14 +13,14 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Required]
         [StringLength(256)]
         public string Name { get; set; }
-        
+
         [Required]
         [StringLength(8)]
         public string ShortName { get; set; }
 
         #region References
 
-        public virtual List<Specialisation> Specialisations { get; set; } 
+        public virtual List<FacultySpecialization> Specialisations { get; set; }
 
         #endregion
     }

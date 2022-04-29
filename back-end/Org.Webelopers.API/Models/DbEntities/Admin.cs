@@ -2,7 +2,5 @@
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class Admin : BaseAccount
-    {
-    }
+    public class Admin : BaseAccount { }
 }

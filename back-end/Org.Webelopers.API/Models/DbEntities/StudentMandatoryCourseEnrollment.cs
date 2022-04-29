@@ -4,27 +4,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class SemesterContractCourse
+    public class StudentMandatoryCourseEnrollment
     {
         [Key]
         public Guid Id { get; set; }
-        
+
         [ForeignKey(("id"))]
         public Guid StudentContractSemesterId { get; set; }
-        
+
         [ForeignKey("Id")]
-        public Guid CourseId { get; set; }
-        
+        public Guid MandatoryCourseId { get; set; }
+
         [ForeignKey("Id")]
-        public Guid GroupId { get; set; }
+        public Guid? GroupId { get; set; }
 
         #region References
 
-        public virtual MandatoryCourse Course { get; set; }
-        
+        public virtual MandatoryCourse MandatoryCourse { get; set; }
+
         public virtual StudentContractSemester StudentContractSemester { get; set; }
-        
-        public virtual Group Group { get; set; }
+
+        public virtual FacultyGroup Group { get; set; }
 
         #endregion
     }

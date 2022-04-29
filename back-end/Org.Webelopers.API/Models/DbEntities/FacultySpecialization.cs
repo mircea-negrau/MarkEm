@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class Specialisation
+    public class FacultySpecialization
     {
         [Key]
         public Guid Id { get; set; }
@@ -30,9 +30,9 @@ namespace Org.Webelopers.Api.Models.DbEntities
         
         public virtual Faculty Faculty { get; set; }
 
-        public virtual StudyDegree StudyDegree { get; set; }
+        public virtual FacultyStudyDegree StudyDegree { get; set; }
         
-        public virtual StudyLine StudyLine { get; set; }
+        public virtual FacultyStudyLine StudyLine { get; set; }
         
         public virtual List<StudyYear> StudyYears { get; set; }
 

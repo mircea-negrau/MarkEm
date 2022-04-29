@@ -19,14 +19,14 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public Guid StudyYearId { get; set; }
 
         [ForeignKey("Id")]
-        public Guid GroupId { get; set; }
+        public Guid? GroupId { get; set; }
 
         #region References
 
         public virtual Student Student { get; set; }
 
         public virtual StudyYear StudyYear { get; set; }
-        public virtual Group Group { get; set; }
+        public virtual FacultyGroup Group { get; set; }
 
         public virtual List<StudentContractSemester> SemesterContracts { get; set; }
 

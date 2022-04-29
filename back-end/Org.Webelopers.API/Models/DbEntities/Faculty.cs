@@ -21,7 +21,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Teacher ChiefOfDepartment { get; set; }
 
-        public virtual List<Specialisation> Specialisations { get; set; }
+        public virtual List<FacultySpecialization> Specialisations { get; set; }
 
         #endregion
     }

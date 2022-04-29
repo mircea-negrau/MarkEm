@@ -33,9 +33,9 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [StringLength(128)]
         public string LastName { get; set; }
 
-        public byte[] Picture { get; set; } // TODO: maybe move to a Profile class and table
+        public byte[] Picture { get; set; } 
 
         [StringLength(1024)]
-        public string About { get; set; } // TODO: maybe move to a Profile class and table
+        public string About { get; set; } 
     }
 }

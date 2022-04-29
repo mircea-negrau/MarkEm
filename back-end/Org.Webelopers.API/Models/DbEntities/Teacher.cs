@@ -8,7 +8,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
     public class Teacher : BaseAccount
     {
         [ForeignKey("Id")]
-        public Guid TeacherDegreeId { get; set; }
+        public Guid? TeacherDegreeId { get; set; }
 
         #region References
 
@@ -17,6 +17,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual List<OptionalCourse> OptionalCourses { get; set; }
 
         public virtual TeacherDegree TeacherDegree { get; set; }
+
+        public virtual FacultyGroup TutoredGroup { get; set; }
 
         #endregion
     }

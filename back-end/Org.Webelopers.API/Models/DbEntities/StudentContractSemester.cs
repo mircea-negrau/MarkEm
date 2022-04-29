@@ -10,28 +10,27 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Key]
         [Required]
         public Guid Id { get; set; }
-        
+
         [ForeignKey("Id")]
         public Guid StudentContractId { get; set; }
-        
+
         [ForeignKey("Id")]
         public Guid StudySemesterId { get; set; }
-        
+
         [ForeignKey("Id")]
-        public Guid OptionalCourseId { get; set; }
-        
-        [ForeignKey("Id")]
-        public Guid OptionalCoursePreferenceId { get; set; }
+        public Guid? OptionalCourseId { get; set; }
 
         #region References
 
         public virtual StudentContract StudentContract { get; set; }
-        
+
         public virtual StudySemester StudySemester { get; set; }
-        
+
+        public virtual OptionalCourse OptionalCourse { get; set; }
+
         public virtual List<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
-        
-        public virtual List<SemesterContractCourse> SemesterContractCourses { get; set; }
+
+        public virtual List<StudentMandatoryCourseEnrollment> StudentEnrolledCourses { get; set; }
 
         #endregion
     }

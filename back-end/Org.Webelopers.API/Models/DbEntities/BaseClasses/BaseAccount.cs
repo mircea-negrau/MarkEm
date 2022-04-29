@@ -6,13 +6,6 @@ namespace Org.Webelopers.Api.Models.DbEntities.BaseClasses
 {
     public class BaseAccount
     {
-        public BaseAccount() { }
-
-        public BaseAccount(Guid accountId)
-        {
-            AccountId = accountId;
-        }
-
         [Key]
         [Required]
         [ForeignKey("Id")]

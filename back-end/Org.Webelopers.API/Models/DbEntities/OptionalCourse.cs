@@ -1,28 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Org.Webelopers.Api.Models.DbEntities.BaseClasses;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class OptionalCourse
+    public class OptionalCourse : BaseCourse
     {
-        [Key]
-        public Guid Id { get; set; }
-
-        [Required]
-        [StringLength(128)]
-        public string Name { get; set; }
-
-        [Required]
-        public short Credits { get; set; }
-
-        [ForeignKey("Id")]
-        public Guid SemesterId { get; set; }
-
-        [ForeignKey("Id")]
-        public Guid TeacherId { get; set; }
-        
         [Required]
         public bool IsProposed { get; set; }
 
@@ -34,12 +17,10 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
-        public virtual StudySemester Semester { get; set; }
-
-        public virtual Teacher Teacher { get; set; }
+        public virtual List<StudentContractSemester> Contracts { get; set; }
 
         public virtual List<OptionalCourseGrade> Grades { get; set; }
-        
+
         public virtual List<OptionalCoursePreference> OptionalCoursePreferences { get; set; }
 
         #endregion

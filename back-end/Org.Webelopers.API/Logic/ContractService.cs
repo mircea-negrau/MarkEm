@@ -1,6 +1,7 @@
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -136,5 +137,9 @@ namespace Org.Webelopers.Api.Logic
                 throw new ArgumentException("Contract doesn't exist");
             }
         }
+
+        public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId) => throw new NotImplementedException();
+        public OptionalCourse GetOptionalCourse(Guid contractId) => throw new NotImplementedException();
+        public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId) => throw new NotImplementedException();
     }
 }

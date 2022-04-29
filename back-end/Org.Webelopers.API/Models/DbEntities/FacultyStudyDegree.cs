@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class StudyDegree
+    public class FacultyStudyDegree
     {
         [Key]
         public Guid Id { get; set; }
@@ -15,7 +15,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
-        public virtual List<Specialisation> Specialisations { get; set; }
+        public virtual List<FacultySpecialization> Specialisations { get; set; }
 
         #endregion
     }
