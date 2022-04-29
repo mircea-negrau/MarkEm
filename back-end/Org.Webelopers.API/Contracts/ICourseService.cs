@@ -1,6 +1,6 @@
 ﻿using Org.Webelopers.Api.Models.DbEntities;
-using System;
 using System.Collections.Generic;
+using System;
 
 namespace Org.Webelopers.Api.Contracts
 {
@@ -9,6 +9,6 @@ namespace Org.Webelopers.Api.Contracts
         public void AddCourse(string name, short credits, Guid semesterId, Guid teacherId);
         public void UpdateCourse(Guid courseId, string name, short? credits, Guid? semesterId, Guid? teacherId);
         public void DeleteCourse(Guid courseId);
-        public List<Course> GetCoursesByTeacher(Guid teacherId);
+        public List<MandatoryCourse> GetCoursesByTeacher(Guid teacherId);
     }
 }

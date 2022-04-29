@@ -1,10 +1,10 @@
-﻿using Org.Webelopers.Api.Models.Authentication;
+﻿using Org.Webelopers.Api.Models.DbEntities;
 
 namespace Org.Webelopers.Api.Contracts
 {
     public interface IAuthService
     {
-        UserContext Authenticate(string username, string password);
-        UserContext Register(string userType, string username, string password, string email, string firstName, string lastName);
+        Account Authenticate(string username, string password);
+        Account Register(string userType, string username, string password, string email, string firstName, string lastName);
     }
 }

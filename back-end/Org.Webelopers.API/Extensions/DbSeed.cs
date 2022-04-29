@@ -11,6 +11,7 @@ namespace Org.Webelopers.Api.Extensions
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            var random = new Random();
             var teacherDegrees = new List<TeacherDegree>();
             for (int i = 0; i < 5; i++)
             {
@@ -22,53 +23,37 @@ namespace Org.Webelopers.Api.Extensions
             }
             modelBuilder.Entity<TeacherDegree>().HasData(teacherDegrees);
 
+            var accounts = new List<Account>();
+            for (int i = 0; i < 100; i++)
+            {
+                accounts.Add(new Account()
+                {
+                    Id = Guid.NewGuid(),
+                    Username = $"TestAccount{i}",
+                    EmailHash = "dummyEmailHash",
+                    PasswordHash = "dummyPasswordHash",
+                    FirstName = $"firstName{i}",
+                    LastName = $"firstName{i}",
+                    About = "",
+                    Role = i < 20
+                        ? "Teacher"
+                        : i < 30
+                            ? "Admin"
+                            : "Student"
+                });
+            }
+            modelBuilder.Entity<Account>().HasData(accounts);
+
             var teachers = new List<Teacher>();
-            for (int i = 0; i < 100; i++)
-            {
-                teachers.Add(new Teacher
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestTeacher{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                    DateOfBirth = 732624581,
-                    TeacherDegreeId = teacherDegrees[i % teacherDegrees.Count].Id
-                });
-            }
-            modelBuilder.Entity<Teacher>().HasData(teachers);
-
-            var students = new List<Student>();
-            for (int i = 0; i < 324; i++)
-            {
-                students.Add(new Student
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestStudent{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                    DateOfBirth = 732624581,
-                });
-            }
-            modelBuilder.Entity<Student>().HasData(students);
-
+            teachers = accounts.Take(20).Select(x => new Teacher() { AccountId = x.Id, TeacherDegreeId = teacherDegrees[random.Next(teacherDegrees.Count)].Id }).ToList();
             var admins = new List<Admin>();
-            for (int i = 0; i < 100; i++)
-            {
-                admins.Add(new Admin
-                {
-                    Id = Guid.NewGuid(),
-                    Username = $"TestAdmin{i}",
-                    EmailHash = "dummyEmailHash",
-                    PasswordHash = "dummyPasswordHash",
-                    FirstName = $"firstName{i}",
-                    LastName = $"firstName{i}",
-                });
-            }
+            admins = accounts.Skip(20).Take(10).Select(x => new Admin() { AccountId = x.Id }).ToList();
+            var students = new List<Student>();
+            students = accounts.Skip(30).Select(x => new Student() { AccountId = x.Id }).ToList();
+
+            modelBuilder.Entity<Teacher>().HasData(teachers);
             modelBuilder.Entity<Admin>().HasData(admins);
+            modelBuilder.Entity<Student>().HasData(students);
 
             var faculties = new List<Faculty>();
             for (int i = 0; i < 3; i++)
@@ -77,103 +62,144 @@ namespace Org.Webelopers.Api.Extensions
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Faculty-{i}",
-                    ChiefOfDepartmentId = teachers[i].Id
+                    ChiefOfDepartmentId = teachers[i].AccountId
                 });
             }
             modelBuilder.Entity<Faculty>().HasData(faculties);
 
-            var studyDegrees = new List<StudyDegree>();
-            for (int i = 0; i < faculties.Count; i++)
+            var studyDegrees = new List<FacultyStudyDegree>
             {
-                studyDegrees.Add(new StudyDegree
+                new FacultyStudyDegree()
                 {
                     Id = Guid.NewGuid(),
-                    Name = $"StudyDegree-{i * 2}",
-                    FacultyId = faculties[i].Id
-                });
-                studyDegrees.Add(new StudyDegree
+                    Name = "Master"
+                },
+                new FacultyStudyDegree()
                 {
                     Id = Guid.NewGuid(),
-                    Name = $"StudyDegree-{i * 2 + 1}",
-                    FacultyId = faculties[i].Id
-                });
-            }
-            modelBuilder.Entity<StudyDegree>().HasData(studyDegrees);
+                    Name = "Bachelor"
+                }
+            };
+            modelBuilder.Entity<FacultyStudyDegree>().HasData(studyDegrees);
 
-            var specialisations = new List<Specialisation>();
+            var studyLines = new List<FacultyStudyLine>
+            {
+                new FacultyStudyLine()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "English",
+                    ShortName = "EN"
+                },
+                new FacultyStudyLine()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Romanian",
+                    ShortName = "RO"
+                },
+                new FacultyStudyLine()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "German",
+                    ShortName = "DE"
+                }
+            };
+            modelBuilder.Entity<FacultyStudyLine>().HasData(studyLines);
+
+            var specializations = new List<FacultySpecialization>();
             for (int i = 0; i < studyDegrees.Count; i++)
             {
-                specialisations.Add(new Specialisation
+                specializations.Add(new FacultySpecialization
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Specialisation-{i * 3}",
-                    StudyDegreeId = studyDegrees[i].Id
+                    Semesters = 2,
+                    FacultyId = faculties[random.Next(faculties.Count)].Id,
+                    StudyDegreeId = studyDegrees[random.Next(studyDegrees.Count)].Id,
+                    StudyLineId = studyLines[random.Next(studyLines.Count)].Id
                 });
-                specialisations.Add(new Specialisation
+                specializations.Add(new FacultySpecialization
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Specialisation-{i * 3 + 1}",
-                    StudyDegreeId = studyDegrees[i].Id
+                    Semesters = 2,
+                    FacultyId = faculties[random.Next(faculties.Count)].Id,
+                    StudyDegreeId = studyDegrees[random.Next(studyDegrees.Count)].Id,
+                    StudyLineId = studyLines[random.Next(studyLines.Count)].Id
                 });
-                specialisations.Add(new Specialisation
+                specializations.Add(new FacultySpecialization
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Specialisation-{i * 3 + 2}",
-                    StudyDegreeId = studyDegrees[i].Id
+                    Semesters = 2,
+                    FacultyId = faculties[random.Next(faculties.Count)].Id,
+                    StudyDegreeId = studyDegrees[random.Next(studyDegrees.Count)].Id,
+                    StudyLineId = studyLines[random.Next(studyLines.Count)].Id
                 });
             }
-            modelBuilder.Entity<Specialisation>().HasData(specialisations);
+            modelBuilder.Entity<FacultySpecialization>().HasData(specializations);
 
             var studyYears = new List<StudyYear>();
-            for (int i = 0; i < specialisations.Count; i++)
+
+            for (int i = 0; i < specializations.Count; i++)
             {
                 studyYears.Add(new StudyYear
                 {
                     Id = Guid.NewGuid(),
-                    Year = 1,
-                    SpecialisationId = specialisations[i].Id
+                    StartDate = DateTimeOffset.UtcNow.AddYears(-1).ToUnixTimeSeconds(),
+                    EndDate = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                    SpecializationId = specializations[i].Id,
+                    StudentLeaderId = students[random.Next(students.Count)].AccountId
                 });
                 studyYears.Add(new StudyYear
                 {
                     Id = Guid.NewGuid(),
-                    Year = 2,
-                    SpecialisationId = specialisations[i].Id
+                    StartDate = DateTimeOffset.UtcNow.AddYears(-2).ToUnixTimeSeconds(),
+                    EndDate = DateTimeOffset.UtcNow.AddYears(-1).ToUnixTimeSeconds(),
+                    SpecializationId = specializations[i].Id,
                 });
                 studyYears.Add(new StudyYear
                 {
                     Id = Guid.NewGuid(),
-                    Year = 3,
-                    SpecialisationId = specialisations[i].Id
+                    StartDate = DateTimeOffset.UtcNow.AddYears(-3).ToUnixTimeSeconds(),
+                    EndDate = DateTimeOffset.UtcNow.AddYears(-2).ToUnixTimeSeconds(),
+                    SpecializationId = specializations[i].Id,
                 });
             }
             modelBuilder.Entity<StudyYear>().HasData(studyYears);
 
-            var groups = new List<Group>();
+            var studentLeaders = new List<Guid>();
+            var tutorTeachers = new List<Guid>();
+            var groups = new List<FacultyGroup>();
             for (int i = 0; i < studyYears.Count; i++)
             {
-                groups.Add(new Group
+                Guid? leaderId = null;
+                while (leaderId is null || studentLeaders.Contains((Guid)leaderId))
+                {
+                    leaderId = students[random.Next(students.Count)].AccountId;
+                }
+                Guid? tutorId = null;
+                while (tutorId is null || tutorTeachers.Contains((Guid)tutorId))
+                {
+                    tutorId = teachers[random.Next(teachers.Count)].AccountId;
+                }
+                studentLeaders.Add((Guid)leaderId);
+                tutorTeachers.Add((Guid)tutorId);
+                groups.Add(new FacultyGroup
                 {
                     Id = Guid.NewGuid(),
-                    StudyYearId = studyYears[i].Id,
-                    TutorTeacherId = i * 3 >= teachers.Count ? null : teachers[i * 3 + 0].Id,
-                    LeaderStudentId = students[(i * 3 + 0) % students.Count].Id
+                    TutorTeacherId = (Guid)tutorId,
+                    LeaderStudentId = (Guid)leaderId
                 });
-                groups.Add(new Group
+                groups.Add(new FacultyGroup
                 {
                     Id = Guid.NewGuid(),
-                    StudyYearId = studyYears[i].Id,
-                    TutorTeacherId = i * 3 + 1 >= teachers.Count ? null : teachers[i * 3 + 1].Id,
-                    LeaderStudentId = students[(i * 3 + 1) % students.Count].Id
                 });
-                groups.Add(new Group
+                groups.Add(new FacultyGroup
                 {
                     Id = Guid.NewGuid(),
-                    StudyYearId = studyYears[i].Id,
-                    TutorTeacherId = i * 3 + 2 >= teachers.Count ? null : teachers[i * 3 + 2].Id,
-                    LeaderStudentId = students[(i * 3 + 2) % students.Count].Id
                 });
             }
-            modelBuilder.Entity<Group>().HasData(groups);
+            modelBuilder.Entity<FacultyGroup>().HasData(groups);
 
             var semesters = new List<StudySemester>();
             for (int i = 0; i < studyYears.Count; i++)
@@ -193,22 +219,22 @@ namespace Org.Webelopers.Api.Extensions
             }
             modelBuilder.Entity<StudySemester>().HasData(semesters);
 
-            var courses = new List<Course>();
+            var courses = new List<MandatoryCourse>();
             for (int i = 0; i < semesters.Count; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    courses.Add(new Course
+                    courses.Add(new MandatoryCourse
                     {
                         Id = Guid.NewGuid(),
                         Name = $"Course{i * j}",
                         Credits = (short)RandomNumberGenerator.GetInt32(6),
                         SemesterId = semesters[i].Id,
-                        TeacherId = teachers[(i * j) % teachers.Count].Id,
+                        TeacherId = teachers[random.Next(teachers.Count)].AccountId,
                     });
                 }
             }
-            modelBuilder.Entity<Course>().HasData(courses);
+            modelBuilder.Entity<MandatoryCourse>().HasData(courses);
 
             var optionalCourses = new List<OptionalCourse>();
             var optionals = new Dictionary<Guid, List<OptionalCourse>>();
@@ -222,7 +248,8 @@ namespace Org.Webelopers.Api.Extensions
                         Name = $"Course{i * j}",
                         Credits = (short)RandomNumberGenerator.GetInt32(6),
                         SemesterId = semesters[i].Id,
-                        TeacherId = teachers[(i * j) % teachers.Count].Id,
+                        TeacherId = teachers[random.Next(teachers.Count)].AccountId,
+                        MaxNumberOfStudent = 20
                     };
                     var targetStudyYear = studyYears.First(x => x.Id == semesters[i].StudyYearId).Id;
                     if (!optionals.ContainsKey(targetStudyYear))
@@ -235,34 +262,32 @@ namespace Org.Webelopers.Api.Extensions
             }
             modelBuilder.Entity<OptionalCourse>().HasData(optionalCourses);
 
-            var studyContracts = new List<StudyContract>();
+            var studyContracts = new List<StudentContract>();
             for (int i = 0; i < students.Count; i++)
             {
                 var group = groups[i % groups.Count];
-                var availableOptionals = optionals[group.StudyYearId];
-                studyContracts.Add(new StudyContract
+                studyContracts.Add(new StudentContract
                 {
                     Id = Guid.NewGuid(),
                     SignedAt = 1647781930,
-                    StudentId = students[i].Id,
+                    StudentId = students[i].AccountId,
+                    StudyYearId = studyYears[random.Next(studyYears.Count)].Id,
                     GroupId = group.Id,
-                    OptionalCourseId = availableOptionals[i % availableOptionals.Count].Id
                 });
                 if (i % 50 == 0)
                 {
-                    availableOptionals = optionals[group.StudyYearId];
                     group = groups[(i + RandomNumberGenerator.GetInt32(50)) % groups.Count];
-                    studyContracts.Add(new StudyContract
+                    studyContracts.Add(new StudentContract
                     {
                         Id = Guid.NewGuid(),
                         SignedAt = 1647781930,
-                        StudentId = students[i].Id,
+                        StudentId = students[i].AccountId,
+                        StudyYearId = studyYears[random.Next(studyYears.Count)].Id,
                         GroupId = group.Id,
-                        OptionalCourseId = availableOptionals[i % availableOptionals.Count].Id
                     });
                 }
             }
-            modelBuilder.Entity<StudyContract>().HasData(studyContracts);
+            modelBuilder.Entity<StudentContract>().HasData(studyContracts);
         }
     }
 }

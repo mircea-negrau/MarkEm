@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { contractReducer } from './slices/contracts'
 import { globalReducer } from './slices/global'
 
 export const store = configureStore({
   reducer: {
-    global: globalReducer
+    global: globalReducer,
+    contract: contractReducer
   }
 })
 

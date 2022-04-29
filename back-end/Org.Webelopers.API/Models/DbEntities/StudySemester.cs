@@ -20,9 +20,11 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual StudyYear StudyYear { get; set; }
 
-        public virtual List<Course> Courses { get; set; }
+        public virtual List<MandatoryCourse> Courses { get; set; }
 
         public virtual List<OptionalCourse> OptionalCourses { get; set; }
+        
+        public virtual List<StudentContractSemester> SemesterContracts { get; set; }
 
         #endregion
     }

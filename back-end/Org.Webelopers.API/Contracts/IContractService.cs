@@ -1,16 +1,24 @@
-
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Contracts
 {
     public interface IContractService
     {
-        public StudyContract EnrollStudent(StudyYear studyyear, Student student);
-        public void DisenrollStudent(int studentid);
-        public int GetNumberOfContracts(int studentid);
-        public List<Course> GetContractClasses(int contractid);
-        public List<Course> GetAllStudentClasses(int studentid);
-        public void SignContract(int studentid, int contractid);
+        public Guid? AddContract(Guid studentId);
+        public StudentContract GetContractById(Guid contractId);
+        public void RemoveContract(Guid contractId);
+        public void EnrollStudent(Guid studentId, Guid yearId);
+        public void SetGroupId(Guid contractId, Guid groupId);
+        public void SetYearId(Guid contractId, Guid yearId);
+        public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId);
+        public int GetNumberOfContracts(Guid studentId);
+        public List<MandatoryCourse> GetContractCourses(Guid contractId);
+        public void SignContract(Guid contractId);
+        public OptionalCourse GetOptionalCourse(Guid contractId);
+        public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId);
+
     }
 }
