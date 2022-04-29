@@ -2,25 +2,17 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
-import { login, register } from '../state/thunks/global'
+import { register } from '../state/thunks/global'
 import Image from '../assets/login-icon.png'
-import { Field, Form, Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import PersonIcon from '@mui/icons-material/Person'
-import {
-  Autocomplete,
-  Button,
-  Checkbox,
-  CircularProgress,
-  TextField
-} from '@mui/material'
+import { Button, CircularProgress, TextField } from '@mui/material'
 import { FetchStatus } from '../utility/fetchStatus'
 import React from 'react'
-import { ArrowDropDown, FormatAlignJustify } from '@mui/icons-material'
-import { border, height, width } from '@mui/system'
-import { ClassNames } from '@emotion/react'
+import EmailIcon from '@mui/icons-material/Email'
 
 const roleOptions = ['Student', 'Teacher', 'Admin']
 
@@ -80,7 +72,10 @@ export const RegisterPage: FunctionComponent = () => {
           color: '#96a2b4',
           height: '40px',
           fontSize: '20px',
-          width: '50%'
+          width: '50%',
+          paddingLeft: '7px',
+          marginTop: '7px',
+          borderRadius: '5px'
         }}
       >
         {options.map(o => (
@@ -97,10 +92,10 @@ export const RegisterPage: FunctionComponent = () => {
     password: Yup.string()
       .min(8, 'Password should be of minimum 8 characters length')
       .required('Password is required'),
-    email: Yup.string().required('Email is required'),
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
-    userType: Yup.string().required('Role is required')
+    userType: Yup.string().required('Role is required'),
+    email: Yup.string().email().required('Email is required')
   })
 
   const formik = useFormik({
@@ -200,18 +195,18 @@ export const RegisterPage: FunctionComponent = () => {
             </p>
             <GreyTextField
               fullWidth
-              id="username"
-              name="username"
-              label="Username"
-              value={formik.values.username}
+              id="email"
+              name="email"
+              label="Email"
+              value={formik.values.email}
               onChange={formik.handleChange}
-              error={formik.touched.username && Boolean(formik.errors.username)}
-              helperText={formik.touched.username && formik.errors.username}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
               variant="filled"
-              InputProps={{
-                endAdornment: <PersonIcon style={{ color: '#96a2b4' }} />
-              }}
               style={{ paddingBottom: '30px' }}
+              InputProps={{
+                endAdornment: <EmailIcon style={{ color: '#96a2b4' }} />
+              }}
             />
             <GreyTextField
               fullWidth
@@ -229,18 +224,32 @@ export const RegisterPage: FunctionComponent = () => {
               }}
               style={{ paddingBottom: '30px' }}
             />
-            <GreyTextField
-              fullWidth
-              id="email"
-              name="email"
-              label="Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-              variant="filled"
-              style={{ paddingBottom: '30px' }}
-            />
+
+            <div
+              style={{
+                display: 'flex',
+                width: '100%'
+              }}
+            >
+              <GreyTextField
+                fullWidth
+                id="username"
+                name="username"
+                label="Username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.username && Boolean(formik.errors.username)
+                }
+                helperText={formik.touched.username && formik.errors.username}
+                variant="filled"
+                InputProps={{
+                  endAdornment: <PersonIcon style={{ color: '#96a2b4' }} />
+                }}
+                style={{ paddingBottom: '30px', width: '50%' }}
+              />
+              <Dropdown options={roleOptions} />
+            </div>
             <div
               style={{
                 display: 'flex',
@@ -276,8 +285,6 @@ export const RegisterPage: FunctionComponent = () => {
                 style={{ paddingBottom: '30px', width: '50%' }}
               />
             </div>
-
-            <Dropdown options={roleOptions} />
 
             <div
               style={{
