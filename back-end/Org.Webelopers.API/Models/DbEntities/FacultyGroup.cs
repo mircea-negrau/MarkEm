@@ -5,13 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class Group
+    public class FacultyGroup
     {
         [Key]
         public Guid Id { get; set; }
 
-        [ForeignKey("Id")]
-        public Guid StudyYearId { get; set; }
+        public long Number { get; set; }
 
         [ForeignKey("Id")]
         public Guid? TutorTeacherId { get; set; }
@@ -21,10 +20,10 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         #region References
 
-        public virtual StudyYear StudyYear { get; set; }
         public virtual Teacher TutorTeacher { get; set; }
         public virtual Student LeaderStudent { get; set; }
-        public virtual List<StudyContract> Contracts { get; set; }
+        public virtual List<StudentContract> Contracts { get; set; }
+        public virtual List<StudentMandatoryCourseEnrollment> StudentEnrolledCourses { get; set; }
 
         #endregion
     }

@@ -17,7 +17,7 @@ namespace Org.Webelopers.Api.Logic
 
         public void AddGrade(short grade, Guid courseId, Guid studentId)
         {
-            _context.Add(new CourseGrade()
+            _context.Add(new MandatoryCourseGrade()
             {
                 Id = Guid.NewGuid(),
                 Grade = grade,
@@ -36,7 +36,7 @@ namespace Org.Webelopers.Api.Logic
                 _context.SaveChanges();
             }
         }
-        public List<CourseGrade> GetStudentGrades(Guid studentId)
+        public List<MandatoryCourseGrade> GetStudentGrades(Guid studentId)
         {
             return _context.Grades.Where(x => x.StudentId == studentId).ToList();
         }

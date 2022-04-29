@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Org.Webelopers.Api.Models.DbEntities
+namespace Org.Webelopers.Api.Models.DbEntities.BaseClasses
 {
-    public class Course
+    public class BaseCourse
     {
         [Key]
         public Guid Id { get; set; }
@@ -28,8 +27,6 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual StudySemester Semester { get; set; }
 
         public virtual Teacher Teacher { get; set; }
-
-        public virtual List<CourseGrade> Grades { get; set; }
 
         #endregion
     }

@@ -1,7 +1,9 @@
 ﻿using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.DbEntities.BaseClasses;
 using Org.Webelopers.Api.Models.Types;
+using System;
 using System.Linq;
 
 namespace Org.Webelopers.Api.Logic.Auth
@@ -15,72 +17,55 @@ namespace Org.Webelopers.Api.Logic.Auth
             _context = context;
         }
 
-        public AccountContext Authenticate(string username, string password)
+        public Account Authenticate(string username, string password)
         {
-            var student = _context.Students.FirstOrDefault(x => x.Username == username);
-            if (student != null)
-            {
-                return ValidatePassword(password, student, UserRoles.Student);
-            }
-            var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
-            if (teacher != null)
-            {
-                return ValidatePassword(password, teacher, UserRoles.Teacher);
-            }
-            var admin = _context.Admins.FirstOrDefault(x => x.Username == username);
-            if (admin != null)
-            {
-                return ValidatePassword(password, admin, UserRoles.Admin);
-            }
-            return null;
+            var account = _context.Accounts.FirstOrDefault(x => x.Username == username);
+            return account != null
+                ? ValidatePassword(password, account)
+                : null;
         }
 
-        public AccountContext Register(string userType, string username, string passwordHash, string emailHash, string firstName, string lastName)
+        public Account Register(string userType, string username, string passwordHash, string emailHash, string firstName, string lastName)
         {
             if (IsUsernameTaken(username))
             {
                 return null;
             }
 
-            switch (userType)
+            var account = new Account()
             {
-                case UserRoles.Student:
-                    var student = new Student(username, emailHash, passwordHash, firstName, lastName, null);
-                    _context.Add(student);
-                    _context.SaveChanges();
-                    return new AccountContext(student, UserRoles.Student);
-                case UserRoles.Teacher:
-                    var teacher = new Teacher(username, passwordHash, emailHash, firstName, lastName, null, null);
-                    _context.Add(teacher);
-                    _context.SaveChanges();
-                    return new AccountContext(teacher, UserRoles.Teacher);
-                case UserRoles.Admin:
-                    var admin = new Admin(username, passwordHash, emailHash, firstName, lastName);
-                    _context.Add(admin);
-                    _context.SaveChanges();
-                    return new AccountContext(admin, UserRoles.Admin);
-                default:
-                    return null;
-            }
+                Id = Guid.NewGuid(),
+                Role = userType,
+                Username = username,
+                EmailHash = emailHash,
+                PasswordHash = passwordHash,
+                FirstName = firstName,
+                LastName = lastName
+            };
+            return (userType) switch
+            {
+                UserRoles.Student => CreateAccount<Student>(account),
+                UserRoles.Teacher => CreateAccount<Teacher>(account),
+                UserRoles.Admin => CreateAccount<Admin>(account),
+                _ => null
+            };
         }
 
-        private bool IsUsernameTaken(string username)
+        private Account CreateAccount<AccountType>(Account account) where AccountType : BaseAccount, new()
         {
-            var student = _context.Students.FirstOrDefault(x => x.Username == username);
-            if (student != null)
-                return true;
-            var teacher = _context.Teachers.FirstOrDefault(x => x.Username == username);
-            if (teacher != null)
-                return true;
-            var admin = _context.Admins.FirstOrDefault(x => x.Username == username);
-            if (admin != null)
-                return true;
-            return false;
+            var newAccount = new AccountType() { AccountId = account.Id };
+            _context.Add(newAccount);
+            _context.SaveChanges();
+            return account;
         }
 
-        private static AccountContext ValidatePassword(string password, Account account, string userRole) =>
+        private bool IsUsernameTaken(string username) =>
+            _context.Accounts.FirstOrDefault(x => x.Username == username) == null;
+
+
+        private static Account ValidatePassword(string password, Account account) =>
             BCrypt.Net.BCrypt.Verify(password, account.PasswordHash)
-                ? new AccountContext(account, userRole)
+                ? account
                 : null;
     }
 }

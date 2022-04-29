@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Org.Webelopers.Api.Models.DbEntities
+namespace Org.Webelopers.Api.Models.DbEntities.BaseClasses
 {
-    public class CourseGrade
+    public class BaseCourseGrade<TCourse>
     {
         [Key]
         public Guid Id { get; set; }
@@ -25,7 +25,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         public virtual Student Student { get; set; }
 
-        public virtual Course Course { get; set; }
+        public virtual TCourse Course { get; set; }
 
         #endregion
     }

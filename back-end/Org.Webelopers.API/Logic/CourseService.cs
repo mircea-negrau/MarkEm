@@ -18,7 +18,7 @@ namespace Org.Webelopers.Api.Logic
 
         public void AddCourse(string name, short credits, Guid semesterId, Guid teacherId)
         {
-            _context.Add(new Course()
+            _context.Add(new MandatoryCourse()
             {
                 Id = Guid.NewGuid(),
                 Name = name,
@@ -53,7 +53,7 @@ namespace Org.Webelopers.Api.Logic
             }
         }
 
-        public List<Course> GetCoursesByTeacher(Guid teacherId) =>
+        public List<MandatoryCourse> GetCoursesByTeacher(Guid teacherId) =>
             _context.Courses.Where(x => x.TeacherId == teacherId).ToList();
     }
 }

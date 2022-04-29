@@ -2,5 +2,5 @@
 
 namespace Org.Webelopers.Api.Models.DbEntities
 {
-    public class OptionalCourseGrade : BaseCourseGrade<OptionalCourse> { }
+    public class Admin : BaseAccount { }
 }

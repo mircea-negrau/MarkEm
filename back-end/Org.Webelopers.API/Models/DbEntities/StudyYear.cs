@@ -10,22 +10,25 @@ namespace Org.Webelopers.Api.Models.DbEntities
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
-        public short Year { get; set; }
+        public long StartDate { get; set; }
+
+        public long EndDate { get; set; }
 
         [ForeignKey("Id")]
-        public Guid SpecialisationId { get; set; }
+        public Guid SpecializationId { get; set; }
 
         [ForeignKey("Id")]
-        public Guid? StudentLeaderUserId { get; set; }
+        public Guid? StudentLeaderId { get; set; }
 
         #region References
 
-        public virtual Specialisation Specialisation { get; set; }
+        public virtual FacultySpecialization Specialization { get; set; }
+
         public virtual Student StudentLeader { get; set; }
-        public virtual List<Group> Groups { get; set; }
+
         public virtual List<StudySemester> Semesters { get; set; }
-        public virtual List<StudyContract> Contracts { get; set; }
+
+        public virtual List<StudentContract> Contracts { get; set; }
 
         #endregion
     }
