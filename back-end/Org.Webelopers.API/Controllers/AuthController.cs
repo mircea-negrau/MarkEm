@@ -34,13 +34,13 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Login([FromBody] LoginDto login)
         {
-            var user = _authService.Authenticate(login.Username, login.Password);
+            var user = _authService.Authenticate(login.Email, login.Password);
             if (user == null)
             {
-                _logger.LogInformation($"Authentication for {login.Username} failed!");
+                _logger.LogInformation($"Authentication for email '{login.Email}' failed!");
                 return NotFound(new { message = "Invalid credentials!" });
             }
-            _logger.LogInformation($"Logged in {login.Username} ");
+            _logger.LogInformation($"Logged in {user.Username} ");
             string token = _authTokenService.GenerateAuthToken(user);
             return Ok(token);
         }
@@ -51,9 +51,8 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult Register([FromBody] RegisterDto register)
         {
-            string emailHash = BCrypt.Net.BCrypt.HashPassword(register.Email);
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(register.Password);
-            var user = _authService.Register(register.UserType, register.Username, passwordHash, emailHash, register.FirstName, register.LastName);
+            var user = _authService.Register(register.UserType, register.Username, passwordHash, register.Email, register.FirstName, register.LastName);
 
             if (user == null)
             {
