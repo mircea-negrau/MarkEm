@@ -91,11 +91,32 @@ export const LeftNavBar: FunctionComponent = () => {
   return (
     <MainContainer>
       <UserContainer>
-        <UserAvatar profilePicture={ProfilePicture} />
-        <p style={{ color: '#e6e6e6', marginTop: '10px', fontWeight: '600' }}>
+        <UserAvatar profilePicture={ProfilePicture} username={state.username} />
+
+        <p
+          onClick={() => {
+            window.location.replace(`/profile/${state.username}`)
+          }}
+          style={{
+            color: '#e6e6e6',
+            marginTop: '10px',
+            fontWeight: '600',
+            cursor: 'pointer'
+          }}
+        >
           {state.firstName + ' ' + state.lastName}
         </p>
-        <p style={{ color: '#e6e6e6', marginTop: '3px', fontSize: '12px' }}>
+        <p
+          onClick={() => {
+            window.location.replace(`/profile/${state.username}`)
+          }}
+          style={{
+            color: '#e6e6e6',
+            marginTop: '3px',
+            fontSize: '12px',
+            cursor: 'pointer'
+          }}
+        >
           {state.userRole}
         </p>
       </UserContainer>
