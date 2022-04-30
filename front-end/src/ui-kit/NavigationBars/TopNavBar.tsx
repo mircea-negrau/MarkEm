@@ -7,7 +7,11 @@ import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
 import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
 
-export const TopNavBar: FunctionComponent = () => {
+interface TopNavBarProps {
+  dockerAction: () => void
+}
+
+export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
   return (
     <div
@@ -19,20 +23,6 @@ export const TopNavBar: FunctionComponent = () => {
         background: 'linear-gradient(#1c212d, #1a202e)'
       }}
     >
-      <a
-        href="/"
-        style={{
-          display: 'flex',
-          padding: '8px',
-          minWidth: '244px',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRight: '1px solid #323538',
-          cursor: 'pointer'
-        }}
-      >
-        <p style={{ color: 'white', fontSize: '24px' }}>{"Mark'Em"}</p>
-      </a>
       <div
         style={{
           display: 'flex',
@@ -42,7 +32,26 @@ export const TopNavBar: FunctionComponent = () => {
           paddingLeft: '27px'
         }}
       >
-        <MenuIcon style={{ color: 'white', cursor: 'pointer' }} />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <MenuIcon
+            style={{ color: 'white', cursor: 'pointer' }}
+            onClick={() => {
+              props.dockerAction()
+            }}
+          />
+          <a
+            href="/"
+            style={{
+              padding: '8px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer',
+              paddingLeft: '30px'
+            }}
+          >
+            <p style={{ color: 'white', fontSize: '24px' }}>{"Mark'Em"}</p>
+          </a>
+        </div>
         <div
           style={{
             display: 'flex',

@@ -3,9 +3,9 @@ using System;
 
 namespace Org.Webelopers.Api.Models.Persistence.Profiles
 {
-    public class PublicProfile
+    public class PublicProfileResponseDto
     {
-        public PublicProfile(Account account)
+        public PublicProfileResponseDto(Account account)
         {
             Id = account.Id;
             Role = account.Role;

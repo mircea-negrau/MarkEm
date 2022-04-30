@@ -3,12 +3,8 @@ import styled from 'styled-components'
 import { deleteContract, getAllContracts } from '../state/thunks/contracts'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../state/store'
-import { contractActions } from '../state/slices/contracts'
-import { StudyContractType } from '../utility/types/studentTypes'
 import { Button } from '@mui/material'
-import { FetchStatus } from '../utility/fetchStatus'
-import { Field, Form, Formik, useFormik } from 'formik'
-import { register } from '../state/thunks/global'
+import { useFormik } from 'formik'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -153,7 +149,7 @@ export const Contracts: FunctionComponent = () => {
                   padding: '50px',
                   borderRadius: '25px'
                 }}
-                onClick={e => {
+                onClick={() => {
                   console.log('div with id ' + contract.id + ' was clicked')
                   setSelectedContract(contract.id)
                   console.log(selectedContract)
