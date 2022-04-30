@@ -15,11 +15,11 @@ namespace Org.Webelopers.Api.Logic
             _context = context;
         }
 
-        public PublicProfile GetPublicProfileByUsername(string username)
+        public PublicProfileResponseDto GetPublicProfileByUsername(string username)
         {
             var account = _context.Accounts.FirstOrDefault(x => x.Username == username);
             return account != null
-                ? new PublicProfile(account)
+                ? new PublicProfileResponseDto(account)
                 : throw new Exception($"Account with username '{username}' does not exist!");
         }
     }

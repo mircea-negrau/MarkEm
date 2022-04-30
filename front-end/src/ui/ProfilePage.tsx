@@ -24,7 +24,7 @@ export const ProfilePage: FunctionComponent = () => {
 
   useEffect(() => {
     if (username == undefined) {
-      // window.location.replace('/error')
+      window.location.replace('/error')
     } else {
       if (state.profileStatus != FetchStatus.success) {
         dispatch(getProfileByUsername(username))

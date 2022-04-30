@@ -132,33 +132,50 @@ export const LeftNavBar: FunctionComponent = () => {
           <DashboardIcon style={{ color: '#cfd8e3' }} />
           <MenuItemText>Dashboard</MenuItemText>
         </MenuItem>
-        <MenuItem
-          isActive={location.pathname == '/time-table'}
-          onClick={() => {
-            window.location.replace('/time-table')
-          }}
-        >
-          <CalendarTodayIcon style={{ color: '#cfd8e3' }} />
-          <MenuItemText>Time Table</MenuItemText>
-        </MenuItem>
-        <MenuItem
-          isActive={location.pathname == '/contracts'}
-          onClick={() => {
-            window.location.replace('/contracts')
-          }}
-        >
-          <AssignmentIcon style={{ color: '#cfd8e3' }} />
-          <MenuItemText>Contracts</MenuItemText>
-        </MenuItem>
-        <MenuItem
-          isActive={location.pathname == '/homework'}
-          onClick={() => {
-            window.location.replace('/homework')
-          }}
-        >
-          <MenuBookIcon style={{ color: '#cfd8e3' }} />
-          <MenuItemText>Homework</MenuItemText>
-        </MenuItem>
+        {state.userRole == 'Student' && (
+          <>
+            <MenuItem
+              isActive={location.pathname == '/time-table'}
+              onClick={() => {
+                window.location.replace('/time-table')
+              }}
+            >
+              <CalendarTodayIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Time Table</MenuItemText>
+            </MenuItem>
+            <MenuItem
+              isActive={location.pathname == '/contracts'}
+              onClick={() => {
+                window.location.replace('/contracts')
+              }}
+            >
+              <AssignmentIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Contracts</MenuItemText>
+            </MenuItem>
+            <MenuItem
+              isActive={location.pathname == '/homework'}
+              onClick={() => {
+                window.location.replace('/homework')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Homework</MenuItemText>
+            </MenuItem>
+          </>
+        )}
+        {state.userRole == 'Teacher' && (
+          <>
+            <MenuItem
+              isActive={location.pathname == '/teacher/courses'}
+              onClick={() => {
+                window.location.replace('/teacher/courses')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Courses</MenuItemText>
+            </MenuItem>
+          </>
+        )}
         <MenuItem
           isActive={location.pathname == '/settings'}
           onClick={() => {

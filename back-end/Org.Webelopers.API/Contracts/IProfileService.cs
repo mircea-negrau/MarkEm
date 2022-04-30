@@ -4,6 +4,6 @@ namespace Org.Webelopers.Api.Contracts
 {
     public interface IProfileService
     {
-        public PublicProfile GetPublicProfileByUsername(string username);
+        public PublicProfileResponseDto GetPublicProfileByUsername(string username);
     }
 }
