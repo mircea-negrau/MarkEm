@@ -10,8 +10,17 @@ const Avatar = styled.div<{ image: string }>`
   background-size: cover;
   border-radius: 15%;
   border: 2px solid white;
+  cursor: pointer;
 `
 
 export const UserAvatar: FunctionComponent<{
   profilePicture: string
-}> = props => <Avatar image={props.profilePicture} />
+  username?: string
+}> = props => (
+  <Avatar
+    onClick={() => {
+      if (props.username) window.location.replace(`/profile/${props.username}`)
+    }}
+    image={props.profilePicture}
+  />
+)
