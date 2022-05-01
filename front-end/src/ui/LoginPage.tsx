@@ -55,9 +55,7 @@ export const LoginPage: FunctionComponent = () => {
   const dispatch = useDispatch()
 
   const validationSchema = Yup.object({
-    username: Yup.string()
-      // .email('Enter a valid email')
-      .required('Username is required'),
+    email: Yup.string().email('Enter a valid email'),
     password: Yup.string()
       .min(8, 'Password should be of minimum 8 characters length')
       .required('Password is required')
@@ -65,7 +63,7 @@ export const LoginPage: FunctionComponent = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: ''
     },
     validationSchema: validationSchema,
@@ -190,13 +188,13 @@ export const LoginPage: FunctionComponent = () => {
             </p>
             <GreyTextField
               fullWidth
-              id="username"
-              name="username"
-              label="Username"
-              value={formik.values.username}
+              id="email"
+              name="email"
+              label="Email"
+              value={formik.values.email}
               onChange={formik.handleChange}
-              error={formik.touched.username && Boolean(formik.errors.username)}
-              helperText={formik.touched.username && formik.errors.username}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
               variant="filled"
               InputProps={{
                 endAdornment: <PersonIcon style={{ color: '#96a2b4' }} />
@@ -235,7 +233,7 @@ export const LoginPage: FunctionComponent = () => {
             </div>
             <LoginButton
               available={
-                formik.values.username != '' && formik.values.password != ''
+                formik.values.email != '' && formik.values.password != ''
               }
               type="submit"
             >

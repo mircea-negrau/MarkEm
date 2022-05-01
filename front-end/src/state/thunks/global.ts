@@ -1,11 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { STATUS_CODES } from 'http'
 import localforage from 'localforage'
-import { Navigate } from 'react-router-dom'
-import { SECURE_API, API } from '../../utility/api'
-import { UserDetails } from '../slices/global'
-import jwt_decode from 'jwt-decode'
-import { StudyContractType } from '../../utility/types/studentTypes'
+import { API } from '../../utility/api'
 
 export interface UserProfileReturnType {
   id: string
@@ -16,10 +11,10 @@ export interface UserProfileReturnType {
 
 export const login = createAsyncThunk(
   'login',
-  async (requestData: { username: string; password: string }) => {
+  async (requestData: { email: string; password: string }) => {
     try {
       const response = await API.post(`/auth/login`, {
-        username: requestData.username,
+        email: requestData.email,
         password: requestData.password
       })
       const responseContent: string = response.data

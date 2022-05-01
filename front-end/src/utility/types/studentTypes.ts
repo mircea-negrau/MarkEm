@@ -1,4 +1,4 @@
-export interface StudyContractType {
+export interface StudyContract {
   id: string
   signedAt?: number
   studentId: string
@@ -7,7 +7,7 @@ export interface StudyContractType {
   yearId?: string
 }
 
-export interface StudyContractTypeEnriched {
+export interface StudyContractEnriched {
   id: string
   signedAt?: number
   specialisation?: string

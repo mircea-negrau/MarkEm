@@ -30,7 +30,7 @@ namespace Org.Webelopers.Api.Extensions
                 {
                     Id = Guid.NewGuid(),
                     Username = $"TestAccount{i}",
-                    EmailHash = "dummyEmailHash",
+                    Email = "dummyEmail@email.com",
                     PasswordHash = "dummyPasswordHash",
                     FirstName = $"firstName{i}",
                     LastName = $"firstName{i}",

@@ -19,7 +19,7 @@ namespace Org.Webelopers.Api.Models.DbEntities
 
         [Required]
         [JsonIgnore]
-        public string EmailHash { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [JsonIgnore]
