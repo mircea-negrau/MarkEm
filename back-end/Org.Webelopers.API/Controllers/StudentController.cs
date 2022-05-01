@@ -251,11 +251,29 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetStudentCourses([FromQuery] Guid studentId)
+        public IActionResult GetStudentContracts([FromQuery] Guid studentId)
         {
             try
             {
                 return Ok(_contractService.GetStudentContractsEnriched(studentId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("faculties/all")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetAllFaculties()
+        {
+            try
+            {
+                return Ok();
             }
             catch (Exception ex)
             {

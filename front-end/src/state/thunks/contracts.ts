@@ -22,6 +22,17 @@ export const getAllContracts = createAsyncThunk(
   }
 )
 
+export const getFaculties = createAsyncThunk('getFaculties', async () => {
+  try {
+    const response = await SECURE_API.get(`/student/faculties/all`)
+    console.log('getting all faculties')
+    const responseContent: string[] = response.data
+    return responseContent
+  } catch (error) {
+    alert(error)
+  }
+})
+
 export const deleteContract = createAsyncThunk(
   'deleteContract',
   async (data: { contractId: string; token: string }) => {

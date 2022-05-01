@@ -5,6 +5,7 @@ import { getAllContracts } from '../thunks/contracts'
 
 interface ContractsStateType {
   contracts: StudyContractEnriched[]
+
   contractsStatus: FetchStatus
 }
 
