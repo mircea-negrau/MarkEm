@@ -13,6 +13,7 @@ import { RegisterPage } from './ui/RegisterPage'
 import { ProfilePage } from './ui/ProfilePage'
 import { ErrorPage } from './ui/ErrorPage'
 import { CoursesPage } from './ui/CoursesPage'
+import { CoursePage } from './ui/CoursePage'
 
 const App: FunctionComponent = () => {
   return (
@@ -73,6 +74,14 @@ const App: FunctionComponent = () => {
             element={
               <AuthComponent>
                 <CoursesPage />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/teacher/course/:courseId'}
+            element={
+              <AuthComponent>
+                <CoursePage />
               </AuthComponent>
             }
           />

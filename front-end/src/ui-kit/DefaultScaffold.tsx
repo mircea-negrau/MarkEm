@@ -7,6 +7,8 @@ const Scaffold = styled.div`
   display: flex;
   padding-top: 61px;
   min-height: calc(100vh - 61px);
+  padding-left: 15%;
+  padding-right: 15%;
 `
 
 export const DefaultScaffold: FunctionComponent = props => {
@@ -15,10 +17,10 @@ export const DefaultScaffold: FunctionComponent = props => {
     <>
       <TopNavBar
         dockerAction={() => {
-          setShowLeftNavBar(!showLeftNavBar)
+          setShowLeftNavBar(showLeftNavBar => !showLeftNavBar)
         }}
       />
-      {showLeftNavBar && <LeftNavBar />}
+      <LeftNavBar isActive={showLeftNavBar} />
       <Scaffold>{props.children}</Scaffold>
     </>
   )
