@@ -13,7 +13,7 @@ export const getCoursesByTeacher = createAsyncThunk(
       const response = await SECURE_API.get(
         `/teacher/courses/all?teacherId=${decoded.uid}`
       )
-      console.log(response)
+      console.log('Response-start:\n', response, 'Response-end')
       const responseContent: TeacherMandatoryEnrichedCourses[] =
         response.data.courses
       return responseContent
