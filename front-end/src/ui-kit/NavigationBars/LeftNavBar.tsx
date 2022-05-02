@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
 import styled from 'styled-components'
 import { UserAvatar } from '../Avatars/UserAvatar'
 import DashboardIcon from '@mui/icons-material/Dashboard'
@@ -91,7 +90,14 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
   return (
     <MainContainer isActive={props.isActive}>
       <UserContainer>
-        <UserAvatar profilePicture={ProfilePicture} username={state.username} />
+        <UserAvatar
+          profilePicture={
+            state.profile.picture
+              ? `data:image/png;base64,${state.profile.picture}`
+              : ''
+          }
+          username={state.username}
+        />
 
         <p
           onClick={() => {

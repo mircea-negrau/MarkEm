@@ -19,6 +19,7 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ICurriculumService _curriculumService;
         private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
+        private readonly IFacultyService _facultyService;
         private readonly IAuthTokenService _authTokenService;
 
         public StudentController(
@@ -27,7 +28,8 @@ namespace Org.Webelopers.Api.Controllers
             ICurriculumService curriculumService,
             IOptionalCourseService optionalService,
             IGradesService gradeService,
-            IAuthTokenService authTokenService
+            IAuthTokenService authTokenService,
+            IFacultyService facultyService
             )
         {
             _logger = logger;
@@ -36,6 +38,7 @@ namespace Org.Webelopers.Api.Controllers
             _optionalCourseService = optionalService;
             _gradeService = gradeService;
             _authTokenService = authTokenService;
+            _facultyService = facultyService;
         }
 
 
@@ -48,7 +51,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
+                _contractService.EnrollStudent(enroll.StudentID, enroll.SpecialisationId);
             }
             catch (ArgumentException ex)
             {
@@ -70,7 +73,7 @@ namespace Org.Webelopers.Api.Controllers
         public IActionResult Dummy([FromBody] GradeDto gradeDto)
         {
             var authorization = HttpContext.Request.Headers["Authorization"];
-            var token = _authTokenService.ValidateAuthToken(authorization);
+            var token = _authTokenService.ParseAuthToken(authorization);
             Guid studentId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "Id")?.Value);
             _logger.LogInformation(authorization.ToString());
             try
@@ -152,11 +155,11 @@ namespace Org.Webelopers.Api.Controllers
         [HttpPost("sign")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult SignContract([FromBody] Guid contractid)
+        public IActionResult SignContract([FromQuery] Guid contractId)
         {
             try
             {
-                _contractService.SignContract(contractid);
+                _contractService.SignContract(contractId);
             }
             catch (ArgumentException ex)
             {
@@ -254,11 +257,47 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetStudentCourses([FromQuery] Guid studentId)
+        public IActionResult GetStudentContracts([FromQuery] Guid studentId)
         {
             try
             {
                 return Ok(_contractService.GetStudentContractsEnriched(studentId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("faculties/all")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetAllFaculties()
+        {
+            try
+            {
+                return Ok(_facultyService.GetAllFacultiesDetails());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("faculties/specialisations")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetAllFaculties([FromQuery] Guid facultyId, [FromQuery] Guid degreeId)
+        {
+            try
+            {
+                return Ok(_facultyService.GetFacultySpecialisations(facultyId, degreeId));
             }
             catch (Exception ex)
             {

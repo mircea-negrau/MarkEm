@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
@@ -20,7 +21,7 @@ namespace Org.Webelopers.Api.Logic
         public StudentContract GetContractById(Guid contractId) =>
             _context.Contracts.FirstOrDefault(contract => contract.Id == contractId);
 
-        public Guid? AddContract(Guid studentId)
+        public Guid? AddContract(Guid studentId, Guid yearId)
         {
             int numberOfContracts = _context.Contracts.Where(contract => contract.StudentId == studentId).Count();
             if (numberOfContracts >= 2)
@@ -31,6 +32,7 @@ namespace Org.Webelopers.Api.Logic
             var contract = new StudentContract()
             {
                 StudentId = studentId,
+                StudyYearId = yearId,
                 Id = Guid.NewGuid()
             };
             _context.Contracts.Add(contract);
@@ -63,20 +65,21 @@ namespace Org.Webelopers.Api.Logic
                 }
         }
 
-        public void EnrollStudent(Guid studentId, Guid yearId)
+        public void EnrollStudent(Guid studentId, Guid specialisationID)
         {
+            var yearId = _context.StudyYears.FirstOrDefault(yr => yr.SpecializationId == specialisationID).Id;
+
             var contract = _context.Contracts.FirstOrDefault(contr => contr.StudentId == studentId && contr.StudyYearId == yearId);
             if (contract != null)
             {
                 throw new ArgumentException("This student already has a contract for this year");
             }
 
-            var contractId = AddContract(studentId);
+            var contractId = AddContract(studentId, yearId);
             if (contractId == null)
             {
                 throw new ArgumentException("This student has the max allowed number of contracts");
             }
-            SetYearId((Guid)contractId, yearId);
         }
 
         public void SetYearId(Guid contractId, Guid yearId)
@@ -140,6 +143,21 @@ namespace Org.Webelopers.Api.Logic
 
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId) => throw new NotImplementedException();
         public OptionalCourse GetOptionalCourse(Guid contractId) => throw new NotImplementedException();
-        public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId) => throw new NotImplementedException();
+        public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId)
+        {
+            var contracts = _context.Contracts.Where(contract => contract.StudentId == studentId)
+                .Include(contract => contract.StudyYear)
+                .ThenInclude(contract => contract.Specialization)
+                .ThenInclude(contract => contract.Faculty)
+                .Select(contract => new ContractEnriched(){ 
+                    Id = contract.Id,
+                    SignedAt = contract.SignedAt,
+                    Specialisation = contract.StudyYear.Specialization.Name,
+                    Faculty = contract.StudyYear.Specialization.Faculty.Name
+                }).ToList();
+
+            return contracts;
+                
+        }
     }
 }
