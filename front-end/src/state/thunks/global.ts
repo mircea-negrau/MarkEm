@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import localforage from 'localforage'
-import { API } from '../../utility/api'
+import { API, SECURE_API } from '../../utility/api'
+import { Profile } from '../../utility/types/profileTypes'
 
 export interface UserProfileReturnType {
   id: string
@@ -64,3 +65,16 @@ export const logout = createAsyncThunk('logout', async () => {
     console.log(error)
   }
 })
+
+export const getCurrentProfile = createAsyncThunk(
+  'getCurrentProfile',
+  async (username: string) => {
+    try {
+      const response = await SECURE_API.get(`/profile/${username}`)
+      const profile: Profile = response.data
+      return profile
+    } catch (error) {
+      console.log(error)
+    }
+  }
+)
