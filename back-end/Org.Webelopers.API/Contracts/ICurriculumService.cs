@@ -9,5 +9,7 @@ namespace Org.Webelopers.Api.Contracts
         public Tuple<List<MandatoryCourse>, List<OptionalCourse>> GetStudentEnrolledCourses(Guid studentId);
         public List<MandatoryCourse> GetSemesterCurriculum(Guid semesterId);
         public List<MandatoryCourse> GetYearCurriculum(Guid yearId);
+
+        public StudySemester GetStudySemester(Guid studentContractSemesterId);
     }
 }
