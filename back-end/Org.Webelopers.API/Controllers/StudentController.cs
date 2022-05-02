@@ -19,6 +19,7 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ICurriculumService _curriculumService;
         private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
+        private readonly IFacultyService _facultyService;
         private readonly IAuthTokenService _authTokenService;
 
         public StudentController(
@@ -27,7 +28,8 @@ namespace Org.Webelopers.Api.Controllers
             ICurriculumService curriculumService,
             IOptionalCourseService optionalService,
             IGradesService gradeService,
-            IAuthTokenService authTokenService
+            IAuthTokenService authTokenService,
+            IFacultyService facultyService
             )
         {
             _logger = logger;
@@ -36,6 +38,7 @@ namespace Org.Webelopers.Api.Controllers
             _optionalCourseService = optionalService;
             _gradeService = gradeService;
             _authTokenService = authTokenService;
+            _facultyService = facultyService;
         }
 
 
@@ -251,11 +254,29 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetStudentCourses([FromQuery] Guid studentId)
+        public IActionResult GetStudentContracts([FromQuery] Guid studentId)
         {
             try
             {
                 return Ok(_contractService.GetStudentContractsEnriched(studentId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("faculties/all")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetAllFaculties()
+        {
+            try
+            {
+                return Ok(_facultyService.GetAllFacultiesDetails());
             }
             catch (Exception ex)
             {

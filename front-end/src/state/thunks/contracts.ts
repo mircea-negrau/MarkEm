@@ -2,7 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { SECURE_API } from '../../utility/api'
 import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
-import { StudyContractEnriched } from '../../utility/types/studentTypes'
+import {
+  FacultyDetails,
+  StudyContractEnriched
+} from '../../utility/types/studentTypes'
 
 export const getAllContracts = createAsyncThunk(
   'getAllContracts',
@@ -21,6 +24,17 @@ export const getAllContracts = createAsyncThunk(
     }
   }
 )
+
+export const getFaculties = createAsyncThunk('getFaculties', async () => {
+  try {
+    const response = await SECURE_API.get(`/student/faculties/all`)
+    console.log('getting all faculties')
+    const responseContent: FacultyDetails = response.data
+    return responseContent
+  } catch (error) {
+    alert(error)
+  }
+})
 
 export const deleteContract = createAsyncThunk(
   'deleteContract',

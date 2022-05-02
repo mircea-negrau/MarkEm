@@ -1,6 +1,10 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { deleteContract, getAllContracts } from '../state/thunks/contracts'
+import {
+  deleteContract,
+  getAllContracts,
+  getFaculties
+} from '../state/thunks/contracts'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../state/store'
 import { Button } from '@mui/material'
@@ -13,7 +17,6 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100%;
 `
-const roleOptions = ['Student', 'Teacher', 'Admin']
 export default function Contract({ contract }) {
   return (
     <div
@@ -40,9 +43,10 @@ export const Contracts: FunctionComponent = () => {
   const [selectedContract, setSelectedContract] = useState('')
   const dispatch = useDispatch()
   const [updateContracts, setUpdateContracts] = useState(true)
-  const [specialisation, setSpecialization] = useState(roleOptions[0])
-  const [faculty, setFaculty] = useState(roleOptions[0])
-  const [year, setYear] = useState(roleOptions[0])
+  const [faculties, setFaculties] = useState([''])
+  const [specialisations, setSpecialisations] = useState([''])
+  const [specialisation, setSpecialization] = useState(specialisations[0])
+  const [faculty, setFaculty] = useState(faculties[0])
 
   const Dropdown = ({ options, field, val }) => {
     return (
@@ -51,8 +55,6 @@ export const Contracts: FunctionComponent = () => {
         onChange={e => {
           if (field == 'Faculty') {
             setFaculty(e.target.value), (formik.values.faculty = e.target.value)
-          } else if (field == 'Year') {
-            setYear(e.target.value), (formik.values.year = e.target.value)
           } else if (field == 'Specialisation') {
             setSpecialization(e.target.value),
               (formik.values.specialisation = e.target.value)
@@ -60,8 +62,7 @@ export const Contracts: FunctionComponent = () => {
           console.log(
             e.target.value,
             formik.values.faculty,
-            formik.values.specialisation,
-            formik.values.year
+            formik.values.specialisation
           )
         }}
         style={{
@@ -84,8 +85,7 @@ export const Contracts: FunctionComponent = () => {
   const formik = useFormik({
     initialValues: {
       faculty: faculty,
-      specialisation: specialisation,
-      year: year
+      specialisation: specialisation
     },
     onSubmit: values => {
       //dispatch(register)
@@ -101,6 +101,13 @@ export const Contracts: FunctionComponent = () => {
       setUpdateContracts(false)
     }
   }, [dispatch, token, updateContracts, contracts])
+
+  useEffect(() => {
+    console.log('using effect2')
+
+    //  const localFaculties: string[] = dispatch(getFaculties())
+    //  setFaculties(localFaculties)
+  }, [dispatch, specialisation, faculty])
 
   return (
     <MainContainer>
@@ -212,21 +219,24 @@ export const Contracts: FunctionComponent = () => {
         <br /> <br />
         <p>Faculty : </p>
         <Dropdown
-          options={roleOptions}
+          options={faculties}
           field="Faculty"
           val={formik.values.faculty}
         />
         <br /> <br />
+        <p>Degree : </p>
+        <Dropdown
+          options={specialisations}
+          field="Degree"
+          val={formik.values.specialisation}
+        />
+        <br /> <br />
         <p>Specialisation : </p>
         <Dropdown
-          options={roleOptions}
+          options={specialisations}
           field="Specialisation"
           val={formik.values.specialisation}
         />
-        <br />
-        <br />
-        <p>Year : </p>
-        <Dropdown options={roleOptions} field="Year" val={formik.values.year} />
         <br />
         <br />
       </div>
