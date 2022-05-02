@@ -37,9 +37,6 @@ export const Dashboard: FunctionComponent = () => {
 
   return (
     <MainContainer>
-      <p style={{ fontSize: '18px', fontWeight: '600', color: '#a5abb1' }}>
-        Dashboard
-      </p>
       <MainContent>
         <Card style={{ alignItems: 'center' }}>
           <img src={WelcomeImage} width="506px" style={{ minWidth: '506px' }} />

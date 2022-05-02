@@ -1,13 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import {
-  StudyContractType,
-  StudyContractTypeEnriched
-} from '../../utility/types/studentTypes'
+import { StudyContractEnriched } from '../../utility/types/studentTypes'
 import { getAllContracts } from '../thunks/contracts'
 
 interface ContractsStateType {
-  contracts: StudyContractTypeEnriched[]
+  contracts: StudyContractEnriched[]
   contractsStatus: FetchStatus
 }
 
@@ -20,10 +17,7 @@ export const contractsSlice = createSlice({
   name: 'contracts',
   initialState: initialState,
   reducers: {
-    setContracts: (
-      state,
-      action: PayloadAction<StudyContractTypeEnriched[]>
-    ) => {
+    setContracts: (state, action: PayloadAction<StudyContractEnriched[]>) => {
       state.contracts = action.payload
     }
   },
