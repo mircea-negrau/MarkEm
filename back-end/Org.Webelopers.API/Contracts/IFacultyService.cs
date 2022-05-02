@@ -2,6 +2,7 @@ using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
 using Org.Webelopers.Api.Models.Persistence.Faculties;
+using Org.Webelopers.Api.Models.Persistence.Specialization;
 using System;
 using System.Collections.Generic;
 
@@ -16,6 +17,7 @@ namespace Org.Webelopers.Api.Contracts
         public void SetChiefOfDepartmentId(Guid chiefId);
         public List<FacultyDetailDto> GetAllFaculties();
         public FacultyDetailDto GetAllFacultiesDetails();
+        public List<SpecialisationDto> GetFacultySpecialisations(Guid facultyId, Guid degreeId);
 
     }
 }

@@ -1,8 +1,8 @@
-using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Faculties;
+using Org.Webelopers.Api.Models.Persistence.Specialization;
 using Org.Webelopers.Api.Models.Persistence.StudyDegree;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace Org.Webelopers.Api.Logic
             return _context.Faculties.Select(faculty => new FacultyDto()
             {
                 Name = faculty.Name,
-                FacultyId = faculty.Id
+                Id = faculty.Id
             }).ToList();
         }
 
@@ -37,7 +37,7 @@ namespace Org.Webelopers.Api.Logic
                 .Select(faculty => new FacultyDto()
                 {
                     Name = faculty.Name,
-                    FacultyId = faculty.Id
+                    Id = faculty.Id
                 }).ToList();
             System.Diagnostics.Debug.WriteLine(faculties[0].Name);
 
@@ -45,20 +45,29 @@ namespace Org.Webelopers.Api.Logic
             var degrees = _context.StudyDegrees.Select(degree => new StudyDegreeDto()
             {
                 Name = degree.Name,
-                DegreeId = degree.Id
+                Id = degree.Id
             }).ToList();
 
             var response = new FacultyDetailDto
             {
                 Faculties = faculties,
-                StudyDegrees = degrees
+                Degrees = degrees
             };
 
             return response;
         }
+        public List<SpecialisationDto> GetFacultySpecialisations(Guid facultyId, Guid degreeId)
+        {
+            return _context.Specialisations.Where(specialisation => specialisation.FacultyId == facultyId &&
+            specialisation.StudyDegreeId == degreeId)
+               .Select(specialisation => new SpecialisationDto()
+               {
+                   Id = specialisation.Id,
+                   Name = specialisation.Name
+               }).ToList();
+        }
 
-        public StudentContract GetFacultyById(Guid facultyId) => throw new NotImplementedException();
-        public void RemoveFaculty(Guid facultyId) => throw new NotImplementedException();
+        public StudentContract GetFacultyById(Guid facultyId) => throw new NotImplementedException(); public void RemoveFaculty(Guid facultyId) => throw new NotImplementedException();
         public void SetChiefOfDepartmentId(Guid chiefId) => throw new NotImplementedException();
         public void SetGroupId(Guid contractId, Guid groupId) => throw new NotImplementedException();
         List<FacultyDetailDto> IFacultyService.GetAllFaculties() => throw new NotImplementedException();

@@ -3,14 +3,20 @@ import { FetchStatus } from '../../utility/fetchStatus'
 import {
   Degree,
   Faculty,
+  Specialisation,
   StudyContractEnriched
 } from '../../utility/types/studentTypes'
-import { getAllContracts, getFaculties } from '../thunks/contracts'
+import {
+  getAllContracts,
+  getFaculties,
+  getFacultySpecialisations
+} from '../thunks/contracts'
 
 interface ContractsStateType {
   contracts: StudyContractEnriched[]
   faculties: Faculty[]
   degrees: Degree[]
+  specialisations: Specialisation[]
   contractsStatus: FetchStatus
 }
 
@@ -18,6 +24,7 @@ const initialState: ContractsStateType = {
   contracts: [],
   faculties: [],
   degrees: [],
+  specialisations: [],
   contractsStatus: FetchStatus.idle
 }
 
@@ -62,6 +69,27 @@ export const contractsSlice = createSlice({
         }
       }),
       builder.addCase(getFaculties.rejected, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.error
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.specialisations = action.payload
+          state.contractsStatus = FetchStatus.success
+          console.log(
+            'fulfilled getting specialisations',
+            action.payload,
+            state.contracts
+          )
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.pending, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.rejected, (state, action) => {
         if (action.payload) {
           state.contractsStatus = FetchStatus.error
         }

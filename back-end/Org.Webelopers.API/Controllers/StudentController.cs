@@ -51,7 +51,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                _contractService.EnrollStudent(enroll.StudentID, enroll.YearId);
+                _contractService.EnrollStudent(enroll.StudentID, enroll.SpecialisationId);
             }
             catch (ArgumentException ex)
             {
@@ -155,11 +155,11 @@ namespace Org.Webelopers.Api.Controllers
         [HttpPost("sign")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult SignContract([FromBody] Guid contractid)
+        public IActionResult SignContract([FromQuery] Guid contractId)
         {
             try
             {
-                _contractService.SignContract(contractid);
+                _contractService.SignContract(contractId);
             }
             catch (ArgumentException ex)
             {
@@ -277,6 +277,24 @@ namespace Org.Webelopers.Api.Controllers
             try
             {
                 return Ok(_facultyService.GetAllFacultiesDetails());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("faculties/specialisations")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetAllFaculties([FromQuery] Guid facultyId, [FromQuery] Guid degreeId)
+        {
+            try
+            {
+                return Ok(_facultyService.GetFacultySpecialisations(facultyId, degreeId));
             }
             catch (Exception ex)
             {
