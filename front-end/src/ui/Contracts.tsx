@@ -224,6 +224,13 @@ export const Contracts: FunctionComponent = () => {
           val={formik.values.faculty}
         />
         <br /> <br />
+        <p>Degree : </p>
+        <Dropdown
+          options={specialisations}
+          field="Degree"
+          val={formik.values.specialisation}
+        />
+        <br /> <br />
         <p>Specialisation : </p>
         <Dropdown
           options={specialisations}

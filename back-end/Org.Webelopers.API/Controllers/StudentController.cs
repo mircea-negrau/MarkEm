@@ -19,6 +19,7 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ICurriculumService _curriculumService;
         private readonly IOptionalCourseService _optionalCourseService;
         private readonly IGradesService _gradeService;
+        private readonly IFacultyService _facultyService;
         private readonly IAuthTokenService _authTokenService;
 
         public StudentController(
@@ -27,7 +28,8 @@ namespace Org.Webelopers.Api.Controllers
             ICurriculumService curriculumService,
             IOptionalCourseService optionalService,
             IGradesService gradeService,
-            IAuthTokenService authTokenService
+            IAuthTokenService authTokenService,
+            IFacultyService facultyService
             )
         {
             _logger = logger;
@@ -36,6 +38,7 @@ namespace Org.Webelopers.Api.Controllers
             _optionalCourseService = optionalService;
             _gradeService = gradeService;
             _authTokenService = authTokenService;
+            _facultyService = facultyService;
         }
 
 
@@ -273,7 +276,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                return Ok();
+                return Ok(_facultyService.GetAllFacultiesDetails());
             }
             catch (Exception ex)
             {
