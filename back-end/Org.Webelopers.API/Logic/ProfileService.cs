@@ -3,7 +3,6 @@ using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.Persistence.Profiles;
 using System;
 using System.Linq;
-using System.Text;
 
 namespace Org.Webelopers.Api.Logic
 {

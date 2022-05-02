@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Org.Webelopers.Api.Extensions;
+using Org.Webelopers.Api.Logic.Requirements;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -27,6 +28,7 @@ namespace Org.Webelopers.Api
         {
             services.ConfigureDependencies();
             services.AddCors();
+            services.AddAuthorization(options => options.AddPolicy("ChiefOfDepartmentRequirement", policy => policy.Requirements.Add(new ChiefOfDepartmentRequirement())));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
                 {
