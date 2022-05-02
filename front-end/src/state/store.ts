@@ -8,8 +8,8 @@ export const store = configureStore({
   reducer: {
     global: globalReducer,
     contract: contractReducer,
-    profile: profileReducer,
-    courses: coursesReducer
+    courses: coursesReducer,
+    profile: profileReducer
   }
 })
 

@@ -9,27 +9,26 @@ interface ProfileStateType {
 }
 
 const initialState: ProfileStateType = {
-  profileStatus: FetchStatus.idle,
   profile: {
     id: '',
     role: '',
     username: '',
     firstName: '',
     lastName: ''
-  }
+  },
+  profileStatus: FetchStatus.idle
 }
 
 export const profileSlice = createSlice({
-  name: 'profile',
+  name: 'profileSlice',
   initialState: initialState,
   reducers: {},
+
   extraReducers: builder => {
     builder.addCase(getProfileByUsername.fulfilled, (state, action) => {
       if (action.payload) {
         state.profile = action.payload
         state.profileStatus = FetchStatus.success
-      } else {
-        state.profileStatus = FetchStatus.error
       }
     }),
       builder.addCase(getProfileByUsername.pending, (state, action) => {

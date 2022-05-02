@@ -5,7 +5,6 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import ReactCountryFlag from 'react-country-flag'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
 
 interface TopNavBarProps {
   dockerAction: () => void
@@ -102,7 +101,12 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
           >
             {state.firstName + ' ' + state.lastName}
           </p>
-          <div
+          <img
+            src={
+              state.profile.picture
+                ? `data:image/png;base64,${state.profile.picture}`
+                : ''
+            }
             onClick={() => {
               window.location.replace(`/profile/${state.username}`)
             }}
@@ -110,10 +114,6 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
               width: '32px',
               height: '32px',
               borderRadius: '24px',
-              backgroundImage: `url(${ProfilePicture})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
               marginRight: '25px',
               cursor: 'pointer'
             }}

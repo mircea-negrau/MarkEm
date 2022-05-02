@@ -73,7 +73,7 @@ namespace Org.Webelopers.Api.Controllers
         public IActionResult Dummy([FromBody] GradeDto gradeDto)
         {
             var authorization = HttpContext.Request.Headers["Authorization"];
-            var token = _authTokenService.ValidateAuthToken(authorization);
+            var token = _authTokenService.ParseAuthToken(authorization);
             Guid studentId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "Id")?.Value);
             _logger.LogInformation(authorization.ToString());
             try

@@ -41,7 +41,7 @@ namespace Org.Webelopers.Api.Logic
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        public JwtSecurityToken ValidateAuthToken(string jwtToken)
+        public JwtSecurityToken ParseAuthToken(string jwtToken)
         {
             if (jwtToken.Contains("Bearer"))
             {

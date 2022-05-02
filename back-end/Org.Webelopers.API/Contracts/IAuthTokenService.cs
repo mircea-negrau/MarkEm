@@ -7,6 +7,6 @@ namespace Org.Webelopers.Api.Contracts
     {
         public string GenerateAuthToken(Account user);
 
-        public JwtSecurityToken ValidateAuthToken(string jwtToken);
+        public JwtSecurityToken ParseAuthToken(string jwtToken);
     }
 }
