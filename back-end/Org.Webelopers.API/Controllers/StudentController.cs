@@ -71,7 +71,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             var authorization = HttpContext.Request.Headers["Authorization"];
             var token = _authTokenService.ValidateAuthToken(authorization);
-            Guid studentId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "Id")?.Value);
+            Guid studentId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "uid")?.Value);
             _logger.LogInformation(authorization.ToString());
             try
             {
@@ -177,7 +177,7 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetOptionalCourses()
+        public IActionResult GetOptionalCourses(Guid semesterId)
         {
             try
             {
