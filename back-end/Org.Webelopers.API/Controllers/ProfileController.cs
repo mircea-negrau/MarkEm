@@ -31,7 +31,7 @@ namespace Org.Webelopers.Api.Controllers
         }
 
         [HttpGet("{username}")]
-        [Authorize(Roles = "Student,Teacher,Admin")]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement", Roles = "Student,Teacher,Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetProfileByUsername([FromRoute] string username)
@@ -50,7 +50,7 @@ namespace Org.Webelopers.Api.Controllers
         [HttpPost("picture/upload"), DisableRequestSizeLimit]
         [Authorize(Roles = "Student,Teacher,Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> UploadProfilePicture()
+        public IActionResult UploadProfilePicture()
         {
             try
             {
