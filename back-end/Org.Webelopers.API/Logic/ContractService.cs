@@ -65,8 +65,10 @@ namespace Org.Webelopers.Api.Logic
                 }
         }
 
-        public void EnrollStudent(Guid studentId, Guid yearId)
+        public void EnrollStudent(Guid studentId, Guid specialisationID)
         {
+            var yearId = _context.StudyYears.FirstOrDefault(yr => yr.SpecializationId == specialisationID).Id;
+
             var contract = _context.Contracts.FirstOrDefault(contr => contr.StudentId == studentId && contr.StudyYearId == yearId);
             if (contract != null)
             {

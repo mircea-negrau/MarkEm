@@ -4,8 +4,8 @@ namespace Org.Webelopers.Api.Models.Persistence.Specialization
 {
     public class SpecialisationDto
     {
-        public Guid SpecialisationId { get; set; }
-        public String SpecialisationName { get; set; }
+        public Guid Id { get; set; }
+        public String Name { get; set; }
 
     }
 }

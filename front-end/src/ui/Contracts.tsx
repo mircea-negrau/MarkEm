@@ -1,14 +1,18 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {
+  addContract,
   deleteContract,
   getAllContracts,
-  getFaculties
+  getFaculties,
+  getFacultySpecialisations,
+  signContract
 } from '../state/thunks/contracts'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../state/store'
 import { Button } from '@mui/material'
 import { useFormik } from 'formik'
+import { FetchStatus } from '../utility/fetchStatus'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -38,15 +42,17 @@ export default function Contract({ contract }) {
 
 export const Contracts: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
-  const contracts = useSelector((state: AppState) => state.contract.contracts)
-
+  const state = useSelector((state: AppState) => state.contract)
   const [selectedContract, setSelectedContract] = useState('')
   const dispatch = useDispatch()
   const [updateContracts, setUpdateContracts] = useState(true)
-  const [faculties, setFaculties] = useState([''])
-  const [specialisations, setSpecialisations] = useState([''])
-  const [specialisation, setSpecialization] = useState(specialisations[0])
-  const [faculty, setFaculty] = useState(faculties[0])
+
+  const [specialisation, setSpecialisation] = useState('')
+  const [faculty, setFaculty] = useState('')
+  const [degree, setDegree] = useState('')
+  const [facultyId, setFacultyId] = useState('')
+  const [degreeId, setDegreeId] = useState('')
+  const [specialisationId, setSpecialisationId] = useState('')
 
   const Dropdown = ({ options, field, val }) => {
     return (
@@ -55,15 +61,34 @@ export const Contracts: FunctionComponent = () => {
         onChange={e => {
           if (field == 'Faculty') {
             setFaculty(e.target.value), (formik.values.faculty = e.target.value)
+
+            const id =
+              e.target.options[e.target.options.selectedIndex].getAttribute(
+                'id'
+              )
+            if (id != null) setFacultyId(id)
           } else if (field == 'Specialisation') {
-            setSpecialization(e.target.value),
+            setSpecialisation(e.target.value),
               (formik.values.specialisation = e.target.value)
+            const id =
+              e.target.options[e.target.options.selectedIndex].getAttribute(
+                'id'
+              )
+            console.log('not null', id)
+
+            if (id != null) {
+              setSpecialisationId(id)
+              formik.values.specialisationId = id
+            }
+            console.log(formik.values.specialisationId)
+          } else if (field == 'Degree') {
+            setDegree(e.target.value), (formik.values.degree = e.target.value)
+            const id =
+              e.target.options[e.target.options.selectedIndex].getAttribute(
+                'id'
+              )
+            if (id != null) setDegreeId(id)
           }
-          console.log(
-            e.target.value,
-            formik.values.faculty,
-            formik.values.specialisation
-          )
         }}
         style={{
           background: '#0f1218',
@@ -74,8 +99,8 @@ export const Contracts: FunctionComponent = () => {
         }}
       >
         {options.map(o => (
-          <option key={o} value={o}>
-            {o}
+          <option key={o.id} value={o.name} id={o.id}>
+            {o.name}
           </option>
         ))}
       </select>
@@ -85,11 +110,18 @@ export const Contracts: FunctionComponent = () => {
   const formik = useFormik({
     initialValues: {
       faculty: faculty,
-      specialisation: specialisation
+      specialisation: specialisation,
+      degree: degree,
+      facultyId: facultyId,
+      degreeId: degreeId,
+      specialisationId: specialisationId
     },
     onSubmit: values => {
-      //dispatch(register)
-      console.log(values)
+      dispatch(
+        addContract({ specialisationId: values.specialisationId, token: token })
+      )
+
+      console.log('spec', values.specialisationId)
     }
   })
 
@@ -100,14 +132,19 @@ export const Contracts: FunctionComponent = () => {
       dispatch(getAllContracts(token))
       setUpdateContracts(false)
     }
-  }, [dispatch, token, updateContracts, contracts])
+  }, [dispatch, token, updateContracts, state])
 
   useEffect(() => {
     console.log('using effect2')
 
-    //  const localFaculties: string[] = dispatch(getFaculties())
-    //  setFaculties(localFaculties)
-  }, [dispatch, specialisation, faculty])
+    dispatch(getFaculties())
+  }, [dispatch])
+
+  useEffect(() => {
+    console.log('using effect3')
+    if (state.contractsStatus == FetchStatus.success)
+      dispatch(getFacultySpecialisations({ facultyId, degreeId }))
+  }, [degreeId, dispatch, faculty, facultyId, state.contractsStatus])
 
   return (
     <MainContainer>
@@ -121,7 +158,7 @@ export const Contracts: FunctionComponent = () => {
           float: 'left'
         }}
       >
-        {contracts.map(contract => (
+        {state.contracts.map(contract => (
           <p key={contract.id}>
             {selectedContract == contract.id && (
               <div
@@ -182,12 +219,15 @@ export const Contracts: FunctionComponent = () => {
           float: 'right'
         }}
       >
-        <Button
-          variant="outlined"
-          style={{ float: 'right', top: -50, marginLeft: 5 }}
-        >
-          +
-        </Button>
+        <form onSubmit={formik.handleSubmit}>
+          <Button
+            variant="outlined"
+            style={{ float: 'right', top: -50, marginLeft: 5 }}
+            type="submit"
+          >
+            +
+          </Button>
+        </form>
         <Button
           variant="outlined"
           style={{ float: 'right', top: -50, marginLeft: 5 }}
@@ -206,34 +246,38 @@ export const Contracts: FunctionComponent = () => {
         <Button
           variant="outlined"
           style={{ float: 'right', top: -50, marginLeft: 5 }}
+          onClick={() => {
+            dispatch(signContract(selectedContract))
+          }}
         >
-          edit
+          sign
         </Button>
         <p>
           {' '}
           <b>
-            {contracts.length >= 2 && 'You cannot add more than two contracts'}
-            {contracts.length < 2 && 'You can add another contract'}
+            {state.contracts.length >= 2 &&
+              'You cannot add more than two contracts'}
+            {state.contracts.length < 2 && 'You can add another contract'}
           </b>
         </p>
         <br /> <br />
         <p>Faculty : </p>
         <Dropdown
-          options={faculties}
+          options={state.faculties}
           field="Faculty"
           val={formik.values.faculty}
         />
         <br /> <br />
         <p>Degree : </p>
         <Dropdown
-          options={specialisations}
+          options={state.degrees}
           field="Degree"
-          val={formik.values.specialisation}
+          val={formik.values.degree}
         />
         <br /> <br />
         <p>Specialisation : </p>
         <Dropdown
-          options={specialisations}
+          options={state.specialisations}
           field="Specialisation"
           val={formik.values.specialisation}
         />
