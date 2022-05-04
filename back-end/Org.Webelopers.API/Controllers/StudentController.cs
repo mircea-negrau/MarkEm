@@ -184,11 +184,13 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetOptionalCourses()
+        public IActionResult GetOptionalCourses([FromBody] Guid studentContractSemesterId)
         {
             try
             {
-                return Ok(_optionalCourseService.GetOptionalCourses());
+                // TODO: test that it works
+                var studySemester = _curriculumService.GetStudySemester(studentContractSemesterId);
+                return Ok(_optionalCourseService.FilterCourses(course => course.SemesterId == studySemester.StudyYearId));
             }
             catch (Exception ex)
             {
@@ -223,15 +225,16 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                bool response = _optionalCourseService.SetStudentOptionalCoursesPreference(dto.Preference, dto.ContractId, dto.OptionalCourseId);
-                return response
-                    ? Ok()
-                    : NotFound();
+                // TODO: 1. change the CoursePreferenceDto.ContractId to studentId (or which one?)
+                // TODO: 2. maybe add some more catch clauses, and return more specific responses based on that
+                _optionalCourseService.SetCoursePreference(dto.ContractId, dto.OptionalCourseId, dto.Preference);
+                return Ok();
+
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return NotFound();
+                return NotFound(ex.Message);
             }
 
         }

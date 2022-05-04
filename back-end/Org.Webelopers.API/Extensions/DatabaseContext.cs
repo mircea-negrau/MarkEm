@@ -1,7 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
+using Org.Webelopers.Api.Logic;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.DbEntities.BaseClasses;
 
 namespace Org.Webelopers.Api.Extensions
 {
@@ -30,6 +34,14 @@ namespace Org.Webelopers.Api.Extensions
         public virtual DbSet<StudentMandatoryCourseEnrollment> StudentEnrolledCourse { get; set; }
         public virtual DbSet<FacultyGroup> Groups { get; set; }
 
+        public DbSet<TCourse> CoursesByType<TCourse>() where TCourse: BaseCourse => Set<TCourse>();
+
+        public TEntity FindEntity<TEntity>(Predicate<TEntity> predicate) where TEntity : class => 
+            Set<TEntity>().FirstOrDefault(entity => predicate(entity));
+        
+        public TEntity FindEntityAndThrowIfNullReference<TEntity>(Predicate<TEntity> predicate, String exceptionMessage) where TEntity: class => 
+            Utils.ThrowIfNullReference(FindEntity(predicate), exceptionMessage);
+        
         #region Configuration
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

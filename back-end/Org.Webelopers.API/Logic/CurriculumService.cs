@@ -41,5 +41,17 @@ namespace Org.Webelopers.Api.Logic
             }
             return curriculum;
         }
+
+        public StudySemester GetStudySemester(Guid studentContractSemesterId)
+        {
+            var studentContractSemester = _context.FindEntityAndThrowIfNullReference<StudentContractSemester>(
+                semester => semester.Id == studentContractSemesterId,
+                $"StudentContractSemester with id: {studentContractSemesterId} was not found\n"
+            );
+            
+            return _context.FindEntityAndThrowIfNullReference<StudySemester>(
+                semester => semester.Id == studentContractSemester.StudySemesterId, 
+                $"Study contract with id: {studentContractSemester.StudySemesterId} was not found\n");
+        }
     }
 }
