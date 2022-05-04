@@ -122,7 +122,6 @@ namespace Org.Webelopers.Api.Logic
             return curriculum;
 
         }
-
         public int GetNumberOfContracts(Guid studentid) =>
             _context.Contracts.Where(contract => contract.StudentId == studentid).ToList().Count;
 
@@ -149,7 +148,8 @@ namespace Org.Webelopers.Api.Logic
                 .Include(contract => contract.StudyYear)
                 .ThenInclude(contract => contract.Specialization)
                 .ThenInclude(contract => contract.Faculty)
-                .Select(contract => new ContractEnriched(){ 
+                .Select(contract => new ContractEnriched()
+                {
                     Id = contract.Id,
                     SignedAt = contract.SignedAt,
                     Specialisation = contract.StudyYear.Specialization.Name,
@@ -157,7 +157,7 @@ namespace Org.Webelopers.Api.Logic
                 }).ToList();
 
             return contracts;
-                
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
 
 namespace Org.Webelopers.Api.Logic
@@ -149,7 +150,7 @@ namespace Org.Webelopers.Api.Logic
             int numberOfStudentsWithNoOptionalCourseAssigned = 0;
 
             // 2. for each student, assign the the optional course with the highest priority that is selected
-            
+
             // Todo: Update to fit database rebuilt version
             //foreach (StudyContract studyContract in _context.StudyContracts)
             //{
@@ -180,6 +181,36 @@ namespace Org.Webelopers.Api.Logic
             //}
             //_context.SaveChanges();
             return new OptionalCoursesAssignmentResults(selectedOptionalCourses.ToList(), numberOfStudentsWithRandomOptionalCourseAssigned, numberOfStudentsWithNoOptionalCourseAssigned);
+        }
+
+        public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId)
+        {
+            var yearId = _context.Contracts.FirstOrDefault(contract => contract.Id == contractId).StudyYearId;
+
+            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).ToList();
+
+
+            List<OptionalCourse> result = new List<OptionalCourse>();
+
+            semesters.ForEach(semester => result.AddRange(_context.OptionalCourses.Where(course => course.SemesterId == semester.Id).ToList()));
+            /*return _context.OptionalCourses.Where(course => course.SemesterId == semesters[0].Id).Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                TeacherId = course.TeacherId,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+
+            }).ToList();*/
+            return result.Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+
+            }).ToList();
+
         }
     }
 }

@@ -39,7 +39,6 @@ namespace Org.Webelopers.Api.Logic
                     Name = faculty.Name,
                     Id = faculty.Id
                 }).ToList();
-            System.Diagnostics.Debug.WriteLine(faculties[0].Name);
 
 
             var degrees = _context.StudyDegrees.Select(degree => new StudyDegreeDto()

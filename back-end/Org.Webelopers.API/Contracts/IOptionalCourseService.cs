@@ -2,6 +2,7 @@ using System;
 using Org.Webelopers.Api.Models.DbEntities;
 using System.Collections.Generic;
 using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 
 namespace Org.Webelopers.Api.Contracts
 {
@@ -79,5 +80,6 @@ namespace Org.Webelopers.Api.Contracts
         /// <returns>The results of the assignment: The list of approved optional courses that have at least 20 followers, the number of
         /// random optional courses assigned and the number of students with no optional course assigned.</returns>
         public OptionalCoursesAssignmentResults StartOptionalCoursesAssignment();
+        public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId);
     }
 }

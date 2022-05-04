@@ -247,10 +247,10 @@ export const Contracts: FunctionComponent = () => {
           variant="outlined"
           style={{ float: 'right', top: -50, marginLeft: 5 }}
           onClick={() => {
-            dispatch(signContract(selectedContract))
+            window.location.replace(`/contracts/${selectedContract}`)
           }}
         >
-          sign
+          edit
         </Button>
         <p>
           {' '}
