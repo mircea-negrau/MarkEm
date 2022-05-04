@@ -37,7 +37,7 @@ export const CoursePage: FunctionComponent = () => {
     }
   }, [dispatch, global.accessToken, state.coursesStatus])
 
-  if (global.userRole != `Teacher`) {
+  if (global.userRole != `Student`) {
     alert(`Only teachers authorized!`)
     window.location.pathname = '/' // https://stackoverflow.com/questions/3846935/how-can-i-change-the-current-url
     return <Dashboard />

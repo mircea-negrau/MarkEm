@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Dto;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
 using System.Linq;
 
@@ -130,19 +131,22 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        //// Implement so it works like courses/{courseId}
         [HttpGet("courses/contract")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetContractClasses([FromBody] Guid contractId)
+        public IActionResult GetContractClasses([FromQuery] Guid contractId)
         {
             try
             {
                 var response = _contractService.GetContractCourses(contractId);
                 return response != null
-                    ? Ok(_contractService.GetContractCourses(contractId))
+                    ? Ok(response.Select(course => new OptionalCourseDto()
+                    {
+                        Name = course.Name,
+                        Id = course.Id
+                    }))
                     : NotFound();
             }
             catch (Exception ex)
@@ -195,6 +199,24 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        [HttpGet("optionalCourses/contract")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetOptionalCoursesByContract([FromQuery] Guid contractId)
+        {
+            try
+            {
+                var courses = _optionalCourseService.GetOptionalCoursesByContractId(contractId);
+                return Ok(courses);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+        }
+
         [HttpPost("optionalCourses/setPreference")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -225,6 +247,7 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
+
                 return Ok(_gradeService.GetStudentGrades(studentId));
             }
             catch (Exception ex)

@@ -7,6 +7,7 @@ import {
   Specialisation,
   StudyContractEnriched
 } from '../../utility/types/studentTypes'
+import { Course } from '../../utility/types/courseTypes'
 
 export const getAllContracts = createAsyncThunk(
   'getAllContracts',
