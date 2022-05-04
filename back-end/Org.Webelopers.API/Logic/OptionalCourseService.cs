@@ -7,7 +7,7 @@ using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
-using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
+
 
 
 namespace Org.Webelopers.Api.Logic
@@ -183,7 +183,11 @@ namespace Org.Webelopers.Api.Logic
             //    }
             //}
             //_context.SaveChanges();
-            return new OptionalCoursesAssignmentResults(selectedOptionalCourses.ToList(), numberOfStudentsWithRandomOptionalCourseAssigned, numberOfStudentsWithNoOptionalCourseAssigned);
+            return new OptionalCoursesAssignmentResults(){
+               selectedOptionalCourses= selectedOptionalCourses.ToList(),
+                numberOfStudentsWithRandomOptionalCourseAssigned = numberOfStudentsWithRandomOptionalCourseAssigned,
+                numberOfStudentsWithNoOptionalCourseAssigned = numberOfStudentsWithNoOptionalCourseAssigned
+            };
         }
 
         public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId)

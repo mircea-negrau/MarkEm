@@ -1,7 +1,6 @@
 using System;
 using Org.Webelopers.Api.Models.DbEntities;
 using System.Collections.Generic;
-using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 
 namespace Org.Webelopers.Api.Contracts
