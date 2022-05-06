@@ -36,5 +36,7 @@ namespace Org.Webelopers.Api.Contracts
         /// <returns>the number of semester contracts that got a course assigned</returns>
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference);
 
+        public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds);
+
     }
 }
