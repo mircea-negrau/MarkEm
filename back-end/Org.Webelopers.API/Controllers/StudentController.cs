@@ -249,7 +249,7 @@ namespace Org.Webelopers.Api.Controllers
             {
                 // TODO: 1. change the CoursePreferenceDto.ContractId to studentId (or which one?)
                 // TODO: 2. maybe add some more catch clauses, and return more specific responses based on that
-                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.contractIds);
+                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.coursesIds);
                 return Ok();
 
             }
@@ -265,7 +265,7 @@ namespace Org.Webelopers.Api.Controllers
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetGrades([FromBody] Guid studentId)
+        public IActionResult GetGrades([FromQuery] Guid studentId)
         {
             try
             {

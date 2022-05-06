@@ -35,10 +35,9 @@ export const setOptionalCoursesPreferences = createAsyncThunk(
         `/student/optionalCourses/setAllPreferences`,
         {
           contractId: Data.contractId,
-          contractIds: newList
+          coursesIds: newList
         }
       )
-      console.log('printing data', response.data)
       const responseContent: OptionalCourse[] = response.data
       return responseContent
     } catch (error) {
