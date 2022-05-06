@@ -6,7 +6,10 @@ import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { getCoursesNamesByContract } from '../state/thunks/courses'
-import { getOptionalCoursesByContract } from '../state/thunks/optionalCourses'
+import {
+  getOptionalCoursesByContract,
+  setOptionalCoursesPreferences
+} from '../state/thunks/optionalCourses'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -46,6 +49,7 @@ export const EditContractPage: FunctionComponent = () => {
   const [optionalList, setOptionalList] = useState(optionalCourses)
   const [bringElementDown, setBringElementDown] = useState(false)
   const [bringElementUp, setBringElementUp] = useState(false)
+  const [preferences, setPreferences] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
 
   useEffect(() => {
@@ -84,6 +88,16 @@ export const EditContractPage: FunctionComponent = () => {
       }
     }
   }, [bringElementDown])
+
+  useEffect(() => {
+    if (contractId != undefined)
+      dispatch(
+        setOptionalCoursesPreferences({
+          contractId,
+          optionalCoursesList: optionalList
+        })
+      )
+  }, [preferences, dispatch])
 
   useEffect(() => {
     if (bringElementUp == true) {
@@ -139,7 +153,7 @@ export const EditContractPage: FunctionComponent = () => {
           variant="outlined"
           style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
           onClick={() => {
-            setBringElementUp(true)
+            setPreferences(true)
           }}
         >
           Set preferences
