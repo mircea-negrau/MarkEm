@@ -169,6 +169,15 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
               <MenuItemText>Homework</MenuItemText>
             </MenuItem>
+            <MenuItem
+              isActive={location.pathname == '/grades'}
+              onClick={() => {
+                window.location.replace('/grades')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Grades</MenuItemText>
+            </MenuItem>
           </>
         )}
         {state.userRole == 'Teacher' && (

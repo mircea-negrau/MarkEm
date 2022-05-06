@@ -1,6 +1,8 @@
-﻿using Org.Webelopers.Api.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.Grades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +38,15 @@ namespace Org.Webelopers.Api.Logic
                 _context.SaveChanges();
             }
         }
-        public List<MandatoryCourseGrade> GetStudentGrades(Guid studentId)
+        public List<GradesDetailDto> GetStudentGrades(Guid studentId)
         {
-            return _context.Grades.Where(x => x.StudentId == studentId).ToList();
+            return _context.Grades.Where(x => x.StudentId == studentId).Include(grade => grade.Course)
+                .Select(grade => new GradesDetailDto()
+                {
+                    GradeId = grade.Id,
+                    Grade = grade.Grade,
+                    CourseName = grade.Course.Name
+                }).ToList();
         }
 
         public void UpdateGrade(Guid gradeId, short grade)
