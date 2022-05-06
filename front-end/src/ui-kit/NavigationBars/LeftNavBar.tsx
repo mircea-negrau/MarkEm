@@ -29,6 +29,7 @@ const MainContainer = styled.div<{ isActive: boolean }>`
   box-shadow: 0 8px 10px 0 rgb(183 192 206 / 20%);
   transition: width 0.1s;
   overflow: hidden;
+  z-index: 1;
 `
 
 const UserContainer = styled.div`
