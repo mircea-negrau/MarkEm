@@ -101,23 +101,46 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
           >
             {state.firstName + ' ' + state.lastName}
           </p>
-          <img
-            src={
-              state.profile.picture
-                ? `data:image/png;base64,${state.profile.picture}`
-                : ''
-            }
-            onClick={() => {
-              window.location.replace(`/profile/${state.username}`)
-            }}
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '24px',
-              marginRight: '25px',
-              cursor: 'pointer'
-            }}
-          />
+          {(state.profile.picture && (
+            <img
+              src={
+                state.profile.picture
+                  ? `data:image/png;base64,${state.profile.picture}`
+                  : ''
+              }
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer'
+              }}
+            />
+          )) || (
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer',
+                backgroundColor: 'darkcyan',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                color: 'black'
+              }}
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+            >
+              {state.firstName.slice(0, 1)}
+              {state.lastName.slice(0, 1)}
+            </div>
+          )}
         </div>
       </div>
     </div>
