@@ -1,4 +1,4 @@
-import { CountertopsOutlined } from '@mui/icons-material'
+import { CompareSharp, CountertopsOutlined } from '@mui/icons-material'
 import { Button } from '@mui/material'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -44,6 +44,8 @@ export const EditContractPage: FunctionComponent = () => {
     (state: AppState) => state.optionalCourses.courses
   )
   const [optionalList, setOptionalList] = useState(optionalCourses)
+  const [bringElementDown, setBringElementDown] = useState(false)
+  const [bringElementUp, setBringElementUp] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
 
   useEffect(() => {
@@ -58,17 +60,66 @@ export const EditContractPage: FunctionComponent = () => {
   useEffect(() => {
     setOptionalList(optionalCourses)
   }, [dispatch, optionalCourses])
+
+  useEffect(() => {
+    if (bringElementDown == true) {
+      console.log(optionalList)
+      const index = optionalList.findIndex(
+        optional => optional.id === selectedCourse
+      )
+      console.log('we gto here')
+      console.log(index, optionalList.length)
+      if (index < optionalList.length - 1) {
+        console.log('we passed condition')
+        const newList = [
+          ...optionalList.slice(0, index),
+          optionalList[index + 1],
+          optionalList[index],
+          ...optionalList.slice(index + 2)
+        ]
+        // console.log(optionalList)
+        // console.log(newList)
+        setOptionalList(newList)
+        setBringElementDown(false)
+      }
+    }
+  }, [bringElementDown])
+
+  useEffect(() => {
+    if (bringElementUp == true) {
+      const index = optionalList.findIndex(
+        optional => optional.id === selectedCourse
+      )
+      console.log('we gto here')
+      console.log(index, optionalList.length)
+      if (index > 0) {
+        console.log('we passed condition')
+        const newList = [
+          ...optionalList.slice(0, index - 1),
+          optionalList[index],
+          optionalList[index - 1],
+          ...optionalList.slice(index + 1)
+        ]
+        console.log(optionalList)
+        console.log(newList)
+        setOptionalList(newList)
+        setBringElementUp(false)
+      }
+    }
+  }, [bringElementUp])
+
   return (
     <MainContainer>
       <div
         style={{
-          width: '49%',
+          width: '30%',
           height: '100vh',
           float: 'left',
           display: 'inline-block'
         }}
       >
         Your contract courses :
+        <br /> <br />
         {courses.map(course => (
           <p key={course.id}>
             <Course to={`/student/course/${course.id}`}>{course.name}</Course>{' '}
@@ -79,7 +130,7 @@ export const EditContractPage: FunctionComponent = () => {
 
       <div
         style={{
-          width: '50%',
+          width: '70%',
           height: '100vh',
           float: 'right'
         }}
@@ -87,9 +138,18 @@ export const EditContractPage: FunctionComponent = () => {
         <Button
           variant="outlined"
           style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
+          onClick={() => {
+            setBringElementUp(true)
+          }}
+        >
+          Set preferences
+        </Button>
+        <Button
+          variant="outlined"
+          style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
           type="submit"
           onClick={() => {
-            console.log('click')
+            setBringElementDown(true)
           }}
         >
           ↓
@@ -99,13 +159,13 @@ export const EditContractPage: FunctionComponent = () => {
           variant="outlined"
           style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
           onClick={() => {
-            console.log('click')
+            setBringElementUp(true)
           }}
         >
           ↥
         </Button>
 
-        {optionalCourses.map(course => (
+        {optionalList.map(course => (
           <p key={course.id}>
             {selectedCourse != course.id && (
               <div
