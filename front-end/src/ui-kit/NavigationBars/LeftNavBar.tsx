@@ -97,6 +97,8 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
               : ''
           }
           username={state.username}
+          firstName={state.firstName}
+          lastName={state.lastName}
         />
 
         <p
