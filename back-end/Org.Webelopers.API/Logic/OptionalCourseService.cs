@@ -220,6 +220,30 @@ namespace Org.Webelopers.Api.Logic
 
         }
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference) => 
-            _optionalCourseAssigner.AssignCoursesToStudents(assignToContractsWithNoPreference); 
+            _optionalCourseAssigner.AssignCoursesToStudents(assignToContractsWithNoPreference);
+
+        public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds)
+        {
+            Func<Guid, Predicate<OptionalCoursePreference>> getPredicate = courseId =>
+                preference =>
+                    preference.StudentContractSemesterId == studentContractSemesterId &&
+                    preference.OptionalCourseId == courseId;
+                
+            for (int i = 0; i < coursesIds.Count; i++)
+            {
+                // Predicate<OptionalCoursePreference> predicate = preference => 
+                //     preference.StudentContractSemesterId == studentContractSemesterId && 
+                //     preference.OptionalCourseId == coursesIds[i];
+                
+                // var preference =  _context.OptionalCoursePreferences.FirstOrDefault(preference => predicate(preference));
+
+                var preference = _context.OptionalCoursePreferences.FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
+                
+                if (preference != null)
+                {
+                    preference.Preference = (short) i;
+                }
+            }
+        }
     }
 }
