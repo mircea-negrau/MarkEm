@@ -15,6 +15,7 @@ import { ErrorPage } from './ui/ErrorPage'
 import { CoursesPage } from './ui/CoursesPage'
 import { CoursePage } from './ui/CoursePage'
 import { EditContractPage } from './ui/EditContractPage'
+import { GradesPage } from './ui/GradesPage'
 
 const App: FunctionComponent = () => {
   return (
@@ -99,6 +100,15 @@ const App: FunctionComponent = () => {
             element={
               <AuthComponent>
                 <CoursePage />
+              </AuthComponent>
+            }
+          />
+
+          <Route
+            path={'/grades'}
+            element={
+              <AuthComponent>
+                <GradesPage />
               </AuthComponent>
             }
           />
