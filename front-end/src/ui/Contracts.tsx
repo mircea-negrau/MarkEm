@@ -74,13 +74,11 @@ export const Contracts: FunctionComponent = () => {
               e.target.options[e.target.options.selectedIndex].getAttribute(
                 'id'
               )
-            console.log('not null', id)
 
             if (id != null) {
               setSpecialisationId(id)
               formik.values.specialisationId = id
             }
-            console.log(formik.values.specialisationId)
           } else if (field == 'Degree') {
             setDegree(e.target.value), (formik.values.degree = e.target.value)
             const id =
@@ -120,14 +118,10 @@ export const Contracts: FunctionComponent = () => {
       dispatch(
         addContract({ specialisationId: values.specialisationId, token: token })
       )
-
-      console.log('spec', values.specialisationId)
     }
   })
 
   useEffect(() => {
-    console.log('using effect')
-
     if (updateContracts == true) {
       dispatch(getAllContracts(token))
       setUpdateContracts(false)
@@ -135,13 +129,10 @@ export const Contracts: FunctionComponent = () => {
   }, [dispatch, token, updateContracts, state])
 
   useEffect(() => {
-    console.log('using effect2')
-
     dispatch(getFaculties())
   }, [dispatch])
 
   useEffect(() => {
-    console.log('using effect3')
     if (state.contractsStatus == FetchStatus.success)
       dispatch(getFacultySpecialisations({ facultyId, degreeId }))
   }, [degreeId, dispatch, faculty, facultyId, state.contractsStatus])

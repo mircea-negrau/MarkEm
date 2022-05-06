@@ -1,4 +1,8 @@
-import { CompareSharp, CountertopsOutlined } from '@mui/icons-material'
+import {
+  CollectionsBookmarkRounded,
+  CompareSharp,
+  CountertopsOutlined
+} from '@mui/icons-material'
 import { Button } from '@mui/material'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,7 +10,10 @@ import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { getCoursesNamesByContract } from '../state/thunks/courses'
-import { getOptionalCoursesByContract } from '../state/thunks/optionalCourses'
+import {
+  getOptionalCoursesByContract,
+  setOptionalCoursesPreferences
+} from '../state/thunks/optionalCourses'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -15,7 +22,7 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100%;
 `
-const Course = styled(Link)`
+const Course = styled.div`
   color: #96a2b4;
   display: flex;
   flex-direction: column;
@@ -46,6 +53,7 @@ export const EditContractPage: FunctionComponent = () => {
   const [optionalList, setOptionalList] = useState(optionalCourses)
   const [bringElementDown, setBringElementDown] = useState(false)
   const [bringElementUp, setBringElementUp] = useState(false)
+  const [preferences, setPreferences] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
 
   useEffect(() => {
@@ -63,22 +71,16 @@ export const EditContractPage: FunctionComponent = () => {
 
   useEffect(() => {
     if (bringElementDown == true) {
-      console.log(optionalList)
       const index = optionalList.findIndex(
         optional => optional.id === selectedCourse
       )
-      console.log('we gto here')
-      console.log(index, optionalList.length)
       if (index < optionalList.length - 1) {
-        console.log('we passed condition')
         const newList = [
           ...optionalList.slice(0, index),
           optionalList[index + 1],
           optionalList[index],
           ...optionalList.slice(index + 2)
         ]
-        // console.log(optionalList)
-        // console.log(newList)
         setOptionalList(newList)
         setBringElementDown(false)
       }
@@ -86,22 +88,31 @@ export const EditContractPage: FunctionComponent = () => {
   }, [bringElementDown])
 
   useEffect(() => {
+    if (preferences == true) {
+      if (contractId != undefined) {
+        dispatch(
+          setOptionalCoursesPreferences({
+            contractId,
+            optionalCoursesList: optionalList
+          })
+        )
+        setPreferences(false)
+      }
+    }
+  }, [preferences, dispatch])
+
+  useEffect(() => {
     if (bringElementUp == true) {
       const index = optionalList.findIndex(
         optional => optional.id === selectedCourse
       )
-      console.log('we gto here')
-      console.log(index, optionalList.length)
       if (index > 0) {
-        console.log('we passed condition')
         const newList = [
           ...optionalList.slice(0, index - 1),
           optionalList[index],
           optionalList[index - 1],
           ...optionalList.slice(index + 1)
         ]
-        console.log(optionalList)
-        console.log(newList)
         setOptionalList(newList)
         setBringElementUp(false)
       }
@@ -121,10 +132,9 @@ export const EditContractPage: FunctionComponent = () => {
         Your contract courses :
         <br /> <br />
         {courses.map(course => (
-          <p key={course.id}>
-            <Course to={`/student/course/${course.id}`}>{course.name}</Course>{' '}
-            <br /> <br />
-          </p>
+          <div key={course.id}>
+            <Course>{course.name}</Course> <br /> <br />
+          </div>
         ))}
       </div>
 
@@ -139,7 +149,7 @@ export const EditContractPage: FunctionComponent = () => {
           variant="outlined"
           style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
           onClick={() => {
-            setBringElementUp(true)
+            setPreferences(true)
           }}
         >
           Set preferences
@@ -166,18 +176,17 @@ export const EditContractPage: FunctionComponent = () => {
         </Button>
 
         {optionalList.map(course => (
-          <p key={course.id}>
+          <div key={course.id}>
             {selectedCourse != course.id && (
               <div
                 style={{
                   width: '300px',
                   border: '5px solid green',
                   borderColor: '#96a2b4',
-                  padding: '50px',
+                  padding: '10px',
                   borderRadius: '25px'
                 }}
                 onClick={() => {
-                  console.log('div with id ' + course.id + ' was clicked')
                   setSelectedCourse(course.id)
                 }}
               >
@@ -192,12 +201,11 @@ export const EditContractPage: FunctionComponent = () => {
                   width: '300px',
                   border: '5px solid green',
                   borderColor: '#96a2b4',
-                  padding: '50px',
+                  padding: '15px',
                   borderRadius: '25px',
                   background: '#D6DEEA'
                 }}
                 onClick={() => {
-                  console.log('div with id ' + course.id + ' was clicked')
                   setSelectedCourse(course.id)
                 }}
               >
@@ -207,7 +215,7 @@ export const EditContractPage: FunctionComponent = () => {
               </div>
             )}
             <br /> <br />
-          </p>
+          </div>
         ))}
       </div>
     </MainContainer>

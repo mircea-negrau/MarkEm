@@ -19,3 +19,29 @@ export const getOptionalCoursesByContract = createAsyncThunk(
     }
   }
 )
+
+export const setOptionalCoursesPreferences = createAsyncThunk(
+  'setOptionalCoursesPreferences',
+  async (Data: {
+    contractId: string
+    optionalCoursesList: OptionalCourse[]
+  }) => {
+    console.log(Data.contractId, Data.optionalCoursesList)
+    const newList = Data.optionalCoursesList.map(course => course.id)
+
+    console.log(Data.contractId, newList)
+    try {
+      const response = await SECURE_API.post(
+        `/student/optionalCourses/setAllPreferences`,
+        {
+          contractId: Data.contractId,
+          coursesIds: newList
+        }
+      )
+      const responseContent: OptionalCourse[] = response.data
+      return responseContent
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
