@@ -19,7 +19,8 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
         width: '100%',
         height: '61px',
         position: 'fixed',
-        background: 'linear-gradient(#1c212d, #1a202e)'
+        background: 'linear-gradient(#1c212d, #1a202e)',
+        zIndex: '1'
       }}
     >
       <div

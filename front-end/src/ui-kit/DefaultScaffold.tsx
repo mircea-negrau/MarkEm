@@ -7,8 +7,16 @@ const Scaffold = styled.div`
   display: flex;
   padding-top: 61px;
   min-height: calc(100vh - 61px);
-  padding-left: 15%;
+  margin-left: 15%;
   padding-right: 15%;
+`
+
+const Layout = styled.div`
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: black;
+  opacity: 0.5;
 `
 
 export const DefaultScaffold: FunctionComponent = props => {
@@ -21,6 +29,13 @@ export const DefaultScaffold: FunctionComponent = props => {
         }}
       />
       <LeftNavBar isActive={showLeftNavBar} />
+      {showLeftNavBar && (
+        <Layout
+          onClick={() => {
+            setShowLeftNavBar(false)
+          }}
+        />
+      )}
       <Scaffold>{props.children}</Scaffold>
     </>
   )
