@@ -14,8 +14,17 @@ const Container = styled.div`
 const ProfilePicturePlaceholder = styled.div`
   width: 200px;
   height: 200px;
-  background-color: grey;
+  background-color: darkcyan;
+  color: black;
+  margin-bottom: 25px;
   border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
 `
 
 export const ProfilePage: FunctionComponent = () => {
@@ -62,13 +71,9 @@ export const ProfilePage: FunctionComponent = () => {
       {state.profile && (
         <div>
           <div style={{ display: 'flex' }}>
-            {state.profile.picture ? (
+            {(state.profile.picture && (
               <img
-                src={
-                  state.profile.picture
-                    ? `data:image/png;base64,${state.profile.picture}`
-                    : ''
-                }
+                src={`data:image/png;base64,${state.profile.picture}`}
                 style={{
                   width: '200px',
                   height: '200px',
@@ -76,8 +81,11 @@ export const ProfilePage: FunctionComponent = () => {
                   borderRadius: '25px'
                 }}
               />
-            ) : (
-              <ProfilePicturePlaceholder />
+            )) || (
+              <ProfilePicturePlaceholder>
+                {state.profile.firstName.slice(0, 1)}
+                {state.profile.lastName.slice(0, 1)}
+              </ProfilePicturePlaceholder>
             )}
             <div style={{ paddingLeft: '20px' }}>
               <p>@{state.profile?.username}</p>

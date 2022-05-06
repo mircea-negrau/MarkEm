@@ -26,6 +26,7 @@ const AvatarPlaceholder = styled.div`
   font-weight: 600;
   justify-content: center;
   align-items: center;
+  user-select: none;
 `
 
 export const UserAvatar: FunctionComponent<{
@@ -45,7 +46,12 @@ export const UserAvatar: FunctionComponent<{
           image={props.profilePicture}
         />
       )) || (
-        <AvatarPlaceholder>
+        <AvatarPlaceholder
+          onClick={() => {
+            if (props.username)
+              window.location.replace(`/profile/${props.username}`)
+          }}
+        >
           <p>
             {props.firstName.slice(0, 1)}
             {props.lastName.slice(0, 1)}

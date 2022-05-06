@@ -131,7 +131,9 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                color: 'black'
+                color: 'black',
+                fontWeight: '600',
+                userSelect: 'none'
               }}
               onClick={() => {
                 window.location.replace(`/profile/${state.username}`)
