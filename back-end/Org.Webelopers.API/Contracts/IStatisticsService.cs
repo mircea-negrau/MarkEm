@@ -1,5 +1,6 @@
 ﻿using Org.Webelopers.Api.Models.Persistence.Groups;
-using Org.Webelopers.Api.Models.Persistence.Students;
+using Org.Webelopers.Api.Models.Persistence.Semesters;
+using Org.Webelopers.Api.Models.Persistence.StudyYears;
 using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Contracts
@@ -8,8 +9,8 @@ namespace Org.Webelopers.Api.Contracts
     {
         public List<GroupStudentsAverageGradeDto> GetStudentsRankingByGroup();
 
-        public List<StudentAverageGradeDto> GetStudentsRankingByStudyYear();
+        public List<StudyYearStudentsAverageGradeDto> GetStudentsRankingByStudyYear();
 
-        public List<StudentAverageGradeDto> GetStudentsRankingBySemester();
+        public List<SemesterStudentsAverageGradeDto> GetStudentsRankingBySemester();
     }
 }
