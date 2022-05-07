@@ -364,6 +364,11 @@ namespace Org.Webelopers.Api.Extensions
                 .WithOne()
                 .HasForeignKey<FacultyGroup>(group => group.LeaderStudentId)
                 .OnDelete(DeleteBehavior.SetNull);
+            builder
+                .HasOne(group => group.StudyYear)
+                .WithMany(year => year.Groups)
+                .HasForeignKey(group => group.StudyYearId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
         #endregion
