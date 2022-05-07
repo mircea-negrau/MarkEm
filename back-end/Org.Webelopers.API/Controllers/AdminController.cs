@@ -1,11 +1,10 @@
-﻿
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Models.Authentication;
 using Org.Webelopers.Api.Models.Dto;
+using Org.Webelopers.Api.Models.Persistence.Groups;
+using Org.Webelopers.Api.Models.Persistence.Semesters;
+using Org.Webelopers.Api.Models.Persistence.Students;
+using Org.Webelopers.Api.Models.Persistence.StudyYears;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,36 +25,19 @@ namespace Org.Webelopers.Api.Controllers
             _statisticsService = statisticsService;
         }
 
-
-        public List<StudentsResults> GetStudentsPerformanceByGroup()
+        public List<GroupStudentsAverageGradeDto> GetStudentsPerformanceByGroup()
         {
-
+            return _statisticsService.GetStudentsRankingByGroup();
         }
 
-        public List<StudentsResults> GetStudentsPerformanceByYear()
+        public List<SemesterStudentsAverageGradeDto> GetStudentsPerformanceBySemester()
         {
-
+            return _statisticsService.GetStudentsRankingBySemester();
         }
 
-        public List<StudentsResults> GetStudentsWithPerformanceInRange(int minRange, int maxRange)
+        public List<StudyYearStudentsAverageGradeDto> GetStudentsRankingByStudyYear()
         {
-            List<StudentsResults> studentsList = new List<StudentsResults>();
-            for(int i=0;i<_statisticsService.GetStudentsResults().Count;i++)
-            {
-                if(_statisticsService.GetStudentsResults()[i].AverageGrade > minRange
-                    && _statisticsService.GetStudentsResults()[i].AverageGrade < maxRange)
-                {
-                    studentsList.Add(_statisticsService.GetStudentsResults()[i]);
-                }
-            }
-            return studentsList;
-        }
-
-        public List<StudentsResults> GetStudentRankingByPerformance()
-        {
-            List<StudentsResults> studentsList = _statisticsService.GetStudentsResults();
-            studentsList = studentsList.OrderByDescending(x => x.AverageGrade).ToList();
-            return studentsList;
+            return _statisticsService.GetStudentsRankingByStudyYear();
         }
     }
 }
