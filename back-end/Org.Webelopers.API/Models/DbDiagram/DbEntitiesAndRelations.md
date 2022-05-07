@@ -29,6 +29,7 @@ Nr of relations: `grep "^ " Org.Webelopers.API/Models/DbEntities/DbEntitiesAndRe
     1. StudyYear 1:1 Student (Leader)
     2. StudyYear 1:n StudySemester
     3. StudyYear 1:n StudentContract
+    4. StudyYear 1:n Group
 13. StudySemester
     1. StudySemester 1:n Course
     2. StudySemester 1:n OptionalCourse
