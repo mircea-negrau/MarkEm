@@ -1,17 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { Grade } from '../../utility/types/gradeTypes'
-import {
-  Degree,
-  Faculty,
-  Specialisation,
-  StudyContractEnriched
-} from '../../utility/types/studentTypes'
-import {
-  getAllContracts,
-  getFaculties,
-  getFacultySpecialisations
-} from '../thunks/contracts'
+
+import { getAllContracts } from '../thunks/contracts'
 import { getAllGrades } from '../thunks/grades'
 
 interface GradeStateType {

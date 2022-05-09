@@ -11,10 +11,6 @@ import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { getCoursesNamesByContract } from '../state/thunks/courses'
 import { getAllGrades } from '../state/thunks/grades'
-import {
-  getOptionalCoursesByContract,
-  setOptionalCoursesPreferences
-} from '../state/thunks/optionalCourses'
 
 const MainContainer = styled.div`
   display: inline-block;

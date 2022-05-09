@@ -32,11 +32,13 @@ namespace Org.Webelopers.Api.Contracts
         /// random optional courses assigned and the number of students with no optional course assigned.</returns>
         public OptionalCoursesAssignmentResults StartOptionalCoursesAssignment();
         public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId);
+        public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid contractId);
 
         /// <returns>the number of semester contracts that got a course assigned</returns>
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference);
 
         public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds);
+        
 
     }
 }

@@ -156,6 +156,25 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        [HttpGet("semesterContract/contract")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetSemesterContractsByContractId([FromQuery] Guid contractId)
+        {
+            try
+            {
+                var response = _contractService.GetYearlyContractAllSemesterContracts(contractId);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
+
         [HttpPost("sign")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -179,8 +198,8 @@ namespace Org.Webelopers.Api.Controllers
 
             return Ok();
         }
-
-        [HttpGet("optionalCourses/all")]
+/*
+        [HttpGet("optionalCourses/semesterContract")]
         [Authorize(Roles = "Student")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -197,7 +216,7 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError(ex.Message);
                 return NotFound();
             }
-        }
+        }*/
 
         [HttpGet("optionalCourses/contract")]
         [Authorize(Roles = "Student")]
@@ -208,6 +227,24 @@ namespace Org.Webelopers.Api.Controllers
             try
             {
                 var courses = _optionalCourseService.GetOptionalCoursesByContractId(contractId);
+                return Ok(courses);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound();
+            }
+        }
+
+        [HttpGet("optionalCourses/semesterContract")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetOptionalCoursesBySemesterContract([FromQuery] Guid semesterContractId)
+        {
+            try
+            {
+                var courses = _optionalCourseService.GetOptionalCoursesBySemesterContractId(semesterContractId);
                 return Ok(courses);
             }
             catch (Exception ex)

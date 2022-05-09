@@ -9,9 +9,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
+import { getSemesterContracts } from '../state/thunks/contracts'
 import { getCoursesNamesByContract } from '../state/thunks/courses'
 import {
-  getOptionalCoursesByContract,
+  getOptionalCoursesBySemesterContract,
   setOptionalCoursesPreferences
 } from '../state/thunks/optionalCourses'
 
@@ -47,6 +48,9 @@ export const EditContractPage: FunctionComponent = () => {
   const { contractId } = useParams()
   const dispatch = useDispatch()
   const courses = useSelector((state: AppState) => state.courses.coursesNames)
+  const semesterContracts = useSelector(
+    (state: AppState) => state.contract.semesterContracts
+  )
   const optionalCourses = useSelector(
     (state: AppState) => state.optionalCourses.courses
   )
@@ -55,16 +59,21 @@ export const EditContractPage: FunctionComponent = () => {
   const [bringElementUp, setBringElementUp] = useState(false)
   const [preferences, setPreferences] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
-
-  useEffect(() => {
-    if (contractId != undefined) dispatch(getCoursesNamesByContract(contractId))
-  }, [contractId, dispatch])
+  const [indexContract, setIndexContract] = useState(0)
+  const [selectedSemesterContract, setSelectedSemesterContract] = useState('')
 
   useEffect(() => {
     if (contractId != undefined) {
-      dispatch(getOptionalCoursesByContract(contractId))
+      dispatch(getSemesterContracts(contractId))
+      dispatch(getCoursesNamesByContract(contractId))
     }
   }, [contractId, dispatch])
+
+  useEffect(() => {
+    if (selectedSemesterContract != '') {
+      dispatch(getOptionalCoursesBySemesterContract(selectedSemesterContract))
+    }
+  }, [selectedSemesterContract, dispatch])
   useEffect(() => {
     setOptionalList(optionalCourses)
   }, [dispatch, optionalCourses])
@@ -92,7 +101,7 @@ export const EditContractPage: FunctionComponent = () => {
       if (contractId != undefined) {
         dispatch(
           setOptionalCoursesPreferences({
-            contractId,
+            contractId: selectedSemesterContract,
             optionalCoursesList: optionalList
           })
         )
@@ -129,7 +138,56 @@ export const EditContractPage: FunctionComponent = () => {
           display: 'inline-block'
         }}
       >
-        Your contract courses :
+        Choose semester courses :
+        <br /> <br />
+        {semesterContracts.map((contract, index) => (
+          <div key={contract.id}>
+            {selectedSemesterContract != contract.id && (
+              <div
+                style={{
+                  width: '150px',
+                  border: '5px solid green',
+                  borderColor: '#96a2b4',
+                  padding: '10px',
+                  borderRadius: '25px'
+                }}
+                onClick={() => {
+                  setSelectedSemesterContract(contract.id)
+                }}
+              >
+                {index + 1}
+              </div>
+            )}
+            {selectedSemesterContract == contract.id && (
+              <div
+                style={{
+                  width: '150px',
+                  border: '5px solid green',
+                  borderColor: '#96a2b4',
+                  padding: '15px',
+                  borderRadius: '25px',
+                  background: '#D6DEEA'
+                }}
+                onClick={() => {
+                  setSelectedSemesterContract(contract.id)
+                }}
+              >
+                {index + 1}
+              </div>
+            )}
+            <br /> <br />
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          width: '30%',
+          height: '100vh',
+          float: 'left',
+          display: 'inline-block'
+        }}
+      >
+        Contract courses :
         <br /> <br />
         {courses.map(course => (
           <div key={course.id}>
@@ -140,14 +198,14 @@ export const EditContractPage: FunctionComponent = () => {
 
       <div
         style={{
-          width: '70%',
+          width: '40%',
           height: '100vh',
           float: 'right'
         }}
       >
         <Button
           variant="outlined"
-          style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
+          style={{ float: 'right', right: -220, top: 0, marginLeft: 5 }}
           onClick={() => {
             setPreferences(true)
           }}
@@ -156,7 +214,7 @@ export const EditContractPage: FunctionComponent = () => {
         </Button>
         <Button
           variant="outlined"
-          style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
+          style={{ float: 'right', right: -220, top: 0, marginLeft: 5 }}
           type="submit"
           onClick={() => {
             setBringElementDown(true)
@@ -167,7 +225,7 @@ export const EditContractPage: FunctionComponent = () => {
 
         <Button
           variant="outlined"
-          style={{ float: 'right', right: -150, top: 0, marginLeft: 5 }}
+          style={{ float: 'right', right: -220, top: 0, marginLeft: 5 }}
           onClick={() => {
             setBringElementUp(true)
           }}

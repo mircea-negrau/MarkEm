@@ -2,11 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { SECURE_API } from '../../utility/api'
 import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
-import {
-  FacultyDetails,
-  Specialisation,
-  StudyContractEnriched
-} from '../../utility/types/studentTypes'
 import { Grade } from '../../utility/types/gradeTypes'
 
 export const getAllGrades = createAsyncThunk(
