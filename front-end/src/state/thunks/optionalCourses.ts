@@ -4,12 +4,12 @@ import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
 import { OptionalCourse } from '../../utility/types/courseTypes'
 
-export const getOptionalCoursesByContract = createAsyncThunk(
+export const getOptionalCoursesBySemesterContract = createAsyncThunk(
   'getOptionalCoursesByContract',
   async (contractId: string) => {
     try {
       const response = await SECURE_API.get(
-        `/student/optionalCourses/contract?contractId=${contractId}`
+        `/student/optionalCourses/semesterContract?semesterContractId=${contractId}`
       )
       console.log('printing data', response.data)
       const responseContent: OptionalCourse[] = response.data

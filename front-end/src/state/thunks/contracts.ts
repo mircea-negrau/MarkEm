@@ -4,10 +4,13 @@ import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
 import {
   FacultyDetails,
-  Specialisation,
-  StudyContractEnriched
+  Specialisation
 } from '../../utility/types/studentTypes'
 import { Course } from '../../utility/types/courseTypes'
+import {
+  SemesterContract,
+  StudyContractEnriched
+} from '../../utility/types/contractTypes'
 
 export const getAllContracts = createAsyncThunk(
   'getAllContracts',
@@ -20,6 +23,22 @@ export const getAllContracts = createAsyncThunk(
       )
       console.log('gettig all contracts')
       const responseContent: StudyContractEnriched[] = response.data
+      return responseContent
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
+
+export const getSemesterContracts = createAsyncThunk(
+  'getSemesterContracts',
+  async (contractId: string) => {
+    try {
+      const response = await SECURE_API.get(
+        `/student/semesterContract/contract?contractId=${contractId}`
+      )
+      console.log('getting all semester contracts')
+      const responseContent: SemesterContract[] = response.data
       return responseContent
     } catch (error) {
       alert(error)

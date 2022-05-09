@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { OptionalCourse } from '../../utility/types/courseTypes'
-import { getOptionalCoursesByContract } from '../thunks/optionalCourses'
-
+import { getOptionalCoursesBySemesterContract } from '../thunks/optionalCourses'
 interface OptionalCoursesStateType {
   courses: OptionalCourse[]
   coursesStatus: FetchStatus
@@ -19,20 +18,26 @@ export const optionalCoursesSlice = createSlice({
   reducers: {},
 
   extraReducers: builder => {
-    builder.addCase(getOptionalCoursesByContract.fulfilled, (state, action) => {
-      if (action.payload) {
-        state.courses = action.payload
-        console.log('courses are loaded', state.courses)
-        state.coursesStatus = FetchStatus.success
-      }
-    }),
-      builder.addCase(getOptionalCoursesByContract.pending, (state, action) => {
+    builder.addCase(
+      getOptionalCoursesBySemesterContract.fulfilled,
+      (state, action) => {
         if (action.payload) {
-          state.coursesStatus = FetchStatus.loading
+          state.courses = action.payload
+          console.log('courses are loaded', state.courses)
+          state.coursesStatus = FetchStatus.success
         }
-      }),
+      }
+    ),
       builder.addCase(
-        getOptionalCoursesByContract.rejected,
+        getOptionalCoursesBySemesterContract.pending,
+        (state, action) => {
+          if (action.payload) {
+            state.coursesStatus = FetchStatus.loading
+          }
+        }
+      ),
+      builder.addCase(
+        getOptionalCoursesBySemesterContract.rejected,
         (state, action) => {
           if (action.payload) {
             state.coursesStatus = FetchStatus.error
