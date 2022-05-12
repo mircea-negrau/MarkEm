@@ -14,6 +14,8 @@ import { ProfilePage } from './ui/ProfilePage'
 import { ErrorPage } from './ui/ErrorPage'
 import { CoursesPage } from './ui/CoursesPage'
 import { CoursePage } from './ui/CoursePage'
+import { EditContractPage } from './ui/EditContractPage'
+import { GradesPage } from './ui/GradesPage'
 
 const App: FunctionComponent = () => {
   return (
@@ -42,6 +44,14 @@ const App: FunctionComponent = () => {
             element={
               <AuthComponent>
                 <Contracts />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'contracts/:contractId'}
+            element={
+              <AuthComponent>
+                <EditContractPage />
               </AuthComponent>
             }
           />
@@ -82,6 +92,23 @@ const App: FunctionComponent = () => {
             element={
               <AuthComponent>
                 <CoursePage />
+              </AuthComponent>
+            }
+          />
+          <Route
+            path={'/student/course/:courseId'}
+            element={
+              <AuthComponent>
+                <CoursePage />
+              </AuthComponent>
+            }
+          />
+
+          <Route
+            path={'/grades'}
+            element={
+              <AuthComponent>
+                <GradesPage />
               </AuthComponent>
             }
           />

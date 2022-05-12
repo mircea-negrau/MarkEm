@@ -29,6 +29,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual List<StudySemester> Semesters { get; set; }
 
         public virtual List<StudentContract> Contracts { get; set; }
+        
+        public virtual List<FacultyGroup> Groups { get; set; }
 
         #endregion
     }

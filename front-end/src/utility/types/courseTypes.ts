@@ -9,6 +9,18 @@ export interface Course {
   teacher?: Profile
 }
 
+export interface CourseShort {
+  id: string
+  name: string
+}
+
+export interface OptionalCourse {
+  id: string
+  name: string
+  maxNumberOfStudent: number
+  credits: number
+}
+
 export interface TeacherMandatoryEnrichedCourses {
   id: string
   name: string

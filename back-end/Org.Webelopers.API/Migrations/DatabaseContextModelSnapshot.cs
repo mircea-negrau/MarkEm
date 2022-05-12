@@ -67,7 +67,7 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321"),
+                            Id = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName0",
@@ -78,7 +78,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9"),
+                            Id = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName1",
@@ -89,7 +89,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e"),
+                            Id = new Guid("08753260-7db2-4911-97b2-cf49552414ff"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName2",
@@ -100,7 +100,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("440f5863-b80a-444b-9e38-7628b16206a1"),
+                            Id = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName3",
@@ -111,7 +111,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639"),
+                            Id = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName4",
@@ -122,7 +122,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac"),
+                            Id = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName5",
@@ -133,7 +133,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea"),
+                            Id = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName6",
@@ -144,7 +144,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665"),
+                            Id = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName7",
@@ -155,7 +155,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa"),
+                            Id = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName8",
@@ -166,7 +166,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("64f2c511-583d-4dc4-a811-dada76aba579"),
+                            Id = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName9",
@@ -177,7 +177,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e"),
+                            Id = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName10",
@@ -188,7 +188,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda"),
+                            Id = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName11",
@@ -199,7 +199,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f"),
+                            Id = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName12",
@@ -210,7 +210,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216"),
+                            Id = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName13",
@@ -221,7 +221,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b"),
+                            Id = new Guid("6785ef90-5968-4673-918f-87969772d761"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName14",
@@ -232,7 +232,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d"),
+                            Id = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName15",
@@ -243,7 +243,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987"),
+                            Id = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName16",
@@ -254,7 +254,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9"),
+                            Id = new Guid("15e101e5-6231-465a-b661-6b9e8830332c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName17",
@@ -265,7 +265,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5"),
+                            Id = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName18",
@@ -276,7 +276,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da"),
+                            Id = new Guid("2daf477e-5667-485b-8efb-3858c7cababb"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName19",
@@ -287,7 +287,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("725d347f-f406-4a23-b414-4f277ad1e86d"),
+                            Id = new Guid("8b9c3e4c-f1d2-42ec-9e5d-61a32fcdf25c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName20",
@@ -298,7 +298,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e9d7ae38-013d-406c-b736-3e35f7d9efe6"),
+                            Id = new Guid("5eaa5f96-418a-4ce7-afce-57ea44256311"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName21",
@@ -309,7 +309,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("58e48dc7-8a44-4735-b08c-2c560ed2792b"),
+                            Id = new Guid("c33cdba2-ee2c-479d-b007-73e9e2ec2004"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName22",
@@ -320,7 +320,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b5e8e40a-8bff-4e8c-96b7-e4999b9721a4"),
+                            Id = new Guid("700fb14c-1fda-4aa5-8d27-b0742d2ed3b8"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName23",
@@ -331,7 +331,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e5751c44-22b5-4e43-ab2a-e1bfa4e29876"),
+                            Id = new Guid("74dcef9a-13e3-4fbc-ab36-ad379732c46f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName24",
@@ -342,7 +342,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("57b4f3ff-0a61-4fa5-9139-d53611786dc0"),
+                            Id = new Guid("be949e9a-24fe-4d7c-95a0-ec7a0150f500"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName25",
@@ -353,7 +353,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0170e463-e46e-42c0-87af-6c782bc27514"),
+                            Id = new Guid("87b10a13-db0c-4026-b754-1a22e13c01cf"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName26",
@@ -364,7 +364,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8bce7ea9-4038-4120-8603-c657e670678a"),
+                            Id = new Guid("c6bd4f82-482d-4c08-8d64-3ab849f89edf"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName27",
@@ -375,7 +375,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4bac3c89-6139-4fbe-9375-9c3089607a4c"),
+                            Id = new Guid("585fecc7-0249-42a1-b7cb-33a6783501db"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName28",
@@ -386,7 +386,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("89f81462-999e-4830-83a6-3b8516753656"),
+                            Id = new Guid("9976ecd7-ec23-44bf-9517-f4d0b862bd8e"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName29",
@@ -397,7 +397,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a637ae33-eaf6-4d29-9268-c9d8342470df"),
+                            Id = new Guid("2d3c506b-0f9e-4676-8eb1-87714c5eefb9"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName30",
@@ -408,7 +408,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7a286bfb-2317-41be-a927-3543eb6b675c"),
+                            Id = new Guid("9803212f-9417-4247-b409-1faaf7e69066"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName31",
@@ -419,7 +419,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ebe81c59-bf12-4df5-9baa-5af90bf5fef0"),
+                            Id = new Guid("44ff300d-60b2-405f-aeae-46d9f3a15240"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName32",
@@ -430,7 +430,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ae16bb0e-76b1-45ed-bf72-61ae86ad4b77"),
+                            Id = new Guid("f518e1c2-2090-486c-8c45-02484ff2577d"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName33",
@@ -441,7 +441,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dd90d328-9e3b-42cb-ba19-e1d71ba99b78"),
+                            Id = new Guid("584cde08-c075-407e-a09f-d5a533fbc45f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName34",
@@ -452,7 +452,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cb8878dd-25c6-4edc-bf11-28f061797d43"),
+                            Id = new Guid("36f86193-5211-46e2-b0f1-efb607cb0976"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName35",
@@ -463,7 +463,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a086d6f7-a8ca-4dd9-8cd4-28e1c67e96dd"),
+                            Id = new Guid("8ea1e7b2-5649-4204-aed8-c92eba7ef250"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName36",
@@ -474,7 +474,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("93a27655-a27a-4fc1-83ce-4bfe7870584e"),
+                            Id = new Guid("f43b2256-f1d4-4685-be74-d6d3ae8c76f0"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName37",
@@ -485,7 +485,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e08c079e-2af4-4aba-824a-e8645fe0f06f"),
+                            Id = new Guid("249c3565-3c41-47d1-88e6-621398c458be"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName38",
@@ -496,7 +496,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("748922e6-fc92-43ec-88b2-3da72ed82b58"),
+                            Id = new Guid("b57c5901-c882-4a88-9cb7-d11e58f9c678"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName39",
@@ -507,7 +507,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("78f93bcc-d1ab-4f22-8055-d6096634b45c"),
+                            Id = new Guid("b9fdcfa2-129e-47f6-81ff-efcc333d32b7"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName40",
@@ -518,7 +518,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2265a5ee-c06d-4ce7-a6e3-61971bb97b7e"),
+                            Id = new Guid("baef3a80-e7af-46f7-8d66-1cbccbb3e3bd"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName41",
@@ -529,7 +529,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("276dd141-eee9-44a2-8f97-41decc40381e"),
+                            Id = new Guid("338fe279-f58e-4c5e-9081-9648454a2753"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName42",
@@ -540,7 +540,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("03bb9ca9-ae28-48a0-af2d-2177898b3706"),
+                            Id = new Guid("e67b668b-c463-423b-8022-1832825cb1be"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName43",
@@ -551,7 +551,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("80ebb18a-e447-4ad4-aa6c-be7e8383a2f6"),
+                            Id = new Guid("0dd819b3-f715-4609-84e7-53c5de8c2cea"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName44",
@@ -562,7 +562,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("07dfc2c5-ff08-4ca2-9d75-ac2400f718e7"),
+                            Id = new Guid("ddb72c19-7cc0-4197-a1be-17b08df39f48"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName45",
@@ -573,7 +573,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a66eb85e-b430-4586-8228-5e0f0da8311b"),
+                            Id = new Guid("7c117e49-26a5-44a1-ad74-028fc5ccc9cd"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName46",
@@ -584,7 +584,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3e262014-0d7f-4a65-bce6-d93074a8c4dc"),
+                            Id = new Guid("2273247a-5ea9-4956-bbe3-e4e1fbedc68a"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName47",
@@ -595,7 +595,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("10521b95-7b13-4cd8-b47a-19fac79fa145"),
+                            Id = new Guid("14acfd39-649e-44bb-b4c9-81bb485c1565"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName48",
@@ -606,7 +606,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("41ca9194-441b-485c-9e6e-31a642ca8c12"),
+                            Id = new Guid("566cf487-3ed6-40c5-ae72-d3741beff430"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName49",
@@ -617,7 +617,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9ac3aac0-5341-4389-8153-c98bbb803cc8"),
+                            Id = new Guid("cc555932-1240-4511-8879-82d6a043a116"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName50",
@@ -628,7 +628,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6e8ad44e-d46b-4f50-beee-0562f82288a9"),
+                            Id = new Guid("ab14935a-1968-4ad4-9eb9-4288cc10b1e8"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName51",
@@ -639,7 +639,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("362b789c-e8e6-40b4-b590-7f9743cb9856"),
+                            Id = new Guid("0e322cc8-03b5-43b6-9cda-bca157b07e33"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName52",
@@ -650,7 +650,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fdb4e33f-9d37-438c-af39-ff0516c2d8db"),
+                            Id = new Guid("045fd78f-d876-4b31-8e8e-93c7f28fba90"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName53",
@@ -661,7 +661,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e7b5f652-f44f-467e-935d-78bd2de865c4"),
+                            Id = new Guid("697a9e49-5424-4293-803b-71cde4bd3c23"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName54",
@@ -672,7 +672,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e283577f-d734-401b-89b3-cf0e6a026e0f"),
+                            Id = new Guid("3d66a605-b2f6-414e-b4fa-7a679521bbdf"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName55",
@@ -683,7 +683,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c148479c-48ff-4120-94f2-baa33b6e8a09"),
+                            Id = new Guid("9b342db1-edd9-4031-8d39-95f30c0141a7"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName56",
@@ -694,7 +694,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("03a3c074-ae04-4f5c-a6d0-4e4b61820152"),
+                            Id = new Guid("ea4c9cd4-14d3-456e-aa97-e835f7f8dbff"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName57",
@@ -705,7 +705,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("625d1d34-7e86-41fe-8eb2-985fe439a6ed"),
+                            Id = new Guid("fe763220-9d76-451a-add3-d88a4e35722a"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName58",
@@ -716,7 +716,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("26b2208c-2ea6-4389-b212-83583bf6dcc9"),
+                            Id = new Guid("3c605bc1-2cf3-4078-91ef-1acea4474300"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName59",
@@ -727,7 +727,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b08456ce-23d2-474d-bf65-0688076d83dd"),
+                            Id = new Guid("671a6804-d308-419d-b56e-84b4c8858681"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName60",
@@ -738,7 +738,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("52d2e621-2150-4328-a00c-f1f307038311"),
+                            Id = new Guid("f4fc87ec-d782-4a1e-8190-f93e95d89bd6"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName61",
@@ -749,7 +749,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("abebab04-e1f0-444a-a09d-b1c1c70b9ce2"),
+                            Id = new Guid("27f1e861-b79c-4143-9b88-69313b52ccc0"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName62",
@@ -760,7 +760,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c157cb2c-9b1f-4ee2-8bb5-0919d1802622"),
+                            Id = new Guid("b7410b97-9dd3-403f-bad8-9ddae8158612"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName63",
@@ -771,7 +771,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d06ceafc-9239-42d5-82bc-e7296c2ba167"),
+                            Id = new Guid("cbc18fd5-6116-4dd0-827e-a0e82fa8a1e2"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName64",
@@ -782,7 +782,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a3702ac3-d8e6-479e-ad3d-90371c448e32"),
+                            Id = new Guid("8a94aee2-829e-4b4b-9ba9-285e264cc3fa"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName65",
@@ -793,7 +793,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("11a6bc52-2db0-477f-a17a-94c878e33f6c"),
+                            Id = new Guid("2cfc839b-ba6b-46c6-8955-3b2d2ee8694c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName66",
@@ -804,7 +804,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1d142e90-6fc0-42ce-a83e-7dfaf00c971d"),
+                            Id = new Guid("5a53e5de-c9ba-483b-b346-46e9fde8dd26"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName67",
@@ -815,7 +815,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("143d4a0f-5138-4091-9e9a-8f3432f5a527"),
+                            Id = new Guid("b886c14b-274f-4bd7-be28-3e8f37ea9503"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName68",
@@ -826,7 +826,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ad5c6c97-3c62-4752-b2c9-b4b8141e3dab"),
+                            Id = new Guid("27c21c60-30bb-4cb7-a3e3-4857aab19659"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName69",
@@ -837,7 +837,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("005fcf54-4ac3-4794-80e9-d9e7831c05ec"),
+                            Id = new Guid("c868fdb3-b9c3-4a4e-9727-bf3cf5f2b20f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName70",
@@ -848,7 +848,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3818589e-f6d5-40be-a49b-cd0cb6be89f0"),
+                            Id = new Guid("99d71edc-63a4-4a24-b278-b49d0bb19f49"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName71",
@@ -859,7 +859,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f639491f-f34e-4036-b0f2-34a5c8e9f26d"),
+                            Id = new Guid("4c2b1381-e9ec-41e5-858f-0b4e03a0b1dd"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName72",
@@ -870,7 +870,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5209cacf-4f7c-4a88-9f1d-95ca8af3b052"),
+                            Id = new Guid("62cef015-f0eb-4a6d-a0ce-43263a9de3e5"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName73",
@@ -881,7 +881,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("13f231f6-e8ec-43d9-a052-844ee9041034"),
+                            Id = new Guid("0cbd6601-75d8-4c01-aab1-45d423fa9319"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName74",
@@ -892,7 +892,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("510b4925-7fc0-4de0-8921-a1756faab7c1"),
+                            Id = new Guid("474db11c-c458-481b-bfc5-bfa3cef134d1"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName75",
@@ -903,7 +903,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0247aec9-5de6-4a79-a805-1b4a598945ba"),
+                            Id = new Guid("cd60f589-6db5-4124-a1e7-b26b1515a49f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName76",
@@ -914,7 +914,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("033a4dfb-dea0-442b-8f07-efffda3dc66c"),
+                            Id = new Guid("8f30ff42-f259-4b6a-90b2-3745f361afff"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName77",
@@ -925,7 +925,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d9db07d2-23b5-4d75-8e14-21733126d60e"),
+                            Id = new Guid("2e6514ee-f003-4a1c-b604-ee104cb18e9c"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName78",
@@ -936,7 +936,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("546c8df8-19bf-4426-b52b-4f7bd986f23d"),
+                            Id = new Guid("9bffef4c-c3ff-46b6-97f6-b40d4fe7c6d3"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName79",
@@ -947,7 +947,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c2bc3863-c263-457e-a114-69cc5c94075f"),
+                            Id = new Guid("291c9fec-de54-438a-a80b-cb050e1432f2"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName80",
@@ -958,7 +958,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("41de7aa6-3e5f-47bf-88ba-37030de4231b"),
+                            Id = new Guid("94f64a73-7b1e-404e-8660-068df7ae798f"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName81",
@@ -969,7 +969,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("756beb15-3436-4d3d-8da1-afc43da58f77"),
+                            Id = new Guid("0a153192-1f8f-4a92-bb16-ab82de4379e3"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName82",
@@ -980,7 +980,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b53ccb92-7573-4f5b-852d-15cc3227fb8d"),
+                            Id = new Guid("3745bdd4-6b4f-4a97-a4fd-1d284b5604ab"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName83",
@@ -991,7 +991,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f27b51b6-95fa-4f4c-8b46-752b8542c51f"),
+                            Id = new Guid("ce097aa9-4fb3-4a6e-ad49-ac8a555743d6"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName84",
@@ -1002,7 +1002,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2ab2d979-c7b4-4a20-8e09-3ce15afa7a6f"),
+                            Id = new Guid("c62ff166-4f6a-4126-916a-ea30a7804072"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName85",
@@ -1013,7 +1013,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("479e5195-5d9f-45f9-953c-5417315cdd48"),
+                            Id = new Guid("b3050769-754a-4389-8690-8ec99304fb18"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName86",
@@ -1024,7 +1024,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c71686c6-741c-4929-84c0-66cbb9f5a73a"),
+                            Id = new Guid("b25f6943-cea8-459d-8c6e-df8d39e2e488"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName87",
@@ -1035,7 +1035,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("43936095-8cef-40d0-b61d-069a130596f0"),
+                            Id = new Guid("9e7ed602-ce49-4120-8013-d672ff620db5"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName88",
@@ -1046,7 +1046,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5a424122-f16b-4bc8-891a-48fe333b6341"),
+                            Id = new Guid("42c6514f-3632-4599-af6a-982cf4845ef4"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName89",
@@ -1057,7 +1057,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f3e44686-53f3-4ce7-8c59-424b2d07e355"),
+                            Id = new Guid("b96d78b3-d8cb-4634-8534-636517564e76"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName90",
@@ -1068,7 +1068,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("98a52ca8-5af2-4dbd-a6fe-be22207349b1"),
+                            Id = new Guid("936e7f20-6944-43f3-8e3d-99bccbeb26c8"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName91",
@@ -1079,7 +1079,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bcaf902c-5d29-4b87-b01b-2b3f5b6c0473"),
+                            Id = new Guid("4c941439-f62a-48fc-8aa6-d047333edb44"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName92",
@@ -1090,7 +1090,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("53cbe638-d1e3-410c-a204-1f11f2c7633b"),
+                            Id = new Guid("e86bcb2a-cd9b-4175-a190-d4872e96e236"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName93",
@@ -1101,7 +1101,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7942c487-3bbf-439b-ab22-dc3f0bce4cc2"),
+                            Id = new Guid("9d71a4b5-d03c-4341-bf59-2920f6ae260e"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName94",
@@ -1112,7 +1112,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5e1879dd-aeb7-4de5-aa0f-4d725fe917fa"),
+                            Id = new Guid("a2263c6b-31e9-4242-8663-697fcc365987"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName95",
@@ -1123,7 +1123,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("505e050e-09de-4660-b6e5-fa4769255e4d"),
+                            Id = new Guid("e42fe777-8736-4749-a8a1-af57ac97ce7e"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName96",
@@ -1134,7 +1134,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2e8097d2-7564-440c-b954-dd55c04eadcd"),
+                            Id = new Guid("b73b2bfd-896d-42d9-8768-2bda7f1fc5aa"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName97",
@@ -1145,7 +1145,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dc33adb6-52b6-4a9e-9401-66a305c9ab69"),
+                            Id = new Guid("f19daf6f-9705-4a6f-a953-9d9d69604436"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName98",
@@ -1156,7 +1156,7 @@ namespace Org.Webelopers.Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b02c2a20-c85f-42e3-8edd-68cb3fe4e84e"),
+                            Id = new Guid("d50391ff-a32e-4abf-b45f-5e4cf058b204"),
                             About = "",
                             Email = "dummyEmail@email.com",
                             FirstName = "firstName99",
@@ -1179,43 +1179,43 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            AccountId = new Guid("725d347f-f406-4a23-b414-4f277ad1e86d")
+                            AccountId = new Guid("8b9c3e4c-f1d2-42ec-9e5d-61a32fcdf25c")
                         },
                         new
                         {
-                            AccountId = new Guid("e9d7ae38-013d-406c-b736-3e35f7d9efe6")
+                            AccountId = new Guid("5eaa5f96-418a-4ce7-afce-57ea44256311")
                         },
                         new
                         {
-                            AccountId = new Guid("58e48dc7-8a44-4735-b08c-2c560ed2792b")
+                            AccountId = new Guid("c33cdba2-ee2c-479d-b007-73e9e2ec2004")
                         },
                         new
                         {
-                            AccountId = new Guid("b5e8e40a-8bff-4e8c-96b7-e4999b9721a4")
+                            AccountId = new Guid("700fb14c-1fda-4aa5-8d27-b0742d2ed3b8")
                         },
                         new
                         {
-                            AccountId = new Guid("e5751c44-22b5-4e43-ab2a-e1bfa4e29876")
+                            AccountId = new Guid("74dcef9a-13e3-4fbc-ab36-ad379732c46f")
                         },
                         new
                         {
-                            AccountId = new Guid("57b4f3ff-0a61-4fa5-9139-d53611786dc0")
+                            AccountId = new Guid("be949e9a-24fe-4d7c-95a0-ec7a0150f500")
                         },
                         new
                         {
-                            AccountId = new Guid("0170e463-e46e-42c0-87af-6c782bc27514")
+                            AccountId = new Guid("87b10a13-db0c-4026-b754-1a22e13c01cf")
                         },
                         new
                         {
-                            AccountId = new Guid("8bce7ea9-4038-4120-8603-c657e670678a")
+                            AccountId = new Guid("c6bd4f82-482d-4c08-8d64-3ab849f89edf")
                         },
                         new
                         {
-                            AccountId = new Guid("4bac3c89-6139-4fbe-9375-9c3089607a4c")
+                            AccountId = new Guid("585fecc7-0249-42a1-b7cb-33a6783501db")
                         },
                         new
                         {
-                            AccountId = new Guid("89f81462-999e-4830-83a6-3b8516753656")
+                            AccountId = new Guid("9976ecd7-ec23-44bf-9517-f4d0b862bd8e")
                         });
                 });
 
@@ -1244,20 +1244,20 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a97da969-4de8-4122-96c9-30460d5242d1"),
-                            ChiefOfDepartmentId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321"),
+                            Id = new Guid("87acd182-4559-4bf1-8052-6f88b2eab736"),
+                            ChiefOfDepartmentId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3"),
                             Name = "Faculty-0"
                         },
                         new
                         {
-                            Id = new Guid("387884bb-47c7-4c9a-8149-450fcb1bf4a5"),
-                            ChiefOfDepartmentId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9"),
+                            Id = new Guid("9e97fae8-6c04-47f0-be77-054b12a6cbdb"),
+                            ChiefOfDepartmentId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b"),
                             Name = "Faculty-1"
                         },
                         new
                         {
-                            Id = new Guid("d486de20-ffea-4d3f-bb71-a7406deb5ed7"),
-                            ChiefOfDepartmentId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e"),
+                            Id = new Guid("7c70a3ed-fe42-4ab2-b25b-606310a83114"),
+                            ChiefOfDepartmentId = new Guid("08753260-7db2-4911-97b2-cf49552414ff"),
                             Name = "Faculty-2"
                         });
                 });
@@ -1271,8 +1271,11 @@ namespace Org.Webelopers.Api.Migrations
                     b.Property<Guid?>("LeaderStudentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("Number")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Number")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("StudyYearId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("TutorTeacherId")
                         .HasColumnType("uniqueidentifier");
@@ -1283,6 +1286,8 @@ namespace Org.Webelopers.Api.Migrations
                         .IsUnique()
                         .HasFilter("[LeaderStudentId] IS NOT NULL");
 
+                    b.HasIndex("StudyYearId");
+
                     b.HasIndex("TutorTeacherId")
                         .IsUnique()
                         .HasFilter("[TutorTeacherId] IS NOT NULL");
@@ -1292,309 +1297,255 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("00e61e59-a3ec-4194-9084-612a0160fab3"),
-                            LeaderStudentId = new Guid("143d4a0f-5138-4091-9e9a-8f3432f5a527"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            Id = new Guid("aadab007-b362-46ed-a688-860990c1ce67"),
+                            LeaderStudentId = new Guid("ab14935a-1968-4ad4-9eb9-4288cc10b1e8"),
+                            TutorTeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("f19c9c3a-00c0-4503-a906-4258efc04b17"),
-                            Number = 0L
+                            Id = new Guid("353dfdfe-d039-4855-8d1b-9fef20b86a07")
                         },
                         new
                         {
-                            Id = new Guid("3bdd5d34-6aae-44ae-a212-323359221dbf"),
-                            Number = 0L
+                            Id = new Guid("1e64fce0-c64e-4952-9ca4-ded612da49d6")
                         },
                         new
                         {
-                            Id = new Guid("8a6a68cb-60b1-40bf-851c-5a9e4c1bf831"),
-                            LeaderStudentId = new Guid("f639491f-f34e-4036-b0f2-34a5c8e9f26d"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            Id = new Guid("94c2c181-3280-443a-9cf6-f8fb44a711d0"),
+                            LeaderStudentId = new Guid("cbc18fd5-6116-4dd0-827e-a0e82fa8a1e2"),
+                            TutorTeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("e4c37165-7c32-43e2-a0cb-daf869a920e4"),
-                            Number = 0L
+                            Id = new Guid("eeb27e3b-7129-4274-ad3d-38ccaff788d7")
                         },
                         new
                         {
-                            Id = new Guid("1306d78e-5b99-4165-bb5b-668cd69aa9ff"),
-                            Number = 0L
+                            Id = new Guid("d315edc1-b4a1-4a4a-a2ee-ef2c5ed5c1a2")
                         },
                         new
                         {
-                            Id = new Guid("90ed50e4-ac0d-428b-898f-17d83d8adea7"),
-                            LeaderStudentId = new Guid("80ebb18a-e447-4ad4-aa6c-be7e8383a2f6"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            Id = new Guid("67a22ec5-8bf1-46c6-b087-bb33ba0db7c8"),
+                            LeaderStudentId = new Guid("ddb72c19-7cc0-4197-a1be-17b08df39f48"),
+                            TutorTeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("e004cf77-e527-4eac-89bd-d0cfc249918a"),
-                            Number = 0L
+                            Id = new Guid("c01a8e4f-ddaf-49ba-b3fc-7e8dc962addf")
                         },
                         new
                         {
-                            Id = new Guid("da1944e4-839d-41a3-b64d-d78f24bd89c1"),
-                            Number = 0L
+                            Id = new Guid("64213c26-f20c-496a-91f9-a1872cc9249a")
                         },
                         new
                         {
-                            Id = new Guid("ccfc4833-55c4-408a-803a-9db4fc5558c0"),
-                            LeaderStudentId = new Guid("d06ceafc-9239-42d5-82bc-e7296c2ba167"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            Id = new Guid("6d945629-fc20-4a2d-840e-9efc331dfae0"),
+                            LeaderStudentId = new Guid("b25f6943-cea8-459d-8c6e-df8d39e2e488"),
+                            TutorTeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("5b05cf34-933f-444f-932c-116da17e0931"),
-                            Number = 0L
+                            Id = new Guid("5556d781-9a8c-4bc8-8b2d-7569b09b497b")
                         },
                         new
                         {
-                            Id = new Guid("8e23c49c-6374-4981-8905-fd55ee39d6df"),
-                            Number = 0L
+                            Id = new Guid("0d95f6da-d6ff-43c7-b438-b2e7a29e6035")
                         },
                         new
                         {
-                            Id = new Guid("246cb8fc-8457-4bce-a5bb-535a71e566b3"),
-                            LeaderStudentId = new Guid("3818589e-f6d5-40be-a49b-cd0cb6be89f0"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            Id = new Guid("0b2c4f43-a881-4b96-b697-2baec5d6ae9e"),
+                            LeaderStudentId = new Guid("0a153192-1f8f-4a92-bb16-ab82de4379e3"),
+                            TutorTeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("4ba394de-5f78-4bfc-b42d-dd4cd3037db4"),
-                            Number = 0L
+                            Id = new Guid("7f399728-b435-443b-8fb7-7bf58eb8fd09")
                         },
                         new
                         {
-                            Id = new Guid("3df85a78-4052-4926-b7bf-5dc6e4bff475"),
-                            Number = 0L
+                            Id = new Guid("4a895a13-7960-4ff6-92b3-61afaad832a8")
                         },
                         new
                         {
-                            Id = new Guid("d228099e-5e7a-4d83-9361-dc6624e003e1"),
-                            LeaderStudentId = new Guid("756beb15-3436-4d3d-8da1-afc43da58f77"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            Id = new Guid("d0e6bd46-38cf-4efd-adb2-6cdd458afd2a"),
+                            LeaderStudentId = new Guid("b57c5901-c882-4a88-9cb7-d11e58f9c678"),
+                            TutorTeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("c494ceb6-a661-48ca-bc79-dc8932627804"),
-                            Number = 0L
+                            Id = new Guid("0dad3774-03bf-4c41-8cbc-640fdae1ec2f")
                         },
                         new
                         {
-                            Id = new Guid("6ce585ac-5513-4089-b668-692f58bdc331"),
-                            Number = 0L
+                            Id = new Guid("3620dd07-5455-460c-a309-1adbf056f069")
                         },
                         new
                         {
-                            Id = new Guid("ef59c951-cfc9-4d36-b9e8-e6b50b6fed9f"),
-                            LeaderStudentId = new Guid("505e050e-09de-4660-b6e5-fa4769255e4d"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            Id = new Guid("45060f12-ece6-4b97-b565-daa07f1ee078"),
+                            LeaderStudentId = new Guid("5a53e5de-c9ba-483b-b346-46e9fde8dd26"),
+                            TutorTeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("4ccb50c1-1ee3-4fac-9a30-f6f88d7ea4f6"),
-                            Number = 0L
+                            Id = new Guid("260ffeb4-a7d2-407d-adea-421016739dba")
                         },
                         new
                         {
-                            Id = new Guid("d6b4fa4a-2c33-48b7-95d6-b8662804dad1"),
-                            Number = 0L
+                            Id = new Guid("999028dd-0e3f-40e6-8b7b-7eebe90fe176")
                         },
                         new
                         {
-                            Id = new Guid("f6f92f2b-7c47-47be-8a22-c0c1341d17c9"),
-                            LeaderStudentId = new Guid("b53ccb92-7573-4f5b-852d-15cc3227fb8d"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            Id = new Guid("5601e26f-0be7-420e-82aa-5c82d5f10a9b"),
+                            LeaderStudentId = new Guid("e42fe777-8736-4749-a8a1-af57ac97ce7e"),
+                            TutorTeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("6d364226-b034-445c-a182-34aee0e2fdcd"),
-                            Number = 0L
+                            Id = new Guid("fb9f1d4e-b0fc-4f5d-bd9d-ca86e5e5443e")
                         },
                         new
                         {
-                            Id = new Guid("a5d19899-24a3-439e-aef6-0d52f99360ab"),
-                            Number = 0L
+                            Id = new Guid("62e33f6d-1316-421c-9b5d-97f86a9654d0")
                         },
                         new
                         {
-                            Id = new Guid("c543ef1b-5823-4801-b131-cbe570618c52"),
-                            LeaderStudentId = new Guid("f3e44686-53f3-4ce7-8c59-424b2d07e355"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            Id = new Guid("fc76e366-89cd-4503-87eb-c8aff678efb3"),
+                            LeaderStudentId = new Guid("36f86193-5211-46e2-b0f1-efb607cb0976"),
+                            TutorTeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("4dd55ace-37f5-4e3d-8f13-e44307725447"),
-                            Number = 0L
+                            Id = new Guid("9d061641-b81f-41f2-aeaa-48a436317e31")
                         },
                         new
                         {
-                            Id = new Guid("66c061f7-ec5b-431a-b4b2-fcdd26640233"),
-                            Number = 0L
+                            Id = new Guid("87f909d9-267a-4710-bb98-687652181b48")
                         },
                         new
                         {
-                            Id = new Guid("071d25f8-bc97-4dbe-8393-a7d141a8c5d2"),
-                            LeaderStudentId = new Guid("1d142e90-6fc0-42ce-a83e-7dfaf00c971d"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            Id = new Guid("bd7b713d-c747-40f1-a165-3d8e1ec41b5d"),
+                            LeaderStudentId = new Guid("2cfc839b-ba6b-46c6-8955-3b2d2ee8694c"),
+                            TutorTeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("cbafa8d0-f66e-467f-990b-cd0ad21ae6aa"),
-                            Number = 0L
+                            Id = new Guid("52a1bf69-48b8-4333-930e-8b8603fd5dba")
                         },
                         new
                         {
-                            Id = new Guid("5d603485-ac47-4093-a73a-83a7593022a7"),
-                            Number = 0L
+                            Id = new Guid("cdf85e3d-470c-467c-a72b-c1c4ab9effc9")
                         },
                         new
                         {
-                            Id = new Guid("effedd84-931a-466a-9ad1-3afcc7161bd8"),
-                            LeaderStudentId = new Guid("2e8097d2-7564-440c-b954-dd55c04eadcd"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            Id = new Guid("18a341f9-d05d-4dad-a4ec-725e6fc25adb"),
+                            LeaderStudentId = new Guid("0e322cc8-03b5-43b6-9cda-bca157b07e33"),
+                            TutorTeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("b7224856-e3c7-4071-a9fa-41410ed466b0"),
-                            Number = 0L
+                            Id = new Guid("3e827b50-38bb-4049-b554-ad4db7c6f079")
                         },
                         new
                         {
-                            Id = new Guid("07a97332-9348-4d3d-9d9b-09f9701393c9"),
-                            Number = 0L
+                            Id = new Guid("0d804411-bbbc-4de0-af5d-21ffdd14972a")
                         },
                         new
                         {
-                            Id = new Guid("cb2ecaa3-ef3b-470a-b5b0-88c2ebf2bba7"),
-                            LeaderStudentId = new Guid("41ca9194-441b-485c-9e6e-31a642ca8c12"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            Id = new Guid("8fab1726-e000-4f6c-9e7a-49d3f0b75a43"),
+                            LeaderStudentId = new Guid("9bffef4c-c3ff-46b6-97f6-b40d4fe7c6d3"),
+                            TutorTeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("c11b837c-ddae-41f4-bf49-ace5e4ad517b"),
-                            Number = 0L
+                            Id = new Guid("5c1d34d9-2bfa-4cf5-aea7-e15eeddaae0b")
                         },
                         new
                         {
-                            Id = new Guid("b0451579-06e1-4124-bf68-d48bb1d20237"),
-                            Number = 0L
+                            Id = new Guid("3d329348-1e54-45bb-b1dc-f8359d8eca3a")
                         },
                         new
                         {
-                            Id = new Guid("9f37e642-d986-49d1-b4b0-0df9eeeccb18"),
-                            LeaderStudentId = new Guid("2ab2d979-c7b4-4a20-8e09-3ce15afa7a6f"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            Id = new Guid("bb8cf7e3-f07e-4d72-baaa-3fc8a0193fce"),
+                            LeaderStudentId = new Guid("94f64a73-7b1e-404e-8660-068df7ae798f"),
+                            TutorTeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("b6731905-4a7d-4523-9ab8-ef1400249ebe"),
-                            Number = 0L
+                            Id = new Guid("d24e31dc-caab-40e0-8195-6f702aa19e56")
                         },
                         new
                         {
-                            Id = new Guid("85f52f4b-149a-492c-ab15-b317a51c9fab"),
-                            Number = 0L
+                            Id = new Guid("0eb78f8e-6486-498e-abaf-e7a8ff52a03c")
                         },
                         new
                         {
-                            Id = new Guid("4e47949b-ebed-4de0-9aab-e1e15b4a2fc8"),
-                            LeaderStudentId = new Guid("a66eb85e-b430-4586-8228-5e0f0da8311b"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            Id = new Guid("bcdefb44-008a-449e-bc13-762db3f6614c"),
+                            LeaderStudentId = new Guid("b9fdcfa2-129e-47f6-81ff-efcc333d32b7"),
+                            TutorTeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("f7532d6b-bf41-4d53-b450-4b4fdb10efb0"),
-                            Number = 0L
+                            Id = new Guid("3b4511bc-9d42-4045-959a-c600cd7ddb6a")
                         },
                         new
                         {
-                            Id = new Guid("9b590f67-1d06-4221-83f6-8e48d5d88e74"),
-                            Number = 0L
+                            Id = new Guid("12e1e64f-b7ba-407c-8e0c-de37d9c6a986")
                         },
                         new
                         {
-                            Id = new Guid("60c35c56-5ce9-40f7-a6a4-c97be7686345"),
-                            LeaderStudentId = new Guid("26b2208c-2ea6-4389-b212-83583bf6dcc9"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            Id = new Guid("43415428-9485-44f6-9ed7-6f696e0c17ed"),
+                            LeaderStudentId = new Guid("8a94aee2-829e-4b4b-9ba9-285e264cc3fa"),
+                            TutorTeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("c59a0945-ec6f-4860-b1da-4be977ed624f"),
-                            Number = 0L
+                            Id = new Guid("1d687ef2-33f0-4d7a-89cc-01aec8e2d2ea")
                         },
                         new
                         {
-                            Id = new Guid("365518ec-babb-4ef8-ae51-807dbd4e23d5"),
-                            Number = 0L
+                            Id = new Guid("1f11cb47-a2e7-451c-a889-a80257623e34")
                         },
                         new
                         {
-                            Id = new Guid("31f1b132-c3d6-4a47-9400-27d1782fc14e"),
-                            LeaderStudentId = new Guid("bcaf902c-5d29-4b87-b01b-2b3f5b6c0473"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            Id = new Guid("424a4d8b-8887-48a8-bf0d-107c4d589182"),
+                            LeaderStudentId = new Guid("474db11c-c458-481b-bfc5-bfa3cef134d1"),
+                            TutorTeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("b79a7445-1d91-4472-a333-793fd3289b3d"),
-                            Number = 0L
+                            Id = new Guid("51868205-f576-4dc7-a5bc-a01e8b9128a2")
                         },
                         new
                         {
-                            Id = new Guid("03c1fc56-8c4c-4895-9cd7-638dd51c1f3e"),
-                            Number = 0L
+                            Id = new Guid("46401e74-4daa-4cbf-977b-de06701233b5")
                         },
                         new
                         {
-                            Id = new Guid("11857b4b-b0d4-42af-b758-89a803b30f5a"),
-                            LeaderStudentId = new Guid("0247aec9-5de6-4a79-a805-1b4a598945ba"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            Id = new Guid("7434bf02-5d81-4cce-a463-8b8620d20efb"),
+                            LeaderStudentId = new Guid("cd60f589-6db5-4124-a1e7-b26b1515a49f"),
+                            TutorTeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("56e6e584-63c7-45c0-988a-b7869b0d30e7"),
-                            Number = 0L
+                            Id = new Guid("ac3c82f7-db08-4e04-98e9-943dc2294c9d")
                         },
                         new
                         {
-                            Id = new Guid("bcf40ec1-3934-4264-86d2-669db0fa03bf"),
-                            Number = 0L
+                            Id = new Guid("7c221e27-d7c4-4cd9-9696-ed276a0db0f8")
                         },
                         new
                         {
-                            Id = new Guid("517928c6-6bf3-4b58-8da8-39f84945790b"),
-                            LeaderStudentId = new Guid("98a52ca8-5af2-4dbd-a6fe-be22207349b1"),
-                            Number = 0L,
-                            TutorTeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            Id = new Guid("1939b7f4-ebea-43b0-b458-c9ea10b7441d"),
+                            LeaderStudentId = new Guid("3c605bc1-2cf3-4078-91ef-1acea4474300"),
+                            TutorTeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("82a89abb-487f-426a-80a7-d746fc712c46"),
-                            Number = 0L
+                            Id = new Guid("de4c4358-6826-4479-83b2-4d2e56574803")
                         },
                         new
                         {
-                            Id = new Guid("75819c49-6ffd-469a-b7ed-2c11d72e673c"),
-                            Number = 0L
+                            Id = new Guid("3796f44f-4e6d-4a0d-931a-67de6eca130b")
                         });
                 });
 
@@ -1634,57 +1585,57 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("28819f09-20b1-4459-823a-700357ac2fb0"),
-                            FacultyId = new Guid("387884bb-47c7-4c9a-8149-450fcb1bf4a5"),
+                            Id = new Guid("2d3125e6-96ee-46cf-b463-10d6f49aa402"),
+                            FacultyId = new Guid("9e97fae8-6c04-47f0-be77-054b12a6cbdb"),
                             Name = "Specialisation-0",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
-                            StudyLineId = new Guid("b2793483-354a-4e4f-a12e-1879999ecc80")
+                            StudyDegreeId = new Guid("c0535cbe-7031-40e0-8aaa-4a91d8321e79"),
+                            StudyLineId = new Guid("fc0c41a7-ac00-4471-8abc-162d286d1b32")
                         },
                         new
                         {
-                            Id = new Guid("9ae3e7e7-f045-4d8f-9f27-bcbbb5cb97a9"),
-                            FacultyId = new Guid("387884bb-47c7-4c9a-8149-450fcb1bf4a5"),
+                            Id = new Guid("80632e42-b5f6-4eaa-9683-49f052fca4f0"),
+                            FacultyId = new Guid("7c70a3ed-fe42-4ab2-b25b-606310a83114"),
                             Name = "Specialisation-1",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
-                            StudyLineId = new Guid("b2793483-354a-4e4f-a12e-1879999ecc80")
+                            StudyDegreeId = new Guid("c0535cbe-7031-40e0-8aaa-4a91d8321e79"),
+                            StudyLineId = new Guid("fc0c41a7-ac00-4471-8abc-162d286d1b32")
                         },
                         new
                         {
-                            Id = new Guid("c48d1d0b-eeed-483e-8191-de9b254a5ba2"),
-                            FacultyId = new Guid("a97da969-4de8-4122-96c9-30460d5242d1"),
+                            Id = new Guid("e078d27d-3057-428a-9578-326a5b969ea5"),
+                            FacultyId = new Guid("87acd182-4559-4bf1-8052-6f88b2eab736"),
                             Name = "Specialisation-2",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
-                            StudyLineId = new Guid("b2793483-354a-4e4f-a12e-1879999ecc80")
+                            StudyDegreeId = new Guid("c0535cbe-7031-40e0-8aaa-4a91d8321e79"),
+                            StudyLineId = new Guid("c7c4488a-db08-4a93-87ed-93a5d3287542")
                         },
                         new
                         {
-                            Id = new Guid("7ee04521-770f-400c-88a1-8bc31db1600a"),
-                            FacultyId = new Guid("387884bb-47c7-4c9a-8149-450fcb1bf4a5"),
+                            Id = new Guid("20764258-d0a1-439a-aa0b-7fb740e33dc9"),
+                            FacultyId = new Guid("9e97fae8-6c04-47f0-be77-054b12a6cbdb"),
                             Name = "Specialisation-3",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
-                            StudyLineId = new Guid("b2793483-354a-4e4f-a12e-1879999ecc80")
+                            StudyDegreeId = new Guid("9a851801-27e2-4559-89cf-84283b799d7d"),
+                            StudyLineId = new Guid("c7c4488a-db08-4a93-87ed-93a5d3287542")
                         },
                         new
                         {
-                            Id = new Guid("c49c97c9-60ae-40d0-b49a-f46570b2eadb"),
-                            FacultyId = new Guid("d486de20-ffea-4d3f-bb71-a7406deb5ed7"),
+                            Id = new Guid("17d9eef8-a266-41cb-8d39-3b53a12d6580"),
+                            FacultyId = new Guid("9e97fae8-6c04-47f0-be77-054b12a6cbdb"),
                             Name = "Specialisation-4",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("1de1e5c4-fe7b-4722-821b-c0a49eeefd44"),
-                            StudyLineId = new Guid("d804c6b1-1315-41ab-bda8-7ffdb55e4987")
+                            StudyDegreeId = new Guid("c0535cbe-7031-40e0-8aaa-4a91d8321e79"),
+                            StudyLineId = new Guid("c7c4488a-db08-4a93-87ed-93a5d3287542")
                         },
                         new
                         {
-                            Id = new Guid("82a1756a-fdf6-4404-a940-94b8eff980d0"),
-                            FacultyId = new Guid("a97da969-4de8-4122-96c9-30460d5242d1"),
+                            Id = new Guid("5ecba4df-60e5-46bb-91e7-f96312e14e7f"),
+                            FacultyId = new Guid("7c70a3ed-fe42-4ab2-b25b-606310a83114"),
                             Name = "Specialisation-5",
                             Semesters = (short)2,
-                            StudyDegreeId = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
-                            StudyLineId = new Guid("90341a59-9256-4577-be1f-40f1d5773dad")
+                            StudyDegreeId = new Guid("9a851801-27e2-4559-89cf-84283b799d7d"),
+                            StudyLineId = new Guid("9490afde-363a-4d62-aa71-848e4287787f")
                         });
                 });
 
@@ -1706,12 +1657,12 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1de1e5c4-fe7b-4722-821b-c0a49eeefd44"),
+                            Id = new Guid("9a851801-27e2-4559-89cf-84283b799d7d"),
                             Name = "Master"
                         },
                         new
                         {
-                            Id = new Guid("4036b6f0-9282-4cde-b0db-c5248216530f"),
+                            Id = new Guid("c0535cbe-7031-40e0-8aaa-4a91d8321e79"),
                             Name = "Bachelor"
                         });
                 });
@@ -1739,19 +1690,19 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b2793483-354a-4e4f-a12e-1879999ecc80"),
+                            Id = new Guid("fc0c41a7-ac00-4471-8abc-162d286d1b32"),
                             Name = "English",
                             ShortName = "EN"
                         },
                         new
                         {
-                            Id = new Guid("90341a59-9256-4577-be1f-40f1d5773dad"),
+                            Id = new Guid("9490afde-363a-4d62-aa71-848e4287787f"),
                             Name = "Romanian",
                             ShortName = "RO"
                         },
                         new
                         {
-                            Id = new Guid("d804c6b1-1315-41ab-bda8-7ffdb55e4987"),
+                            Id = new Guid("c7c4488a-db08-4a93-87ed-93a5d3287542"),
                             Name = "German",
                             ShortName = "DE"
                         });
@@ -1788,1731 +1739,1731 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("16a1e99f-921d-4a51-b214-18e12ab16dd6"),
-                            Credits = (short)4,
-                            Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
-                        },
-                        new
-                        {
-                            Id = new Guid("ed6f97cc-5e8a-4ba8-8763-8d499aa7310f"),
+                            Id = new Guid("64405800-89e6-4f77-90f7-c13578d6d239"),
                             Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("4eaffed0-4a9a-4ee8-bda4-dc88d4cf1c2a"),
-                            Credits = (short)0,
+                            Id = new Guid("8510ab3b-c727-406a-8a45-81e2e74bb2bd"),
+                            Credits = (short)3,
                             Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("bde3c9c6-040e-4e3b-a193-6930e4b33687"),
+                            Id = new Guid("f22b1a5a-e442-42ea-a95b-92811b9e425f"),
                             Credits = (short)4,
                             Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("711f3fc5-5032-4cb1-a7e3-d86e37360f17"),
-                            Credits = (short)2,
+                            Id = new Guid("032d315b-8fb2-477f-8f70-a376b8655785"),
+                            Credits = (short)0,
                             Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("7cbcf72c-fefa-488f-a84c-64d77dade7e6"),
-                            Credits = (short)2,
+                            Id = new Guid("3cf8ce3c-00ff-49e2-b866-f90cca36896f"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("32a14724-f7d2-4444-a23a-615371e4ccab"),
-                            Credits = (short)2,
+                            Id = new Guid("2e12affc-a28c-4d10-ba57-cd2e66ea7671"),
+                            Credits = (short)4,
                             Name = "Course0",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("4e690a30-72d7-4387-87d8-0ed7cf443bed"),
+                            Id = new Guid("f7f5d255-8037-4e69-a269-9b21a035d571"),
                             Credits = (short)5,
+                            Name = "Course0",
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("a0172c76-fa04-4444-98a0-8f5b33890353"),
+                            Credits = (short)3,
                             Name = "Course1",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("f243096a-2100-431c-8542-d7f36f515582"),
-                            Credits = (short)2,
+                            Id = new Guid("44ae3f4e-6f6d-40f2-a6e2-02127260578f"),
+                            Credits = (short)3,
                             Name = "Course2",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("bb839bdf-c83b-47e6-aabf-ee14f8b68a1a"),
+                            Id = new Guid("947cae5c-9659-4bb7-8c0d-082f513b5f81"),
                             Credits = (short)0,
                             Name = "Course3",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("b0ec916a-851a-446a-874e-3f464398ce8b"),
+                            Id = new Guid("98ec5dcc-ce79-47cc-9fd6-93f1fc87da00"),
                             Credits = (short)2,
                             Name = "Course4",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("9d10e05c-59da-4b44-bef5-6ab022259628"),
-                            Credits = (short)0,
-                            Name = "Course5",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
-                        },
-                        new
-                        {
-                            Id = new Guid("60571ccf-f23d-4cea-bbe7-d021b361c433"),
-                            Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
-                        },
-                        new
-                        {
-                            Id = new Guid("4084f658-c34f-4e6f-b78e-37190f0736d3"),
-                            Credits = (short)1,
-                            Name = "Course2",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
-                        },
-                        new
-                        {
-                            Id = new Guid("7480d127-c2a6-4360-afd1-fc3fa9373dae"),
-                            Credits = (short)4,
-                            Name = "Course4",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("a45fa7c4-8cdc-4031-afe6-48865d29d774"),
-                            Credits = (short)1,
-                            Name = "Course6",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("195da3d5-3b15-480c-9ab4-2ab80fc8982a"),
+                            Id = new Guid("bdb04d09-ba94-42ae-bd5a-984f14d37685"),
                             Credits = (short)5,
-                            Name = "Course8",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            Name = "Course5",
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("fccb59d5-bf08-4406-b0d6-44174f48d4f5"),
+                            Id = new Guid("49314f46-670b-469d-ad6c-8b3d0ae05510"),
                             Credits = (short)2,
-                            Name = "Course10",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("cae24c24-945c-40b6-a865-b03b7187a47a"),
-                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("de38d731-2fe3-448a-83b2-a50438bda3ba"),
+                            Id = new Guid("8f8700e0-75cd-451b-b08c-54796803351a"),
+                            Credits = (short)4,
+                            Name = "Course2",
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("8e0b0593-32f9-4beb-9b97-7d2384e256eb"),
+                            Credits = (short)3,
+                            Name = "Course4",
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("613c296a-1278-46d6-b46c-8f4f087bdcf8"),
+                            Credits = (short)2,
+                            Name = "Course6",
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
+                        },
+                        new
+                        {
+                            Id = new Guid("0e4f375e-e72b-431d-9532-c3562ad9b883"),
+                            Credits = (short)0,
+                            Name = "Course8",
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("0da3c5d3-eace-4894-8fdd-c9073c906417"),
+                            Credits = (short)0,
+                            Name = "Course10",
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("6df55ed3-1908-41bc-8393-4a364ae2b427"),
+                            Credits = (short)4,
+                            Name = "Course0",
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
+                        },
+                        new
+                        {
+                            Id = new Guid("e99bed10-9918-40b3-bd0a-f6b6be678ea5"),
                             Credits = (short)3,
                             Name = "Course3",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("6c582b7e-ce6d-42b5-915c-afa1612c1a35"),
+                            Id = new Guid("7ae0ea13-3a70-474b-8111-4e1090e918de"),
                             Credits = (short)0,
                             Name = "Course6",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("1b2acee4-6cfb-42b3-b8bf-ad41fcacbc07"),
-                            Credits = (short)4,
+                            Id = new Guid("32509806-4fb3-4f42-a787-68c00042177a"),
+                            Credits = (short)5,
                             Name = "Course9",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("c10c9999-ae6d-4e8a-99d3-cf9d6d6b0c14"),
+                            Id = new Guid("210a5494-436b-44aa-958e-0c2f2cce37be"),
                             Credits = (short)2,
                             Name = "Course12",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("6ad11b7a-4789-4f3d-a4fb-a3862722b572"),
-                            Credits = (short)4,
+                            Id = new Guid("637c147f-4773-4dae-8763-d978b516f6c8"),
+                            Credits = (short)2,
                             Name = "Course15",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("9d6aefec-348f-4c0f-b874-0a7788bc7981"),
+                            Id = new Guid("64c56ab0-41b4-43ea-b407-a7aae3ece8ce"),
                             Credits = (short)3,
                             Name = "Course0",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("42973089-a0e9-4238-870c-2ab323893641"),
-                            Credits = (short)5,
+                            Id = new Guid("48fe1fc7-d9c5-491f-90d5-e6739f7e96cc"),
+                            Credits = (short)1,
                             Name = "Course4",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("11be2c71-487c-408c-805f-cc993368d481"),
-                            Credits = (short)5,
+                            Id = new Guid("cdc726cb-f2ab-4366-84b1-8372e6c530f1"),
+                            Credits = (short)1,
                             Name = "Course8",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("85fd1f80-8fad-4aad-8271-3a713635acda"),
-                            Credits = (short)4,
-                            Name = "Course12",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("bc08f3b4-0610-4709-b7ab-c79c34b121c1"),
+                            Id = new Guid("5c6ce77c-bc34-4dcf-898e-cf190455e843"),
                             Credits = (short)5,
-                            Name = "Course16",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("238ffbed-191d-43f1-a260-3ed2200c6bf7"),
-                            Credits = (short)0,
-                            Name = "Course20",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("be366a91-fd04-4a27-b5df-62ac1b4001cd"),
-                            Credits = (short)4,
-                            Name = "Course0",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
-                        },
-                        new
-                        {
-                            Id = new Guid("65975ecb-6a2b-4158-99a9-6b184228f6c2"),
-                            Credits = (short)4,
-                            Name = "Course5",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
-                        },
-                        new
-                        {
-                            Id = new Guid("e5e5501f-1d04-4519-8e34-c0aa9478d828"),
-                            Credits = (short)0,
-                            Name = "Course10",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("e1f88efb-351d-4a89-8f24-92c72499212a"),
-                            Credits = (short)1,
-                            Name = "Course15",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("a3e991ef-78e2-44eb-a98d-33df64232cb3"),
-                            Credits = (short)1,
-                            Name = "Course20",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
-                        },
-                        new
-                        {
-                            Id = new Guid("f07ed86d-2d91-4422-bb89-ce2a6c36681d"),
-                            Credits = (short)4,
-                            Name = "Course25",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("c6ff74bc-1c0a-424e-9222-89fece5582f8"),
-                            Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
-                        },
-                        new
-                        {
-                            Id = new Guid("e4a49f74-5e84-40d2-bdf2-4ac32b90e82c"),
-                            Credits = (short)1,
-                            Name = "Course6",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("669e6f79-10dd-444d-996e-1c72dc0c2b4a"),
-                            Credits = (short)4,
                             Name = "Course12",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("dfba21a5-0fab-42dd-b62f-5432831c10b5"),
+                            Id = new Guid("0db21aa8-beb5-4f63-bf0d-f4e7b3c29ee9"),
                             Credits = (short)3,
-                            Name = "Course18",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            Name = "Course16",
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("05061ffc-17c7-4454-abe2-5affa6620e63"),
+                            Id = new Guid("f9f2b46c-4339-4537-adba-1d29a6f297f5"),
+                            Credits = (short)3,
+                            Name = "Course20",
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("e7de445b-9a97-4ae9-a4da-0cd59fe6b6c2"),
+                            Credits = (short)3,
+                            Name = "Course0",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("82f9ed19-ceb1-4af6-a4f9-6176d4f8346e"),
+                            Credits = (short)2,
+                            Name = "Course5",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
+                        },
+                        new
+                        {
+                            Id = new Guid("58cce350-a004-466d-b5de-2954e4b317e8"),
+                            Credits = (short)1,
+                            Name = "Course10",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
+                        },
+                        new
+                        {
+                            Id = new Guid("2da40d30-b625-438b-baa8-3f0f91a91326"),
+                            Credits = (short)3,
+                            Name = "Course15",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("2d1f03c0-4b69-4b0e-af79-f25eb0222d70"),
+                            Credits = (short)5,
+                            Name = "Course20",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
+                        },
+                        new
+                        {
+                            Id = new Guid("5f3614be-37ca-4287-a81c-3874993007eb"),
+                            Credits = (short)0,
+                            Name = "Course25",
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("2ebe39e6-b72a-4977-a44f-f27a6870982a"),
+                            Credits = (short)1,
+                            Name = "Course0",
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("371c1501-8580-4fd0-8a30-eb182bc70451"),
+                            Credits = (short)2,
+                            Name = "Course6",
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("6b62f55c-0e28-4b4c-bae3-171f8acb6a5f"),
+                            Credits = (short)2,
+                            Name = "Course12",
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("0a06b723-cb36-4b76-bdfc-6c6d717211ad"),
+                            Credits = (short)1,
+                            Name = "Course18",
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
+                        },
+                        new
+                        {
+                            Id = new Guid("bbe6d1e6-e3fb-4f19-8caf-1f8814c87add"),
                             Credits = (short)3,
                             Name = "Course24",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("309dd1d1-e5da-4434-980a-a3eb866343b4"),
-                            Credits = (short)2,
+                            Id = new Guid("72476355-7399-4ffc-a499-6e97b263d9c6"),
+                            Credits = (short)3,
                             Name = "Course30",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("30efe5e9-6c13-4a69-ada3-5307a5c16975"),
-                            Credits = (short)2,
+                            Id = new Guid("e8eb8888-96c9-40f7-93f0-e98cdeb60090"),
+                            Credits = (short)5,
                             Name = "Course0",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("b736b57b-050e-412b-948d-23a01505de9c"),
+                            Id = new Guid("4c535ed4-250c-49f2-986f-fbd562d33982"),
                             Credits = (short)1,
                             Name = "Course7",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("f4065884-5011-451a-8b20-1038f495dd4d"),
-                            Credits = (short)0,
+                            Id = new Guid("04a6056b-34c7-4b6c-82c7-fe47bb025037"),
+                            Credits = (short)3,
                             Name = "Course14",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("afd32e3a-3be3-47cf-b0f6-8d50e1ba8532"),
-                            Credits = (short)1,
+                            Id = new Guid("ea6235b6-fa6b-4fb3-94e4-37598aaac66e"),
+                            Credits = (short)5,
                             Name = "Course21",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("4cb2fcf7-e095-46e9-8cc3-107bdb45558d"),
-                            Credits = (short)2,
+                            Id = new Guid("3867216e-18d0-459f-b372-953fc4bc6c30"),
+                            Credits = (short)5,
                             Name = "Course28",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("63e342c4-18d2-43da-b16d-31e65369eb17"),
+                            Id = new Guid("227517ea-5d47-4d30-94c4-1b3af3a2fe51"),
                             Credits = (short)2,
                             Name = "Course35",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("58e115b1-e08d-45a7-a86d-e49a95b66178"),
-                            Credits = (short)4,
+                            Id = new Guid("38c91055-e677-45d9-b5f9-64c6646420ef"),
+                            Credits = (short)0,
                             Name = "Course0",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("a38ce738-4778-4040-bfe3-ac895bc62f39"),
-                            Credits = (short)1,
+                            Id = new Guid("a0ed1c53-c258-4a06-9d3c-b0e15c379576"),
+                            Credits = (short)2,
                             Name = "Course8",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("38b254b6-f105-4f20-b1eb-4ef81794d70a"),
-                            Credits = (short)1,
+                            Id = new Guid("6301dc06-9567-4a3c-88bf-56892b58362b"),
+                            Credits = (short)2,
                             Name = "Course16",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("3ff268d2-4fdd-4b51-bd87-987e5a7359f2"),
-                            Credits = (short)1,
+                            Id = new Guid("dd1e5883-f075-4e12-95a1-5672b733eae4"),
+                            Credits = (short)5,
                             Name = "Course24",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("91e34759-e455-4499-885f-250d4fd637ed"),
-                            Credits = (short)5,
+                            Id = new Guid("31522d38-e786-439e-9d70-9d65f1bc9d95"),
+                            Credits = (short)2,
                             Name = "Course32",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("13c2e56f-955a-43ea-a12a-098e475ce467"),
-                            Credits = (short)1,
-                            Name = "Course40",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
-                        },
-                        new
-                        {
-                            Id = new Guid("108715c1-1ac1-4af8-8cb9-ad0406b3d183"),
-                            Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
-                        },
-                        new
-                        {
-                            Id = new Guid("9098c9e1-b013-4fef-a6db-59ae446f9bc0"),
+                            Id = new Guid("05203082-9fd5-4963-a9f1-d6ca700c026d"),
                             Credits = (short)2,
+                            Name = "Course40",
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("45863316-e7f7-46d3-996b-510b20e82c23"),
+                            Credits = (short)3,
+                            Name = "Course0",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("c446b936-dda0-435f-a14d-3b0894df7f20"),
+                            Credits = (short)0,
                             Name = "Course9",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("816e6d30-6aaa-464b-b563-ea0b62ee2ce8"),
-                            Credits = (short)2,
+                            Id = new Guid("6163bbf8-c56f-43b4-b658-4cc3a5986bdf"),
+                            Credits = (short)0,
                             Name = "Course18",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("71ee15a8-160d-434a-9d1f-0d391ba80e10"),
-                            Credits = (short)5,
-                            Name = "Course27",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("7a6a7c08-82aa-4e49-a052-8abac366e870"),
-                            Credits = (short)3,
-                            Name = "Course36",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("dfd57181-9352-4735-83a9-6dede198f65e"),
-                            Credits = (short)4,
-                            Name = "Course45",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
-                        },
-                        new
-                        {
-                            Id = new Guid("64dd9b8d-1118-4099-8d44-b4e0c5c22f6a"),
-                            Credits = (short)1,
-                            Name = "Course0",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("d53620a2-77e8-43b6-8ff2-294f4a69c2da"),
-                            Credits = (short)3,
-                            Name = "Course10",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
-                        },
-                        new
-                        {
-                            Id = new Guid("7bfddbbe-a857-4905-9ffe-b8ea4f528cde"),
+                            Id = new Guid("40d35dd0-fdaf-4429-b288-d81726554d08"),
                             Credits = (short)2,
-                            Name = "Course20",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            Name = "Course27",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("a2d5c7aa-6caf-46f3-906c-761517358022"),
-                            Credits = (short)0,
-                            Name = "Course30",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("40fdf53f-1e6f-4bf0-be73-83ed4094b8cb"),
+                            Id = new Guid("6005e774-270b-43db-b404-eddddc81ac63"),
                             Credits = (short)1,
-                            Name = "Course40",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            Name = "Course36",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("50b86949-9281-4dce-812a-2c956c11571b"),
-                            Credits = (short)5,
-                            Name = "Course50",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            Id = new Guid("aa7003f0-2804-4234-a6da-fdc8c2de0968"),
+                            Credits = (short)1,
+                            Name = "Course45",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("d1e633e3-c14b-4e04-b6ab-e691746b9cf0"),
-                            Credits = (short)5,
+                            Id = new Guid("d8f364fa-513c-4708-9d55-1075529872cd"),
+                            Credits = (short)4,
                             Name = "Course0",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("2845c36c-cf7d-474a-9658-2582222cf334"),
+                            Id = new Guid("9e504600-d7bc-419c-bfdc-9d8523708aaf"),
                             Credits = (short)0,
-                            Name = "Course11",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            Name = "Course10",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("36acc87e-4081-4a50-bb67-a130aa042719"),
+                            Id = new Guid("523f98d1-5ab8-45ad-93bd-3891afe1b495"),
+                            Credits = (short)1,
+                            Name = "Course20",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("509cd428-e955-4a30-a7f4-38ebec1a7d21"),
+                            Credits = (short)4,
+                            Name = "Course30",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("6769c33d-864d-4572-b799-161f987e6a93"),
+                            Credits = (short)4,
+                            Name = "Course40",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("96091698-03b2-4f8b-9787-4509ddabf6dd"),
+                            Credits = (short)4,
+                            Name = "Course50",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("f99343c0-9148-4d35-a9f8-a569ac963297"),
+                            Credits = (short)4,
+                            Name = "Course0",
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
+                        },
+                        new
+                        {
+                            Id = new Guid("130653e5-95aa-46f7-8d8d-f5636594c904"),
+                            Credits = (short)4,
+                            Name = "Course11",
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
+                        },
+                        new
+                        {
+                            Id = new Guid("ae3454f7-d9ba-4eb0-9e44-f821ac2c7316"),
                             Credits = (short)0,
                             Name = "Course22",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("32daeb1e-a3cf-415b-828f-edbc17605f1a"),
-                            Credits = (short)3,
+                            Id = new Guid("25cde140-e6b3-4580-bb40-7a1c757cb5a3"),
+                            Credits = (short)1,
                             Name = "Course33",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("adf66d35-31a4-4c9b-b591-9eb839ad248d"),
+                            Id = new Guid("3d7bcaae-efbe-4603-9d0d-9883b40396e1"),
                             Credits = (short)1,
                             Name = "Course44",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("003cbd81-eb57-43a8-a272-95bd8cda634b"),
-                            Credits = (short)5,
+                            Id = new Guid("69e6aa9a-3e1b-4fd0-815b-37f152427d62"),
+                            Credits = (short)4,
                             Name = "Course55",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("b389609d-f996-4f3d-91da-a0b371bbd1e8"),
-                            Credits = (short)5,
+                            Id = new Guid("9c0332a6-2336-4918-8799-126e8476f68e"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("5ecaf884-4f4a-4e8b-b099-1082dfcdb7ad"),
-                            Credits = (short)2,
+                            Id = new Guid("57ef3c03-a50b-46f5-a243-6813e5e5bb74"),
+                            Credits = (short)3,
                             Name = "Course12",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("00da3686-7dbb-44c3-8891-89266dd87280"),
-                            Credits = (short)0,
+                            Id = new Guid("87d5fb27-bb48-4dc5-93dc-85a879b04565"),
+                            Credits = (short)4,
                             Name = "Course24",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("00f427f3-b319-4f99-9b59-94886f890a1c"),
+                            Id = new Guid("5f3718a0-2fa5-486c-9335-c276c06318f8"),
                             Credits = (short)0,
                             Name = "Course36",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("31657031-dee9-46e1-b7a0-3ec3112e2cb6"),
-                            Credits = (short)3,
+                            Id = new Guid("0faee491-5220-46be-b77c-b74210ae7d3b"),
+                            Credits = (short)5,
                             Name = "Course48",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("322a6185-1737-4aaf-ad21-e3f47f128255"),
-                            Credits = (short)3,
+                            Id = new Guid("d43ea49d-731a-494f-8d56-f33cb3e13904"),
+                            Credits = (short)4,
                             Name = "Course60",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("ddbc819b-16e5-4388-aab0-be754fc87520"),
-                            Credits = (short)0,
+                            Id = new Guid("b2d1c2b8-9e9f-4635-8fd0-846f02fb9d8d"),
+                            Credits = (short)4,
                             Name = "Course0",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("0ea15c1b-0b76-4bde-a305-c343333cfbd0"),
+                            Id = new Guid("62fbfb80-e33c-4714-ab5d-0ddfbf3ee43d"),
                             Credits = (short)5,
                             Name = "Course13",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("c3474b39-1eb8-44b9-b44f-574ab8acca8e"),
-                            Credits = (short)3,
+                            Id = new Guid("fd779d9b-b543-43d4-bae9-9de11e308dc5"),
+                            Credits = (short)5,
                             Name = "Course26",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("06d62245-1ffd-4355-991e-2a460df8de72"),
+                            Id = new Guid("4ff1b4d5-6c3b-4c19-ad18-76fd6f083f42"),
                             Credits = (short)0,
                             Name = "Course39",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("790740a3-c587-4ced-b1e0-afc519aac0a4"),
-                            Credits = (short)2,
+                            Id = new Guid("e5e1f6dd-2e81-4cca-a65e-632b5a5d66ff"),
+                            Credits = (short)5,
                             Name = "Course52",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("3b3d3b6a-5a44-4e4f-8a0a-b00e992eff51"),
-                            Credits = (short)2,
+                            Id = new Guid("5a6497ea-34b8-4b60-9674-bed88dcbe6d7"),
+                            Credits = (short)3,
                             Name = "Course65",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("fd26c183-d5b4-4fa4-88a8-ddfbb8ad6bc6"),
-                            Credits = (short)4,
+                            Id = new Guid("0ac7df8c-ff1e-4126-a7df-8dab9d4a0766"),
+                            Credits = (short)0,
                             Name = "Course0",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("def4a2c6-7314-4eb1-8dbe-5132ebc99dc6"),
-                            Credits = (short)4,
+                            Id = new Guid("6eacb058-9ff9-4c1d-9b4e-7d1f3d23fa43"),
+                            Credits = (short)1,
                             Name = "Course14",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("23250ce8-54fc-42e6-972a-28e621b4acb5"),
-                            Credits = (short)3,
+                            Id = new Guid("5265b2c5-4b7d-4fb5-aa42-a954407a2250"),
+                            Credits = (short)1,
                             Name = "Course28",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("ed1c6a6b-0986-49b2-8d50-8e01f0698eca"),
-                            Credits = (short)5,
+                            Id = new Guid("64020ad4-31cc-44c0-97ec-f082090dea97"),
+                            Credits = (short)3,
                             Name = "Course42",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("d30f75a7-b77a-4d50-b602-09d39db60d0a"),
-                            Credits = (short)1,
+                            Id = new Guid("3872c942-d892-4c0a-86eb-7a5d44be918c"),
+                            Credits = (short)2,
                             Name = "Course56",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("3cd3139c-f7c2-41ab-8268-cfcfa1658968"),
-                            Credits = (short)3,
+                            Id = new Guid("f309c0d4-4200-4c38-bc51-734ba163729b"),
+                            Credits = (short)0,
                             Name = "Course70",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("a294b92d-9eb1-459e-ae2a-7fc4d2358290"),
-                            Credits = (short)5,
+                            Id = new Guid("a9b96aae-f867-4518-be80-e0454870c02c"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("4f0b1585-6ae3-4564-8170-7428e7878c13"),
-                            Credits = (short)4,
+                            Id = new Guid("f826f0ff-d005-4f53-9790-882c810a0357"),
+                            Credits = (short)5,
                             Name = "Course15",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("5fc3dcfc-a1dd-4fa7-a725-e361c354db42"),
-                            Credits = (short)1,
+                            Id = new Guid("d131ab61-c941-44c7-8801-7f8caf05917d"),
+                            Credits = (short)4,
                             Name = "Course30",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("f6a8cd89-9946-408c-a807-cae07ea974f7"),
-                            Credits = (short)5,
+                            Id = new Guid("1473702f-8ca0-41c5-af85-f68c51d9e187"),
+                            Credits = (short)2,
                             Name = "Course45",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("a05baa15-84c3-4549-9fa7-04ac4fdb0507"),
-                            Credits = (short)4,
+                            Id = new Guid("c4bef1c7-dac8-44a3-9322-07eccf6f9f62"),
+                            Credits = (short)5,
                             Name = "Course60",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("502e248a-854d-4f70-8175-0054898b9822"),
-                            Credits = (short)2,
+                            Id = new Guid("d580d97a-1ed5-4d06-b0a1-c155de54eef6"),
+                            Credits = (short)5,
                             Name = "Course75",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("a4f4099c-964d-425a-8d82-25aef5b4d15e"),
-                            Credits = (short)1,
+                            Id = new Guid("9ab00069-18e5-4f71-ba53-efefa37d3a38"),
+                            Credits = (short)3,
                             Name = "Course0",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("7c293d52-6633-4aab-a5d8-c92774c16e40"),
-                            Credits = (short)1,
-                            Name = "Course16",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
-                        },
-                        new
-                        {
-                            Id = new Guid("7756f456-4e8a-4bf6-9eaa-25425bdfba68"),
+                            Id = new Guid("a0cd820c-9f6a-4e4c-b6f5-6405d4d8e541"),
                             Credits = (short)2,
-                            Name = "Course32",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            Name = "Course16",
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("868aed83-6ccd-4b95-8b3c-8ce325d96251"),
-                            Credits = (short)3,
-                            Name = "Course48",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("1b631419-fe61-4399-ac84-83c2e24537ef"),
-                            Credits = (short)5,
-                            Name = "Course64",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
-                        },
-                        new
-                        {
-                            Id = new Guid("06cd2053-6b61-4574-9b3f-02e84d2be001"),
+                            Id = new Guid("56ac2e5c-ae54-4706-b5ed-b56e577dab4e"),
                             Credits = (short)4,
+                            Name = "Course32",
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
+                        },
+                        new
+                        {
+                            Id = new Guid("a0204106-278e-40c3-a396-d52c42fa9318"),
+                            Credits = (short)4,
+                            Name = "Course48",
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("d6af09ee-95af-41f5-97fa-82cbb606b9b2"),
+                            Credits = (short)0,
+                            Name = "Course64",
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("58f07413-d67e-4ec0-831b-2b7bcac5cf7c"),
+                            Credits = (short)0,
                             Name = "Course80",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("2afc8fbd-2a43-4c0e-8785-2c01369914a0"),
-                            Credits = (short)3,
+                            Id = new Guid("c47dfc13-0149-4a2f-8d8a-7f3da4fd0753"),
+                            Credits = (short)0,
                             Name = "Course0",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("35a04558-b7ab-4153-8433-07e2c662f59f"),
-                            Credits = (short)5,
+                            Id = new Guid("3d0766d7-2734-4708-845c-543c62f4bf54"),
+                            Credits = (short)4,
                             Name = "Course17",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("783dfc32-b826-44f3-8a88-fef7f1ddc3d5"),
+                            Id = new Guid("d1179fa8-a82c-443e-91ae-3181aa3362c5"),
                             Credits = (short)0,
                             Name = "Course34",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("4a7717dc-023c-4e63-9a1d-3a997a5f743e"),
-                            Credits = (short)5,
+                            Id = new Guid("14979426-0ac2-49fe-91c2-a40ed5906a3f"),
+                            Credits = (short)4,
                             Name = "Course51",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("d00e7538-9a39-473f-bdba-8b1922f79d1b"),
-                            Credits = (short)5,
+                            Id = new Guid("f1ade7bb-ce65-4a64-bc33-065ee2aab4f4"),
+                            Credits = (short)2,
                             Name = "Course68",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("1ccc402f-4fa5-4ea7-9cea-f436fd7e38b0"),
+                            Id = new Guid("6d1a9e21-f9cc-45f4-8898-a2102b6bea6d"),
                             Credits = (short)2,
                             Name = "Course85",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("4ae104bb-e5d0-4160-92a7-87124ed4c41b"),
-                            Credits = (short)5,
+                            Id = new Guid("09a3d5f2-978c-44e8-ad9e-feea73b88ace"),
+                            Credits = (short)3,
                             Name = "Course0",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("5314969a-8c1f-4f74-81f4-d0925a3d3d7f"),
-                            Credits = (short)1,
+                            Id = new Guid("7739cf11-f916-43fc-a50e-46689ec82628"),
+                            Credits = (short)3,
                             Name = "Course18",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("8b8a0b12-9a92-410b-8de1-6e74c1430c8c"),
-                            Credits = (short)1,
+                            Id = new Guid("c062e50d-f71c-41e0-9d00-797ea584e432"),
+                            Credits = (short)3,
                             Name = "Course36",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("eb17901c-de0c-44d5-9564-67120ffdd24a"),
-                            Credits = (short)1,
-                            Name = "Course54",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
-                        },
-                        new
-                        {
-                            Id = new Guid("39ab7a2d-c013-4028-af95-db57c85bcdbc"),
+                            Id = new Guid("acaaa03d-44e3-4b4e-b85d-75947c11b625"),
                             Credits = (short)0,
+                            Name = "Course54",
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("256c22d4-f992-4989-a5ee-6be548104afc"),
+                            Credits = (short)3,
                             Name = "Course72",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("a9df57dd-4df3-4271-91f8-73532094dc4a"),
-                            Credits = (short)1,
+                            Id = new Guid("e7f1a7f1-9e41-47b2-b67a-74bf1189d7c0"),
+                            Credits = (short)4,
                             Name = "Course90",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("0c6aa87e-5986-4d32-adcf-6a5106c5ae54"),
-                            Credits = (short)2,
+                            Id = new Guid("4f36fc4c-e323-4c85-a3f2-2af7d5c9aad9"),
+                            Credits = (short)0,
                             Name = "Course0",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("d2703c36-2aa4-4fe8-89aa-becea6d4ad72"),
+                            Id = new Guid("aef90c4e-0a7d-4f41-a0c4-e456e96ae77a"),
                             Credits = (short)2,
                             Name = "Course19",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("d943cb59-2ebd-4aed-83ad-49bc0bb7db85"),
-                            Credits = (short)4,
-                            Name = "Course38",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
-                        },
-                        new
-                        {
-                            Id = new Guid("5744e6b5-b901-4e15-870a-b796b3b5237b"),
-                            Credits = (short)4,
-                            Name = "Course57",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
-                        },
-                        new
-                        {
-                            Id = new Guid("41ec28a7-c84f-438e-95bf-8dac21e3fc56"),
-                            Credits = (short)5,
-                            Name = "Course76",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
-                        },
-                        new
-                        {
-                            Id = new Guid("99323478-a136-417a-84c7-94f59c27d5f1"),
-                            Credits = (short)0,
-                            Name = "Course95",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("14a2fc7e-1e04-4f87-bf00-3ed591f8e91c"),
-                            Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("e3aa8c9d-6dd4-4510-ab34-18ac3f52e10d"),
-                            Credits = (short)0,
-                            Name = "Course20",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
-                        },
-                        new
-                        {
-                            Id = new Guid("372deb35-8da6-4414-9525-da8a77a2c152"),
-                            Credits = (short)3,
-                            Name = "Course40",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("b3cdd346-7520-4fe6-97bd-0ddedc6cfb75"),
-                            Credits = (short)4,
-                            Name = "Course60",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("5a093f4e-b49b-43b7-bee2-c88ff07398a0"),
-                            Credits = (short)0,
-                            Name = "Course80",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("a113e381-7bae-48a2-9335-d2ef45baad15"),
-                            Credits = (short)5,
-                            Name = "Course100",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("231a15e4-56f8-4a58-bd40-b50d439f8031"),
-                            Credits = (short)5,
-                            Name = "Course0",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("0bdf9168-59da-4a54-b5e3-0327189a3361"),
-                            Credits = (short)3,
-                            Name = "Course21",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
-                        },
-                        new
-                        {
-                            Id = new Guid("5bec8e82-d5c7-418e-8f42-d37996fdf88f"),
+                            Id = new Guid("b44b1f52-e46d-4f55-a782-05a5c5cbd7cf"),
                             Credits = (short)2,
-                            Name = "Course42",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            Name = "Course38",
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("c6c22296-e6c1-4747-9734-ddbb51e33db9"),
-                            Credits = (short)0,
-                            Name = "Course63",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("fc0a99f3-651e-4428-b253-89d65e7b3424"),
-                            Credits = (short)1,
-                            Name = "Course84",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
-                        },
-                        new
-                        {
-                            Id = new Guid("0734ee8a-f38b-442a-9c4b-55a2af47baa9"),
-                            Credits = (short)4,
-                            Name = "Course105",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
-                        },
-                        new
-                        {
-                            Id = new Guid("5b3db105-30ea-4660-9636-0ea4a2320afa"),
-                            Credits = (short)4,
-                            Name = "Course0",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
-                        },
-                        new
-                        {
-                            Id = new Guid("15db5459-dcc6-4286-b48e-1c37a80f04e4"),
-                            Credits = (short)0,
-                            Name = "Course22",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
-                        },
-                        new
-                        {
-                            Id = new Guid("6cb7cd42-ce68-40a9-98a7-3895aad3ccff"),
-                            Credits = (short)4,
-                            Name = "Course44",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("409c1596-fed1-476f-9e7e-4fbb2e183345"),
-                            Credits = (short)0,
-                            Name = "Course66",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("676b130b-4c1d-4e4c-95e0-38ad629edbea"),
-                            Credits = (short)4,
-                            Name = "Course88",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
-                        },
-                        new
-                        {
-                            Id = new Guid("50172451-8c71-432f-a03b-ff8b4dbe6de0"),
+                            Id = new Guid("d9342a97-e4aa-4adf-9d20-2611c3a60145"),
                             Credits = (short)3,
-                            Name = "Course110",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            Name = "Course57",
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("6f15bcbd-ce80-42ec-9b17-d68f6f1d15d0"),
-                            Credits = (short)0,
+                            Id = new Guid("f24d3db2-3393-4576-b22d-528d574cfec9"),
+                            Credits = (short)2,
+                            Name = "Course76",
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("aff12f58-3357-4ae4-8346-e92ba68aeeff"),
+                            Credits = (short)3,
+                            Name = "Course95",
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("d07aac90-bc09-437a-923c-95ace287c0e9"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("b172c7c7-c9e9-48a4-a74f-cb376290878f"),
+                            Id = new Guid("3cfabe05-7d45-43eb-bbaa-47f99453ff36"),
                             Credits = (short)5,
+                            Name = "Course20",
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("8282a8f4-f6bf-4deb-b3a2-571bb2a404be"),
+                            Credits = (short)2,
+                            Name = "Course40",
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("9215dc4a-f1ca-46d3-8976-f23fdcf84239"),
+                            Credits = (short)2,
+                            Name = "Course60",
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("6e66e473-88ae-48ac-9387-3104ef34b0d0"),
+                            Credits = (short)4,
+                            Name = "Course80",
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
+                        },
+                        new
+                        {
+                            Id = new Guid("8999bfe3-90ec-4982-a98f-7695c871a4aa"),
+                            Credits = (short)0,
+                            Name = "Course100",
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("ee9912ca-bf07-44be-b8c3-c13deac5fb25"),
+                            Credits = (short)1,
+                            Name = "Course0",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("6d70231c-8da5-4b78-aa61-3ecb34a739f2"),
+                            Credits = (short)4,
+                            Name = "Course21",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
+                        },
+                        new
+                        {
+                            Id = new Guid("d476deb6-ab70-4e75-826b-f3e06b08b482"),
+                            Credits = (short)4,
+                            Name = "Course42",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("115699c4-686c-40e0-ae46-7ff9ef888a56"),
+                            Credits = (short)1,
+                            Name = "Course63",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
+                        },
+                        new
+                        {
+                            Id = new Guid("cd26a405-e633-4a4b-9643-50c693e45072"),
+                            Credits = (short)5,
+                            Name = "Course84",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
+                        },
+                        new
+                        {
+                            Id = new Guid("d590fcc6-c6c7-4700-be89-c7b8aa1e999e"),
+                            Credits = (short)1,
+                            Name = "Course105",
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("f189614c-eeab-4fcf-8b43-e44671b5ebea"),
+                            Credits = (short)4,
+                            Name = "Course0",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("7a10e3d8-8aca-4793-88ca-62b772f94af6"),
+                            Credits = (short)2,
+                            Name = "Course22",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("bf95e9c5-6d0b-466d-a80f-3b4019fa7f7e"),
+                            Credits = (short)0,
+                            Name = "Course44",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("c5fb0791-a031-458a-875c-da8111945286"),
+                            Credits = (short)1,
+                            Name = "Course66",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("5c5b6ad7-1a3a-4e91-b3ed-5d2eb9806afa"),
+                            Credits = (short)5,
+                            Name = "Course88",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("45ef827c-6be2-456e-8188-180d4e091fc7"),
+                            Credits = (short)2,
+                            Name = "Course110",
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("18513cfb-64f8-4b72-a45e-0c39bb988cd4"),
+                            Credits = (short)2,
+                            Name = "Course0",
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("7333ac7c-d8ba-4926-aa2d-db0d7387f51b"),
+                            Credits = (short)1,
                             Name = "Course23",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("b2fe6b67-85db-44e2-ac30-8d55208e4599"),
-                            Credits = (short)1,
+                            Id = new Guid("f895f12f-e31e-4d56-b27e-fa54085512c8"),
+                            Credits = (short)0,
                             Name = "Course46",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("e0090a2f-734c-419f-9c26-df7f4e13f969"),
-                            Credits = (short)1,
+                            Id = new Guid("9a514701-4841-4ddb-8919-7a75c284f979"),
+                            Credits = (short)5,
                             Name = "Course69",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("3ae10080-a684-4c4d-a4db-324e7bebf2e2"),
+                            Id = new Guid("593f007e-e61d-457b-a5d5-07914de0bc8c"),
                             Credits = (short)0,
                             Name = "Course92",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("579ee61f-ecb8-4613-8d98-f00f79c1747c"),
-                            Credits = (short)1,
-                            Name = "Course115",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("17ab6360-ed7d-4f08-9470-a714909d9b8d"),
-                            Credits = (short)1,
-                            Name = "Course0",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
-                        },
-                        new
-                        {
-                            Id = new Guid("df9e6c12-193c-4fe0-b3a0-9fcb080e6bae"),
+                            Id = new Guid("14b27a0a-3fe6-4512-8843-ea9b9e6e1a63"),
                             Credits = (short)2,
+                            Name = "Course115",
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
+                        },
+                        new
+                        {
+                            Id = new Guid("bf03a577-1c94-455a-9cad-b85df1a86410"),
+                            Credits = (short)0,
+                            Name = "Course0",
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
+                        },
+                        new
+                        {
+                            Id = new Guid("e294e887-d24b-456e-8fe7-4e91756b8c9c"),
+                            Credits = (short)0,
                             Name = "Course24",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("2199e07d-b072-4adb-aacd-f2ac846ae6be"),
-                            Credits = (short)5,
+                            Id = new Guid("c2be17b7-4797-4eb2-a631-9c5bc01cd470"),
+                            Credits = (short)4,
                             Name = "Course48",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("9b5f5711-ddc4-4d2e-ac93-456846e2cc3e"),
-                            Credits = (short)5,
+                            Id = new Guid("937592a7-6fe7-45fb-8944-e25bc47edc05"),
+                            Credits = (short)1,
                             Name = "Course72",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("678d6cd1-78d8-418e-9284-642514aa39c6"),
+                            Id = new Guid("174439d1-3a4c-4475-8038-ab1ebb9fef14"),
                             Credits = (short)4,
                             Name = "Course96",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("26531397-c9d5-45cf-85a9-e87c59242590"),
-                            Credits = (short)4,
+                            Id = new Guid("74e7446a-4e0b-4cec-8742-d4b4e8aec180"),
+                            Credits = (short)1,
                             Name = "Course120",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("a57eebcb-eac2-430f-8e84-3d5f8a3ed8f2"),
-                            Credits = (short)5,
+                            Id = new Guid("e84bf635-e05c-48b8-bfc9-74fcca09a5a6"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("4ce0e911-9be3-465c-8ba6-7505a5d6e9f0"),
-                            Credits = (short)0,
+                            Id = new Guid("ffa7bb50-9c15-43db-a53a-16e87538a26e"),
+                            Credits = (short)3,
                             Name = "Course25",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("6c135def-f576-43b9-acd1-4a6d82e18477"),
+                            Id = new Guid("ac5a0d55-d5cb-4b6b-a6d7-00a19841123a"),
                             Credits = (short)0,
                             Name = "Course50",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("9d524a19-8d74-408a-9818-9b7e52b4155f"),
-                            Credits = (short)0,
+                            Id = new Guid("91f8b8a5-756e-41f3-a338-87add69b3a9f"),
+                            Credits = (short)5,
                             Name = "Course75",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("00a89520-0eae-4a19-a5fa-3ad9503dfb0e"),
-                            Credits = (short)0,
+                            Id = new Guid("f1baa342-6f8c-45cc-a847-bf0baca5a8d7"),
+                            Credits = (short)5,
                             Name = "Course100",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("d1640f6a-e7e0-4b73-aea7-1bc3a69aaf0e"),
+                            Id = new Guid("b2ce8681-6b6d-41fb-8ecb-324e1cd9fb06"),
                             Credits = (short)1,
                             Name = "Course125",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("b5b734c2-6a20-4523-bccf-88d6a1ee978d"),
+                            Id = new Guid("21c7ea0b-2a10-4030-811e-44ef64b9a249"),
                             Credits = (short)5,
                             Name = "Course0",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("88bc7ec9-d1cb-46e4-93e5-e597341c2797"),
-                            Credits = (short)3,
+                            Id = new Guid("776cddf0-e5f6-40c7-bdd5-17097a31f30d"),
+                            Credits = (short)2,
                             Name = "Course26",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("115b34f9-d008-4ae5-a15e-de46de593da7"),
-                            Credits = (short)3,
+                            Id = new Guid("f7d5411c-edf2-41b9-a49d-819c38c9137e"),
+                            Credits = (short)4,
                             Name = "Course52",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("4049d820-85b0-4a52-8073-9e97ad597fd4"),
-                            Credits = (short)3,
-                            Name = "Course78",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
-                        },
-                        new
-                        {
-                            Id = new Guid("b317f7a9-908f-4602-a661-1dc5de93ebe7"),
-                            Credits = (short)1,
-                            Name = "Course104",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("6e31023f-db11-4558-a2da-7b118be441a8"),
-                            Credits = (short)3,
-                            Name = "Course130",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("63696fff-8204-42c5-8fb6-dc752c3ed8b5"),
-                            Credits = (short)2,
-                            Name = "Course0",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("c36e435c-2c90-4c12-a17a-b3b9df735361"),
-                            Credits = (short)2,
-                            Name = "Course27",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("10e9ba43-6bfd-4aa6-a18f-58ba2c76510f"),
-                            Credits = (short)4,
-                            Name = "Course54",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("3cade404-1f59-418b-b72f-18053b73fd84"),
+                            Id = new Guid("2b58e310-d41a-423c-8eec-252ceccf452d"),
                             Credits = (short)0,
-                            Name = "Course81",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            Name = "Course78",
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("fb6c8d5c-3574-47c4-ae3e-911c052f4603"),
-                            Credits = (short)1,
-                            Name = "Course108",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
-                        },
-                        new
-                        {
-                            Id = new Guid("6254e9f3-65e0-4456-bf94-02fdd1e856a3"),
-                            Credits = (short)2,
-                            Name = "Course135",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
-                        },
-                        new
-                        {
-                            Id = new Guid("7c9e1b62-6060-44bc-9697-18770fb3980a"),
+                            Id = new Guid("e0b5ca73-b8fb-4dcd-bdca-4971b3056fbd"),
                             Credits = (short)4,
+                            Name = "Course104",
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
+                        },
+                        new
+                        {
+                            Id = new Guid("42eba954-a921-4c25-912f-49aae554205c"),
+                            Credits = (short)5,
+                            Name = "Course130",
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
+                        },
+                        new
+                        {
+                            Id = new Guid("7b42cf3e-7b49-4603-885c-18cf3eee895f"),
+                            Credits = (short)5,
                             Name = "Course0",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("aa77d0fd-0fe8-4ded-8f7e-26c1a7853dca"),
+                            Id = new Guid("376db3ef-08e7-480c-bafb-7e5085de538d"),
+                            Credits = (short)3,
+                            Name = "Course27",
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("adc44710-0250-4dd3-87d1-daa2116cf255"),
+                            Credits = (short)5,
+                            Name = "Course54",
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("2936e7d4-e81e-43b0-abe6-a1d582af0022"),
                             Credits = (short)1,
-                            Name = "Course28",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            Name = "Course81",
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("be160f1d-3e14-4881-aef0-cb96861068fa"),
+                            Id = new Guid("3e1dfe68-7ae7-4835-a55d-359ef88c9d81"),
+                            Credits = (short)0,
+                            Name = "Course108",
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("787b5ced-8b8e-448c-8e5a-d21f739ffa37"),
+                            Credits = (short)5,
+                            Name = "Course135",
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
+                        },
+                        new
+                        {
+                            Id = new Guid("cbbd2137-1c04-4326-9c83-237de8802694"),
+                            Credits = (short)0,
+                            Name = "Course0",
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
+                        },
+                        new
+                        {
+                            Id = new Guid("fcd2b3fa-3efd-4ec2-bca8-8f07aa1cea51"),
+                            Credits = (short)3,
+                            Name = "Course28",
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("267c5f8a-2e1f-4d0a-b327-a5b3ad874ba3"),
                             Credits = (short)1,
                             Name = "Course56",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("597f12c6-13d0-46cf-a99c-5c82780bc829"),
-                            Credits = (short)4,
+                            Id = new Guid("86e28ccc-5ca9-41ed-abee-63e9d8cf246f"),
+                            Credits = (short)1,
                             Name = "Course84",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("932d303e-b8ef-4aeb-a0f0-92925288b231"),
+                            Id = new Guid("bd6b42fb-fd23-4888-80ff-ce8e1f5beb70"),
                             Credits = (short)5,
                             Name = "Course112",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("81d7a2df-7236-4379-8e28-07fe120d5e06"),
-                            Credits = (short)4,
+                            Id = new Guid("9f670bd8-431b-49df-90ef-313359b8a44a"),
+                            Credits = (short)3,
                             Name = "Course140",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("56d5a9bf-61f1-4df8-bb81-b38bd46372a2"),
-                            Credits = (short)0,
+                            Id = new Guid("28021a3d-0c23-4e82-aef7-03601a2f2142"),
+                            Credits = (short)5,
                             Name = "Course0",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("917fb519-e58c-44f3-aad7-02de33796f33"),
-                            Credits = (short)4,
+                            Id = new Guid("bbd6f5ec-7517-4957-bea9-e91708d2fedc"),
+                            Credits = (short)0,
                             Name = "Course29",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("297fb969-58bd-481d-909b-cbcaae73d48f"),
-                            Credits = (short)5,
+                            Id = new Guid("8baeaced-ca8f-414e-b2c6-c3c08aa30aa0"),
+                            Credits = (short)2,
                             Name = "Course58",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("97f3cfd2-b244-4f1b-a670-7a40cbc5d5fc"),
-                            Credits = (short)5,
-                            Name = "Course87",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
-                        },
-                        new
-                        {
-                            Id = new Guid("d7c35116-05e0-409c-8144-5f0a73d1a6ec"),
+                            Id = new Guid("3343cb96-87da-4ccd-a098-aac7de9fe818"),
                             Credits = (short)4,
-                            Name = "Course116",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            Name = "Course87",
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("cf54d312-ef91-4c5e-810f-9fe0514b9709"),
+                            Id = new Guid("0a6cb981-6a01-446e-8677-65f0bbeebb20"),
+                            Credits = (short)1,
+                            Name = "Course116",
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("63176cad-bd54-46b8-a630-f52eb85b1a91"),
                             Credits = (short)5,
                             Name = "Course145",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("9af25062-cec8-4200-93ca-e32544af9443"),
-                            Credits = (short)0,
+                            Id = new Guid("9ff285d5-907b-482f-b7ff-949509d0386b"),
+                            Credits = (short)4,
                             Name = "Course0",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("4fd8d72c-5ad9-4e45-a2df-c20b8af57914"),
-                            Credits = (short)5,
-                            Name = "Course30",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
-                        },
-                        new
-                        {
-                            Id = new Guid("a998c7ba-279a-429f-bfbb-212161e31b9f"),
-                            Credits = (short)3,
-                            Name = "Course60",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
-                        },
-                        new
-                        {
-                            Id = new Guid("5a6fe4e1-3ad7-4187-8eaa-dd9b697bfdcf"),
-                            Credits = (short)5,
-                            Name = "Course90",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
-                        },
-                        new
-                        {
-                            Id = new Guid("f00e07f1-2a58-4d12-8048-1d84db730374"),
-                            Credits = (short)1,
-                            Name = "Course120",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
-                        },
-                        new
-                        {
-                            Id = new Guid("cda2ad7f-327c-41c0-9e47-340fef9808ed"),
-                            Credits = (short)0,
-                            Name = "Course150",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("04c3ac48-025b-42db-9cee-12a0fcf8c00a"),
-                            Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
-                        },
-                        new
-                        {
-                            Id = new Guid("b9435182-dcc9-4dc3-9bdb-8361b644e4a3"),
+                            Id = new Guid("5d613275-cf54-4e48-964a-e95dfa05621b"),
                             Credits = (short)2,
-                            Name = "Course31",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            Name = "Course30",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("c1668a6f-3947-425b-afcb-1b890bd71570"),
+                            Id = new Guid("cb53740e-6303-4329-93dc-e4fe2e934152"),
+                            Credits = (short)0,
+                            Name = "Course60",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
+                        },
+                        new
+                        {
+                            Id = new Guid("2392d13a-ac5a-41e1-bdd7-0d3337c312f8"),
+                            Credits = (short)4,
+                            Name = "Course90",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("ca49084b-31dd-4bd9-8267-d438dd22d7f7"),
+                            Credits = (short)3,
+                            Name = "Course120",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
+                        },
+                        new
+                        {
+                            Id = new Guid("4352e691-70bd-41ed-9826-b8ec291e3ed2"),
+                            Credits = (short)1,
+                            Name = "Course150",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
+                        },
+                        new
+                        {
+                            Id = new Guid("afbad7ee-4f8f-4417-9840-de331744d5a5"),
+                            Credits = (short)2,
+                            Name = "Course0",
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("a8b1cf73-080a-4c6c-b18c-2cbbeabce6ee"),
+                            Credits = (short)0,
+                            Name = "Course31",
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
+                        },
+                        new
+                        {
+                            Id = new Guid("f9a9411a-b16a-4fdd-bec8-a3fba5313173"),
                             Credits = (short)4,
                             Name = "Course62",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("82e80581-424b-4090-bc7c-a00a5e436626"),
-                            Credits = (short)4,
+                            Id = new Guid("3a1928f6-16a6-48be-9580-67e9d372ef8a"),
+                            Credits = (short)2,
                             Name = "Course93",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("94490873-8102-4582-9131-32242ec3c0d4"),
-                            Credits = (short)3,
+                            Id = new Guid("4365fc8a-a908-43da-9893-7b9b0c1a7f7d"),
+                            Credits = (short)0,
                             Name = "Course124",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("ae71268a-a8ec-44cd-b90b-20451abdebd9"),
-                            Credits = (short)1,
+                            Id = new Guid("44261740-82bf-445c-9c1f-8f8081062911"),
+                            Credits = (short)2,
                             Name = "Course155",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("6b664f78-4d98-4a8f-80fb-6ab2530c0f3a"),
-                            Credits = (short)5,
+                            Id = new Guid("5545e463-77a0-4584-83d9-1d1c0b6024a9"),
+                            Credits = (short)1,
                             Name = "Course0",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         },
                         new
                         {
-                            Id = new Guid("b741eb8e-d97c-41a1-a55f-fd8995a04a98"),
-                            Credits = (short)3,
+                            Id = new Guid("557726a1-492b-4886-89d6-34396e431ae9"),
+                            Credits = (short)1,
                             Name = "Course32",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("0d157fb0-a465-4cd2-9282-4b57ef03d74a"),
+                            Id = new Guid("47db7a00-723a-4c47-bebb-de227291e0ab"),
                             Credits = (short)2,
                             Name = "Course64",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("1d2a61d3-ed6d-4a6f-97bd-36d297d2fb7c"),
-                            Credits = (short)0,
+                            Id = new Guid("25a149f9-0416-4f46-9756-812e80bf5b24"),
+                            Credits = (short)4,
                             Name = "Course96",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("2645a9dd-4807-4ae2-bac0-e5b5bae0fdb0"),
-                            Credits = (short)1,
+                            Id = new Guid("050455b2-b1bd-429a-b9de-c1345c999ef2"),
+                            Credits = (short)2,
                             Name = "Course128",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("922df74f-5bdc-434e-8756-deb48fe66fff"),
+                            Id = new Guid("d625e6c8-ed11-4830-9c17-5e2a78916d80"),
                             Credits = (short)0,
                             Name = "Course160",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("cbfb19cd-0be1-4cf0-a1d6-69be4072b468"),
-                            Credits = (short)1,
+                            Id = new Guid("60dd9128-33b7-4f07-937e-107b5126c438"),
+                            Credits = (short)3,
                             Name = "Course0",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("1c860cc5-feb9-4420-b759-04467018e371"),
+                            Id = new Guid("26b4bf13-5838-4891-8040-445939883012"),
                             Credits = (short)5,
                             Name = "Course33",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("2c806e60-6864-41dd-8d8b-c1362ed962ba"),
-                            Credits = (short)4,
+                            Id = new Guid("0c6ec012-3be9-4722-a670-9d2d00c5b287"),
+                            Credits = (short)1,
                             Name = "Course66",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("a20fea42-4b30-4a41-a8e6-0ad0c716d0eb"),
-                            Credits = (short)0,
+                            Id = new Guid("e7cd7e8a-c0b8-42a6-ac76-318c01da6e9e"),
+                            Credits = (short)5,
                             Name = "Course99",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("a6fbca19-c748-4bf9-a135-b7b69b4a2dc4"),
+                            Id = new Guid("4d257ae9-3301-44e8-80f6-bda172bfcce3"),
                             Credits = (short)4,
                             Name = "Course132",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("50db75df-074d-4c6f-9cf6-4e7fade628e9"),
-                            Credits = (short)2,
-                            Name = "Course165",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("ef08a75c-b669-4baf-81a8-e807ccd27b8d"),
+                            Id = new Guid("2e63b547-ee72-4a6c-b6da-752485bfd0e8"),
                             Credits = (short)0,
-                            Name = "Course0",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            Name = "Course165",
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("4218a945-83d8-402f-bc82-f41cc19193d6"),
+                            Id = new Guid("35187d6b-20be-46a4-a5bf-4fe513773c17"),
+                            Credits = (short)2,
+                            Name = "Course0",
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("4c421f21-b43c-47b0-ba55-339103ff1eca"),
                             Credits = (short)2,
                             Name = "Course34",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("98203cba-e8ac-4bb8-9e81-477762e52983"),
-                            Credits = (short)4,
+                            Id = new Guid("85aa930c-7e62-4012-a0af-6d3e350bef9b"),
+                            Credits = (short)3,
                             Name = "Course68",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("8902eaad-7692-482f-9d69-0d9f42522867"),
+                            Id = new Guid("d80eb285-cf02-4bcf-9079-d424705c9c85"),
                             Credits = (short)3,
                             Name = "Course102",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("62f78b68-bd77-4ca2-8d7e-6269ff84f0ab"),
+                            Id = new Guid("c15113d0-860a-40b6-860d-28208f07a0f1"),
                             Credits = (short)3,
                             Name = "Course136",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("419c4517-e63f-4eaf-8765-746758f3c3d0"),
+                            Id = new Guid("7b0d138b-8116-4e39-9fcf-59ebfcb3b0cd"),
                             Credits = (short)3,
                             Name = "Course170",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("1c2b4397-2dc9-40f9-9fa5-d5ee4bd07ac1"),
-                            Credits = (short)2,
+                            Id = new Guid("e13fc883-e93b-4d4e-82a2-bc85361a85b0"),
+                            Credits = (short)5,
                             Name = "Course0",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("b09c1eee-3c9c-43af-a5a3-e0abe00a7380"),
-                            Credits = (short)4,
-                            Name = "Course35",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("56d2815e-1d8a-49c4-b21e-b6974cc3d9ab"),
-                            Credits = (short)3,
-                            Name = "Course70",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
-                        },
-                        new
-                        {
-                            Id = new Guid("ab166d6b-1c70-4b1e-9165-f4d145069c24"),
-                            Credits = (short)4,
-                            Name = "Course105",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
-                        },
-                        new
-                        {
-                            Id = new Guid("18628480-9303-4645-b29e-d0afe273392a"),
+                            Id = new Guid("28e6b7b4-f6d8-4644-8fad-9bd931b98d16"),
                             Credits = (short)2,
-                            Name = "Course140",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            Name = "Course35",
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("b2573ca7-2ae4-40b9-88bf-2ece9edbb71b"),
+                            Id = new Guid("e483ef78-07c4-437b-82e6-96981b22ad8b"),
+                            Credits = (short)0,
+                            Name = "Course70",
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
+                        },
+                        new
+                        {
+                            Id = new Guid("92e27d69-e0d4-4f84-b6c6-7e91a5c9ebe9"),
+                            Credits = (short)0,
+                            Name = "Course105",
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
+                        },
+                        new
+                        {
+                            Id = new Guid("ee5b895d-3fb2-4cf4-8850-a22ed291a98b"),
+                            Credits = (short)4,
+                            Name = "Course140",
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
+                        },
+                        new
+                        {
+                            Id = new Guid("5cbfb4e3-7065-4402-bb3c-5d2ac7448402"),
                             Credits = (short)3,
                             Name = "Course175",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c")
                         });
                 });
 
@@ -3587,795 +3538,795 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c2a35a28-52f9-48db-a351-c34358f19aea"),
+                            Id = new Guid("fc0e4c35-dd67-4f6d-bbb7-ee935bccfc19"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
+                        },
+                        new
+                        {
+                            Id = new Guid("e6adadf2-a0fc-4703-8cca-6d9dcc684eb2"),
+                            Credits = (short)5,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
+                        },
+                        new
+                        {
+                            Id = new Guid("c0aeeae7-69ab-4bcd-bc91-f2aadfe9a4fb"),
+                            Credits = (short)0,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
+                        },
+                        new
+                        {
+                            Id = new Guid("44fbb7da-7d5b-4f85-b345-2242d354bf71"),
                             Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
-                        },
-                        new
-                        {
-                            Id = new Guid("d7675fc9-5e22-4bc5-888b-9fff21cf45f3"),
-                            Credits = (short)3,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
-                            TeacherId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea")
-                        },
-                        new
-                        {
-                            Id = new Guid("80bcf75a-5dbe-4e7e-9a47-7d68d0704d19"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
-                        },
-                        new
-                        {
-                            Id = new Guid("a62dcc26-c492-4728-af34-edc57b70a66c"),
-                            Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course1",
-                            SemesterId = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("1623cdb7-0d67-463b-a372-ffd80f80c33c"),
-                            Credits = (short)0,
+                            Id = new Guid("5b563d45-66ad-4643-aab7-5f08e3d8f254"),
+                            Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("f51fb8af-3cf7-41eb-a02e-1c32571ce140"),
-                            Credits = (short)4,
+                            Id = new Guid("99cc5b3d-227e-4e45-a461-8f5d31e224d5"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course2",
-                            SemesterId = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         },
                         new
                         {
-                            Id = new Guid("3a099a8c-7d4b-4194-b509-61180d316bc8"),
-                            Credits = (short)3,
+                            Id = new Guid("920212bc-fbd3-4a57-8b27-b7f7a3a0cebe"),
+                            Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("55d90fec-9ddb-455a-9aef-f84b60f495f7"),
-                            Credits = (short)0,
+                            Id = new Guid("37b7445a-ee78-44c5-a0cb-16732df14b94"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course3",
-                            SemesterId = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("ced29c79-48b5-4153-8c52-ae945ca62731"),
+                            Id = new Guid("bd2b1033-ff78-4cad-ab9c-8ee398332b4c"),
                             Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("a34a7c96-0f1a-4c64-9772-76d6caf51553"),
-                            Credits = (short)2,
+                            Id = new Guid("c6ce7e71-cfa0-4468-9f75-2b8c66ddba80"),
+                            Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course4",
-                            SemesterId = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("b43d90d4-2488-4138-995d-555cb28d048c"),
-                            Credits = (short)2,
+                            Id = new Guid("36052e77-028d-4092-8653-fa83176f0f10"),
+                            Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("ce3ed5e3-032a-438e-b7be-4d5771639070"),
-                            Credits = (short)1,
+                            Id = new Guid("a089d5d9-fad6-41bf-8928-6196fe09ff27"),
+                            Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course5",
-                            SemesterId = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            SemesterId = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
                         },
                         new
                         {
-                            Id = new Guid("42585dde-4570-4acb-8d18-b7589eee76de"),
-                            Credits = (short)4,
+                            Id = new Guid("2a76e322-840d-439c-8bf6-c5cd06ed8e71"),
+                            Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("51975f8f-d60b-45f8-aa69-f7a7f01112db"),
-                            Credits = (short)5,
+                            Id = new Guid("aeed10d6-a36a-465e-898a-d966e9901b25"),
+                            Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course6",
-                            SemesterId = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("24230622-b78a-4901-aec2-e96de24c6da8"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
-                        },
-                        new
-                        {
-                            Id = new Guid("ee72f575-66ec-4414-937a-3873059bb42e"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course7",
-                            SemesterId = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
-                        },
-                        new
-                        {
-                            Id = new Guid("db038ed8-bb29-4f07-864a-dcebd72b1399"),
-                            Credits = (short)1,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("4fa69539-334b-4132-856a-dd14a1c228ab"),
-                            Credits = (short)2,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course8",
-                            SemesterId = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("127fb692-12ff-4548-89eb-b21c1673f7e5"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
-                        },
-                        new
-                        {
-                            Id = new Guid("2d2b80d3-f245-4878-a64f-39cec211539a"),
-                            Credits = (short)1,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course9",
-                            SemesterId = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("b4f574a0-0eea-4413-876f-64e554c0e929"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
-                        },
-                        new
-                        {
-                            Id = new Guid("3cd76aa2-bf29-4531-99bb-4b60ebb03551"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course10",
-                            SemesterId = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
-                        },
-                        new
-                        {
-                            Id = new Guid("715043b3-7b14-4007-b1db-95e187f7a2b4"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("c6418a1e-3bd8-4bed-8491-b9b93012d45e"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course11",
-                            SemesterId = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("113968fc-1b3d-4256-ab69-435884f466d1"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216")
-                        },
-                        new
-                        {
-                            Id = new Guid("efdbc667-3318-4da4-8088-970ac69ef635"),
-                            Credits = (short)2,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course12",
-                            SemesterId = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
-                        },
-                        new
-                        {
-                            Id = new Guid("c8c05a9a-2a65-4909-9cb7-2acdd2ea532e"),
+                            Id = new Guid("92e8b4d3-52d5-4ea7-9fcc-36e1aa3c83bb"),
                             Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("b8713e6a-2e5a-4f40-9ea2-f6ea9ec0364b"),
+                            Id = new Guid("9fb2149d-73c4-4c75-9e67-f498b178cb6a"),
                             Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
-                            Name = "Course13",
-                            SemesterId = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            Name = "Course7",
+                            SemesterId = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("a08c6128-d7fc-462d-8659-3ede91974c04"),
-                            Credits = (short)2,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
-                        },
-                        new
-                        {
-                            Id = new Guid("5cd60307-4c3f-4018-94bf-031ae15aa971"),
-                            Credits = (short)3,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course14",
-                            SemesterId = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
-                        },
-                        new
-                        {
-                            Id = new Guid("423fcbf7-9f9c-4d6f-8fa3-8c1b88414313"),
+                            Id = new Guid("05e38cd6-e5c8-4462-ba64-bc75c4a0969e"),
                             Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1")
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("08753260-7db2-4911-97b2-cf49552414ff")
                         },
                         new
                         {
-                            Id = new Guid("6c7aab23-ebc4-4d49-8c10-d1026999335c"),
+                            Id = new Guid("5b214518-e697-4761-8b0f-baab99f9f58e"),
                             Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
-                            Name = "Course15",
-                            SemesterId = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
-                            TeacherId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa")
+                            Name = "Course8",
+                            SemesterId = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("92ed978b-b5d6-487d-a7ec-c6e63af5eddb"),
+                            Id = new Guid("938126c0-717f-46cd-b12c-780370d210c8"),
+                            Credits = (short)2,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("ce792043-de57-473c-a112-c223c987575e"),
+                            Credits = (short)2,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course9",
+                            SemesterId = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
+                        },
+                        new
+                        {
+                            Id = new Guid("39874ce4-b45e-4d96-9dc1-2dde6d4b2b0d"),
+                            Credits = (short)2,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("a610ce5c-f232-4e1a-9b6c-0cbf4fdc853b"),
+                            Credits = (short)3,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course10",
+                            SemesterId = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("118265fc-b99b-4104-a9e7-690386759bdc"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
+                        },
+                        new
+                        {
+                            Id = new Guid("626eb648-e3a2-4a01-a3e3-c837cd8dea92"),
+                            Credits = (short)5,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course11",
+                            SemesterId = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("084de768-8e07-49b9-8b87-5805f5928a9c"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("106e30f0-71f2-42f0-bb44-ef429cdd5092"),
+                            Credits = (short)3,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course12",
+                            SemesterId = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
+                        },
+                        new
+                        {
+                            Id = new Guid("9d86a001-ad88-423e-904c-2c3e386431a4"),
+                            Credits = (short)4,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
+                        },
+                        new
+                        {
+                            Id = new Guid("2a814e07-9e7e-4fa7-b87e-a39044ceb334"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course13",
+                            SemesterId = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
+                        },
+                        new
+                        {
+                            Id = new Guid("8cdd9286-ef35-4632-9ce4-0fee9d4c364b"),
+                            Credits = (short)5,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
+                        },
+                        new
+                        {
+                            Id = new Guid("c4983706-6cf5-46ab-ac16-c67ab850bf76"),
+                            Credits = (short)5,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course14",
+                            SemesterId = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("7f99321e-42e7-41ce-8e5a-a9fc685108ba"),
+                            Credits = (short)4,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("0fc0abb6-5756-4571-903a-4772c3aa26e0"),
+                            Credits = (short)5,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course15",
+                            SemesterId = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
+                        },
+                        new
+                        {
+                            Id = new Guid("ba409408-d57d-46fc-9e62-0a708e625e54"),
                             Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("af676845-0fb7-4cab-837a-04737f8d6ade"),
-                            Credits = (short)2,
+                            Id = new Guid("cbbe77eb-a4b7-4353-973e-83243f6ecfb0"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course16",
-                            SemesterId = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("00a8a18e-6784-4bf0-ad3a-4780dbe1c2c5"),
-                            Credits = (short)0,
+                            Id = new Guid("17b9fb4b-fc6b-4c2c-9c80-0105fba21425"),
+                            Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("bb44fbf7-38a3-4250-bcd2-523c76cd00a5"),
+                            Id = new Guid("aee93fb5-53de-4c5d-8c50-46f1d6cee655"),
                             Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course17",
-                            SemesterId = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
-                            TeacherId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac")
+                            SemesterId = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
                         },
                         new
                         {
-                            Id = new Guid("325b7789-79f5-48f5-8914-df7ee291c18c"),
-                            Credits = (short)3,
+                            Id = new Guid("796f149b-bf6c-46db-8913-fe21cf8ef727"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("51f1221b-72e5-47d3-9176-38572f8e5f71"),
-                            Credits = (short)0,
+                            Id = new Guid("a8a69473-01e4-4108-967d-21f5ab9f4dd4"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course18",
-                            SemesterId = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
+                            TeacherId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d")
                         },
                         new
                         {
-                            Id = new Guid("783b7e04-c50b-4056-b6a4-6aa8535cbb10"),
-                            Credits = (short)2,
+                            Id = new Guid("1290cc54-3357-4d81-87f2-e1ca6fbc7712"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
                         },
                         new
                         {
-                            Id = new Guid("854033aa-92dc-440e-8355-e358a5c0afec"),
+                            Id = new Guid("613e6ca8-a0ee-4ce1-88bd-d7168caa4587"),
                             Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course19",
-                            SemesterId = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("9d94b677-3e2d-4388-89d5-3aaa7259ab19"),
-                            Credits = (short)0,
+                            Id = new Guid("31cca974-f130-432d-b3f5-cd6529fe9a23"),
+                            Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("4d60428a-3d63-43ba-b793-d268b0edab20"),
-                            Credits = (short)3,
+                            Id = new Guid("fd8172d7-1526-4218-84ec-1967a5eb1b07"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course20",
-                            SemesterId = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("565c3b5a-cb45-46f7-a560-74bff9106bfa"),
+                            Id = new Guid("19b0da6e-8af7-421a-acaa-4747bcad3a74"),
                             Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f")
                         },
                         new
                         {
-                            Id = new Guid("36ef1441-03a6-43af-a6b7-fdc27576bf3a"),
-                            Credits = (short)5,
+                            Id = new Guid("a2a50e4b-77c4-45d5-9553-cfa622ddc737"),
+                            Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course21",
-                            SemesterId = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
+                            SemesterId = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("dacf4734-4f21-4a3f-baf9-2bdf3732f23f"),
-                            Credits = (short)5,
+                            Id = new Guid("28b5c538-87ed-4f87-ab84-a05eb71257fc"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("8ba521a2-63b4-446e-9734-6e0794359a82"),
-                            Credits = (short)5,
+                            Id = new Guid("534b6e27-398a-4513-b7ec-58ce41ac4975"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course22",
-                            SemesterId = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
+                            TeacherId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b")
                         },
                         new
                         {
-                            Id = new Guid("b55c1b00-ccb4-4f28-817c-52b795a61c72"),
+                            Id = new Guid("e0000746-b023-4093-8be4-ac6c97283333"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
+                        },
+                        new
+                        {
+                            Id = new Guid("693a9016-3378-42fe-911a-d929bd6c5e3b"),
+                            Credits = (short)1,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course23",
+                            SemesterId = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
+                        },
+                        new
+                        {
+                            Id = new Guid("f1ac8843-cb24-4586-a641-cbfe217e57ae"),
                             Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("f8ac9470-7dd3-4329-b9b4-c32a616a59f0"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course23",
-                            SemesterId = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
-                        },
-                        new
-                        {
-                            Id = new Guid("7ecc162b-4ba1-4320-a1d2-2771031c672a"),
-                            Credits = (short)0,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
-                        },
-                        new
-                        {
-                            Id = new Guid("4dcae60e-e16e-43cc-a460-0ebc670812cc"),
-                            Credits = (short)0,
+                            Id = new Guid("dd7889c3-3c37-47fd-876c-b03cc585a8c8"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course24",
-                            SemesterId = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("5e7848e5-ed63-4c60-9c9d-50f859487eba"),
-                            Credits = (short)5,
+                            Id = new Guid("6e7a49aa-5012-4c09-8f46-318b708ebef6"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("4b9216fd-1f1a-42f4-b264-65e5d6728cfc"),
+                            Id = new Guid("921680e8-2d7a-465c-8c01-864b7b4d2389"),
                             Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course25",
-                            SemesterId = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
+                            TeacherId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c")
                         },
                         new
                         {
-                            Id = new Guid("b617c130-731d-4b3b-8779-7e7f418cc155"),
+                            Id = new Guid("d017fb0b-e864-4fed-9af4-b38a02e6de4e"),
                             Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda")
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("ac6c698a-8362-4623-ace9-6427b23d39a6"),
-                            Credits = (short)2,
+                            Id = new Guid("0c2c72f6-b7bc-411d-ab3a-dc505464c74e"),
+                            Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course26",
-                            SemesterId = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
+                            TeacherId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c")
                         },
                         new
                         {
-                            Id = new Guid("c2829d3d-1119-4b66-8704-6496cbaf96ff"),
-                            Credits = (short)0,
+                            Id = new Guid("b6c75b8e-8dc7-4866-a926-58977164c9c6"),
+                            Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
                         },
                         new
                         {
-                            Id = new Guid("4e50c87c-17c5-460a-9885-b176937e05aa"),
-                            Credits = (short)4,
+                            Id = new Guid("9964ed38-26bd-472e-92cb-3a186433932d"),
+                            Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course27",
-                            SemesterId = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            SemesterId = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
+                            TeacherId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3")
                         },
                         new
                         {
-                            Id = new Guid("e935827a-d958-4c82-80a9-837141ef505b"),
-                            Credits = (short)4,
+                            Id = new Guid("e48f5fcf-4c3c-41d8-a2d2-87804281f49e"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("2984a264-40d4-40e4-94fa-f3443b13a2e9"),
-                            Credits = (short)1,
+                            Id = new Guid("dec493c0-10a8-4d9f-8bd9-f517d5f3295e"),
+                            Credits = (short)3,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course28",
-                            SemesterId = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
+                            TeacherId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf")
                         },
                         new
                         {
-                            Id = new Guid("34568b31-8579-4eb1-8286-3fcef5537d0d"),
-                            Credits = (short)3,
+                            Id = new Guid("b4aeffea-5c45-4cd2-8365-826b76014ac7"),
+                            Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("e1909bde-1661-4ff2-a0a1-1c939d8a6b56"),
-                            Credits = (short)0,
+                            Id = new Guid("9947b5c4-1aa2-40d7-b84c-8a60b2e4cadc"),
+                            Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course29",
-                            SemesterId = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
+                            SemesterId = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
+                            TeacherId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb")
                         },
                         new
                         {
-                            Id = new Guid("4d4fcd7f-9be8-4d26-ad81-c185cb80fc3e"),
-                            Credits = (short)3,
+                            Id = new Guid("2bbf530e-db1a-42ba-8e51-650428f7c658"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
                         },
                         new
                         {
-                            Id = new Guid("3e97b9ca-8874-416b-b15c-7d88ee620ecf"),
-                            Credits = (short)5,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course30",
-                            SemesterId = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
-                        },
-                        new
-                        {
-                            Id = new Guid("76c9acc1-752d-4bc9-9aa0-49d1dfab5b15"),
-                            Credits = (short)2,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e")
-                        },
-                        new
-                        {
-                            Id = new Guid("eaad80ae-3360-4b20-b687-49888015d558"),
+                            Id = new Guid("7c2f9b96-a370-45a2-97e8-532ba40901e9"),
                             Credits = (short)0,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
-                            Name = "Course31",
-                            SemesterId = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
+                            Name = "Course30",
+                            SemesterId = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
+                            TeacherId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35")
                         },
                         new
                         {
-                            Id = new Guid("64c7a590-8643-481d-b5aa-88818420dc81"),
+                            Id = new Guid("2568f11b-fd28-4565-83e8-dac477d0878c"),
                             Credits = (short)5,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d")
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("140d3738-4ab9-4b28-b8c0-6db4ae79c082"),
-                            Credits = (short)3,
+                            Id = new Guid("17a231af-cd97-4c2c-8ea5-c6d723a5f160"),
+                            Credits = (short)2,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course31",
+                            SemesterId = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
+                            TeacherId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60")
+                        },
+                        new
+                        {
+                            Id = new Guid("21fa712b-8b5d-454d-ae0d-2e9bb7142630"),
+                            Credits = (short)0,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9")
+                        },
+                        new
+                        {
+                            Id = new Guid("68287c37-437a-438c-8e1a-f1c2f03b8f87"),
+                            Credits = (short)1,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course32",
-                            SemesterId = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
-                            TeacherId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e")
+                            SemesterId = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
+                            TeacherId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936")
                         },
                         new
                         {
-                            Id = new Guid("d0a4980a-5ec2-4689-9c08-62c11678b455"),
-                            Credits = (short)2,
+                            Id = new Guid("712d2a0f-121c-4b3e-b191-016c6d19f1b8"),
+                            Credits = (short)4,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course0",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8")
                         },
                         new
                         {
-                            Id = new Guid("606627ff-bffb-45cc-a5f5-8c1480f8d9ef"),
-                            Credits = (short)1,
+                            Id = new Guid("e293fe24-4ac5-4c43-99a2-b7fd54b5e110"),
+                            Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
                             Name = "Course33",
-                            SemesterId = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
-                            TeacherId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639")
+                            SemesterId = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
+                            TeacherId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99")
                         },
                         new
                         {
-                            Id = new Guid("74a1fde6-923b-488d-b924-5e2358695d04"),
-                            Credits = (short)1,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b")
-                        },
-                        new
-                        {
-                            Id = new Guid("0672f7b1-b9da-4c61-baed-030f40559e0d"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course34",
-                            SemesterId = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
-                            TeacherId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9")
-                        },
-                        new
-                        {
-                            Id = new Guid("ccb1c3d8-3ef0-4d04-ad40-d8eab450fe70"),
-                            Credits = (short)4,
-                            IsApproved = false,
-                            IsProposed = false,
-                            MaxNumberOfStudent = 20,
-                            Name = "Course0",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9")
-                        },
-                        new
-                        {
-                            Id = new Guid("b7d93dd9-ace6-4acb-8a34-f85dbd349c2c"),
+                            Id = new Guid("772727f6-0df9-4d59-be84-5b6c809c17fa"),
                             Credits = (short)2,
                             IsApproved = false,
                             IsProposed = false,
                             MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353")
+                        },
+                        new
+                        {
+                            Id = new Guid("5700ca1d-c03c-416e-a24f-6c18c16a4207"),
+                            Credits = (short)2,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course34",
+                            SemesterId = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
+                            TeacherId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a")
+                        },
+                        new
+                        {
+                            Id = new Guid("081d9ff7-b487-4626-ac7c-f5ab4e246eba"),
+                            Credits = (short)0,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
+                            Name = "Course0",
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("6785ef90-5968-4673-918f-87969772d761")
+                        },
+                        new
+                        {
+                            Id = new Guid("e129d72b-0566-4b37-9d3f-d50e2ef5033d"),
+                            Credits = (short)0,
+                            IsApproved = false,
+                            IsProposed = false,
+                            MaxNumberOfStudent = 20,
                             Name = "Course35",
-                            SemesterId = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
-                            TeacherId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5")
+                            SemesterId = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
+                            TeacherId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2")
                         });
                 });
 
@@ -4442,283 +4393,283 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            AccountId = new Guid("a637ae33-eaf6-4d29-9268-c9d8342470df")
+                            AccountId = new Guid("2d3c506b-0f9e-4676-8eb1-87714c5eefb9")
                         },
                         new
                         {
-                            AccountId = new Guid("7a286bfb-2317-41be-a927-3543eb6b675c")
+                            AccountId = new Guid("9803212f-9417-4247-b409-1faaf7e69066")
                         },
                         new
                         {
-                            AccountId = new Guid("ebe81c59-bf12-4df5-9baa-5af90bf5fef0")
+                            AccountId = new Guid("44ff300d-60b2-405f-aeae-46d9f3a15240")
                         },
                         new
                         {
-                            AccountId = new Guid("ae16bb0e-76b1-45ed-bf72-61ae86ad4b77")
+                            AccountId = new Guid("f518e1c2-2090-486c-8c45-02484ff2577d")
                         },
                         new
                         {
-                            AccountId = new Guid("dd90d328-9e3b-42cb-ba19-e1d71ba99b78")
+                            AccountId = new Guid("584cde08-c075-407e-a09f-d5a533fbc45f")
                         },
                         new
                         {
-                            AccountId = new Guid("cb8878dd-25c6-4edc-bf11-28f061797d43")
+                            AccountId = new Guid("36f86193-5211-46e2-b0f1-efb607cb0976")
                         },
                         new
                         {
-                            AccountId = new Guid("a086d6f7-a8ca-4dd9-8cd4-28e1c67e96dd")
+                            AccountId = new Guid("8ea1e7b2-5649-4204-aed8-c92eba7ef250")
                         },
                         new
                         {
-                            AccountId = new Guid("93a27655-a27a-4fc1-83ce-4bfe7870584e")
+                            AccountId = new Guid("f43b2256-f1d4-4685-be74-d6d3ae8c76f0")
                         },
                         new
                         {
-                            AccountId = new Guid("e08c079e-2af4-4aba-824a-e8645fe0f06f")
+                            AccountId = new Guid("249c3565-3c41-47d1-88e6-621398c458be")
                         },
                         new
                         {
-                            AccountId = new Guid("748922e6-fc92-43ec-88b2-3da72ed82b58")
+                            AccountId = new Guid("b57c5901-c882-4a88-9cb7-d11e58f9c678")
                         },
                         new
                         {
-                            AccountId = new Guid("78f93bcc-d1ab-4f22-8055-d6096634b45c")
+                            AccountId = new Guid("b9fdcfa2-129e-47f6-81ff-efcc333d32b7")
                         },
                         new
                         {
-                            AccountId = new Guid("2265a5ee-c06d-4ce7-a6e3-61971bb97b7e")
+                            AccountId = new Guid("baef3a80-e7af-46f7-8d66-1cbccbb3e3bd")
                         },
                         new
                         {
-                            AccountId = new Guid("276dd141-eee9-44a2-8f97-41decc40381e")
+                            AccountId = new Guid("338fe279-f58e-4c5e-9081-9648454a2753")
                         },
                         new
                         {
-                            AccountId = new Guid("03bb9ca9-ae28-48a0-af2d-2177898b3706")
+                            AccountId = new Guid("e67b668b-c463-423b-8022-1832825cb1be")
                         },
                         new
                         {
-                            AccountId = new Guid("80ebb18a-e447-4ad4-aa6c-be7e8383a2f6")
+                            AccountId = new Guid("0dd819b3-f715-4609-84e7-53c5de8c2cea")
                         },
                         new
                         {
-                            AccountId = new Guid("07dfc2c5-ff08-4ca2-9d75-ac2400f718e7")
+                            AccountId = new Guid("ddb72c19-7cc0-4197-a1be-17b08df39f48")
                         },
                         new
                         {
-                            AccountId = new Guid("a66eb85e-b430-4586-8228-5e0f0da8311b")
+                            AccountId = new Guid("7c117e49-26a5-44a1-ad74-028fc5ccc9cd")
                         },
                         new
                         {
-                            AccountId = new Guid("3e262014-0d7f-4a65-bce6-d93074a8c4dc")
+                            AccountId = new Guid("2273247a-5ea9-4956-bbe3-e4e1fbedc68a")
                         },
                         new
                         {
-                            AccountId = new Guid("10521b95-7b13-4cd8-b47a-19fac79fa145")
+                            AccountId = new Guid("14acfd39-649e-44bb-b4c9-81bb485c1565")
                         },
                         new
                         {
-                            AccountId = new Guid("41ca9194-441b-485c-9e6e-31a642ca8c12")
+                            AccountId = new Guid("566cf487-3ed6-40c5-ae72-d3741beff430")
                         },
                         new
                         {
-                            AccountId = new Guid("9ac3aac0-5341-4389-8153-c98bbb803cc8")
+                            AccountId = new Guid("cc555932-1240-4511-8879-82d6a043a116")
                         },
                         new
                         {
-                            AccountId = new Guid("6e8ad44e-d46b-4f50-beee-0562f82288a9")
+                            AccountId = new Guid("ab14935a-1968-4ad4-9eb9-4288cc10b1e8")
                         },
                         new
                         {
-                            AccountId = new Guid("362b789c-e8e6-40b4-b590-7f9743cb9856")
+                            AccountId = new Guid("0e322cc8-03b5-43b6-9cda-bca157b07e33")
                         },
                         new
                         {
-                            AccountId = new Guid("fdb4e33f-9d37-438c-af39-ff0516c2d8db")
+                            AccountId = new Guid("045fd78f-d876-4b31-8e8e-93c7f28fba90")
                         },
                         new
                         {
-                            AccountId = new Guid("e7b5f652-f44f-467e-935d-78bd2de865c4")
+                            AccountId = new Guid("697a9e49-5424-4293-803b-71cde4bd3c23")
                         },
                         new
                         {
-                            AccountId = new Guid("e283577f-d734-401b-89b3-cf0e6a026e0f")
+                            AccountId = new Guid("3d66a605-b2f6-414e-b4fa-7a679521bbdf")
                         },
                         new
                         {
-                            AccountId = new Guid("c148479c-48ff-4120-94f2-baa33b6e8a09")
+                            AccountId = new Guid("9b342db1-edd9-4031-8d39-95f30c0141a7")
                         },
                         new
                         {
-                            AccountId = new Guid("03a3c074-ae04-4f5c-a6d0-4e4b61820152")
+                            AccountId = new Guid("ea4c9cd4-14d3-456e-aa97-e835f7f8dbff")
                         },
                         new
                         {
-                            AccountId = new Guid("625d1d34-7e86-41fe-8eb2-985fe439a6ed")
+                            AccountId = new Guid("fe763220-9d76-451a-add3-d88a4e35722a")
                         },
                         new
                         {
-                            AccountId = new Guid("26b2208c-2ea6-4389-b212-83583bf6dcc9")
+                            AccountId = new Guid("3c605bc1-2cf3-4078-91ef-1acea4474300")
                         },
                         new
                         {
-                            AccountId = new Guid("b08456ce-23d2-474d-bf65-0688076d83dd")
+                            AccountId = new Guid("671a6804-d308-419d-b56e-84b4c8858681")
                         },
                         new
                         {
-                            AccountId = new Guid("52d2e621-2150-4328-a00c-f1f307038311")
+                            AccountId = new Guid("f4fc87ec-d782-4a1e-8190-f93e95d89bd6")
                         },
                         new
                         {
-                            AccountId = new Guid("abebab04-e1f0-444a-a09d-b1c1c70b9ce2")
+                            AccountId = new Guid("27f1e861-b79c-4143-9b88-69313b52ccc0")
                         },
                         new
                         {
-                            AccountId = new Guid("c157cb2c-9b1f-4ee2-8bb5-0919d1802622")
+                            AccountId = new Guid("b7410b97-9dd3-403f-bad8-9ddae8158612")
                         },
                         new
                         {
-                            AccountId = new Guid("d06ceafc-9239-42d5-82bc-e7296c2ba167")
+                            AccountId = new Guid("cbc18fd5-6116-4dd0-827e-a0e82fa8a1e2")
                         },
                         new
                         {
-                            AccountId = new Guid("a3702ac3-d8e6-479e-ad3d-90371c448e32")
+                            AccountId = new Guid("8a94aee2-829e-4b4b-9ba9-285e264cc3fa")
                         },
                         new
                         {
-                            AccountId = new Guid("11a6bc52-2db0-477f-a17a-94c878e33f6c")
+                            AccountId = new Guid("2cfc839b-ba6b-46c6-8955-3b2d2ee8694c")
                         },
                         new
                         {
-                            AccountId = new Guid("1d142e90-6fc0-42ce-a83e-7dfaf00c971d")
+                            AccountId = new Guid("5a53e5de-c9ba-483b-b346-46e9fde8dd26")
                         },
                         new
                         {
-                            AccountId = new Guid("143d4a0f-5138-4091-9e9a-8f3432f5a527")
+                            AccountId = new Guid("b886c14b-274f-4bd7-be28-3e8f37ea9503")
                         },
                         new
                         {
-                            AccountId = new Guid("ad5c6c97-3c62-4752-b2c9-b4b8141e3dab")
+                            AccountId = new Guid("27c21c60-30bb-4cb7-a3e3-4857aab19659")
                         },
                         new
                         {
-                            AccountId = new Guid("005fcf54-4ac3-4794-80e9-d9e7831c05ec")
+                            AccountId = new Guid("c868fdb3-b9c3-4a4e-9727-bf3cf5f2b20f")
                         },
                         new
                         {
-                            AccountId = new Guid("3818589e-f6d5-40be-a49b-cd0cb6be89f0")
+                            AccountId = new Guid("99d71edc-63a4-4a24-b278-b49d0bb19f49")
                         },
                         new
                         {
-                            AccountId = new Guid("f639491f-f34e-4036-b0f2-34a5c8e9f26d")
+                            AccountId = new Guid("4c2b1381-e9ec-41e5-858f-0b4e03a0b1dd")
                         },
                         new
                         {
-                            AccountId = new Guid("5209cacf-4f7c-4a88-9f1d-95ca8af3b052")
+                            AccountId = new Guid("62cef015-f0eb-4a6d-a0ce-43263a9de3e5")
                         },
                         new
                         {
-                            AccountId = new Guid("13f231f6-e8ec-43d9-a052-844ee9041034")
+                            AccountId = new Guid("0cbd6601-75d8-4c01-aab1-45d423fa9319")
                         },
                         new
                         {
-                            AccountId = new Guid("510b4925-7fc0-4de0-8921-a1756faab7c1")
+                            AccountId = new Guid("474db11c-c458-481b-bfc5-bfa3cef134d1")
                         },
                         new
                         {
-                            AccountId = new Guid("0247aec9-5de6-4a79-a805-1b4a598945ba")
+                            AccountId = new Guid("cd60f589-6db5-4124-a1e7-b26b1515a49f")
                         },
                         new
                         {
-                            AccountId = new Guid("033a4dfb-dea0-442b-8f07-efffda3dc66c")
+                            AccountId = new Guid("8f30ff42-f259-4b6a-90b2-3745f361afff")
                         },
                         new
                         {
-                            AccountId = new Guid("d9db07d2-23b5-4d75-8e14-21733126d60e")
+                            AccountId = new Guid("2e6514ee-f003-4a1c-b604-ee104cb18e9c")
                         },
                         new
                         {
-                            AccountId = new Guid("546c8df8-19bf-4426-b52b-4f7bd986f23d")
+                            AccountId = new Guid("9bffef4c-c3ff-46b6-97f6-b40d4fe7c6d3")
                         },
                         new
                         {
-                            AccountId = new Guid("c2bc3863-c263-457e-a114-69cc5c94075f")
+                            AccountId = new Guid("291c9fec-de54-438a-a80b-cb050e1432f2")
                         },
                         new
                         {
-                            AccountId = new Guid("41de7aa6-3e5f-47bf-88ba-37030de4231b")
+                            AccountId = new Guid("94f64a73-7b1e-404e-8660-068df7ae798f")
                         },
                         new
                         {
-                            AccountId = new Guid("756beb15-3436-4d3d-8da1-afc43da58f77")
+                            AccountId = new Guid("0a153192-1f8f-4a92-bb16-ab82de4379e3")
                         },
                         new
                         {
-                            AccountId = new Guid("b53ccb92-7573-4f5b-852d-15cc3227fb8d")
+                            AccountId = new Guid("3745bdd4-6b4f-4a97-a4fd-1d284b5604ab")
                         },
                         new
                         {
-                            AccountId = new Guid("f27b51b6-95fa-4f4c-8b46-752b8542c51f")
+                            AccountId = new Guid("ce097aa9-4fb3-4a6e-ad49-ac8a555743d6")
                         },
                         new
                         {
-                            AccountId = new Guid("2ab2d979-c7b4-4a20-8e09-3ce15afa7a6f")
+                            AccountId = new Guid("c62ff166-4f6a-4126-916a-ea30a7804072")
                         },
                         new
                         {
-                            AccountId = new Guid("479e5195-5d9f-45f9-953c-5417315cdd48")
+                            AccountId = new Guid("b3050769-754a-4389-8690-8ec99304fb18")
                         },
                         new
                         {
-                            AccountId = new Guid("c71686c6-741c-4929-84c0-66cbb9f5a73a")
+                            AccountId = new Guid("b25f6943-cea8-459d-8c6e-df8d39e2e488")
                         },
                         new
                         {
-                            AccountId = new Guid("43936095-8cef-40d0-b61d-069a130596f0")
+                            AccountId = new Guid("9e7ed602-ce49-4120-8013-d672ff620db5")
                         },
                         new
                         {
-                            AccountId = new Guid("5a424122-f16b-4bc8-891a-48fe333b6341")
+                            AccountId = new Guid("42c6514f-3632-4599-af6a-982cf4845ef4")
                         },
                         new
                         {
-                            AccountId = new Guid("f3e44686-53f3-4ce7-8c59-424b2d07e355")
+                            AccountId = new Guid("b96d78b3-d8cb-4634-8534-636517564e76")
                         },
                         new
                         {
-                            AccountId = new Guid("98a52ca8-5af2-4dbd-a6fe-be22207349b1")
+                            AccountId = new Guid("936e7f20-6944-43f3-8e3d-99bccbeb26c8")
                         },
                         new
                         {
-                            AccountId = new Guid("bcaf902c-5d29-4b87-b01b-2b3f5b6c0473")
+                            AccountId = new Guid("4c941439-f62a-48fc-8aa6-d047333edb44")
                         },
                         new
                         {
-                            AccountId = new Guid("53cbe638-d1e3-410c-a204-1f11f2c7633b")
+                            AccountId = new Guid("e86bcb2a-cd9b-4175-a190-d4872e96e236")
                         },
                         new
                         {
-                            AccountId = new Guid("7942c487-3bbf-439b-ab22-dc3f0bce4cc2")
+                            AccountId = new Guid("9d71a4b5-d03c-4341-bf59-2920f6ae260e")
                         },
                         new
                         {
-                            AccountId = new Guid("5e1879dd-aeb7-4de5-aa0f-4d725fe917fa")
+                            AccountId = new Guid("a2263c6b-31e9-4242-8663-697fcc365987")
                         },
                         new
                         {
-                            AccountId = new Guid("505e050e-09de-4660-b6e5-fa4769255e4d")
+                            AccountId = new Guid("e42fe777-8736-4749-a8a1-af57ac97ce7e")
                         },
                         new
                         {
-                            AccountId = new Guid("2e8097d2-7564-440c-b954-dd55c04eadcd")
+                            AccountId = new Guid("b73b2bfd-896d-42d9-8768-2bda7f1fc5aa")
                         },
                         new
                         {
-                            AccountId = new Guid("dc33adb6-52b6-4a9e-9401-66a305c9ab69")
+                            AccountId = new Guid("f19daf6f-9705-4a6f-a953-9d9d69604436")
                         },
                         new
                         {
-                            AccountId = new Guid("b02c2a20-c85f-42e3-8edd-68cb3fe4e84e")
+                            AccountId = new Guid("d50391ff-a32e-4abf-b45f-5e4cf058b204")
                         });
                 });
 
@@ -4753,579 +4704,579 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("82955a35-120f-4cb5-953c-cd7f5a1781b5"),
-                            GroupId = new Guid("00e61e59-a3ec-4194-9084-612a0160fab3"),
+                            Id = new Guid("7c0021e0-cae9-4595-9c62-8d93165b6a8e"),
+                            GroupId = new Guid("aadab007-b362-46ed-a688-860990c1ce67"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("a637ae33-eaf6-4d29-9268-c9d8342470df"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("2d3c506b-0f9e-4676-8eb1-87714c5eefb9"),
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("24158d2f-dcd1-46b6-a499-a36f56fcd6de"),
-                            GroupId = new Guid("11857b4b-b0d4-42af-b758-89a803b30f5a"),
+                            Id = new Guid("fbd5dcd9-ea40-4aa2-97a7-02841dd7a46f"),
+                            GroupId = new Guid("1f11cb47-a2e7-451c-a889-a80257623e34"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("a637ae33-eaf6-4d29-9268-c9d8342470df"),
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudentId = new Guid("2d3c506b-0f9e-4676-8eb1-87714c5eefb9"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("aa9109b5-fdd9-4646-bbfa-4db8e81eff66"),
-                            GroupId = new Guid("f19c9c3a-00c0-4503-a906-4258efc04b17"),
+                            Id = new Guid("877d04ba-05a0-4ff8-9676-f1ad27d2cc8b"),
+                            GroupId = new Guid("353dfdfe-d039-4855-8d1b-9fef20b86a07"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("7a286bfb-2317-41be-a927-3543eb6b675c"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("9803212f-9417-4247-b409-1faaf7e69066"),
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("cca76e73-0cd5-46ca-8eb1-af3af988b81f"),
-                            GroupId = new Guid("3bdd5d34-6aae-44ae-a212-323359221dbf"),
+                            Id = new Guid("493831c9-eafa-46f4-988f-a34625ee0aff"),
+                            GroupId = new Guid("1e64fce0-c64e-4952-9ca4-ded612da49d6"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("ebe81c59-bf12-4df5-9baa-5af90bf5fef0"),
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudentId = new Guid("44ff300d-60b2-405f-aeae-46d9f3a15240"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("dbfaca60-184c-40a2-8dc3-7b8c9da7c4a6"),
-                            GroupId = new Guid("8a6a68cb-60b1-40bf-851c-5a9e4c1bf831"),
+                            Id = new Guid("f24a5d16-291d-4a20-bfbd-d2c1a8a98d40"),
+                            GroupId = new Guid("94c2c181-3280-443a-9cf6-f8fb44a711d0"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("ae16bb0e-76b1-45ed-bf72-61ae86ad4b77"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("f518e1c2-2090-486c-8c45-02484ff2577d"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("12c8fe84-65b5-4514-a535-d8d2ef478628"),
-                            GroupId = new Guid("e4c37165-7c32-43e2-a0cb-daf869a920e4"),
+                            Id = new Guid("fbd48093-5de9-4dee-b28b-b3901503511f"),
+                            GroupId = new Guid("eeb27e3b-7129-4274-ad3d-38ccaff788d7"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("dd90d328-9e3b-42cb-ba19-e1d71ba99b78"),
-                            StudyYearId = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c")
+                            StudentId = new Guid("584cde08-c075-407e-a09f-d5a533fbc45f"),
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("0fd9bf3c-814c-448f-8fc9-4c20f7a536f0"),
-                            GroupId = new Guid("1306d78e-5b99-4165-bb5b-668cd69aa9ff"),
+                            Id = new Guid("13cbb5dd-1880-4aa3-b875-060e7511e5e7"),
+                            GroupId = new Guid("d315edc1-b4a1-4a4a-a2ee-ef2c5ed5c1a2"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("cb8878dd-25c6-4edc-bf11-28f061797d43"),
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudentId = new Guid("36f86193-5211-46e2-b0f1-efb607cb0976"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("df92f7ea-85a0-4859-98db-147e3514efbd"),
-                            GroupId = new Guid("90ed50e4-ac0d-428b-898f-17d83d8adea7"),
+                            Id = new Guid("bdb4b6f4-d978-4671-8af4-1bb183ec2436"),
+                            GroupId = new Guid("67a22ec5-8bf1-46c6-b087-bb33ba0db7c8"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("a086d6f7-a8ca-4dd9-8cd4-28e1c67e96dd"),
-                            StudyYearId = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408")
+                            StudentId = new Guid("8ea1e7b2-5649-4204-aed8-c92eba7ef250"),
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("e7825f20-a3c6-46df-b361-3c6c22d4057a"),
-                            GroupId = new Guid("e004cf77-e527-4eac-89bd-d0cfc249918a"),
+                            Id = new Guid("e185d4e0-43b6-44d1-a348-8902dc34230f"),
+                            GroupId = new Guid("c01a8e4f-ddaf-49ba-b3fc-7e8dc962addf"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("93a27655-a27a-4fc1-83ce-4bfe7870584e"),
-                            StudyYearId = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37")
+                            StudentId = new Guid("f43b2256-f1d4-4685-be74-d6d3ae8c76f0"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("d32d85df-ec83-4516-99c3-1633e0ee5d9f"),
-                            GroupId = new Guid("da1944e4-839d-41a3-b64d-d78f24bd89c1"),
+                            Id = new Guid("7d7191d2-9395-431f-99f2-050f1ff43aac"),
+                            GroupId = new Guid("64213c26-f20c-496a-91f9-a1872cc9249a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("e08c079e-2af4-4aba-824a-e8645fe0f06f"),
-                            StudyYearId = new Guid("d83e69b7-e0f1-4b72-a36f-fdaa584d0198")
+                            StudentId = new Guid("249c3565-3c41-47d1-88e6-621398c458be"),
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("d87b2128-1d53-4a04-81ad-10ee1fe0e3de"),
-                            GroupId = new Guid("ccfc4833-55c4-408a-803a-9db4fc5558c0"),
+                            Id = new Guid("1997a2b9-4c57-4e6f-a019-51615b59f619"),
+                            GroupId = new Guid("6d945629-fc20-4a2d-840e-9efc331dfae0"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("748922e6-fc92-43ec-88b2-3da72ed82b58"),
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudentId = new Guid("b57c5901-c882-4a88-9cb7-d11e58f9c678"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("ab380a64-9c74-47a0-b5b3-3c22d65880cf"),
-                            GroupId = new Guid("5b05cf34-933f-444f-932c-116da17e0931"),
+                            Id = new Guid("70feadbf-3837-479f-a6fc-c839052c7ebb"),
+                            GroupId = new Guid("5556d781-9a8c-4bc8-8b2d-7569b09b497b"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("78f93bcc-d1ab-4f22-8055-d6096634b45c"),
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudentId = new Guid("b9fdcfa2-129e-47f6-81ff-efcc333d32b7"),
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("fcdc9766-0850-49e8-a071-57dae539189b"),
-                            GroupId = new Guid("8e23c49c-6374-4981-8905-fd55ee39d6df"),
+                            Id = new Guid("d2aae668-75ee-4b94-9828-8b960cccf0ef"),
+                            GroupId = new Guid("0d95f6da-d6ff-43c7-b438-b2e7a29e6035"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("2265a5ee-c06d-4ce7-a6e3-61971bb97b7e"),
-                            StudyYearId = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f")
+                            StudentId = new Guid("baef3a80-e7af-46f7-8d66-1cbccbb3e3bd"),
+                            StudyYearId = new Guid("ebbca6e3-5c58-4661-8116-21553ebc6634")
                         },
                         new
                         {
-                            Id = new Guid("64508853-851a-4e82-b716-f0619776e8eb"),
-                            GroupId = new Guid("246cb8fc-8457-4bce-a5bb-535a71e566b3"),
+                            Id = new Guid("a8493ec3-486b-46d1-8364-00149b5a4a25"),
+                            GroupId = new Guid("0b2c4f43-a881-4b96-b697-2baec5d6ae9e"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("276dd141-eee9-44a2-8f97-41decc40381e"),
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudentId = new Guid("338fe279-f58e-4c5e-9081-9648454a2753"),
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("3cd3d43d-8afa-4d3d-95d3-05f3fccfe791"),
-                            GroupId = new Guid("4ba394de-5f78-4bfc-b42d-dd4cd3037db4"),
+                            Id = new Guid("58e3ec4f-428e-4f7e-904f-67a94533875d"),
+                            GroupId = new Guid("7f399728-b435-443b-8fb7-7bf58eb8fd09"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("03bb9ca9-ae28-48a0-af2d-2177898b3706"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("e67b668b-c463-423b-8022-1832825cb1be"),
+                            StudyYearId = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe")
                         },
                         new
                         {
-                            Id = new Guid("a45e1775-c2ea-430c-9747-71c74d397148"),
-                            GroupId = new Guid("3df85a78-4052-4926-b7bf-5dc6e4bff475"),
+                            Id = new Guid("ea5e953a-d232-4771-9e5c-2c62caa389be"),
+                            GroupId = new Guid("4a895a13-7960-4ff6-92b3-61afaad832a8"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("80ebb18a-e447-4ad4-aa6c-be7e8383a2f6"),
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudentId = new Guid("0dd819b3-f715-4609-84e7-53c5de8c2cea"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("3a78c15c-098c-42f7-b503-3825c55ec9fa"),
-                            GroupId = new Guid("d228099e-5e7a-4d83-9361-dc6624e003e1"),
+                            Id = new Guid("1c2963a8-6ff8-4eb2-8fe6-3158e8451e33"),
+                            GroupId = new Guid("d0e6bd46-38cf-4efd-adb2-6cdd458afd2a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("07dfc2c5-ff08-4ca2-9d75-ac2400f718e7"),
-                            StudyYearId = new Guid("fd2d4224-460d-44c4-ac98-99a4da17b22c")
+                            StudentId = new Guid("ddb72c19-7cc0-4197-a1be-17b08df39f48"),
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("4acae1fb-b2e6-448b-bf2e-754b8359b11f"),
-                            GroupId = new Guid("c494ceb6-a661-48ca-bc79-dc8932627804"),
+                            Id = new Guid("f9a8c198-dfd3-464f-bda6-7d87de92a5bd"),
+                            GroupId = new Guid("0dad3774-03bf-4c41-8cbc-640fdae1ec2f"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("a66eb85e-b430-4586-8228-5e0f0da8311b"),
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudentId = new Guid("7c117e49-26a5-44a1-ad74-028fc5ccc9cd"),
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("e4982fe7-a40f-48ab-b494-e23ad1898a09"),
-                            GroupId = new Guid("6ce585ac-5513-4089-b668-692f58bdc331"),
+                            Id = new Guid("c698b886-87d6-42d3-ad3a-6e066cbcd250"),
+                            GroupId = new Guid("3620dd07-5455-460c-a309-1adbf056f069"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("3e262014-0d7f-4a65-bce6-d93074a8c4dc"),
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudentId = new Guid("2273247a-5ea9-4956-bbe3-e4e1fbedc68a"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("60440151-520e-4b06-ad34-051a1e1c1361"),
-                            GroupId = new Guid("ef59c951-cfc9-4d36-b9e8-e6b50b6fed9f"),
+                            Id = new Guid("3b4076e9-06d5-4907-8d23-431bcb6f8120"),
+                            GroupId = new Guid("45060f12-ece6-4b97-b565-daa07f1ee078"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("10521b95-7b13-4cd8-b47a-19fac79fa145"),
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudentId = new Guid("14acfd39-649e-44bb-b4c9-81bb485c1565"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("424b0e31-f399-4daa-8b78-67e73f344c20"),
-                            GroupId = new Guid("4ccb50c1-1ee3-4fac-9a30-f6f88d7ea4f6"),
+                            Id = new Guid("84c05a90-29ab-40ef-92b6-ada5bcb4f043"),
+                            GroupId = new Guid("260ffeb4-a7d2-407d-adea-421016739dba"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("41ca9194-441b-485c-9e6e-31a642ca8c12"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("566cf487-3ed6-40c5-ae72-d3741beff430"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("f2571fe8-976a-42b3-9cfe-bddbecc64f50"),
-                            GroupId = new Guid("d6b4fa4a-2c33-48b7-95d6-b8662804dad1"),
+                            Id = new Guid("d82d6b1c-3fb5-40d3-b1af-899d85a60d21"),
+                            GroupId = new Guid("999028dd-0e3f-40e6-8b7b-7eebe90fe176"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("9ac3aac0-5341-4389-8153-c98bbb803cc8"),
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudentId = new Guid("cc555932-1240-4511-8879-82d6a043a116"),
+                            StudyYearId = new Guid("c25fdb06-39c8-4863-b5c4-7d5cc8dd64a4")
                         },
                         new
                         {
-                            Id = new Guid("bc85d273-b676-4b58-b5ef-295db7d61139"),
-                            GroupId = new Guid("f6f92f2b-7c47-47be-8a22-c0c1341d17c9"),
+                            Id = new Guid("e37fefde-dea3-4bf0-8dac-c34379778afc"),
+                            GroupId = new Guid("5601e26f-0be7-420e-82aa-5c82d5f10a9b"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("6e8ad44e-d46b-4f50-beee-0562f82288a9"),
-                            StudyYearId = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37")
+                            StudentId = new Guid("ab14935a-1968-4ad4-9eb9-4288cc10b1e8"),
+                            StudyYearId = new Guid("e9bd3d5c-3db6-4a01-97a3-a97cd3908cfa")
                         },
                         new
                         {
-                            Id = new Guid("879b8f2b-3aea-4030-9016-973107c37436"),
-                            GroupId = new Guid("6d364226-b034-445c-a182-34aee0e2fdcd"),
+                            Id = new Guid("ff6edd23-ccb2-4d40-bf76-d430d60dc0c2"),
+                            GroupId = new Guid("fb9f1d4e-b0fc-4f5d-bd9d-ca86e5e5443e"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("362b789c-e8e6-40b4-b590-7f9743cb9856"),
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudentId = new Guid("0e322cc8-03b5-43b6-9cda-bca157b07e33"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("aa851e05-52b0-4eb9-a2b4-d5b95e21e99b"),
-                            GroupId = new Guid("a5d19899-24a3-439e-aef6-0d52f99360ab"),
+                            Id = new Guid("42d1792b-a833-43ce-8c1b-04cd9e9b5f4a"),
+                            GroupId = new Guid("62e33f6d-1316-421c-9b5d-97f86a9654d0"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("fdb4e33f-9d37-438c-af39-ff0516c2d8db"),
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudentId = new Guid("045fd78f-d876-4b31-8e8e-93c7f28fba90"),
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("762bc1e6-167e-41c4-baf1-aa3073f53ba1"),
-                            GroupId = new Guid("c543ef1b-5823-4801-b131-cbe570618c52"),
+                            Id = new Guid("34127cdc-9c08-4d4a-9af0-3422bb9b3d2c"),
+                            GroupId = new Guid("fc76e366-89cd-4503-87eb-c8aff678efb3"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("e7b5f652-f44f-467e-935d-78bd2de865c4"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("697a9e49-5424-4293-803b-71cde4bd3c23"),
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("2a6ce067-cff5-4e0b-ac5e-96429a656939"),
-                            GroupId = new Guid("4dd55ace-37f5-4e3d-8f13-e44307725447"),
+                            Id = new Guid("153d9b08-e8d6-43e9-bf9d-335652e47b03"),
+                            GroupId = new Guid("9d061641-b81f-41f2-aeaa-48a436317e31"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("e283577f-d734-401b-89b3-cf0e6a026e0f"),
-                            StudyYearId = new Guid("d83e69b7-e0f1-4b72-a36f-fdaa584d0198")
+                            StudentId = new Guid("3d66a605-b2f6-414e-b4fa-7a679521bbdf"),
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("311ad7ba-207c-45a9-9ca1-80020d669643"),
-                            GroupId = new Guid("66c061f7-ec5b-431a-b4b2-fcdd26640233"),
+                            Id = new Guid("cbee3a72-69e1-4933-bb6b-a55c38ca4a0e"),
+                            GroupId = new Guid("87f909d9-267a-4710-bb98-687652181b48"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("c148479c-48ff-4120-94f2-baa33b6e8a09"),
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudentId = new Guid("9b342db1-edd9-4031-8d39-95f30c0141a7"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("6fddec98-67b2-4776-8f4d-07365765fda6"),
-                            GroupId = new Guid("071d25f8-bc97-4dbe-8393-a7d141a8c5d2"),
+                            Id = new Guid("45cc6989-5db9-4ab7-bd06-2ac14ac3cf2d"),
+                            GroupId = new Guid("bd7b713d-c747-40f1-a165-3d8e1ec41b5d"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("03a3c074-ae04-4f5c-a6d0-4e4b61820152"),
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudentId = new Guid("ea4c9cd4-14d3-456e-aa97-e835f7f8dbff"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("a19c3900-d489-4ab0-ac11-16a1cea9b1c1"),
-                            GroupId = new Guid("cbafa8d0-f66e-467f-990b-cd0ad21ae6aa"),
+                            Id = new Guid("071177d7-0c37-4eec-82bc-68eec427b1a3"),
+                            GroupId = new Guid("52a1bf69-48b8-4333-930e-8b8603fd5dba"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("625d1d34-7e86-41fe-8eb2-985fe439a6ed"),
-                            StudyYearId = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c")
+                            StudentId = new Guid("fe763220-9d76-451a-add3-d88a4e35722a"),
+                            StudyYearId = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe")
                         },
                         new
                         {
-                            Id = new Guid("1309887b-c1d0-4a34-8f8a-0e1da18143d9"),
-                            GroupId = new Guid("5d603485-ac47-4093-a73a-83a7593022a7"),
+                            Id = new Guid("1fc4bec6-c9bc-46f4-b99a-d59d796979ec"),
+                            GroupId = new Guid("cdf85e3d-470c-467c-a72b-c1c4ab9effc9"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("26b2208c-2ea6-4389-b212-83583bf6dcc9"),
-                            StudyYearId = new Guid("df814f1d-5034-4c14-a03d-1829821df987")
+                            StudentId = new Guid("3c605bc1-2cf3-4078-91ef-1acea4474300"),
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("4d296d04-1d3f-40d5-9e86-c437f8bd3626"),
-                            GroupId = new Guid("effedd84-931a-466a-9ad1-3afcc7161bd8"),
+                            Id = new Guid("08a5392c-7208-4cd6-beb5-05f47b13aebf"),
+                            GroupId = new Guid("18a341f9-d05d-4dad-a4ec-725e6fc25adb"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("b08456ce-23d2-474d-bf65-0688076d83dd"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("671a6804-d308-419d-b56e-84b4c8858681"),
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("ad516f4a-42d4-4945-b2a9-d3ad223ca5bc"),
-                            GroupId = new Guid("b7224856-e3c7-4071-a9fa-41410ed466b0"),
+                            Id = new Guid("42dac590-df57-45b6-818b-652408de3243"),
+                            GroupId = new Guid("3e827b50-38bb-4049-b554-ad4db7c6f079"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("52d2e621-2150-4328-a00c-f1f307038311"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("f4fc87ec-d782-4a1e-8190-f93e95d89bd6"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("b069a1b6-9140-43c3-88a1-58c35dd5656d"),
-                            GroupId = new Guid("07a97332-9348-4d3d-9d9b-09f9701393c9"),
+                            Id = new Guid("e67a8670-d3a2-4fdd-acfd-085a5af0ad25"),
+                            GroupId = new Guid("0d804411-bbbc-4de0-af5d-21ffdd14972a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("abebab04-e1f0-444a-a09d-b1c1c70b9ce2"),
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudentId = new Guid("27f1e861-b79c-4143-9b88-69313b52ccc0"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("57ff0870-a2dd-4fed-a2d4-9bf294fbaf6d"),
-                            GroupId = new Guid("cb2ecaa3-ef3b-470a-b5b0-88c2ebf2bba7"),
+                            Id = new Guid("f5d8e93c-1b35-4949-a0e2-cbe78a11e8c6"),
+                            GroupId = new Guid("8fab1726-e000-4f6c-9e7a-49d3f0b75a43"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("c157cb2c-9b1f-4ee2-8bb5-0919d1802622"),
-                            StudyYearId = new Guid("e9215073-62b6-4e45-92cb-7ea3c7e52331")
+                            StudentId = new Guid("b7410b97-9dd3-403f-bad8-9ddae8158612"),
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("76681c28-da58-4882-b36a-b44bb3cdddb8"),
-                            GroupId = new Guid("c11b837c-ddae-41f4-bf49-ace5e4ad517b"),
+                            Id = new Guid("0fdf8da3-57f9-4e5e-b0ba-0b5f57489937"),
+                            GroupId = new Guid("5c1d34d9-2bfa-4cf5-aea7-e15eeddaae0b"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("d06ceafc-9239-42d5-82bc-e7296c2ba167"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("cbc18fd5-6116-4dd0-827e-a0e82fa8a1e2"),
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("306123c2-78da-4181-af82-29bf6af4ac29"),
-                            GroupId = new Guid("b0451579-06e1-4124-bf68-d48bb1d20237"),
+                            Id = new Guid("4a5ea580-b8a2-4d90-955b-36cd0753c6b1"),
+                            GroupId = new Guid("3d329348-1e54-45bb-b1dc-f8359d8eca3a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("a3702ac3-d8e6-479e-ad3d-90371c448e32"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("8a94aee2-829e-4b4b-9ba9-285e264cc3fa"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("2f6481f2-2c36-4b31-ae4c-f69a199b8ed5"),
-                            GroupId = new Guid("9f37e642-d986-49d1-b4b0-0df9eeeccb18"),
+                            Id = new Guid("455ec276-c978-4a9f-ba44-92d1c8c35c34"),
+                            GroupId = new Guid("bb8cf7e3-f07e-4d72-baaa-3fc8a0193fce"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("11a6bc52-2db0-477f-a17a-94c878e33f6c"),
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudentId = new Guid("2cfc839b-ba6b-46c6-8955-3b2d2ee8694c"),
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("2fc0a867-8e8d-4c03-874e-376781a71a70"),
-                            GroupId = new Guid("b6731905-4a7d-4523-9ab8-ef1400249ebe"),
+                            Id = new Guid("3f2fb528-b9dd-4613-987a-5fd16ec4bac0"),
+                            GroupId = new Guid("d24e31dc-caab-40e0-8195-6f702aa19e56"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("1d142e90-6fc0-42ce-a83e-7dfaf00c971d"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("5a53e5de-c9ba-483b-b346-46e9fde8dd26"),
+                            StudyYearId = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe")
                         },
                         new
                         {
-                            Id = new Guid("81c1218f-1831-4bc9-aec8-d3024869af24"),
-                            GroupId = new Guid("85f52f4b-149a-492c-ab15-b317a51c9fab"),
+                            Id = new Guid("410bbcb8-473c-4efb-98eb-b6f25b2f59c1"),
+                            GroupId = new Guid("0eb78f8e-6486-498e-abaf-e7a8ff52a03c"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("143d4a0f-5138-4091-9e9a-8f3432f5a527"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("b886c14b-274f-4bd7-be28-3e8f37ea9503"),
+                            StudyYearId = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670")
                         },
                         new
                         {
-                            Id = new Guid("058f7b77-9016-4fbc-9923-e2472df222e6"),
-                            GroupId = new Guid("4e47949b-ebed-4de0-9aab-e1e15b4a2fc8"),
+                            Id = new Guid("5d128c2b-ecfe-49a0-aa58-4364c2a48b47"),
+                            GroupId = new Guid("bcdefb44-008a-449e-bc13-762db3f6614c"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("ad5c6c97-3c62-4752-b2c9-b4b8141e3dab"),
-                            StudyYearId = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f")
+                            StudentId = new Guid("27c21c60-30bb-4cb7-a3e3-4857aab19659"),
+                            StudyYearId = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670")
                         },
                         new
                         {
-                            Id = new Guid("937287e7-3f4c-4b14-85f5-b194ba1b874c"),
-                            GroupId = new Guid("f7532d6b-bf41-4d53-b450-4b4fdb10efb0"),
+                            Id = new Guid("5d3186a6-c001-49c5-b85a-915ce362a022"),
+                            GroupId = new Guid("3b4511bc-9d42-4045-959a-c600cd7ddb6a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("005fcf54-4ac3-4794-80e9-d9e7831c05ec"),
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudentId = new Guid("c868fdb3-b9c3-4a4e-9727-bf3cf5f2b20f"),
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("d9fc7dd9-fa4e-4b4c-86f7-7d34cd27a1d3"),
-                            GroupId = new Guid("9b590f67-1d06-4221-83f6-8e48d5d88e74"),
+                            Id = new Guid("50f7ae2e-70f8-4b30-8162-8cda07106544"),
+                            GroupId = new Guid("12e1e64f-b7ba-407c-8e0c-de37d9c6a986"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("3818589e-f6d5-40be-a49b-cd0cb6be89f0"),
-                            StudyYearId = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37")
+                            StudentId = new Guid("99d71edc-63a4-4a24-b278-b49d0bb19f49"),
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("69987b31-f1eb-40d5-84af-2f84dca00902"),
-                            GroupId = new Guid("60c35c56-5ce9-40f7-a6a4-c97be7686345"),
+                            Id = new Guid("63d8e751-27aa-4eb8-8110-1ba58876a302"),
+                            GroupId = new Guid("43415428-9485-44f6-9ed7-6f696e0c17ed"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("f639491f-f34e-4036-b0f2-34a5c8e9f26d"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("4c2b1381-e9ec-41e5-858f-0b4e03a0b1dd"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("36bed085-d8e0-40a1-96d6-dc457b5d1001"),
-                            GroupId = new Guid("c59a0945-ec6f-4860-b1da-4be977ed624f"),
+                            Id = new Guid("cda18b9a-2870-43fe-8bf1-e591d08b88b5"),
+                            GroupId = new Guid("1d687ef2-33f0-4d7a-89cc-01aec8e2d2ea"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("5209cacf-4f7c-4a88-9f1d-95ca8af3b052"),
-                            StudyYearId = new Guid("df814f1d-5034-4c14-a03d-1829821df987")
+                            StudentId = new Guid("62cef015-f0eb-4a6d-a0ce-43263a9de3e5"),
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("e29ff599-a1f2-4270-b46c-d8194cf2614e"),
-                            GroupId = new Guid("365518ec-babb-4ef8-ae51-807dbd4e23d5"),
+                            Id = new Guid("9fd6e87a-3dc5-43b2-b7f9-ac34221d5b03"),
+                            GroupId = new Guid("1f11cb47-a2e7-451c-a889-a80257623e34"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("13f231f6-e8ec-43d9-a052-844ee9041034"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("0cbd6601-75d8-4c01-aab1-45d423fa9319"),
+                            StudyYearId = new Guid("0c7f5ef1-381a-4bd8-8a8c-1b7206f4302d")
                         },
                         new
                         {
-                            Id = new Guid("b22c935b-41cc-4340-af72-6d46d0d34097"),
-                            GroupId = new Guid("31f1b132-c3d6-4a47-9400-27d1782fc14e"),
+                            Id = new Guid("057ed007-9d5c-4d8b-b13a-c740482d6d90"),
+                            GroupId = new Guid("424a4d8b-8887-48a8-bf0d-107c4d589182"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("510b4925-7fc0-4de0-8921-a1756faab7c1"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("474db11c-c458-481b-bfc5-bfa3cef134d1"),
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("bf5f9c60-6dbc-4b94-8b85-c35b22e56d4d"),
-                            GroupId = new Guid("b79a7445-1d91-4472-a333-793fd3289b3d"),
+                            Id = new Guid("e551073a-89e0-4d67-8085-4da0afec167b"),
+                            GroupId = new Guid("51868205-f576-4dc7-a5bc-a01e8b9128a2"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("0247aec9-5de6-4a79-a805-1b4a598945ba"),
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudentId = new Guid("cd60f589-6db5-4124-a1e7-b26b1515a49f"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("41dd6b6f-bb98-4c1a-996a-e52ab487f1c1"),
-                            GroupId = new Guid("03c1fc56-8c4c-4895-9cd7-638dd51c1f3e"),
+                            Id = new Guid("ba0b82c5-25f8-4ca9-9bbd-9de9f94ddf10"),
+                            GroupId = new Guid("46401e74-4daa-4cbf-977b-de06701233b5"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("033a4dfb-dea0-442b-8f07-efffda3dc66c"),
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudentId = new Guid("8f30ff42-f259-4b6a-90b2-3745f361afff"),
+                            StudyYearId = new Guid("1909e4a8-1ecc-4582-a32f-3dcb763945c9")
                         },
                         new
                         {
-                            Id = new Guid("ad948c25-d5bb-4134-97aa-62a6b1b7df26"),
-                            GroupId = new Guid("11857b4b-b0d4-42af-b758-89a803b30f5a"),
+                            Id = new Guid("92da88d4-06d4-47b3-b192-fd9815a0d914"),
+                            GroupId = new Guid("7434bf02-5d81-4cce-a463-8b8620d20efb"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("d9db07d2-23b5-4d75-8e14-21733126d60e"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("2e6514ee-f003-4a1c-b604-ee104cb18e9c"),
+                            StudyYearId = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670")
                         },
                         new
                         {
-                            Id = new Guid("3847944c-33e9-422b-bab1-46936bfdab2f"),
-                            GroupId = new Guid("56e6e584-63c7-45c0-988a-b7869b0d30e7"),
+                            Id = new Guid("a550e131-3354-4d15-bb0f-e1db5eff1dec"),
+                            GroupId = new Guid("ac3c82f7-db08-4e04-98e9-943dc2294c9d"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("546c8df8-19bf-4426-b52b-4f7bd986f23d"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("9bffef4c-c3ff-46b6-97f6-b40d4fe7c6d3"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("71eb7a0a-af66-4b30-8f05-c365f5aca593"),
-                            GroupId = new Guid("bcf40ec1-3934-4264-86d2-669db0fa03bf"),
+                            Id = new Guid("49d409f3-9bc7-45aa-b498-11058b36d74a"),
+                            GroupId = new Guid("7c221e27-d7c4-4cd9-9696-ed276a0db0f8"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("c2bc3863-c263-457e-a114-69cc5c94075f"),
-                            StudyYearId = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408")
+                            StudentId = new Guid("291c9fec-de54-438a-a80b-cb050e1432f2"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("9eb8b8f8-ce19-4116-a31b-371d0331b795"),
-                            GroupId = new Guid("cb2ecaa3-ef3b-470a-b5b0-88c2ebf2bba7"),
+                            Id = new Guid("b343d71e-3ea3-4d43-a2b9-11f9c0b8983d"),
+                            GroupId = new Guid("bcdefb44-008a-449e-bc13-762db3f6614c"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("c2bc3863-c263-457e-a114-69cc5c94075f"),
-                            StudyYearId = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6")
+                            StudentId = new Guid("291c9fec-de54-438a-a80b-cb050e1432f2"),
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("72c168ec-4c85-4e8f-b0bc-606896311f8c"),
-                            GroupId = new Guid("517928c6-6bf3-4b58-8da8-39f84945790b"),
+                            Id = new Guid("6b7b3c36-3fa7-43e6-96a8-4d31f2ad7a96"),
+                            GroupId = new Guid("1939b7f4-ebea-43b0-b458-c9ea10b7441d"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("41de7aa6-3e5f-47bf-88ba-37030de4231b"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("94f64a73-7b1e-404e-8660-068df7ae798f"),
+                            StudyYearId = new Guid("e9bd3d5c-3db6-4a01-97a3-a97cd3908cfa")
                         },
                         new
                         {
-                            Id = new Guid("ec247867-d7c8-49e8-b3ea-4a5914efc421"),
-                            GroupId = new Guid("82a89abb-487f-426a-80a7-d746fc712c46"),
+                            Id = new Guid("6552e531-7645-4ebf-aa0b-e91919d6fd95"),
+                            GroupId = new Guid("de4c4358-6826-4479-83b2-4d2e56574803"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("756beb15-3436-4d3d-8da1-afc43da58f77"),
-                            StudyYearId = new Guid("df814f1d-5034-4c14-a03d-1829821df987")
+                            StudentId = new Guid("0a153192-1f8f-4a92-bb16-ab82de4379e3"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("43eabc2f-83d0-4b4b-a247-9474782b6204"),
-                            GroupId = new Guid("75819c49-6ffd-469a-b7ed-2c11d72e673c"),
+                            Id = new Guid("08ec12a1-ebaa-4051-bec4-0e4e6c3ec355"),
+                            GroupId = new Guid("3796f44f-4e6d-4a0d-931a-67de6eca130b"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("b53ccb92-7573-4f5b-852d-15cc3227fb8d"),
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudentId = new Guid("3745bdd4-6b4f-4a97-a4fd-1d284b5604ab"),
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("f0c0fb75-5789-490e-8be1-46087dd5f258"),
-                            GroupId = new Guid("00e61e59-a3ec-4194-9084-612a0160fab3"),
+                            Id = new Guid("7ea46b3b-7a1d-4fb5-ae7d-fccd5445f021"),
+                            GroupId = new Guid("aadab007-b362-46ed-a688-860990c1ce67"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("f27b51b6-95fa-4f4c-8b46-752b8542c51f"),
-                            StudyYearId = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c")
+                            StudentId = new Guid("ce097aa9-4fb3-4a6e-ad49-ac8a555743d6"),
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("94e52d54-7818-4b48-b022-dc7bf26510c1"),
-                            GroupId = new Guid("f19c9c3a-00c0-4503-a906-4258efc04b17"),
+                            Id = new Guid("b950f2d6-1840-4f68-8983-1fd267e848cb"),
+                            GroupId = new Guid("353dfdfe-d039-4855-8d1b-9fef20b86a07"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("2ab2d979-c7b4-4a20-8e09-3ce15afa7a6f"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("c62ff166-4f6a-4126-916a-ea30a7804072"),
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("fcff2ae5-a6bc-4ab7-adae-5d8aeaa75a17"),
-                            GroupId = new Guid("3bdd5d34-6aae-44ae-a212-323359221dbf"),
+                            Id = new Guid("c0d97e34-c60f-46db-9d66-9a25fbb4ce51"),
+                            GroupId = new Guid("1e64fce0-c64e-4952-9ca4-ded612da49d6"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("479e5195-5d9f-45f9-953c-5417315cdd48"),
-                            StudyYearId = new Guid("fd2d4224-460d-44c4-ac98-99a4da17b22c")
+                            StudentId = new Guid("b3050769-754a-4389-8690-8ec99304fb18"),
+                            StudyYearId = new Guid("1efefa0b-ace0-4ba2-8185-e71a670ceb0e")
                         },
                         new
                         {
-                            Id = new Guid("5c5e8638-ad78-4ea0-bd8f-224c7aa9a585"),
-                            GroupId = new Guid("8a6a68cb-60b1-40bf-851c-5a9e4c1bf831"),
+                            Id = new Guid("c5aa5f58-d3b6-4e7b-90e6-e4d69f762ecf"),
+                            GroupId = new Guid("94c2c181-3280-443a-9cf6-f8fb44a711d0"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("c71686c6-741c-4929-84c0-66cbb9f5a73a"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("b25f6943-cea8-459d-8c6e-df8d39e2e488"),
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("459b1d87-ed54-49a3-85e6-73ddcd2d2c8d"),
-                            GroupId = new Guid("e4c37165-7c32-43e2-a0cb-daf869a920e4"),
+                            Id = new Guid("72af3d3e-e025-4030-b0e9-66c0b12966db"),
+                            GroupId = new Guid("eeb27e3b-7129-4274-ad3d-38ccaff788d7"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("43936095-8cef-40d0-b61d-069a130596f0"),
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudentId = new Guid("9e7ed602-ce49-4120-8013-d672ff620db5"),
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("6e4a7fd0-8930-4439-a51e-86bf441fa1d1"),
-                            GroupId = new Guid("1306d78e-5b99-4165-bb5b-668cd69aa9ff"),
+                            Id = new Guid("3cc25cc3-f9cd-4830-b200-20a573b3cd20"),
+                            GroupId = new Guid("d315edc1-b4a1-4a4a-a2ee-ef2c5ed5c1a2"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("5a424122-f16b-4bc8-891a-48fe333b6341"),
-                            StudyYearId = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408")
+                            StudentId = new Guid("42c6514f-3632-4599-af6a-982cf4845ef4"),
+                            StudyYearId = new Guid("33bb17dd-3a83-4044-8ca0-3ee2f3911cbf")
                         },
                         new
                         {
-                            Id = new Guid("0fe5f0e3-7a56-473a-878a-440b1259b413"),
-                            GroupId = new Guid("90ed50e4-ac0d-428b-898f-17d83d8adea7"),
+                            Id = new Guid("b6d19c2c-bf68-4da2-adc4-a6579ec7a873"),
+                            GroupId = new Guid("67a22ec5-8bf1-46c6-b087-bb33ba0db7c8"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("f3e44686-53f3-4ce7-8c59-424b2d07e355"),
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudentId = new Guid("b96d78b3-d8cb-4634-8534-636517564e76"),
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("c78631fe-6b2c-41aa-a7bc-54b1ebbf04ba"),
-                            GroupId = new Guid("e004cf77-e527-4eac-89bd-d0cfc249918a"),
+                            Id = new Guid("49fad271-d029-498e-bd3e-ea8f4ad208ad"),
+                            GroupId = new Guid("c01a8e4f-ddaf-49ba-b3fc-7e8dc962addf"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("98a52ca8-5af2-4dbd-a6fe-be22207349b1"),
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudentId = new Guid("936e7f20-6944-43f3-8e3d-99bccbeb26c8"),
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("47d94e98-8b3b-43f7-9a3e-b4f627586965"),
-                            GroupId = new Guid("da1944e4-839d-41a3-b64d-d78f24bd89c1"),
+                            Id = new Guid("1b945c34-75b3-443b-a548-bb1146124464"),
+                            GroupId = new Guid("64213c26-f20c-496a-91f9-a1872cc9249a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("bcaf902c-5d29-4b87-b01b-2b3f5b6c0473"),
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudentId = new Guid("4c941439-f62a-48fc-8aa6-d047333edb44"),
+                            StudyYearId = new Guid("1efefa0b-ace0-4ba2-8185-e71a670ceb0e")
                         },
                         new
                         {
-                            Id = new Guid("0e79c4ab-9073-4844-9412-2ca05e174ccd"),
-                            GroupId = new Guid("ccfc4833-55c4-408a-803a-9db4fc5558c0"),
+                            Id = new Guid("f7077bb1-307b-451f-b59f-04b1e4ac9df9"),
+                            GroupId = new Guid("6d945629-fc20-4a2d-840e-9efc331dfae0"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("53cbe638-d1e3-410c-a204-1f11f2c7633b"),
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudentId = new Guid("e86bcb2a-cd9b-4175-a190-d4872e96e236"),
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("5734a0f7-dbd7-4d56-8a86-df532b9fc7e5"),
-                            GroupId = new Guid("5b05cf34-933f-444f-932c-116da17e0931"),
+                            Id = new Guid("20da02ec-2fe1-48f4-91e7-09d47718c53c"),
+                            GroupId = new Guid("5556d781-9a8c-4bc8-8b2d-7569b09b497b"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("7942c487-3bbf-439b-ab22-dc3f0bce4cc2"),
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudentId = new Guid("9d71a4b5-d03c-4341-bf59-2920f6ae260e"),
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("7acfeb68-06a0-4037-bd7e-641f997e90b9"),
-                            GroupId = new Guid("8e23c49c-6374-4981-8905-fd55ee39d6df"),
+                            Id = new Guid("32def790-e8e0-4fb2-8ba2-3b79829ce408"),
+                            GroupId = new Guid("0d95f6da-d6ff-43c7-b438-b2e7a29e6035"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("5e1879dd-aeb7-4de5-aa0f-4d725fe917fa"),
-                            StudyYearId = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6")
+                            StudentId = new Guid("a2263c6b-31e9-4242-8663-697fcc365987"),
+                            StudyYearId = new Guid("ebbca6e3-5c58-4661-8116-21553ebc6634")
                         },
                         new
                         {
-                            Id = new Guid("a83ae8df-9272-4045-bf39-11cd740600d6"),
-                            GroupId = new Guid("246cb8fc-8457-4bce-a5bb-535a71e566b3"),
+                            Id = new Guid("c85f17f3-c606-4de7-ae59-5d50f5752e0f"),
+                            GroupId = new Guid("0b2c4f43-a881-4b96-b697-2baec5d6ae9e"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("505e050e-09de-4660-b6e5-fa4769255e4d"),
-                            StudyYearId = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6")
+                            StudentId = new Guid("e42fe777-8736-4749-a8a1-af57ac97ce7e"),
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("98aff0cc-37d1-4f3d-8082-92fd1151d4ae"),
-                            GroupId = new Guid("4ba394de-5f78-4bfc-b42d-dd4cd3037db4"),
+                            Id = new Guid("5a7ed22a-738d-48f8-bda5-7e5fd7128e2f"),
+                            GroupId = new Guid("7f399728-b435-443b-8fb7-7bf58eb8fd09"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("2e8097d2-7564-440c-b954-dd55c04eadcd"),
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudentId = new Guid("b73b2bfd-896d-42d9-8768-2bda7f1fc5aa"),
+                            StudyYearId = new Guid("0c7f5ef1-381a-4bd8-8a8c-1b7206f4302d")
                         },
                         new
                         {
-                            Id = new Guid("dc062aaf-6c2e-43ea-a8ab-1d89141d2d7c"),
-                            GroupId = new Guid("3df85a78-4052-4926-b7bf-5dc6e4bff475"),
+                            Id = new Guid("6eb8176d-3569-41d2-8822-c9623c70c08f"),
+                            GroupId = new Guid("4a895a13-7960-4ff6-92b3-61afaad832a8"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("dc33adb6-52b6-4a9e-9401-66a305c9ab69"),
-                            StudyYearId = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f")
+                            StudentId = new Guid("f19daf6f-9705-4a6f-a953-9d9d69604436"),
+                            StudyYearId = new Guid("1909e4a8-1ecc-4582-a32f-3dcb763945c9")
                         },
                         new
                         {
-                            Id = new Guid("e26bc60a-c128-41d8-b129-e6947c12f9de"),
-                            GroupId = new Guid("d228099e-5e7a-4d83-9361-dc6624e003e1"),
+                            Id = new Guid("6b911cfb-326a-4393-b134-cacc021a1892"),
+                            GroupId = new Guid("d0e6bd46-38cf-4efd-adb2-6cdd458afd2a"),
                             SignedAt = 1647781930L,
-                            StudentId = new Guid("b02c2a20-c85f-42e3-8edd-68cb3fe4e84e"),
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudentId = new Guid("d50391ff-a32e-4abf-b45f-5e4cf058b204"),
+                            StudyYearId = new Guid("c25fdb06-39c8-4863-b5c4-7d5cc8dd64a4")
                         });
                 });
 
@@ -5402,219 +5353,219 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7358faaa-8469-4d1b-980a-fb1a81113187"),
+                            Id = new Guid("accc3802-ddef-46d8-b922-3319e8fa5cf3"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("c5697871-d83a-4001-acd9-cff38366f366"),
+                            Id = new Guid("a39cd731-1a83-4afc-be9c-90e48cf6c4b4"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088")
+                            StudyYearId = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b")
                         },
                         new
                         {
-                            Id = new Guid("482c0dd7-ca14-4440-ae43-7fdee4bc27f2"),
+                            Id = new Guid("dbc47895-ecc2-4d51-a0d1-3320e18f12c0"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudyYearId = new Guid("33bb17dd-3a83-4044-8ca0-3ee2f3911cbf")
                         },
                         new
                         {
-                            Id = new Guid("6f7e45aa-866a-4114-8b00-e76492611e94"),
+                            Id = new Guid("bd56759f-5a35-4f70-b3e5-9a8b26f76e07"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea")
+                            StudyYearId = new Guid("33bb17dd-3a83-4044-8ca0-3ee2f3911cbf")
                         },
                         new
                         {
-                            Id = new Guid("9ac17c62-7f8e-4768-90d8-701e7bfa9d6d"),
+                            Id = new Guid("4891bf12-6797-4065-b520-8b6cbb383bcb"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("d83e69b7-e0f1-4b72-a36f-fdaa584d0198")
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("0a8b69e8-da63-4fdd-8359-a6d65a716719"),
+                            Id = new Guid("8dfb4dc4-9619-43da-88b6-d0d9d6a22ac2"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("d83e69b7-e0f1-4b72-a36f-fdaa584d0198")
+                            StudyYearId = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49")
                         },
                         new
                         {
-                            Id = new Guid("e6a752b1-afb5-496e-8777-bb985e1183ea"),
+                            Id = new Guid("002e1b2b-1f7e-4807-95fe-99c534ddd031"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudyYearId = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670")
                         },
                         new
                         {
-                            Id = new Guid("877138af-5424-4b1b-9c2a-bb9273116280"),
+                            Id = new Guid("f1772b63-ee43-46e7-b8c2-a7f67fd2cede"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("5b752751-101e-4a82-9d4e-d31ced092458")
+                            StudyYearId = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670")
                         },
                         new
                         {
-                            Id = new Guid("09b30035-efa3-4667-be46-3bd3c6c33859"),
+                            Id = new Guid("f89890f2-0e4b-4c32-ab62-1a4af5c86ad8"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("fd2d4224-460d-44c4-ac98-99a4da17b22c")
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("160f0cae-1618-488d-ab49-965e96a5f955"),
+                            Id = new Guid("55d562fc-56ca-45f3-91d5-e1c60f657e52"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("fd2d4224-460d-44c4-ac98-99a4da17b22c")
+                            StudyYearId = new Guid("52af14c0-7757-40ae-884e-88e3013b730b")
                         },
                         new
                         {
-                            Id = new Guid("083e428a-d4f5-485d-b2de-54c2dd64a8af"),
+                            Id = new Guid("a0811e53-73ee-4125-a4eb-8a902ad9de54"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("e9215073-62b6-4e45-92cb-7ea3c7e52331")
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("135e9c16-5e5b-46d6-ad84-e338eb3c78c2"),
+                            Id = new Guid("75f5b1f0-4163-426f-b13a-aca8f059f50c"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("e9215073-62b6-4e45-92cb-7ea3c7e52331")
+                            StudyYearId = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857")
                         },
                         new
                         {
-                            Id = new Guid("cf42925a-34eb-4464-897d-48396f722e88"),
+                            Id = new Guid("612965c3-5d8c-4aa3-845c-47c3452e7082"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudyYearId = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe")
                         },
                         new
                         {
-                            Id = new Guid("55defff8-ea1e-4f76-bdee-e2f373322270"),
+                            Id = new Guid("8312238b-3bb8-4560-b8ce-0461890051c6"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb")
+                            StudyYearId = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe")
                         },
                         new
                         {
-                            Id = new Guid("f33c8045-4510-4ddb-a6c8-51e2e2ae6794"),
+                            Id = new Guid("f5ba74f4-062e-46e8-bb8a-106ce02ebba0"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6")
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("5ef2a6bf-b329-4d8c-9ac7-03070d31d418"),
+                            Id = new Guid("484c71d0-2616-41cf-9b21-2d75291f99d7"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6")
+                            StudyYearId = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5")
                         },
                         new
                         {
-                            Id = new Guid("0587a66a-1655-4766-bda6-ce5c600676b4"),
+                            Id = new Guid("67bd12e6-ca01-42d9-8a9e-bf7aef6e26ec"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f")
+                            StudyYearId = new Guid("0c7f5ef1-381a-4bd8-8a8c-1b7206f4302d")
                         },
                         new
                         {
-                            Id = new Guid("325ff50f-cae1-40a2-8831-80291be583f9"),
+                            Id = new Guid("b80633ca-5609-496b-b629-5ea0f96e56da"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f")
+                            StudyYearId = new Guid("0c7f5ef1-381a-4bd8-8a8c-1b7206f4302d")
                         },
                         new
                         {
-                            Id = new Guid("3bc49047-fe75-46c0-8935-cebc00ec59e5"),
+                            Id = new Guid("aa73ff57-3207-480c-944e-d0b0705ea0a1"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37")
+                            StudyYearId = new Guid("c25fdb06-39c8-4863-b5c4-7d5cc8dd64a4")
                         },
                         new
                         {
-                            Id = new Guid("9c2e7580-5a91-499a-96cd-05a3a88d46f3"),
+                            Id = new Guid("b2c1b643-2a06-4410-8531-572bdf522174"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37")
+                            StudyYearId = new Guid("c25fdb06-39c8-4863-b5c4-7d5cc8dd64a4")
                         },
                         new
                         {
-                            Id = new Guid("574edf1a-d2e1-4793-9784-9e466d74d8d1"),
+                            Id = new Guid("f0aa8371-a126-4659-9004-075b03a98a32"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudyYearId = new Guid("e9bd3d5c-3db6-4a01-97a3-a97cd3908cfa")
                         },
                         new
                         {
-                            Id = new Guid("2742478c-a97e-41c5-973e-920b9ea7bd15"),
+                            Id = new Guid("541c710c-c999-4f63-900c-750d9e6ad206"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("80417947-ecb8-4ab6-a4b0-768839065692")
+                            StudyYearId = new Guid("e9bd3d5c-3db6-4a01-97a3-a97cd3908cfa")
                         },
                         new
                         {
-                            Id = new Guid("f307fc62-a8d2-4f3d-96b1-92fc1c158636"),
+                            Id = new Guid("5ce360b4-a52b-469c-864e-581079032040"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("5b0b440a-ce3c-4a50-9c94-fff0a652afe0"),
+                            Id = new Guid("f6ae1f62-82cd-40ef-84e8-dcfd349326f1"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b")
+                            StudyYearId = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd")
                         },
                         new
                         {
-                            Id = new Guid("1ac4dc15-387a-4b2f-bac3-bc2cbe981d71"),
+                            Id = new Guid("699b687b-a383-4f48-a64a-90aabd0f3e06"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("efd5dfac-6887-472b-ad1b-a3649b776b51"),
+                            Id = new Guid("8d800f94-9c89-428f-a7e8-4b6ee27dabd7"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98")
+                            StudyYearId = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb")
                         },
                         new
                         {
-                            Id = new Guid("114f71e4-3731-46ee-a680-ac05b93e16d1"),
+                            Id = new Guid("c05251a4-6f20-4784-ad81-09a2daf61201"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudyYearId = new Guid("ebbca6e3-5c58-4661-8116-21553ebc6634")
                         },
                         new
                         {
-                            Id = new Guid("0d5b99cd-79da-45b1-b1de-32f0f3334c8e"),
+                            Id = new Guid("417e15d9-41c5-4402-8c8f-4ca072d3261c"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325")
+                            StudyYearId = new Guid("ebbca6e3-5c58-4661-8116-21553ebc6634")
                         },
                         new
                         {
-                            Id = new Guid("499fc893-ec16-418d-aaf8-145c90826e82"),
+                            Id = new Guid("ba5bab68-c10e-47fa-ab9a-6c289d98874a"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c")
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("90f49075-f49a-4f31-83a2-0e353ccb7f1d"),
+                            Id = new Guid("59527c4d-2e7d-4019-acf2-c4ba972b45ff"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c")
+                            StudyYearId = new Guid("88791463-d7e2-4c57-b665-e12a14104b05")
                         },
                         new
                         {
-                            Id = new Guid("5ad02a4d-11e1-43cf-91e4-e2863132721c"),
+                            Id = new Guid("84f3b4fd-5a73-4cab-ad62-6e1d91e63d65"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudyYearId = new Guid("1efefa0b-ace0-4ba2-8185-e71a670ceb0e")
                         },
                         new
                         {
-                            Id = new Guid("393556aa-f97e-4af2-9b8c-9dd0aa5319df"),
+                            Id = new Guid("4d6d43da-410f-40e7-b229-f49b9afec668"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49")
+                            StudyYearId = new Guid("1efefa0b-ace0-4ba2-8185-e71a670ceb0e")
                         },
                         new
                         {
-                            Id = new Guid("c960e5a3-759f-4253-bd26-5e5ddf30ea4c"),
+                            Id = new Guid("6152d7a9-4063-44f7-a3c5-1bc5ebd7ef67"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("df814f1d-5034-4c14-a03d-1829821df987")
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("2b72003c-969c-4040-aa3e-9d8dc7bad15e"),
+                            Id = new Guid("f0319e10-f3cd-47ed-8631-ae6d3a08dd3b"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("df814f1d-5034-4c14-a03d-1829821df987")
+                            StudyYearId = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3")
                         },
                         new
                         {
-                            Id = new Guid("d27e2fc0-da29-40b3-b087-8c4a5ab61988"),
+                            Id = new Guid("f06e7936-7e03-42ff-b5ac-e64b68b91731"),
                             Semester = (short)1,
-                            StudyYearId = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408")
+                            StudyYearId = new Guid("1909e4a8-1ecc-4582-a32f-3dcb763945c9")
                         },
                         new
                         {
-                            Id = new Guid("e30574ff-b6a3-4b7e-b56a-75977b8b9a62"),
+                            Id = new Guid("67f71d18-25e2-445f-b519-7312728a4c08"),
                             Semester = (short)2,
-                            StudyYearId = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408")
+                            StudyYearId = new Guid("1909e4a8-1ecc-4582-a32f-3dcb763945c9")
                         });
                 });
 
@@ -5649,135 +5600,135 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("96ddf3f8-85b9-4355-8945-6c4110723088"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("28819f09-20b1-4459-823a-700357ac2fb0"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("2e8097d2-7564-440c-b954-dd55c04eadcd")
+                            Id = new Guid("8bc397dd-d7f9-4623-81c0-85c8049d1a2b"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("2d3125e6-96ee-46cf-b463-10d6f49aa402"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("249c3565-3c41-47d1-88e6-621398c458be")
                         },
                         new
                         {
-                            Id = new Guid("26147f69-c7ac-4b76-b0c4-95c2fa2b01ea"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("28819f09-20b1-4459-823a-700357ac2fb0"),
-                            StartDate = 1588158707L
+                            Id = new Guid("33bb17dd-3a83-4044-8ca0-3ee2f3911cbf"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("2d3125e6-96ee-46cf-b463-10d6f49aa402"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("d83e69b7-e0f1-4b72-a36f-fdaa584d0198"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("28819f09-20b1-4459-823a-700357ac2fb0"),
-                            StartDate = 1556536307L
+                            Id = new Guid("830de201-cff7-4415-b7e1-c6957b4dce49"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("2d3125e6-96ee-46cf-b463-10d6f49aa402"),
+                            StartDate = 1557232313L
                         },
                         new
                         {
-                            Id = new Guid("5b752751-101e-4a82-9d4e-d31ced092458"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("9ae3e7e7-f045-4d8f-9f27-bcbbb5cb97a9"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("98a52ca8-5af2-4dbd-a6fe-be22207349b1")
+                            Id = new Guid("5768dc74-c81f-4aba-b0f4-57e6d210f670"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("80632e42-b5f6-4eaa-9683-49f052fca4f0"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("fe763220-9d76-451a-add3-d88a4e35722a")
                         },
                         new
                         {
-                            Id = new Guid("fd2d4224-460d-44c4-ac98-99a4da17b22c"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("9ae3e7e7-f045-4d8f-9f27-bcbbb5cb97a9"),
-                            StartDate = 1588158707L
+                            Id = new Guid("52af14c0-7757-40ae-884e-88e3013b730b"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("80632e42-b5f6-4eaa-9683-49f052fca4f0"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("e9215073-62b6-4e45-92cb-7ea3c7e52331"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("9ae3e7e7-f045-4d8f-9f27-bcbbb5cb97a9"),
-                            StartDate = 1556536307L
+                            Id = new Guid("b189dc61-46cc-4cab-a913-633ff0dee857"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("80632e42-b5f6-4eaa-9683-49f052fca4f0"),
+                            StartDate = 1557232313L
                         },
                         new
                         {
-                            Id = new Guid("298ffd6e-5931-465d-bda3-98d5a069d6cb"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("c48d1d0b-eeed-483e-8191-de9b254a5ba2"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("546c8df8-19bf-4426-b52b-4f7bd986f23d")
+                            Id = new Guid("9fb0e6fa-0ce0-4221-96cb-49d7542661fe"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("e078d27d-3057-428a-9578-326a5b969ea5"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("baef3a80-e7af-46f7-8d66-1cbccbb3e3bd")
                         },
                         new
                         {
-                            Id = new Guid("a79ec08a-fbd9-4ae6-9ada-784e39c195e6"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("c48d1d0b-eeed-483e-8191-de9b254a5ba2"),
-                            StartDate = 1588158707L
+                            Id = new Guid("5c990f17-9d29-4c6d-9606-8b959675b3d5"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("e078d27d-3057-428a-9578-326a5b969ea5"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("0972c4d7-ee20-4b89-a225-b05eb876236f"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("c48d1d0b-eeed-483e-8191-de9b254a5ba2"),
-                            StartDate = 1556536307L
+                            Id = new Guid("0c7f5ef1-381a-4bd8-8a8c-1b7206f4302d"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("e078d27d-3057-428a-9578-326a5b969ea5"),
+                            StartDate = 1557232313L
                         },
                         new
                         {
-                            Id = new Guid("b87ef94c-34fb-4591-b139-0ae21b517e37"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("7ee04521-770f-400c-88a1-8bc31db1600a"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("5a424122-f16b-4bc8-891a-48fe333b6341")
+                            Id = new Guid("c25fdb06-39c8-4863-b5c4-7d5cc8dd64a4"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("20764258-d0a1-439a-aa0b-7fb740e33dc9"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("0dd819b3-f715-4609-84e7-53c5de8c2cea")
                         },
                         new
                         {
-                            Id = new Guid("80417947-ecb8-4ab6-a4b0-768839065692"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("7ee04521-770f-400c-88a1-8bc31db1600a"),
-                            StartDate = 1588158707L
+                            Id = new Guid("e9bd3d5c-3db6-4a01-97a3-a97cd3908cfa"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("20764258-d0a1-439a-aa0b-7fb740e33dc9"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("6016fe33-c9e3-4674-b62f-c352f737da9b"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("7ee04521-770f-400c-88a1-8bc31db1600a"),
-                            StartDate = 1556536307L
+                            Id = new Guid("529a8b66-6849-4683-abcd-872d416fd5fd"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("20764258-d0a1-439a-aa0b-7fb740e33dc9"),
+                            StartDate = 1557232313L
                         },
                         new
                         {
-                            Id = new Guid("289342d2-5ba3-4bf0-ba4d-041e96ef7d98"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("c49c97c9-60ae-40d0-b49a-f46570b2eadb"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("a637ae33-eaf6-4d29-9268-c9d8342470df")
+                            Id = new Guid("24e675c8-531b-4edf-b803-41bf7e71a2cb"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("17d9eef8-a266-41cb-8d39-3b53a12d6580"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("f4fc87ec-d782-4a1e-8190-f93e95d89bd6")
                         },
                         new
                         {
-                            Id = new Guid("f9d676c8-305e-4de0-9ced-b5e14fd2f325"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("c49c97c9-60ae-40d0-b49a-f46570b2eadb"),
-                            StartDate = 1588158707L
+                            Id = new Guid("ebbca6e3-5c58-4661-8116-21553ebc6634"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("17d9eef8-a266-41cb-8d39-3b53a12d6580"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("59dcfa09-ac7e-4483-8fb1-12b366f1276c"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("c49c97c9-60ae-40d0-b49a-f46570b2eadb"),
-                            StartDate = 1556536307L
+                            Id = new Guid("88791463-d7e2-4c57-b665-e12a14104b05"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("17d9eef8-a266-41cb-8d39-3b53a12d6580"),
+                            StartDate = 1557232313L
                         },
                         new
                         {
-                            Id = new Guid("daeb8d76-9580-4155-97fd-f0a75e28cf49"),
-                            EndDate = 1651230707L,
-                            SpecializationId = new Guid("82a1756a-fdf6-4404-a940-94b8eff980d0"),
-                            StartDate = 1619694707L,
-                            StudentLeaderId = new Guid("52d2e621-2150-4328-a00c-f1f307038311")
+                            Id = new Guid("1efefa0b-ace0-4ba2-8185-e71a670ceb0e"),
+                            EndDate = 1651926713L,
+                            SpecializationId = new Guid("5ecba4df-60e5-46bb-91e7-f96312e14e7f"),
+                            StartDate = 1620390713L,
+                            StudentLeaderId = new Guid("3745bdd4-6b4f-4a97-a4fd-1d284b5604ab")
                         },
                         new
                         {
-                            Id = new Guid("df814f1d-5034-4c14-a03d-1829821df987"),
-                            EndDate = 1619694707L,
-                            SpecializationId = new Guid("82a1756a-fdf6-4404-a940-94b8eff980d0"),
-                            StartDate = 1588158707L
+                            Id = new Guid("4e7fe592-340b-4f26-89b7-c2feb5faa7d3"),
+                            EndDate = 1620390713L,
+                            SpecializationId = new Guid("5ecba4df-60e5-46bb-91e7-f96312e14e7f"),
+                            StartDate = 1588854713L
                         },
                         new
                         {
-                            Id = new Guid("a3273c4d-1ddc-46d7-8e29-e17aa5742408"),
-                            EndDate = 1588158707L,
-                            SpecializationId = new Guid("82a1756a-fdf6-4404-a940-94b8eff980d0"),
-                            StartDate = 1556536307L
+                            Id = new Guid("1909e4a8-1ecc-4582-a32f-3dcb763945c9"),
+                            EndDate = 1588854713L,
+                            SpecializationId = new Guid("5ecba4df-60e5-46bb-91e7-f96312e14e7f"),
+                            StartDate = 1557232313L
                         });
                 });
 
@@ -5798,103 +5749,103 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            AccountId = new Guid("dbc0fbcb-62b1-4a7c-8782-007ecf3b8321"),
-                            TeacherDegreeId = new Guid("6c91262f-793c-4277-8076-2c276d53f655")
+                            AccountId = new Guid("a47218c1-407a-4dd9-902e-be32b9cdada3"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("6eaf6240-ff67-4807-838f-df36916e11a9"),
-                            TeacherDegreeId = new Guid("53f4cdd5-a197-453e-885e-11f84e377b20")
+                            AccountId = new Guid("aa41f24d-08d5-4e2b-a769-f5da4e64e02b"),
+                            TeacherDegreeId = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8")
                         },
                         new
                         {
-                            AccountId = new Guid("3e3f0aaf-e4b3-447d-9249-660d67c43f0e"),
-                            TeacherDegreeId = new Guid("53f4cdd5-a197-453e-885e-11f84e377b20")
+                            AccountId = new Guid("08753260-7db2-4911-97b2-cf49552414ff"),
+                            TeacherDegreeId = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8")
                         },
                         new
                         {
-                            AccountId = new Guid("440f5863-b80a-444b-9e38-7628b16206a1"),
-                            TeacherDegreeId = new Guid("6c91262f-793c-4277-8076-2c276d53f655")
+                            AccountId = new Guid("f84adcc5-fffe-4f79-950a-b46e8922f02c"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("5189c11f-749c-4cff-b130-1a7093c9a639"),
-                            TeacherDegreeId = new Guid("6c91262f-793c-4277-8076-2c276d53f655")
+                            AccountId = new Guid("3158898d-bbb8-4a85-8c7e-de9e501cf88f"),
+                            TeacherDegreeId = new Guid("aff34571-8aed-44e1-9a97-351bf716b5fb")
                         },
                         new
                         {
-                            AccountId = new Guid("7cee5f31-56c8-4b60-abaa-ae135cbda7ac"),
-                            TeacherDegreeId = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4")
+                            AccountId = new Guid("467747c2-5e64-433e-afc5-e8f521652bbf"),
+                            TeacherDegreeId = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8")
                         },
                         new
                         {
-                            AccountId = new Guid("51ef5da1-f5ca-40a1-b641-112b2cbc22ea"),
-                            TeacherDegreeId = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4")
+                            AccountId = new Guid("2a05ca7c-b73d-4b77-8a01-17f7e881c936"),
+                            TeacherDegreeId = new Guid("6cce64f9-b62d-4e80-82f0-b176416a2f92")
                         },
                         new
                         {
-                            AccountId = new Guid("38f00b21-23bd-4d5b-9bff-70839859e665"),
-                            TeacherDegreeId = new Guid("ee9319ee-65bc-4974-b7ba-2a804ef90d83")
+                            AccountId = new Guid("8ebe6c8b-2453-43e5-9b03-8e5d47e37b9a"),
+                            TeacherDegreeId = new Guid("3723ac71-a7a1-47b4-bcca-3744fff1bebd")
                         },
                         new
                         {
-                            AccountId = new Guid("57489b88-50a6-412f-8d32-d544805f5eaa"),
-                            TeacherDegreeId = new Guid("ee9319ee-65bc-4974-b7ba-2a804ef90d83")
+                            AccountId = new Guid("47f98e38-f0b2-4fe8-a0ad-8e0abee2ee0d"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("64f2c511-583d-4dc4-a811-dada76aba579"),
-                            TeacherDegreeId = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4")
+                            AccountId = new Guid("bb767ae3-7dc9-4bb9-b8c1-a3da35939353"),
+                            TeacherDegreeId = new Guid("aff34571-8aed-44e1-9a97-351bf716b5fb")
                         },
                         new
                         {
-                            AccountId = new Guid("356f2f85-4ba7-4d2f-8ae1-9647218f198e"),
-                            TeacherDegreeId = new Guid("65b21104-7698-4271-8a4a-f8cb4763d01b")
+                            AccountId = new Guid("7de58915-84e7-4bde-a808-7542b0eb1c60"),
+                            TeacherDegreeId = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8")
                         },
                         new
                         {
-                            AccountId = new Guid("4899c5fe-2ada-4dcb-9ba9-0f593bf1efda"),
-                            TeacherDegreeId = new Guid("6c91262f-793c-4277-8076-2c276d53f655")
+                            AccountId = new Guid("8f63fb9b-1483-47ba-9e40-0a140281837c"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("ba859ce1-9c65-4ced-9989-f2435ccfa10f"),
-                            TeacherDegreeId = new Guid("53f4cdd5-a197-453e-885e-11f84e377b20")
+                            AccountId = new Guid("071f8601-80b8-42c5-8d93-6440c4633c35"),
+                            TeacherDegreeId = new Guid("3723ac71-a7a1-47b4-bcca-3744fff1bebd")
                         },
                         new
                         {
-                            AccountId = new Guid("23c112bb-87e0-4c09-bbcb-71516e7c2216"),
-                            TeacherDegreeId = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4")
+                            AccountId = new Guid("b2bf36e3-9d2c-465b-b0f4-3686b50b4aa2"),
+                            TeacherDegreeId = new Guid("6cce64f9-b62d-4e80-82f0-b176416a2f92")
                         },
                         new
                         {
-                            AccountId = new Guid("a2de442f-3286-48a7-b2d7-51ae46a97a9b"),
-                            TeacherDegreeId = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4")
+                            AccountId = new Guid("6785ef90-5968-4673-918f-87969772d761"),
+                            TeacherDegreeId = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8")
                         },
                         new
                         {
-                            AccountId = new Guid("ee2b6e94-4732-49ca-b735-14bca07a132d"),
-                            TeacherDegreeId = new Guid("6c91262f-793c-4277-8076-2c276d53f655")
+                            AccountId = new Guid("e6b6b58b-fa82-4507-b48d-caa40e0222f9"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("f04a31a2-88f6-4ff3-8925-926403e18987"),
-                            TeacherDegreeId = new Guid("65b21104-7698-4271-8a4a-f8cb4763d01b")
+                            AccountId = new Guid("b194fcc6-c8ba-43d2-80f1-e68c5338ea99"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         },
                         new
                         {
-                            AccountId = new Guid("c9c38940-d3b6-4ec7-87ea-7534133c08e9"),
-                            TeacherDegreeId = new Guid("ee9319ee-65bc-4974-b7ba-2a804ef90d83")
+                            AccountId = new Guid("15e101e5-6231-465a-b661-6b9e8830332c"),
+                            TeacherDegreeId = new Guid("3723ac71-a7a1-47b4-bcca-3744fff1bebd")
                         },
                         new
                         {
-                            AccountId = new Guid("0f160406-80c3-4e48-82ef-9c5a7e2f94a5"),
-                            TeacherDegreeId = new Guid("65b21104-7698-4271-8a4a-f8cb4763d01b")
+                            AccountId = new Guid("f956ef9c-56a1-4e16-b10b-d8ac343cffc8"),
+                            TeacherDegreeId = new Guid("6cce64f9-b62d-4e80-82f0-b176416a2f92")
                         },
                         new
                         {
-                            AccountId = new Guid("0571d659-31bd-4ae9-ba31-96b27fc408da"),
-                            TeacherDegreeId = new Guid("65b21104-7698-4271-8a4a-f8cb4763d01b")
+                            AccountId = new Guid("2daf477e-5667-485b-8efb-3858c7cababb"),
+                            TeacherDegreeId = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c")
                         });
                 });
 
@@ -5919,31 +5870,31 @@ namespace Org.Webelopers.Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("53f4cdd5-a197-453e-885e-11f84e377b20"),
+                            Id = new Guid("aff34571-8aed-44e1-9a97-351bf716b5fb"),
                             Name = "TeacherDegree0",
                             Rank = 0
                         },
                         new
                         {
-                            Id = new Guid("ee9319ee-65bc-4974-b7ba-2a804ef90d83"),
+                            Id = new Guid("da11d8d8-4e6d-4971-ae42-31ff5637e6c8"),
                             Name = "TeacherDegree1",
                             Rank = 0
                         },
                         new
                         {
-                            Id = new Guid("6c91262f-793c-4277-8076-2c276d53f655"),
+                            Id = new Guid("6cce64f9-b62d-4e80-82f0-b176416a2f92"),
                             Name = "TeacherDegree2",
                             Rank = 0
                         },
                         new
                         {
-                            Id = new Guid("65b21104-7698-4271-8a4a-f8cb4763d01b"),
+                            Id = new Guid("fe77741b-c5c7-4ca5-8449-64b5b692892c"),
                             Name = "TeacherDegree3",
                             Rank = 0
                         },
                         new
                         {
-                            Id = new Guid("394e64d1-de85-47e2-a665-dfb7a1434fd4"),
+                            Id = new Guid("3723ac71-a7a1-47b4-bcca-3744fff1bebd"),
                             Name = "TeacherDegree4",
                             Rank = 0
                         });
@@ -5977,12 +5928,19 @@ namespace Org.Webelopers.Api.Migrations
                         .HasForeignKey("Org.Webelopers.Api.Models.DbEntities.FacultyGroup", "LeaderStudentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("Org.Webelopers.Api.Models.DbEntities.StudyYear", "StudyYear")
+                        .WithMany("Groups")
+                        .HasForeignKey("StudyYearId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("Org.Webelopers.Api.Models.DbEntities.Teacher", "TutorTeacher")
                         .WithOne("TutoredGroup")
                         .HasForeignKey("Org.Webelopers.Api.Models.DbEntities.FacultyGroup", "TutorTeacherId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("LeaderStudent");
+
+                    b.Navigation("StudyYear");
 
                     b.Navigation("TutorTeacher");
                 });
@@ -6321,6 +6279,8 @@ namespace Org.Webelopers.Api.Migrations
             modelBuilder.Entity("Org.Webelopers.Api.Models.DbEntities.StudyYear", b =>
                 {
                     b.Navigation("Contracts");
+
+                    b.Navigation("Groups");
 
                     b.Navigation("Semesters");
                 });

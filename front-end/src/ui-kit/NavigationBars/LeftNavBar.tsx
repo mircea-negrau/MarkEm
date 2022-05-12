@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
 import styled from 'styled-components'
 import { UserAvatar } from '../Avatars/UserAvatar'
 import DashboardIcon from '@mui/icons-material/Dashboard'
@@ -13,22 +12,24 @@ import MenuBookIcon from '@mui/icons-material/MenuBook'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
 import { useLocation } from 'react-router-dom'
 
-const MainContainer = styled.div`
+interface LeftNavBarProps {
+  isActive: boolean
+}
+
+const MainContainer = styled.div<{ isActive: boolean }>`
+  width: ${props => (props.isActive ? '260px' : '0px')};
   display: flex;
   position: fixed;
   margin-top: 61px;
   flex-direction: column;
-  min-width: 260px;
   border-right: 1px solid #323538;
   height: 100vh;
   background-color: #1a202e;
   padding-top: 25px;
   box-shadow: 0 8px 10px 0 rgb(183 192 206 / 20%);
-  transition: all 0.5s;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
+  transition: width 0.1s;
+  overflow: hidden;
+  z-index: 1;
 `
 
 const UserContainer = styled.div`
@@ -83,15 +84,23 @@ const MenuItemText = styled.p`
   margin-bottom: 5px;
 `
 
-export const LeftNavBar: FunctionComponent = () => {
+export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
   const dispatch = useDispatch()
   const location = useLocation()
-
   return (
-    <MainContainer>
+    <MainContainer isActive={props.isActive}>
       <UserContainer>
-        <UserAvatar profilePicture={ProfilePicture} username={state.username} />
+        <UserAvatar
+          profilePicture={
+            state.profile.picture
+              ? `data:image/png;base64,${state.profile.picture}`
+              : ''
+          }
+          username={state.username}
+          firstName={state.firstName}
+          lastName={state.lastName}
+        />
 
         <p
           onClick={() => {
@@ -160,6 +169,15 @@ export const LeftNavBar: FunctionComponent = () => {
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
               <MenuItemText>Homework</MenuItemText>
+            </MenuItem>
+            <MenuItem
+              isActive={location.pathname == '/grades'}
+              onClick={() => {
+                window.location.replace('/grades')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Grades</MenuItemText>
             </MenuItem>
           </>
         )}

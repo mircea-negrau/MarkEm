@@ -1,19 +1,17 @@
+﻿using Org.Webelopers.Api.Models.DbEntities;
+using System;
 using System.Collections.Generic;
-using Org.Webelopers.Api.Models.DbEntities;
 
-namespace Org.Webelopers.Api.Models.Persistence.OptionalCoursesService
+namespace Org.Webelopers.Api.Models.Persistence.OptionalCourses
 {
     public class OptionalCoursesAssignmentResults
     {
-        public OptionalCoursesAssignmentResults(List<OptionalCourse> selectedOptionalCourses, int numberOfStudentsWithRandomOptionalCourseAssigned, int numberOfStudentsWithNoOptionalCourseAssigned)
+        public List<OptionalCourse> selectedOptionalCourses { get; set; }
+        public int numberOfStudentsWithRandomOptionalCourseAssigned { get; set; }
+        public int numberOfStudentsWithNoOptionalCourseAssigned
         {
-            SelectedOptionalCourses = selectedOptionalCourses;
-            NumberOfStudentsWithRandomOptionalCourseAssigned = numberOfStudentsWithRandomOptionalCourseAssigned;
-            NumberOfStudentsWithNoOptionalCourseAssigned = numberOfStudentsWithNoOptionalCourseAssigned;
-        }
+            get; set;
 
-        public List<OptionalCourse> SelectedOptionalCourses { get; }
-        public int NumberOfStudentsWithRandomOptionalCourseAssigned { get; }
-        public int NumberOfStudentsWithNoOptionalCourseAssigned { get; }
+        }
     }
 }

@@ -1,15 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { StudyContractEnriched } from '../../utility/types/studentTypes'
-import { getAllContracts } from '../thunks/contracts'
+import {
+  SemesterContract,
+  StudyContractEnriched
+} from '../../utility/types/contractTypes'
+import {
+  Degree,
+  Faculty,
+  Specialisation
+} from '../../utility/types/studentTypes'
+import {
+  getAllContracts,
+  getFaculties,
+  getFacultySpecialisations,
+  getSemesterContracts
+} from '../thunks/contracts'
 
 interface ContractsStateType {
   contracts: StudyContractEnriched[]
+  semesterContracts: SemesterContract[]
+  faculties: Faculty[]
+  degrees: Degree[]
+  specialisations: Specialisation[]
   contractsStatus: FetchStatus
 }
 
 const initialState: ContractsStateType = {
   contracts: [],
+  faculties: [],
+  semesterContracts: [],
+  degrees: [],
+  specialisations: [],
   contractsStatus: FetchStatus.idle
 }
 
@@ -36,6 +57,62 @@ export const contractsSlice = createSlice({
         }
       }),
       builder.addCase(getAllContracts.rejected, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.error
+        }
+      })
+    builder.addCase(getSemesterContracts.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.semesterContracts = action.payload
+        state.contractsStatus = FetchStatus.success
+        console.log('fulfilled', action.payload, state.contracts)
+      }
+    }),
+      builder.addCase(getSemesterContracts.pending, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getSemesterContracts.rejected, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.error
+        }
+      })
+    builder.addCase(getFaculties.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.faculties = action.payload.faculties
+        state.degrees = action.payload.degrees
+        state.contractsStatus = FetchStatus.success
+        console.log('fulfilled', action.payload, state.contracts)
+      }
+    }),
+      builder.addCase(getFaculties.pending, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getFaculties.rejected, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.error
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.specialisations = action.payload
+          state.contractsStatus = FetchStatus.success
+          console.log(
+            'fulfilled getting specialisations',
+            action.payload,
+            state.contracts
+          )
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.pending, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.rejected, (state, action) => {
         if (action.payload) {
           state.contractsStatus = FetchStatus.error
         }

@@ -4,6 +4,6 @@ export interface Profile {
   username: string
   firstName: string
   lastName: string
-  picture?: Uint8Array
+  picture?: string
   about?: string
 }

@@ -1,15 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { TeacherMandatoryEnrichedCourses } from '../../utility/types/courseTypes'
-import { getCoursesByTeacher } from '../thunks/courses'
+import {
+  CourseShort,
+  TeacherMandatoryEnrichedCourses
+} from '../../utility/types/courseTypes'
+import {
+  getCoursesByTeacher,
+  getCoursesNamesByContract
+} from '../thunks/courses'
 
 interface CoursesStateType {
   courses: TeacherMandatoryEnrichedCourses[]
+  coursesNames: CourseShort[]
   coursesStatus: FetchStatus
 }
 
 const initialState: CoursesStateType = {
   courses: [],
+  coursesNames: [],
   coursesStatus: FetchStatus.idle
 }
 
@@ -31,6 +39,22 @@ export const coursesSlice = createSlice({
         }
       }),
       builder.addCase(getCoursesByTeacher.rejected, (state, action) => {
+        if (action.payload) {
+          state.coursesStatus = FetchStatus.error
+        }
+      })
+    builder.addCase(getCoursesNamesByContract.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.coursesNames = action.payload
+        state.coursesStatus = FetchStatus.success
+      }
+    }),
+      builder.addCase(getCoursesNamesByContract.pending, (state, action) => {
+        if (action.payload) {
+          state.coursesStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getCoursesNamesByContract.rejected, (state, action) => {
         if (action.payload) {
           state.coursesStatus = FetchStatus.error
         }

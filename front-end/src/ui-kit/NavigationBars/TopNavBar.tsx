@@ -5,7 +5,6 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import ReactCountryFlag from 'react-country-flag'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
 
 interface TopNavBarProps {
   dockerAction: () => void
@@ -20,7 +19,8 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
         width: '100%',
         height: '61px',
         position: 'fixed',
-        background: 'linear-gradient(#1c212d, #1a202e)'
+        background: 'linear-gradient(#1c212d, #1a202e)',
+        zIndex: '1'
       }}
     >
       <div
@@ -102,22 +102,48 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
           >
             {state.firstName + ' ' + state.lastName}
           </p>
-          <div
-            onClick={() => {
-              window.location.replace(`/profile/${state.username}`)
-            }}
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '24px',
-              backgroundImage: `url(${ProfilePicture})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              marginRight: '25px',
-              cursor: 'pointer'
-            }}
-          />
+          {(state.profile.picture && (
+            <img
+              src={
+                state.profile.picture
+                  ? `data:image/png;base64,${state.profile.picture}`
+                  : ''
+              }
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer'
+              }}
+            />
+          )) || (
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer',
+                backgroundColor: 'darkcyan',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                color: 'black',
+                fontWeight: '600',
+                userSelect: 'none'
+              }}
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+            >
+              {state.firstName.slice(0, 1)}
+              {state.lastName.slice(0, 1)}
+            </div>
+          )}
         </div>
       </div>
     </div>

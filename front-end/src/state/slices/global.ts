@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { login, logout } from '../thunks/global'
+import { Profile } from '../../utility/types/profileTypes'
+import { getCurrentProfile, login, logout } from '../thunks/global'
 
 interface GlobalStateType {
   accessToken: string
@@ -10,8 +11,10 @@ interface GlobalStateType {
   username: string
   firstName: string
   lastName: string
-  dateOfBirth?: string
   expiration: number
+  profilePicture: string
+  profileStatus: FetchStatus
+  profile: Profile
 }
 
 const initialState: GlobalStateType = {
@@ -22,8 +25,16 @@ const initialState: GlobalStateType = {
   username: '',
   firstName: '',
   lastName: '',
-  dateOfBirth: undefined,
-  expiration: 0
+  expiration: 0,
+  profilePicture: '',
+  profileStatus: FetchStatus.idle,
+  profile: {
+    id: '',
+    role: '',
+    username: '',
+    firstName: '',
+    lastName: ''
+  }
 }
 
 export interface UserDetails {
@@ -33,7 +44,6 @@ export interface UserDetails {
   username: string
   firstName: string
   lastName: string
-  dateOfBirth: string
   iss: string
   exp: number
 }
@@ -52,7 +62,6 @@ export const globalSlice = createSlice({
       state.expiration = action.payload.exp
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
-      state.dateOfBirth = action.payload.dateOfBirth ?? undefined
     }
   },
   extraReducers: builder => {
@@ -82,6 +91,21 @@ export const globalSlice = createSlice({
 
     builder.addCase(logout.rejected, state => {
       state.accessTokenStatus = FetchStatus.error
+    })
+
+    builder.addCase(getCurrentProfile.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.profile = action.payload
+      }
+      state.profileStatus = FetchStatus.success
+    })
+
+    builder.addCase(getCurrentProfile.pending, state => {
+      state.profileStatus = FetchStatus.loading
+    })
+
+    builder.addCase(getCurrentProfile.rejected, state => {
+      state.profileStatus = FetchStatus.error
     })
   }
 })
