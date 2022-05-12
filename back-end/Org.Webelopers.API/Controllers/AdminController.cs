@@ -19,16 +19,19 @@ namespace Org.Webelopers.Api.Controllers
             _statisticsService = statisticsService;
         }
 
+        [HttpGet("performance/byGroup")]
         public List<GroupStudentsAverageGradeDto> GetStudentsPerformanceByGroup()
         {
             return _statisticsService.GetStudentsRankingByGroup();
         }
 
+        [HttpGet("performance/bySemester")]
         public List<SemesterStudentsAverageGradeDto> GetStudentsPerformanceBySemester()
         {
             return _statisticsService.GetStudentsRankingBySemester();
         }
-
+        
+        [HttpGet("ranking/byStudyYear")]
         public List<StudyYearStudentsAverageGradeDto> GetStudentsRankingByStudyYear()
         {
             return _statisticsService.GetStudentsRankingByStudyYear();
