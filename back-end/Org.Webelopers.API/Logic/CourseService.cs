@@ -55,7 +55,7 @@ namespace Org.Webelopers.Api.Logic
             }
         }
 
-        public async Task<TeacherMandatoryCoursesResponse> GetEnrichedMandatoryCoursesByTeacher(Guid teacherId)
+        public async Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId)
         {
             var courses = _context.Courses.AsNoTracking()
                 .Where(x => x.TeacherId == teacherId);
@@ -72,7 +72,7 @@ namespace Org.Webelopers.Api.Logic
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
                 .ThenInclude(y => y.Faculty)
-            .Select(x => new TeacherMandatoryCourseDetailDto()
+            .Select(x => new TeacherCourseDetailDto()
             {
                 Id = x.Id,
                 Name = x.Name,
@@ -80,7 +80,8 @@ namespace Org.Webelopers.Api.Logic
                 Semester = x.Semester.Semester,
                 StartDate = x.Semester.StudyYear.StartDate,
                 EndDate = x.Semester.StudyYear.EndDate,
-                FacultyDetails = new TeacherMandatoryCourseFacultyDetailDto()
+                IsOptional = false,
+                FacultyDetails = new TeacherCourseFacultyDetailDto()
                 {
                     Faculty = x.Semester.StudyYear.Specialization.Faculty.Name,
                     Specialization = x.Semester.StudyYear.Specialization.Name,
@@ -91,7 +92,7 @@ namespace Org.Webelopers.Api.Logic
                 }
             })
             .ToListAsync();
-            return new TeacherMandatoryCoursesResponse() { Courses = enrichedCourses };
+            return new TeacherCoursesResponse() { Courses = enrichedCourses };
         }
 
     }

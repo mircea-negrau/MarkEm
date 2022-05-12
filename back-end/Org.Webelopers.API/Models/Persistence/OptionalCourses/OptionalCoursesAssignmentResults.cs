@@ -1,5 +1,4 @@
 ﻿using Org.Webelopers.Api.Models.DbEntities;
-using System;
 using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Models.Persistence.OptionalCourses

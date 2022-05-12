@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
-
+using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 
 
@@ -246,6 +248,46 @@ namespace Org.Webelopers.Api.Logic
             }
         }
 
+        public async Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId)
+        {
+            var courses = _context.OptionalCourses.AsNoTracking()
+                .Where(x => x.TeacherId == teacherId);
+            var enrichedCourses = await courses
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyDegree)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.Faculty)
+                .Select(x => new TeacherCourseDetailDto()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Credits = x.Credits,
+                    Semester = x.Semester.Semester,
+                    StartDate = x.Semester.StudyYear.StartDate,
+                    EndDate = x.Semester.StudyYear.EndDate,
+                    IsOptional = true,
+                    FacultyDetails = new TeacherCourseFacultyDetailDto()
+                    {
+                        Faculty = x.Semester.StudyYear.Specialization.Faculty.Name,
+                        Specialization = x.Semester.StudyYear.Specialization.Name,
+                        SpecializationSemesters = x.Semester.StudyYear.Specialization.Semesters,
+                        StudyDegree = x.Semester.StudyYear.Specialization.StudyDegree.Name,
+                        StudyLine = x.Semester.StudyYear.Specialization.StudyLine.Name,
+                        StudyLineShort = x.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                    }
+                })
+                .ToListAsync();
+            return new TeacherCoursesResponse() { Courses = enrichedCourses };
+        }
+
         public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid semesterContractId)
         {
 
@@ -258,8 +300,6 @@ namespace Org.Webelopers.Api.Logic
                 Credits = course.Credits,
                 MaxNumberOfStudent = course.MaxNumberOfStudent
             }).ToList();
-
-       
         }
     }
 }

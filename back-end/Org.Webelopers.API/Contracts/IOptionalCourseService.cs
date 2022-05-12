@@ -1,6 +1,8 @@
 using System;
 using Org.Webelopers.Api.Models.DbEntities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 
 namespace Org.Webelopers.Api.Contracts
@@ -39,6 +41,7 @@ namespace Org.Webelopers.Api.Contracts
 
         public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds);
         
-
+        
+        public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
     }
 }
