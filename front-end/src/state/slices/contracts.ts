@@ -1,19 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
 import {
+  SemesterContract,
+  StudyContractEnriched
+} from '../../utility/types/contractTypes'
+import {
   Degree,
   Faculty,
-  Specialisation,
-  StudyContractEnriched
+  Specialisation
 } from '../../utility/types/studentTypes'
 import {
   getAllContracts,
   getFaculties,
-  getFacultySpecialisations
+  getFacultySpecialisations,
+  getSemesterContracts
 } from '../thunks/contracts'
 
 interface ContractsStateType {
   contracts: StudyContractEnriched[]
+  semesterContracts: SemesterContract[]
   faculties: Faculty[]
   degrees: Degree[]
   specialisations: Specialisation[]
@@ -23,6 +28,7 @@ interface ContractsStateType {
 const initialState: ContractsStateType = {
   contracts: [],
   faculties: [],
+  semesterContracts: [],
   degrees: [],
   specialisations: [],
   contractsStatus: FetchStatus.idle
@@ -51,6 +57,23 @@ export const contractsSlice = createSlice({
         }
       }),
       builder.addCase(getAllContracts.rejected, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.error
+        }
+      })
+    builder.addCase(getSemesterContracts.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.semesterContracts = action.payload
+        state.contractsStatus = FetchStatus.success
+        console.log('fulfilled', action.payload, state.contracts)
+      }
+    }),
+      builder.addCase(getSemesterContracts.pending, (state, action) => {
+        if (action.payload) {
+          state.contractsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getSemesterContracts.rejected, (state, action) => {
         if (action.payload) {
           state.contractsStatus = FetchStatus.error
         }

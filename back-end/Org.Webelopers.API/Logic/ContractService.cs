@@ -159,5 +159,20 @@ namespace Org.Webelopers.Api.Logic
             return contracts;
 
         }
+
+        public List<SemesterContractDto> GetYearlyContractAllSemesterContracts(Guid contractId)
+        {
+
+            var semesterContracts = _context.SemesterContracts.Where(semester => semester.StudentContractId == contractId)
+                .Select(semester => new SemesterContractDto()
+                {
+                    Id = semester.Id,
+                    OptionalCourseId = semester.OptionalCourseId,
+                    OptionalCourseName = semester.OptionalCourse.Name
+                }).ToList();
+
+
+            return semesterContracts;
+        }
     }
 }

@@ -287,5 +287,19 @@ namespace Org.Webelopers.Api.Logic
                 .ToListAsync();
             return new TeacherCoursesResponse() { Courses = enrichedCourses };
         }
+
+        public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid semesterContractId)
+        {
+
+            var semesterId = _context.SemesterContracts.FirstOrDefault(contract => contract.Id == semesterContractId).StudySemesterId;
+          
+            return _context.OptionalCourses.Where(course => course.SemesterId == semesterId).Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+            }).ToList();
+        }
     }
 }

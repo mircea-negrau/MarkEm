@@ -19,6 +19,7 @@ namespace Org.Webelopers.Api.Contracts
         public void SignContract(Guid contractId);
         public OptionalCourse GetOptionalCourse(Guid contractId);
         public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId);
+        public List<SemesterContractDto> GetYearlyContractAllSemesterContracts(Guid contractId);
 
     }
 }
