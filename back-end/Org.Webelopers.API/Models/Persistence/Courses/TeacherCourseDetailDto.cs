@@ -2,7 +2,7 @@
 
 namespace Org.Webelopers.Api.Models.Persistence.Courses
 {
-    public class TeacherMandatoryCourseDetailDto
+    public class TeacherCourseDetailDto
     {
         public Guid Id { get; set; }
 
@@ -13,6 +13,8 @@ namespace Org.Webelopers.Api.Models.Persistence.Courses
         public short Semester { get; set; }
         public long StartDate { get; set; }
         public long EndDate { get; set; }
-        public TeacherMandatoryCourseFacultyDetailDto FacultyDetails { get; set; }
+        
+        public bool IsOptional { get; set; }
+        public TeacherCourseFacultyDetailDto FacultyDetails { get; set; }
     }
 }

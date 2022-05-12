@@ -1,6 +1,6 @@
 ﻿namespace Org.Webelopers.Api.Models.Persistence.Courses
 {
-    public class TeacherMandatoryCourseFacultyDetailDto
+    public class TeacherCourseFacultyDetailDto
     {
         public string Faculty { get; set; }
         public string Specialization { get; set; }

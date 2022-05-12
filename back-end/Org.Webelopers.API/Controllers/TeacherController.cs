@@ -16,11 +16,13 @@ namespace Org.Webelopers.Api.Controllers
     {
         private readonly ILogger<AuthController> _logger;
         private readonly ICourseService _courseService;
+        private readonly IOptionalCourseService _optionalCourseService;
 
-        public TeacherController(ILogger<AuthController> logger, ICourseService courseService)
+        public TeacherController(ILogger<AuthController> logger, ICourseService courseService, IOptionalCourseService optionalCourseService)
         {
             _logger = logger;
             _courseService = courseService;
+            _optionalCourseService = optionalCourseService;
         }
 
         [HttpGet("courses/all")]
@@ -28,11 +30,13 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetAllMandatoryCourses([FromQuery] string teacherId)
+        public async Task<IActionResult> GetAllCourses([FromQuery] string teacherId)
         {
             try
             {
-                var courses = await _courseService.GetEnrichedMandatoryCoursesByTeacher(Guid.Parse(teacherId));
+                var courses = await _courseService.GetEnrichedCoursesByTeacher(Guid.Parse(teacherId));
+                var optionalCourses = await _optionalCourseService.GetEnrichedCoursesByTeacher(Guid.Parse(teacherId));
+                courses.Courses.AddRange(optionalCourses.Courses);
                 return Ok(courses);
             }
             catch (FormatException e)

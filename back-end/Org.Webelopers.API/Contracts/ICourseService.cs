@@ -9,6 +9,6 @@ namespace Org.Webelopers.Api.Contracts
         public void AddCourse(string name, short credits, Guid semesterId, Guid teacherId);
         public void UpdateCourse(Guid courseId, string name, short? credits, Guid? semesterId, Guid? teacherId);
         public void DeleteCourse(Guid courseId);
-        public Task<TeacherMandatoryCoursesResponse> GetEnrichedMandatoryCoursesByTeacher(Guid teacherId);
+        public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
     }
 }
