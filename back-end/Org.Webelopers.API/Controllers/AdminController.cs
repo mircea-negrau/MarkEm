@@ -3,6 +3,7 @@ using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Persistence.Groups;
 using Org.Webelopers.Api.Models.Persistence.Semesters;
 using Org.Webelopers.Api.Models.Persistence.StudyYears;
+using System;
 using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Controllers
@@ -20,21 +21,39 @@ namespace Org.Webelopers.Api.Controllers
         }
 
         [HttpGet("performance/byGroup")]
-        public List<GroupStudentsAverageGradeDto> GetStudentsPerformanceByGroup()
+        public IActionResult GetStudentsPerformanceByGroup([FromQuery] Guid groupId)
         {
-            return _statisticsService.GetStudentsRankingByGroup();
+            return Ok(_statisticsService.GetStudentsRankingByGroup(groupId));
         }
 
         [HttpGet("performance/bySemester")]
-        public List<SemesterStudentsAverageGradeDto> GetStudentsPerformanceBySemester()
+        public IActionResult GetStudentsPerformanceBySemester([FromQuery] Guid semesterId)
         {
-            return _statisticsService.GetStudentsRankingBySemester();
+            return Ok(_statisticsService.GetStudentsRankingBySemester(semesterId));
         }
-        
-        [HttpGet("ranking/byStudyYear")]
-        public List<StudyYearStudentsAverageGradeDto> GetStudentsRankingByStudyYear()
+
+        [HttpPost("performance/byStudyYear")]
+        public IActionResult GetStudentsRankingByStudyYear([FromBody] StudyYearCriteriaDto dto)
         {
-            return _statisticsService.GetStudentsRankingByStudyYear();
+            return Ok(_statisticsService.GetStudentsRankingByStudyYearByCriteria(dto.YearId, dto.MinimumAverage));
         }
+        [HttpGet("group/all")]
+        public IActionResult GetGroups()
+        {
+            return Ok(_statisticsService.GetAllGroups());
+        }
+
+        [HttpGet("semester/all")]
+        public IActionResult GetSemesters()
+        {
+            return Ok(_statisticsService.GetAllSemesters());
+        }
+
+        [HttpGet("studyYear/all")]
+        public IActionResult GetStudyYears()
+        {
+            return Ok(_statisticsService.GetAllYears());
+        }
+
     }
 }

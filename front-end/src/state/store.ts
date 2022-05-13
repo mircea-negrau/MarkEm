@@ -3,6 +3,7 @@ import { contractReducer } from './slices/contracts'
 import { coursesReducer } from './slices/courses'
 import { globalReducer } from './slices/global'
 import { gradeReducer } from './slices/grades'
+import { performanceReducer } from './slices/performance'
 import { optionalCoursesReducer } from './slices/optionalCourses'
 import { profileReducer } from './slices/profile'
 
@@ -13,7 +14,8 @@ export const store = configureStore({
     courses: coursesReducer,
     grades: gradeReducer,
     optionalCourses: optionalCoursesReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    performance: performanceReducer
   }
 })
 

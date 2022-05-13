@@ -288,6 +288,49 @@ namespace Org.Webelopers.Api.Extensions
                 }
             }
             modelBuilder.Entity<StudentContract>().HasData(studyContracts);
+
+            //#########
+            var yearId = studyYears[random.Next(studyYears.Count)];
+
+            var grades = new List<MandatoryCourseGrade>();
+            for(int k = 0; k < 10; ++k)
+            {
+                var courseId = courses[random.Next(0, courses.Count)].Id;
+                for (int i = 0; i < students.Count; i++)
+                {
+                    int limit = random.Next(5, 20);
+                    int randomChoice = random.Next(0, 2);
+
+                    for (int j = 0; j < limit; ++j)
+                    {
+                        if(randomChoice == 0)
+                            grades.Add(new MandatoryCourseGrade
+                            {
+                                Id = Guid.NewGuid(),
+                                Grade = (short)RandomNumberGenerator.GetInt32(9, 10),
+                                CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                                StudentId = students[i].AccountId,
+                                CourseId = courseId
+
+                            });
+                        else
+                            grades.Add(new MandatoryCourseGrade
+                            {
+                                Id = Guid.NewGuid(),
+                                Grade = (short)RandomNumberGenerator.GetInt32(1, 4),
+                                CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                                StudentId = students[i].AccountId,
+                                CourseId = courseId
+
+                            });
+                    }
+
+
+                }
+            }
+           
+            modelBuilder.Entity<MandatoryCourseGrade>().HasData(grades);
+
         }
     }
 }

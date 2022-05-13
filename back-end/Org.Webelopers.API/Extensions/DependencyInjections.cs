@@ -24,6 +24,7 @@ namespace Org.Webelopers.Api.Extensions
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IFacultyService, FacultyService>();
+            services.AddScoped<IStatisticsService, StatisticsService>();
         }
     }
 }

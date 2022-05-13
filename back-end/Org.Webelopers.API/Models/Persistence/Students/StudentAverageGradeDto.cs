@@ -7,5 +7,6 @@ namespace Org.Webelopers.Api.Models.Persistence.Students
         public Guid StudentId { get; set; }
 
         public decimal AverageGrade { get; set; }
+        public string? StudentEmail { get; set; }
     }
 }
