@@ -61,7 +61,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("courses/courseGroups/addSamples")]
+        [HttpPost("courses/courseGroupsAddSamples")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult AddSamplesForGetCourseGroups()
@@ -79,7 +79,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
     
-        [HttpGet("courses/courseGroups/{courseId}")]
+        [HttpGet("courses/course/{courseId}/groups")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -96,64 +96,28 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-        
-        [HttpGet("courses/optionalStudents/addSamples")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddSamplesForGetOptionalStudentsWithGrade()
-        {
-            try
-            {
-                _optionalCourseService.AddSamplesForGetOptionalStudentsWithGrade();
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
-        
-        [HttpGet("courses/optionalStudents/{courseId}")]
-        [Authorize(Roles = "Teacher")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionalStudentsWithGradeResponse))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOptionalStudentsWithGrade([FromRoute] Guid courseId)
-        {
-            try
-            {
-                return Ok(await _optionalCourseService.GetStudentsWithGrade(courseId));
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return NotFound(new { message = e.Message });
-            }
-        }
 
-        [HttpPost("courses/gradeStudent")]
+        [HttpPost("courses/course/{courseId}/gradeStudent")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GradeStudent([FromBody] SetGradeDto setGradeDto)
+        public IActionResult GradeStudent([FromRoute] Guid courseId, [FromBody] SetGradeDto setGradeDto)
         {
             try
             {
-                if (_courseService.Exists(setGradeDto.CourseId))
+                if (_courseService.Exists(courseId))
                 {
-                    _gradesService.SetGrade(setGradeDto.StudentId, setGradeDto.CourseId, setGradeDto.Value);
+                    _gradesService.SetGrade(setGradeDto.StudentId, courseId, setGradeDto.Value);
                     return Ok(new {message = "success"});
                 }
-                if (_optionalCourseService.Exists(setGradeDto.CourseId))
+                if (_optionalCourseService.Exists(courseId))
                 {
-                    _optionalGradesService.SetGrade(setGradeDto.StudentId, setGradeDto.CourseId, setGradeDto.Value);
+                    _optionalGradesService.SetGrade(setGradeDto.StudentId, courseId, setGradeDto.Value);
                     return Ok(new {message = "success"});
                 }
-                _logger.LogError($"course with id {setGradeDto.CourseId} not found");
-                return NotFound($"course with id {setGradeDto.CourseId} not found");
+                _logger.LogError($"course with id {courseId} not found");
+                return NotFound($"course with id {courseId} not found");
             }
             catch (Exception e)
             {
@@ -163,11 +127,11 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("optionals")]
+        [HttpGet("optionals/all/forOptionalsPage")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionals))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOptionals()
+        public async Task<IActionResult> GetOptionalsForOptionalsPage()
         {
             try
             {
@@ -186,26 +150,39 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
         
-        [HttpGet("optionals/proposed")]
-        [Authorize(Roles = "Teacher")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProposedCoursesIds))]
+        [HttpPost("optionals/optionalStudentsAddSamples")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult GetProposed()
+        public IActionResult AddSamplesForGetOptionalStudentsWithGrade()
         {
             try
             {
-                var teacherId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
-                return Ok(_optionalCourseService.GetProposed(teacherId));
-            }
-            catch (IAuthTokenService.UidClaimNotFound)
-            {
-                return BadRequest(new {message = "UID claim not found"});
+                _optionalCourseService.AddSamplesForGetOptionalStudentsWithGrade();
+                return Ok(new {message = "success"});
             }
             catch (Exception e)
             {
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new { message = e.Message });
+                return BadRequest(new {message = e.Message});
+            }
+        }
+        
+        [HttpGet("optionals/optional/{courseId}/students")]
+        [Authorize(Roles = "Teacher")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionalStudentsWithGradeResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetOptionalStudentsWithGrade([FromRoute] Guid courseId)
+        {
+            try
+            {
+                return Ok(await _optionalCourseService.GetStudentsWithGrade(courseId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return NotFound(new { message = e.Message });
             }
         }
 
@@ -226,6 +203,29 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return NotFound(new { message = e.Message });
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new { message = e.Message });
+            }
+        }
+        
+        [HttpGet("optionals/proposed")]
+        [Authorize(Roles = "Teacher")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProposedCoursesIds))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetProposed()
+        {
+            try
+            {
+                var teacherId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                return Ok(_optionalCourseService.GetProposed(teacherId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound)
+            {
+                return BadRequest(new {message = "UID claim not found"});
             }
             catch (Exception e)
             {
