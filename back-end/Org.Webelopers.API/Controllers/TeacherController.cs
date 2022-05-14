@@ -56,7 +56,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("courses/courseGroupsAddSamples")]
+        [HttpGet("courses/courseGroups/addSamples")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult AddSamplesForGetCourseGroups()
@@ -74,11 +74,11 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
     
-        [HttpGet("courses/courseGroups")]
+        [HttpGet("courses/courseGroups/{courseId}")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetCourseGroups([FromQuery] Guid courseId)
+        public async Task<IActionResult> GetCourseGroups([FromRoute] Guid courseId)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
         
-        [HttpGet("courses/optionalStudentsAddSamples")]
+        [HttpGet("courses/optionalStudents/addSamples")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult AddSamplesForGetOptionalStudentsWithGrade()
@@ -110,11 +110,11 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
         
-        [HttpGet("courses/optionalStudents")]
+        [HttpGet("courses/optionalStudents/{courseId}")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOptionalStudentsWithGrade([FromQuery] Guid courseId)
+        public async Task<IActionResult> GetOptionalStudentsWithGrade([FromRoute] Guid courseId)
         {
             try
             {
