@@ -18,7 +18,13 @@ namespace Org.Webelopers.Api.Contracts
 
         public void SetCoursePreference(Guid studentContractSemesterId, Guid courseId, short preferenceValue);
 
-        public void ProposeCourse(Guid courseId);
+        
+        public ProposedCoursesIds GetProposed(Guid teacherId);
+
+        public void Propose(Guid course1Id, Guid course2Id);
+
+        public Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId);
+        
 
         public void ApproveCourse(Guid courseId);
 
@@ -43,5 +49,11 @@ namespace Org.Webelopers.Api.Contracts
         
         
         public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
+
+        public void AddSamplesForGetOptionalStudentsWithGrade();
+
+        public Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId);
+
+        public bool Exists(Guid courseId);
     }
 }

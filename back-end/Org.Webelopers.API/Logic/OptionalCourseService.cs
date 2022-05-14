@@ -8,6 +8,7 @@ using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Courses;
+using Org.Webelopers.Api.Models.Persistence.Groups;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 
 
@@ -37,7 +38,8 @@ namespace Org.Webelopers.Api.Logic
         #endregion
 
         public List<OptionalCourse> FilterCourses(Predicate<OptionalCourse> filterPredicate) =>
-            _context.OptionalCourses.Where(course => filterPredicate(course)).ToList();
+            // _context.FindEntity<OptionalCourse>(filterPredicate).ToList();
+            _context.OptionalCourses.ToList().Where(course => filterPredicate(course)).ToList();
 
         #region PrivateSetCoursePreferenceMethods
         
@@ -96,13 +98,64 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
         }
 
-        public void ProposeCourse(Guid courseId)
+        private List<OptionalCourse> GetCourses(Guid teacherId) =>
+            FilterCourses(course => course.TeacherId == teacherId).ToList();
+        
+        public ProposedCoursesIds GetProposed(Guid teacherId)
         {
-            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
+            var coursesIds = GetCourses(teacherId)
+                .Where(course => course.IsProposed)
+                .Select(course => course.Id)
+                .Take(2).ToList();
+
+            return new ProposedCoursesIds
+            {
+                First = coursesIds.Count >= 1 ? coursesIds[0] : Guid.Empty,
+                Second = coursesIds.Count >= 2 ? coursesIds[1] : Guid.Empty,
+            };
+        }
+        
+        public void Propose(Guid course1Id, Guid course2Id)
+        {
+            var course1 = FindOptionalCourseByIdAndThrowIfNullReference(course1Id);
+            var course2 = FindOptionalCourseByIdAndThrowIfNullReference(course2Id);
             
-            optionalCourse.IsProposed = true;
-            
+            ClearProposedCourses(course1.TeacherId);
+            course1.IsProposed = course2.IsProposed = true;
+
             _context.SaveChanges();
+        }
+
+        public async Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId)
+        {
+            var courses = _context.OptionalCourses
+                .AsNoTracking()
+                .Where(course => course.TeacherId == teacherId);
+            var enrichedCourses = await courses
+                .Include(course => course.Semester)
+                    .ThenInclude(semester => semester.StudyYear)
+                        .ThenInclude(year => year.Specialization)
+                .Select(course => new TeacherOptional
+                {
+                    Id = course.Id,
+                    Name = course.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    Semester = course.Semester.Semester
+                })
+                .OrderBy(optional => optional.Name)
+                .ThenBy(optional => optional.Specialization)
+                .ThenBy(optional => optional.Semester)
+                .ToListAsync();
+            return new TeacherOptionals { Optionals = enrichedCourses };
+        }
+        
+        private void ClearProposedCourses(Guid teacherId)
+        {
+            foreach (OptionalCourse optionalCourse in _context.OptionalCourses
+                         .Where(course => course.TeacherId == teacherId && course.IsProposed))
+            {
+                optionalCourse.IsProposed = false;
+            }
         }
 
         public void ApproveCourse(Guid courseId)
@@ -285,7 +338,7 @@ namespace Org.Webelopers.Api.Logic
                     }
                 })
                 .ToListAsync();
-            return new TeacherCoursesResponse() { Courses = enrichedCourses };
+            return new TeacherCoursesResponse { Courses = enrichedCourses };
         }
 
         public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid semesterContractId)
@@ -301,5 +354,102 @@ namespace Org.Webelopers.Api.Logic
                 MaxNumberOfStudent = course.MaxNumberOfStudent
             }).ToList();
         }
+
+        public void AddSamplesForGetOptionalStudentsWithGrade()
+        {
+            const int noOfStudents = 10;
+            
+            var course = _context.OptionalCourses.Include(optionalCourse => optionalCourse.Semester).First();
+            var studyYearId = course.Semester.StudyYearId;
+            var students = _context.Students.Take(noOfStudents).ToList();
+            var currentTime = DateTimeOffset.Now;
+            var grades = new List<OptionalCourseGrade>();
+            Console.WriteLine($"course.Id = {course.Id}");
+            Console.WriteLine($"currentTime = {currentTime:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine($"noOfStudents = {students.Count}");
+
+            foreach (var student in students)
+            {
+                var contract = new StudentContract
+                {
+                    Id = Guid.NewGuid(),
+                    SignedAt = currentTime.ToUnixTimeSeconds(),
+                    StudentId = student.AccountId,
+                    StudyYearId = studyYearId
+                };
+                _context.Contracts.Add(contract);
+                _context.SemesterContracts.Add(new StudentContractSemester
+                {
+                    Id = Guid.NewGuid(),
+                    StudentContractId = contract.Id,
+                    StudySemesterId = course.SemesterId,
+                    OptionalCourseId = course.Id
+                });
+            }
+
+            foreach (var student in students)
+            {
+                _context.OptionalGrades.RemoveRange(GetStudentGrades(student, course));
+                if (new Random().NextDouble() <= 0.5)
+                {
+                    short gradeValue = (short) new Random().Next(0, 11);
+                    grades.Add(new OptionalCourseGrade
+                    {
+                        Id = Guid.NewGuid(),
+                        Grade = gradeValue,
+                        CreatedAt = currentTime.ToUnixTimeSeconds(),
+                        CourseId = course.Id,
+                        StudentId = student.AccountId
+                    });
+                    Console.WriteLine($"student {student.AccountId} has grade {gradeValue}");
+                }
+                else
+                {
+                    Console.WriteLine($"student {student.AccountId} has NO grade");
+                }
+            }
+            
+            _context.OptionalGrades.AddRange(grades);
+            _context.SaveChanges();
+        }
+
+        private List<OptionalCourseGrade> GetStudentGrades(Student student, OptionalCourse course) => 
+            _context.OptionalGrades.Where(grade => grade.StudentId == student.AccountId && grade.CourseId == course.Id).ToList();
+
+
+        public async Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId)
+        {
+            var students = GetEnrolledStudents(courseId);
+
+            var studentsWithGrade = await students
+                .Include(student => student.Account)
+                .Include(student => student.OptionalGrades)
+                .Select(student => new StudentWithGrade
+                {
+                    Id = student.AccountId,
+                    LastName = student.Account.LastName,
+                    FirstName = student.Account.FirstName,
+                    Grade = GetGrade(student.OptionalGrades.Where(grade => grade.CourseId == courseId).Select(grade => grade.Grade).ToList())
+                })
+                .ToListAsync();
+
+            return new TeacherOptionalStudentsWithGradeResponse {StudentsWithGrade = studentsWithGrade};
+        }
+
+        private IQueryable<Student> GetEnrolledStudents(Guid courseId) =>
+            _context.Students
+                .AsNoTracking()
+                .Include(student => student.Contracts)
+                .ThenInclude(contract => contract.SemesterContracts)
+                .Where(student => student.Contracts
+                    .Any(contract => contract.SemesterContracts
+                        .Any(semesterContract => semesterContract.OptionalCourseId == courseId)));
+
+        private static short GetGrade(IReadOnlyCollection<short> grades) =>
+            (short) (grades.Any() ? grades.First() : -1);
+        
+        
+
+        public bool Exists(Guid courseId) => _context.FindEntity<OptionalCourse>(course => course.Id == courseId) != default;
     }
 }

@@ -16,14 +16,15 @@ namespace Org.Webelopers.Api.Extensions
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IAuthorizationHandler, ChiefOfDepartmentAuthorizationHandler>();
 
-            services.AddScoped<IGradesService, GradesService>();
-            services.AddScoped<ICurriculumService, CurriculumService>();
-            services.AddScoped<IContractService, ContractService>();
-            services.AddScoped<IOptionalCourseService, OptionalCourseService>();
             services.AddScoped<IAuthTokenService, AuthTokenService>();
             services.AddScoped<IProfileService, ProfileService>();
-            services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IFacultyService, FacultyService>();
+            services.AddScoped<ICurriculumService, CurriculumService>();
+            services.AddScoped<IContractService, ContractService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IGradesService, GradesService>();
+            services.AddScoped<IOptionalCourseService, OptionalCourseService>();
+            services.AddScoped<IOptionalGradesService, OptionalGradesService>();
             services.AddScoped<IStatisticsService, StatisticsService>();
         }
     }

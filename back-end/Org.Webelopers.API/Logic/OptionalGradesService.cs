@@ -30,28 +30,6 @@ namespace Org.Webelopers.Api.Logic
             });
             _context.SaveChanges();
         }
-        
-        public void DeleteGrade(Guid gradeId)
-        {
-            var grade = _context.OptionalGrades.FirstOrDefault(x => x.Id == gradeId);
-           
-            if (grade == null)
-            {
-                return;
-            }
-            
-            _context.Remove(grade);
-            _context.SaveChanges();
-        }
-        
-        public List<GradesDetailDto> GetStudentGrades(Guid studentId) =>
-            _context.OptionalGrades.Where(x => x.StudentId == studentId).Include(grade => grade.Course)
-                .Select(grade => new GradesDetailDto()
-                {
-                    GradeId = grade.Id,
-                    Grade = grade.Grade,
-                    CourseName = grade.Course.Name
-                }).ToList();
 
         public void UpdateGrade(Guid gradeId, short grade)
         {
@@ -65,5 +43,55 @@ namespace Org.Webelopers.Api.Logic
             studentGrade.Grade = grade;
             _context.SaveChanges();
         }
+        
+        public void DeleteGrade(Guid gradeId)
+        {
+            var grade = _context.OptionalGrades.FirstOrDefault(x => x.Id == gradeId);
+           
+            if (grade == null)
+            {
+                return;
+            }
+            
+            _context.Remove(grade);
+            _context.SaveChanges();
+        }
+
+        public void SetGrade(Guid studentId, Guid courseId, short value)
+        {
+            var grade = GetGrade(studentId, courseId);
+            if (grade == default)
+            {
+                if (value == -1)
+                {
+                    return;
+                }
+                AddGrade(value, courseId, studentId);
+            }
+            else
+            {
+                if (value == - 1)
+                {
+                    DeleteGrade(grade.Id);
+                }
+                else
+                {
+                    UpdateGrade(grade.Id, value);
+                }
+            }
+        }
+
+        private OptionalCourseGrade GetGrade(Guid studentId, Guid courseId) =>
+            _context.OptionalGrades
+                .FirstOrDefault(grade => grade.StudentId == studentId && grade.CourseId == courseId);
+
+        public List<GradesDetailDto> GetStudentGrades(Guid studentId) =>
+            _context.OptionalGrades.Where(x => x.StudentId == studentId).Include(grade => grade.Course)
+                .Select(grade => new GradesDetailDto()
+                {
+                    GradeId = grade.Id,
+                    Grade = grade.Grade,
+                    CourseName = grade.Course.Name
+                }).ToList();
     }
 }

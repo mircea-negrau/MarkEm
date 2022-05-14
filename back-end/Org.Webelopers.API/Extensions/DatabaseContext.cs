@@ -37,7 +37,7 @@ namespace Org.Webelopers.Api.Extensions
         public DbSet<TCourse> CoursesByType<TCourse>() where TCourse : BaseCourse => Set<TCourse>();
 
         public TEntity FindEntity<TEntity>(Predicate<TEntity> predicate) where TEntity : class =>
-            Set<TEntity>().FirstOrDefault(entity => predicate(entity));
+            Set<TEntity>().ToList().FirstOrDefault(entity => predicate(entity));
 
         public TEntity FindEntityAndThrowIfNullReference<TEntity>(Predicate<TEntity> predicate, String exceptionMessage) where TEntity : class =>
             Utils.ThrowIfNullReference(FindEntity(predicate), exceptionMessage);
@@ -74,9 +74,6 @@ namespace Org.Webelopers.Api.Extensions
             builder
                 .Property(account => account.Id)
                 .HasValueGenerator<SequentialGuidValueGenerator>();
-            builder
-                .HasIndex(account => account.Email)
-                .IsUnique();
         }
 
         private static void AdminConfigure(EntityTypeBuilder<Admin> builder)
