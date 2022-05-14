@@ -18,7 +18,7 @@ namespace Org.Webelopers.Api.Contracts
 
         public void SetCoursePreference(Guid studentContractSemesterId, Guid courseId, short preferenceValue);
 
-        public void ProposeCourse(Guid courseId);
+        public void ChangeProposedCourses(Guid course1Id, Guid course2Id);
 
         public void ApproveCourse(Guid courseId);
 

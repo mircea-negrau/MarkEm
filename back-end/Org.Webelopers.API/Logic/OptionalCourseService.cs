@@ -97,13 +97,24 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
         }
 
-        public void ProposeCourse(Guid courseId)
+        public void ChangeProposedCourses(Guid course1Id, Guid course2Id)
         {
-            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
+            var course1 = FindOptionalCourseByIdAndThrowIfNullReference(course1Id);
+            var course2 = FindOptionalCourseByIdAndThrowIfNullReference(course2Id);
             
-            optionalCourse.IsProposed = true;
-            
+            ClearProposedCourses(course1.TeacherId);
+            course1.IsProposed = course2.IsProposed = true;
+
             _context.SaveChanges();
+        }
+
+        private void ClearProposedCourses(Guid teacherId)
+        {
+            foreach (OptionalCourse optionalCourse in _context.OptionalCourses
+                         .Where(course => course.TeacherId == teacherId && course.IsProposed))
+            {
+                optionalCourse.IsProposed = false;
+            }
         }
 
         public void ApproveCourse(Guid courseId)
