@@ -50,5 +50,40 @@ namespace Org.Webelopers.Api.Controllers
                 return NotFound(new { message = e.Message });
             }
         }
+
+        [HttpGet("courses/courseGroupsAddSamples")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSamplesForGetCourseGroups()
+        {
+            try
+            {
+                _courseService.AddSamplesForGetCourseGroups();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                _logger.LogError(e.StackTrace);
+                return BadRequest(new {message = e.Message});
+            }
+        }
+    
+        [HttpGet("courses/courseGroups")]
+        [Authorize(Roles = "Teacher")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetCourseGroups([FromQuery] Guid courseId)
+        {
+            try
+            {
+                return Ok(await _courseService.GetCourseGroups(courseId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return NotFound(new { message = e.Message });
+            }
+        }
     }
 }
