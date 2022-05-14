@@ -43,5 +43,9 @@ namespace Org.Webelopers.Api.Contracts
         
         
         public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
+
+        public void AddSamplesForGetOptionalStudentsWithGrade();
+
+        public Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId);
     }
 }

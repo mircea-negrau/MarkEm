@@ -63,8 +63,8 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogError(e.Message);
-                _logger.LogError(e.StackTrace);
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return BadRequest(new {message = e.Message});
             }
         }
@@ -72,12 +72,48 @@ namespace Org.Webelopers.Api.Controllers
         [HttpGet("courses/courseGroups")]
         [Authorize(Roles = "Teacher")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetCourseGroups([FromQuery] Guid courseId)
         {
             try
             {
                 return Ok(await _courseService.GetCourseGroups(courseId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new { message = e.Message });
+            }
+        }
+        
+        [HttpGet("courses/optionalStudentsAddSamples")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSamplesForGetOptionalStudentsWithGrade()
+        {
+            try
+            {
+                _optionalCourseService.AddSamplesForGetOptionalStudentsWithGrade();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+        
+        [HttpGet("courses/optionalStudents")]
+        [Authorize(Roles = "Teacher")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetOptionalStudentsWithGrade([FromQuery] Guid courseId)
+        {
+            try
+            {
+                return Ok(await _optionalCourseService.GetStudentsWithGrade(courseId));
             }
             catch (Exception e)
             {
