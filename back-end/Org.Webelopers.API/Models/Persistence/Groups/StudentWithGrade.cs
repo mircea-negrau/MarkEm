@@ -2,7 +2,7 @@ using System;
 
 namespace Org.Webelopers.Api.Models.Persistence.Groups
 {
-    public class TeacherGroupStudent
+    public class StudentWithGrade
     {
         public Guid Id { get; set; }
         public string LastName { get; set; }

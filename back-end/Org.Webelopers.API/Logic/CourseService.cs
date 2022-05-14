@@ -253,7 +253,7 @@ namespace Org.Webelopers.Api.Logic
                     Number = group.Number,
                     Students = group.Contracts
                         .Select(contract => contract.Student)
-                        .Select(student => new TeacherGroupStudent
+                        .Select(student => new StudentWithGrade
                         {
                             Id = student.AccountId,
                             LastName = student.Account.LastName,

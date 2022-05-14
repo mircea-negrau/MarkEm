@@ -9,6 +9,6 @@ namespace Org.Webelopers.Api.Models.Persistence.Groups
         
         public string Number { get; set; }
         
-        public List<TeacherGroupStudent> Students { get; set; }
+        public List<StudentWithGrade> Students { get; set; }
     }
 }
