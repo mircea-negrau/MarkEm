@@ -38,7 +38,8 @@ namespace Org.Webelopers.Api.Logic
         #endregion
 
         public List<OptionalCourse> FilterCourses(Predicate<OptionalCourse> filterPredicate) =>
-            _context.OptionalCourses.Where(course => filterPredicate(course)).ToList();
+            // _context.FindEntity<OptionalCourse>(filterPredicate).ToList();
+            _context.OptionalCourses.ToList().Where(course => filterPredicate(course)).ToList();
 
         #region PrivateSetCoursePreferenceMethods
         
@@ -102,7 +103,10 @@ namespace Org.Webelopers.Api.Logic
         
         public ProposedCoursesIds GetProposed(Guid teacherId)
         {
-            var coursesIds = GetCourses(teacherId).Select(course => course.Id).Take(2).ToList();
+            var coursesIds = GetCourses(teacherId)
+                .Where(course => course.IsProposed)
+                .Select(course => course.Id)
+                .Take(2).ToList();
 
             return new ProposedCoursesIds
             {
@@ -138,6 +142,9 @@ namespace Org.Webelopers.Api.Logic
                     Specialization = course.Semester.StudyYear.Specialization.Name,
                     Semester = course.Semester.Semester
                 })
+                .OrderBy(optional => optional.Name)
+                .ThenBy(optional => optional.Specialization)
+                .ThenBy(optional => optional.Semester)
                 .ToListAsync();
             return new TeacherOptionals { Optionals = enrichedCourses };
         }
