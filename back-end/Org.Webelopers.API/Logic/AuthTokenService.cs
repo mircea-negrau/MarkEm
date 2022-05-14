@@ -5,8 +5,10 @@ using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Types;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Primitives;
 
 namespace Org.Webelopers.Api.Logic
 {
@@ -58,6 +60,12 @@ namespace Org.Webelopers.Api.Logic
                 ValidateAudience = false
             }, out SecurityToken validatedToken);
             return (JwtSecurityToken)validatedToken;
+        }
+
+        public Guid GetAccountId(StringValues authorization)
+        {
+            var token = ParseAuthToken(authorization);
+            return Guid.Parse(token.Claims.FirstOrDefault(claim => claim.Type == "uid")?.Value ?? throw new IAuthTokenService.UidClaimNotFound());
         }
     }
 }
