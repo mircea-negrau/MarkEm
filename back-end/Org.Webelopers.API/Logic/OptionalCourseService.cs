@@ -97,7 +97,21 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
         }
 
-        public void ChangeProposedCourses(Guid course1Id, Guid course2Id)
+        private List<OptionalCourse> GetCourses(Guid teacherId) =>
+            FilterCourses(course => course.TeacherId == teacherId).ToList();
+        
+        public ProposedCoursesIds GetProposed(Guid teacherId)
+        {
+            var coursesIds = GetCourses(teacherId).Select(course => course.Id).Take(2).ToList();
+
+            return new ProposedCoursesIds
+            {
+                First = coursesIds.Count >= 1 ? coursesIds[0] : Guid.Empty,
+                Second = coursesIds.Count >= 2 ? coursesIds[1] : Guid.Empty,
+            };
+        }
+        
+        public void Propose(Guid course1Id, Guid course2Id)
         {
             var course1 = FindOptionalCourseByIdAndThrowIfNullReference(course1Id);
             var course2 = FindOptionalCourseByIdAndThrowIfNullReference(course2Id);
@@ -108,6 +122,26 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
         }
 
+        public async Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId)
+        {
+            var courses = _context.OptionalCourses
+                .AsNoTracking()
+                .Where(course => course.TeacherId == teacherId);
+            var enrichedCourses = await courses
+                .Include(course => course.Semester)
+                    .ThenInclude(semester => semester.StudyYear)
+                        .ThenInclude(year => year.Specialization)
+                .Select(course => new TeacherOptional
+                {
+                    Id = course.Id,
+                    Name = course.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    Semester = course.Semester.Semester
+                })
+                .ToListAsync();
+            return new TeacherOptionals { Optionals = enrichedCourses };
+        }
+        
         private void ClearProposedCourses(Guid teacherId)
         {
             foreach (OptionalCourse optionalCourse in _context.OptionalCourses
