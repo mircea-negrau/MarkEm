@@ -5,8 +5,7 @@ import {
   deleteContract,
   getAllContracts,
   getFaculties,
-  getFacultySpecialisations,
-  signContract
+  getFacultySpecialisations
 } from '../state/thunks/contracts'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../state/store'
@@ -42,10 +41,10 @@ export default function Contract({ contract }) {
 
 export const Contracts: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
-  const state = useSelector((state: AppState) => state.contract)
-  const [selectedContract, setSelectedContract] = useState('')
+  const state = useSelector((state: AppState) => state.contracts)
   const dispatch = useDispatch()
-  const [updateContracts, setUpdateContracts] = useState(true)
+
+  const [selectedContract, setSelectedContract] = useState('')
 
   const [specialisation, setSpecialisation] = useState('')
   const [faculty, setFaculty] = useState('')
@@ -122,11 +121,10 @@ export const Contracts: FunctionComponent = () => {
   })
 
   useEffect(() => {
-    if (updateContracts == true) {
+    if (state.contractsStatus != FetchStatus.success) {
       dispatch(getAllContracts(token))
-      setUpdateContracts(false)
     }
-  }, [dispatch, token, updateContracts, state])
+  }, [dispatch, state.contractsStatus, token])
 
   useEffect(() => {
     dispatch(getFaculties())
@@ -228,7 +226,6 @@ export const Contracts: FunctionComponent = () => {
                 deleteContract({ contractId: selectedContract, token: token })
               )
               dispatch(getAllContracts(token))
-              setUpdateContracts(true)
             }
           }}
         >

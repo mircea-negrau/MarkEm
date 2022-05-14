@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Models.Persistence.Groups;
-using Org.Webelopers.Api.Models.Persistence.Semesters;
 using Org.Webelopers.Api.Models.Persistence.StudyYears;
 using System;
-using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Controllers
 {

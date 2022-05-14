@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
+using Org.Webelopers.Api.Models.Persistence.Profiles;
 using Org.Webelopers.Api.Models.Types;
 using System;
 using System.IO;
@@ -31,7 +32,7 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpGet("{username}")]
         [Authorize(Roles = "Student,Teacher,Admin")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProfileResponseDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetProfileByUsername([FromRoute] string username)
         {

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Extensions
 {
@@ -30,8 +31,8 @@ namespace Org.Webelopers.Api.Extensions
                 {
                     Id = Guid.NewGuid(),
                     Username = $"TestAccount{i}",
-                    Email = "dummyEmail@email.com",
-                    PasswordHash = "dummyPasswordHash",
+                    Email = $"test{i}@test.com",
+                    PasswordHash = HashPassword("defaultpassword"),
                     FirstName = $"firstName{i}",
                     LastName = $"firstName{i}",
                     About = "",
