@@ -11,6 +11,6 @@ namespace Org.Webelopers.Api.Models.Persistence.StudyYears
 
         public long EndDate { get; set; }
 
-        public SpecializationDetailDto Specialization { get; set; }
+        public SpecializationDetailDto? Specialization { get; set; }
     }
 }

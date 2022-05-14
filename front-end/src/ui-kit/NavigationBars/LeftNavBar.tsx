@@ -194,6 +194,20 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             </MenuItem>
           </>
         )}
+
+        {state.userRole == 'Admin' && (
+          <>
+            <MenuItem
+              isActive={location.pathname == '/admin/performance'}
+              onClick={() => {
+                window.location.replace('/admin/performance')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Performance</MenuItemText>
+            </MenuItem>
+          </>
+        )}
         <MenuItem
           isActive={location.pathname == '/settings'}
           onClick={() => {
