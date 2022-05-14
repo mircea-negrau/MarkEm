@@ -34,14 +34,14 @@ namespace Org.Webelopers.Api.Extensions
         public virtual DbSet<StudentMandatoryCourseEnrollment> StudentEnrolledCourse { get; set; }
         public virtual DbSet<FacultyGroup> Groups { get; set; }
 
-        public DbSet<TCourse> CoursesByType<TCourse>() where TCourse: BaseCourse => Set<TCourse>();
+        public DbSet<TCourse> CoursesByType<TCourse>() where TCourse : BaseCourse => Set<TCourse>();
 
-        public TEntity FindEntity<TEntity>(Predicate<TEntity> predicate) where TEntity : class => 
+        public TEntity FindEntity<TEntity>(Predicate<TEntity> predicate) where TEntity : class =>
             Set<TEntity>().ToList().FirstOrDefault(entity => predicate(entity));
-        
-        public TEntity FindEntityAndThrowIfNullReference<TEntity>(Predicate<TEntity> predicate, String exceptionMessage) where TEntity: class => 
+
+        public TEntity FindEntityAndThrowIfNullReference<TEntity>(Predicate<TEntity> predicate, String exceptionMessage) where TEntity : class =>
             Utils.ThrowIfNullReference(FindEntity(predicate), exceptionMessage);
-        
+
         #region Configuration
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

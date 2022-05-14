@@ -4,9 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LoginPage } from './ui/LoginPage'
 import { AuthComponent } from './ui/Authentication/AuthComponent'
 import { Dashboard } from './ui/Dashboard'
-import { TimeTable } from './ui/TimeTable'
 import { Contracts } from './ui/Contracts'
-import { Homework } from './ui/Homework'
 import { Settings } from './ui/Settings'
 
 import { RegisterPage } from './ui/RegisterPage'
@@ -33,14 +31,6 @@ const App: FunctionComponent = () => {
             }
           />
           <Route
-            path={'/time-table'}
-            element={
-              <AuthComponent>
-                <TimeTable />
-              </AuthComponent>
-            }
-          />
-          <Route
             path={'/contracts'}
             element={
               <AuthComponent>
@@ -53,14 +43,6 @@ const App: FunctionComponent = () => {
             element={
               <AuthComponent>
                 <EditContractPage />
-              </AuthComponent>
-            }
-          />
-          <Route
-            path={'/homework'}
-            element={
-              <AuthComponent>
-                <Homework />
               </AuthComponent>
             }
           />

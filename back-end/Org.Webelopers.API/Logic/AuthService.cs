@@ -5,6 +5,7 @@ using Org.Webelopers.Api.Models.DbEntities.BaseClasses;
 using Org.Webelopers.Api.Models.Types;
 using System;
 using System.Linq;
+using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Logic.Auth
 {
@@ -68,7 +69,7 @@ namespace Org.Webelopers.Api.Logic.Auth
             _context.Accounts.FirstOrDefault(x => x.Email == email) != null;
 
         private static Account ValidatePassword(string password, Account account) =>
-            BCrypt.Net.BCrypt.Verify(password, account.PasswordHash)
+            Verify(password, account.PasswordHash)
                 ? account
                 : null;
     }

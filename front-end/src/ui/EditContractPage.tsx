@@ -49,7 +49,7 @@ export const EditContractPage: FunctionComponent = () => {
   const dispatch = useDispatch()
   const courses = useSelector((state: AppState) => state.courses.coursesNames)
   const semesterContracts = useSelector(
-    (state: AppState) => state.contract.semesterContracts
+    (state: AppState) => state.contracts.semesterContracts
   )
   const optionalCourses = useSelector(
     (state: AppState) => state.optionalCourses.courses

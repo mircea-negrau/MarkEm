@@ -10,7 +10,7 @@ import { profileReducer } from './slices/profile'
 export const store = configureStore({
   reducer: {
     global: globalReducer,
-    contract: contractReducer,
+    contracts: contractReducer,
     courses: coursesReducer,
     grades: gradeReducer,
     optionalCourses: optionalCoursesReducer,

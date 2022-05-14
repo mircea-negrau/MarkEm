@@ -9,7 +9,6 @@ import { logout } from '../../state/thunks/global'
 import AssignmentIcon from '@mui/icons-material/Assignment'
 import SettingsIcon from '@mui/icons-material/Settings'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
 import { useLocation } from 'react-router-dom'
 
 interface LeftNavBarProps {
@@ -144,15 +143,6 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         {state.userRole == 'Student' && (
           <>
             <MenuItem
-              isActive={location.pathname == '/time-table'}
-              onClick={() => {
-                window.location.replace('/time-table')
-              }}
-            >
-              <CalendarTodayIcon style={{ color: '#cfd8e3' }} />
-              <MenuItemText>Time Table</MenuItemText>
-            </MenuItem>
-            <MenuItem
               isActive={location.pathname == '/contracts'}
               onClick={() => {
                 window.location.replace('/contracts')
@@ -160,15 +150,6 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             >
               <AssignmentIcon style={{ color: '#cfd8e3' }} />
               <MenuItemText>Contracts</MenuItemText>
-            </MenuItem>
-            <MenuItem
-              isActive={location.pathname == '/homework'}
-              onClick={() => {
-                window.location.replace('/homework')
-              }}
-            >
-              <MenuBookIcon style={{ color: '#cfd8e3' }} />
-              <MenuItemText>Homework</MenuItemText>
             </MenuItem>
             <MenuItem
               isActive={location.pathname == '/grades'}
