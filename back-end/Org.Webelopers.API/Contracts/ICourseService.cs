@@ -13,5 +13,6 @@ namespace Org.Webelopers.Api.Contracts
         public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
         public void AddSamplesForGetCourseGroups();
         public Task<TeacherGroupsResponse> GetCourseGroups(Guid courseId);
+        public bool Exists(Guid courseId);
     }
 }

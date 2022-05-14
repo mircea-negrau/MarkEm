@@ -278,5 +278,7 @@ namespace Org.Webelopers.Api.Logic
                 Groups = enrichedGroups
             };
         }
+        
+        public bool Exists(Guid courseId) => _context.FindEntity<MandatoryCourse>(course => course.Id == courseId) != default;
     }
 }

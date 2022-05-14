@@ -395,5 +395,9 @@ namespace Org.Webelopers.Api.Logic
 
         private static short GetGrade(IReadOnlyCollection<short> grades) =>
             (short) (grades.Any() ? grades.First() : -1);
+        
+        
+
+        public bool Exists(Guid courseId) => _context.FindEntity<OptionalCourse>(course => course.Id == courseId) != default;
     }
 }

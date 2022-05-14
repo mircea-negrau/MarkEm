@@ -47,5 +47,7 @@ namespace Org.Webelopers.Api.Contracts
         public void AddSamplesForGetOptionalStudentsWithGrade();
 
         public Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId);
+
+        public bool Exists(Guid courseId);
     }
 }
