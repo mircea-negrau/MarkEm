@@ -53,6 +53,10 @@ namespace Org.Webelopers.Api.Logic
 
         public void SetGrade(Guid studentId, Guid courseId, short value)
         {
+            _context.FindEntityAndThrowIfNullReference<Student>(student => student.AccountId == studentId, 
+                $"student {studentId} does not exist");
+            _context.FindEntityAndThrowIfNullReference<MandatoryCourse>(course => course.Id == courseId, 
+                $"course {courseId} does not exist");
             var grade = GetGrade(studentId, courseId);
             if (grade == default)
             {

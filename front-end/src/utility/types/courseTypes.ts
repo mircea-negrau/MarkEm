@@ -21,7 +21,7 @@ export interface OptionalCourse {
   credits: number
 }
 
-export interface TeacherMandatoryEnrichedCourses {
+export interface TeacherEnrichedCourses {
   id: string
   name: string
   credits: number

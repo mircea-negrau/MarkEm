@@ -28,6 +28,8 @@ namespace Org.Webelopers.Api.Contracts
 
         public void ApproveCourse(Guid courseId);
 
+        public void DisapproveCourse(Guid courseId);
+
         public void SetCourseCapacity(Guid courseId, int capacity);
 
         /// <summary>
@@ -42,6 +44,8 @@ namespace Org.Webelopers.Api.Contracts
         public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId);
         public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid contractId);
 
+        public void AddSamplesForAssignCoursesToStudents();
+
         /// <returns>the number of semester contracts that got a course assigned</returns>
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference);
 
@@ -55,5 +59,7 @@ namespace Org.Webelopers.Api.Contracts
         public Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId);
 
         public bool Exists(Guid courseId);
+        
+        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId);
     }
 }

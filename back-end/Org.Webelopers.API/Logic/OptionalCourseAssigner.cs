@@ -29,7 +29,8 @@ namespace Org.Webelopers.Api.Logic
                 ? -1
                 : _context.OptionalCoursePreferences.Count(preference => preference.OptionalCourseId == courseId);
 
-        private IQueryable<OptionalCourse> GetApprovedCoursesWithMinimumNumberOfFollowers(int minimumNumberOfFollowers) => _context.OptionalCourses.Where(course => course.IsApproved && GetNumberOfPreferences(course.Id) >= minimumNumberOfFollowers);
+        private IQueryable<OptionalCourse> GetApprovedCoursesWithMinimumNumberOfFollowers(int minimumNumberOfFollowers) => 
+            _context.OptionalCourses.Where(course => course.IsApproved && GetNumberOfPreferences(course.Id) >= minimumNumberOfFollowers);
 
         private IQueryable<Guid> GetCoursesIdsSortedByPreferenceValue(Guid semesterContractId) =>
             _context.OptionalCoursePreferences
@@ -47,9 +48,10 @@ namespace Org.Webelopers.Api.Logic
                 ? -1
                 : _context.SemesterContracts.Count(contract => contract.Id == courseId);
 
-        private IQueryable<Guid> GetIdsOfEnrollableCourses(IQueryable<OptionalCourse> courses) => courses
-            .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-            .Select(course => course.Id);
+        private IQueryable<Guid> GetIdsOfEnrollableCourses(IQueryable<OptionalCourse> courses) => 
+            courses
+                .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
+                .Select(course => course.Id);
         
         #endregion
 

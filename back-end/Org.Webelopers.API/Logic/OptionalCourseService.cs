@@ -167,9 +167,18 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
         }
 
+        public void DisapproveCourse(Guid courseId)
+        {
+            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
+
+            optionalCourse.IsApproved = false;
+            
+            _context.SaveChanges();
+        }
+
         public void SetCourseCapacity(Guid courseId, int capacity)
         {
-            Utils.ThrowIf<InvalidEnumArgumentException>(capacity <= 0, $"Expected capacity > 0. Got {capacity}");
+            Utils.ThrowIf<ArgumentOutOfRangeException>(capacity <= 0, $"Expected capacity > 0. Got {capacity}");
             var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
 
             optionalCourse.MaxNumberOfStudent = capacity;
@@ -274,6 +283,12 @@ namespace Org.Webelopers.Api.Logic
             }).ToList();
 
         }
+
+        public void AddSamplesForAssignCoursesToStudents()
+        {
+            // TODO
+        }
+        
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference) => 
             _optionalCourseAssigner.AssignCoursesToStudents(assignToContractsWithNoPreference);
 
@@ -451,5 +466,8 @@ namespace Org.Webelopers.Api.Logic
         
 
         public bool Exists(Guid courseId) => _context.FindEntity<OptionalCourse>(course => course.Id == courseId) != default;
+        
+        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
+            _context.OptionalCourses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
     }
 }
