@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 
@@ -30,7 +31,11 @@ namespace Org.Webelopers.Api.Logic
                 : _context.OptionalCoursePreferences.Count(preference => preference.OptionalCourseId == courseId);
 
         private IQueryable<OptionalCourse> GetApprovedCoursesWithMinimumNumberOfFollowers(int minimumNumberOfFollowers) => 
-            _context.OptionalCourses.Where(course => course.IsApproved && GetNumberOfPreferences(course.Id) >= minimumNumberOfFollowers);
+            _context.OptionalCourses
+                .AsNoTracking()
+                .ToList()
+                .Where(course => course.IsApproved && GetNumberOfPreferences(course.Id) >= minimumNumberOfFollowers)
+                .AsQueryable();
 
         private IQueryable<Guid> GetCoursesIdsSortedByPreferenceValue(Guid semesterContractId) =>
             _context.OptionalCoursePreferences
@@ -50,8 +55,11 @@ namespace Org.Webelopers.Api.Logic
 
         private IQueryable<Guid> GetIdsOfEnrollableCourses(IQueryable<OptionalCourse> courses) => 
             courses
+                .AsNoTracking()
+                .ToList()
                 .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-                .Select(course => course.Id);
+                .Select(course => course.Id)
+                .AsQueryable();
         
         #endregion
 

@@ -18,7 +18,7 @@ namespace Org.Webelopers.Api.Controllers
     [Produces(MimeTypes.Json)]
     public class OptionalsController : Controller
     {
-        #region FieldAndConstructor
+        #region FieldsAndConstructor
 
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthTokenService _authTokenService;
