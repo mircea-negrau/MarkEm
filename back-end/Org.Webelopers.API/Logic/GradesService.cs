@@ -93,5 +93,17 @@ namespace Org.Webelopers.Api.Logic
                     CourseName = grade.Course.Name
                 }).ToList();
         }
+        public HashSet<MandatoryCourseGrade> GetCourseGrades(Guid courseId) =>
+            _context.Grades
+                .AsNoTracking()
+                .Where(grade => grade.CourseId == courseId)
+                .ToHashSet();
+
+        public HashSet<MandatoryCourseGrade> GetTeacherGrades(Guid teacherId) =>
+            _context.Grades
+                .AsNoTracking()
+                .Include(grade => grade.Course)
+                .Where(grade => grade.Course.TeacherId == teacherId)
+                .ToHashSet();
     }
 }
