@@ -61,5 +61,7 @@ namespace Org.Webelopers.Api.Contracts
         public bool Exists(Guid courseId);
         
         public bool IsCourseTaughtBy(Guid courseId, Guid teacherId);
+
+        public Task<OptionalsChiefView> GetOptionalsChiefView(Guid chiefId);
     }
 }

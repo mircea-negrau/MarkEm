@@ -328,7 +328,7 @@ namespace Org.Webelopers.Api.Logic
                 .Include(x => x.Semester)
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
-                .ThenInclude(y => y.StudyDegree)
+                .ThenInclude(y => y.StudyLine)
                 .Include(x => x.Semester)
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
@@ -469,5 +469,43 @@ namespace Org.Webelopers.Api.Logic
         
         public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
             _context.OptionalCourses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
+
+        public async Task<OptionalsChiefView> GetOptionalsChiefView(Guid chiefId)
+        {
+            var courses = _context.Faculties
+                .AsNoTracking()
+                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId)
+                .Include(faculty => faculty.Specialisations)
+                    .ThenInclude(specialization => specialization.StudyYears)
+                    .ThenInclude(year => year.Semesters)
+                    .ThenInclude(semester => semester.OptionalCourses)
+                .SelectMany(faculty => faculty.Specialisations)
+                .SelectMany(specialization => specialization.StudyYears)
+                .SelectMany(year => year.Semesters)
+                .SelectMany(semester => semester.OptionalCourses)
+                .Where(course => course.IsProposed);
+            var enrichedCourses = await courses
+                .Include(course => course.Semester.StudyYear.Specialization.StudyDegree)
+                .Include(course => course.Semester.StudyYear.Specialization.StudyLine)
+                .Include(course => course.Teacher)
+                    .ThenInclude(teacher => teacher.Account)
+                .Select(course => new OptionalChiefView
+                {
+                    Id = course.Id,
+                    Name = course.Name,
+                    Credits = course.Credits,
+                    TeacherLastName = course.Teacher.Account.LastName,
+                    TeacherFirstName = course.Teacher.Account.FirstName,
+                    Semester = course.Semester.Semester,
+                    IsApproved = course.IsApproved,
+                    Capacity = course.MaxNumberOfStudent,
+                    StudyDegree = course.Semester.StudyYear.Specialization.StudyDegree.Name,
+                    StudyLine = course.Semester.StudyYear.Specialization.StudyLine.Name,
+                    StudyLineShort = course.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                })
+                .ToListAsync();
+            return new OptionalsChiefView { Optionals = enrichedCourses };
+        }
     }
 }
