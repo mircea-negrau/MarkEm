@@ -13,6 +13,11 @@ namespace Org.Webelopers.Api.Contracts
 
         public Guid GetAccountId(StringValues authorization);
 
-        public class UidClaimNotFound : Exception {}
+        public class UidClaimNotFound : Exception
+        {
+            public UidClaimNotFound() : base("UID claim not found")
+            {
+            }
+        }
     }
 }

@@ -280,5 +280,8 @@ namespace Org.Webelopers.Api.Logic
         }
         
         public bool Exists(Guid courseId) => _context.FindEntity<MandatoryCourse>(course => course.Id == courseId) != default;
+
+        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
+            _context.Courses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
     }
 }

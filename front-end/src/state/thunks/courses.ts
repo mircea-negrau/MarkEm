@@ -4,7 +4,7 @@ import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
 import {
   CourseShort,
-  TeacherMandatoryEnrichedCourses
+  TeacherEnrichedCourses
 } from '../../utility/types/courseTypes'
 
 export const getCoursesByTeacher = createAsyncThunk(
@@ -13,12 +13,30 @@ export const getCoursesByTeacher = createAsyncThunk(
     try {
       const decoded = jwt_decode(token) as UserDetails
 
-      const response = await SECURE_API.get(
-        `/teacher/courses/all?teacherId=${decoded.uid}`
+      const mandatoryCoursesResponse = await SECURE_API.get(
+        `/courses/all?teacherId=${decoded.uid}`
       )
-      console.log('Response-start:\n', response, 'Response-end')
-      const responseContent: TeacherMandatoryEnrichedCourses[] =
-        response.data.courses
+      console.log(
+        'Response-mandatoryCoursesResponse:\n',
+        mandatoryCoursesResponse,
+        'Response-end'
+      )
+      const optionalCoursesResponse = await SECURE_API.get(
+        `/optionals/all?teacherId=${decoded.uid}`
+      )
+      console.log(
+        'Response-optionalCoursesResponse:\n',
+        optionalCoursesResponse,
+        'Response-end'
+      )
+      const partialResponseContent: TeacherEnrichedCourses[] =
+        mandatoryCoursesResponse.data.courses
+      // mandatoryCoursesResponse.data.courses.push(
+      //   ...optionalCoursesResponse.data.courses
+      // )
+      const responseContent: TeacherEnrichedCourses[] =
+        partialResponseContent.concat(optionalCoursesResponse.data.courses)
+      console.log('responseContent =', responseContent)
       return responseContent
     } catch (error) {
       alert(error)

@@ -55,7 +55,7 @@ export const CoursesPage: FunctionComponent = () => {
     }
   }, [dispatch, global.accessToken, state.coursesStatus])
 
-  console.log(`[CoursePage.tsx] `, state.courses)
+  console.log(`[CoursesPage.tsx] `, state.courses)
 
   return (
     <MainContainer>
