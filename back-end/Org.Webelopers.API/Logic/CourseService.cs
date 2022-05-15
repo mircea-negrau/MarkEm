@@ -283,5 +283,25 @@ namespace Org.Webelopers.Api.Logic
 
         public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
             _context.Courses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
+
+        public HashSet<MandatoryCourse> GetFacultyCourses(Guid facultyId)
+        {
+            _context.FindEntityAndThrowIfNullReference<Faculty>(faculty => faculty.Id == facultyId,
+                $"faculty {facultyId} does not exist");
+
+            return _context.Faculties
+                .AsNoTracking()
+                .Where(faculty => faculty.Id == facultyId)
+                .Include(faculty => faculty.Specialisations)
+                .SelectMany(faculty => faculty.Specialisations)
+                .Include(specialization => specialization.StudyYears)
+                .SelectMany(specialization => specialization.StudyYears)
+                .Include(year => year.Semesters)
+                .SelectMany(year => year.Semesters)
+                .Include(semester => semester.Courses)
+                .SelectMany(semester => semester.Courses)
+                .Distinct()
+                .ToHashSet();
+        }
     }
 }

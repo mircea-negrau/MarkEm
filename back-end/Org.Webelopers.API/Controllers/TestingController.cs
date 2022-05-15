@@ -18,11 +18,13 @@ namespace Org.Webelopers.Api.Controllers
 
         private readonly ILogger<AuthController> _logger;
         private readonly IFacultyService _facultyService;
+        private readonly ICourseService _courseService;
 
-        public TestingController(ILogger<AuthController> logger, IFacultyService facultyService)
+        public TestingController(ILogger<AuthController> logger, IFacultyService facultyService, ICourseService courseService)
         {
             _logger = logger;
             _facultyService = facultyService;
+            _courseService = courseService;
         }
 
         #endregion
@@ -49,6 +51,7 @@ namespace Org.Webelopers.Api.Controllers
         [HttpGet("faculty/{facultyId}/teachers")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HashSet<Teacher>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetFacultyTeachers([FromRoute] Guid facultyId)
         {
             try
@@ -63,7 +66,37 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 return NotFound(new {message = e.Message});
             }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
         }
-        
+
+        [HttpGet("faculty/{facultyId}/courses")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HashSet<MandatoryCourse>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetFacultyCourses([FromRoute] Guid facultyId)
+        {
+            try
+            {
+                var result = _courseService.GetFacultyCourses(facultyId);
+                _logger.LogInformation($"faculty {facultyId} has {result.Count} courses");
+                return Ok(result);
+            }
+            catch (NullReferenceException e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                return NotFound(new {message = e.Message});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
     }
 }
