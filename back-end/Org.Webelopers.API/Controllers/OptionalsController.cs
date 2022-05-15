@@ -18,6 +18,8 @@ namespace Org.Webelopers.Api.Controllers
     [Produces(MimeTypes.Json)]
     public class OptionalsController : Controller
     {
+        #region FieldAndConstructor
+
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthTokenService _authTokenService;
         private readonly IOptionalCourseService _optionalCourseService;
@@ -27,13 +29,15 @@ namespace Org.Webelopers.Api.Controllers
             IAuthTokenService authTokenService, 
             IOptionalCourseService optionalCourseService, 
             IOptionalGradesService optionalGradesService
-            )
+        )
         {
             _logger = logger;
             _authTokenService = authTokenService;
             _optionalCourseService = optionalCourseService;
             _optionalGradesService = optionalGradesService;
         }
+
+        #endregion
 
         private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
         {

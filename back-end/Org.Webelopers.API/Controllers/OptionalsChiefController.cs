@@ -17,6 +17,8 @@ namespace Org.Webelopers.Api.Controllers
     [Authorize(Policy = "ChiefOfDepartmentRequirement")]
     public class OptionalsChiefController : Controller
     {
+        #region FieldsAndConstructor
+
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthTokenService _authTokenService;
         private readonly IOptionalCourseService _optionalCourseService;
@@ -29,6 +31,8 @@ namespace Org.Webelopers.Api.Controllers
             _authTokenService = authTokenService;
             _optionalCourseService = optionalCourseService;
         }
+
+        #endregion
 
         [HttpGet("all/chiefPage")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(OptionalsChiefView))]
