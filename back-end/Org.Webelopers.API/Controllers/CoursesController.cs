@@ -12,10 +12,10 @@ using Org.Webelopers.Api.Models.Persistence.Groups;
 
 namespace Org.Webelopers.Api.Controllers
 {
-    [Route("courses")]
-    [Authorize(Roles = "Teacher")]
     [ApiController]
+    [Route("courses")]
     [Produces(MimeTypes.Json)]
+    [Authorize(Roles = "Teacher")]
     public class CoursesController : Controller
     {
         private readonly ILogger<AuthController> _logger;
@@ -72,24 +72,6 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-
-        [HttpPost("courseGroupsAddSamples")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddSamplesForGetCourseGroups()
-        {
-            try
-            {
-                _courseService.AddSamplesForGetCourseGroups();
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
     
         [HttpGet("course/{courseId}/groups")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
@@ -115,6 +97,24 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return BadRequest(new { message = e.Message });
+            }
+        }
+
+        [HttpPost("courseGroupsAddSamples")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSamplesForGetCourseGroups()
+        {
+            try
+            {
+                _courseService.AddSamplesForGetCourseGroups();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
             }
         }
 
