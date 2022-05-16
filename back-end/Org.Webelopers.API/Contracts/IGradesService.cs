@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Grades;
 
 namespace Org.Webelopers.Api.Contracts
@@ -11,5 +12,7 @@ namespace Org.Webelopers.Api.Contracts
         public void DeleteGrade(Guid gradeId);
         public void SetGrade(Guid studentId, Guid courseId, short value);
         public List<GradesDetailDto> GetStudentGrades(Guid studentid);
+        public HashSet<MandatoryCourseGrade> GetCourseGrades(Guid courseId);
+        public HashSet<MandatoryCourseGrade> GetTeacherGrades(Guid teacherId);
     }
 }

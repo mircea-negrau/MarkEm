@@ -16,6 +16,10 @@ namespace Org.Webelopers.Api.Contracts
         public List<FacultyDetailDto> GetAllFaculties();
         public FacultyDetailDto GetAllFacultiesDetails();
         public List<SpecialisationDto> GetFacultySpecialisations(Guid facultyId, Guid degreeId);
-
+        public HashSet<Faculty> GetFaculties();
+        public Guid GetChiefId(Guid facultyId);
+        public Guid GetFacultyIdBy(Guid chiefId);
+        /// gets all teachers that have a course in the faculty with the given id
+        public HashSet<Teacher> GetFacultyTeachers(Guid facultyId);
     }
 }

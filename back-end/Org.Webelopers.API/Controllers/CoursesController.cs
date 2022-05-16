@@ -18,6 +18,8 @@ namespace Org.Webelopers.Api.Controllers
     [Authorize(Roles = "Teacher")]
     public class CoursesController : Controller
     {
+        #region FieldsAndConstructor
+
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthTokenService _authTokenService;
         private readonly ICourseService _courseService;
@@ -35,20 +37,7 @@ namespace Org.Webelopers.Api.Controllers
             _gradesService = gradesService;
         }
 
-        private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
-        {
-            if (!_courseService.IsCourseTaughtBy(courseId, teacherId))
-            {
-                throw new InvalidCourseTeacher($"course {courseId} doesn't belong to teacher {teacherId}");
-            }
-        }
-
-        private class InvalidCourseTeacher : Exception
-        {
-            public InvalidCourseTeacher(string message) : base(message)
-            {
-            }
-        }
+        #endregion
 
         [HttpGet("all")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherCoursesResponse))]
@@ -147,6 +136,21 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return BadRequest(new { message = e.Message });
+            }
+        }
+
+        private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
+        {
+            if (!_courseService.IsCourseTaughtBy(courseId, teacherId))
+            {
+                throw new InvalidCourseTeacher($"course {courseId} doesn't belong to teacher {teacherId}");
+            }
+        }
+
+        private class InvalidCourseTeacher : Exception
+        {
+            public InvalidCourseTeacher(string message) : base(message)
+            {
             }
         }
     }

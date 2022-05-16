@@ -27,5 +27,13 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual List<StudentContractSemester> SemesterContracts { get; set; }
 
         #endregion
+
+        public static StudySemester Create(int semester, Guid studyYearId) =>
+            new()
+            {
+                Id = Guid.NewGuid(),
+                Semester = (short) semester,
+                StudyYearId = studyYearId
+            };
     }
 }

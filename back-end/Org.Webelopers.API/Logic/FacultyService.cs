@@ -7,6 +7,7 @@ using Org.Webelopers.Api.Models.Persistence.StudyDegree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Org.Webelopers.Api.Logic
 {
@@ -70,6 +71,43 @@ namespace Org.Webelopers.Api.Logic
         public void SetChiefOfDepartmentId(Guid chiefId) => throw new NotImplementedException();
         public void SetGroupId(Guid contractId, Guid groupId) => throw new NotImplementedException();
         List<FacultyDetailDto> IFacultyService.GetAllFaculties() => throw new NotImplementedException();
+
+        public HashSet<Faculty> GetFaculties() => _context.Faculties.ToHashSet();
+
+        public Guid GetChiefId(Guid facultyId) =>
+            _context.FindEntityAndThrowIfNullReference<Faculty>(faculty => faculty.Id == facultyId, 
+                $"faculty {facultyId} doesn't exists").ChiefOfDepartmentId.GetValueOrDefault();
+
+        public Guid GetFacultyIdBy(Guid chiefId)
+        {   // TODO: IDEA create a IdDoesNotExistException on DatabaseContext and use it in FindEntityAndThrowIfNullReference
+            _context.FindEntityAndThrowIfNullReference<Teacher>(teacher => teacher.AccountId == chiefId, 
+                $"teacher {chiefId} doesn't exists");
+
+            return _context.FindEntityAndThrowIfNullReference<Faculty>(faculty => faculty.ChiefOfDepartmentId == chiefId, 
+                $"teacher {chiefId} is not a chief of department").Id;
+        }
+
+        public HashSet<Teacher> GetFacultyTeachers(Guid facultyId)
+        {
+            _context.FindEntityAndThrowIfNullReference<Faculty>(faculty => faculty.Id == facultyId,
+                $"faculty {facultyId} does not exist");
+
+            return _context.Faculties
+                .AsNoTracking()
+                .Where(faculty => faculty.Id == facultyId)
+                .Include(faculty => faculty.Specialisations)
+                .SelectMany(faculty => faculty.Specialisations)
+                .Include(specialization => specialization.StudyYears)
+                .SelectMany(specialization => specialization.StudyYears)
+                .Include(year => year.Semesters)
+                .SelectMany(year => year.Semesters)
+                .Include(semester => semester.Courses)
+                .SelectMany(semester => semester.Courses)
+                .Include(course => course.Teacher)
+                .Select(course => course.Teacher)
+                .Distinct()
+                .ToHashSet();
+        }
     }
 
 }

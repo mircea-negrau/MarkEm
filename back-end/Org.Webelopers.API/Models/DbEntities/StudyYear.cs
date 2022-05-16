@@ -33,5 +33,14 @@ namespace Org.Webelopers.Api.Models.DbEntities
         public virtual List<FacultyGroup> Groups { get; set; }
 
         #endregion
+
+        public static StudyYear Create(DateTimeOffset startDate, Guid specializationId) =>
+            new()
+            {
+                Id = Guid.NewGuid(),
+                StartDate = startDate.ToUnixTimeSeconds(),
+                EndDate = startDate.AddYears(+1).ToUnixTimeSeconds(),
+                SpecializationId = specializationId
+            };
     }
 }
