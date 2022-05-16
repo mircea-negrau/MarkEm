@@ -17,6 +17,8 @@ namespace Org.Webelopers.Api.Logic
 {
     public class OptionalCourseService : IOptionalCourseService
     {
+        #region FieldsAndConstructor
+
         private readonly DatabaseContext _context;
         private readonly OptionalCourseAssigner _optionalCourseAssigner;
 
@@ -25,6 +27,8 @@ namespace Org.Webelopers.Api.Logic
             _context = context;
             _optionalCourseAssigner = new OptionalCourseAssigner(_context);
         }
+
+        #endregion
 
         #region PrivateFindMethods
         
@@ -409,16 +413,24 @@ namespace Org.Webelopers.Api.Logic
         public int AssignCoursesToStudents(bool assignToContractsWithNoPreference) => 
             _optionalCourseAssigner.AssignCoursesToStudents(assignToContractsWithNoPreference);
 
-        public void AddSamplesForAssignCoursesToStudents() // TODO
+        public void AddSamplesForAssignCoursesToStudents() // TODO: use it for groups
         {
-            var semesters = _context.StudySemesters
-                .AsNoTracking()
-                .Include(semester => semester.OptionalCourses)
-                .ToHashSet();
-            foreach (var studySemester in semesters)
-            {
-                
-            }
+            // const int noOfStudentsMinIncl = 70 - 28;
+            // const int noOfStudentsMaxExcl = 70 + 1;
+            //
+            // var specializations = _context.Specialisations.AsNoTracking();
+            //
+            // foreach (var specialization in specializations)
+            // {
+            //     for (short year = 1; year <= specialization.Semesters / 2; year++)
+            //     {
+            //         var studyYear = StudyYear.Create(DateTimeOffset.UtcNow, specialization.Id);
+            //         var semester1 = StudySemester.Create(2 * year - 1, studyYear.Id);
+            //         var semester2 = StudySemester.Create(2 * year, studyYear.Id);
+            //
+            //     }
+            //     
+            // }
         }
         
         

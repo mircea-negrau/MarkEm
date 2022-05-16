@@ -19,12 +19,14 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ILogger<AuthController> _logger;
         private readonly IFacultyService _facultyService;
         private readonly ICourseService _courseService;
+        private readonly ITestingService _testingService;
 
-        public TestingController(ILogger<AuthController> logger, IFacultyService facultyService, ICourseService courseService)
+        public TestingController(ILogger<AuthController> logger, IFacultyService facultyService, ICourseService courseService, ITestingService testingService)
         {
             _logger = logger;
             _facultyService = facultyService;
             _courseService = courseService;
+            _testingService = testingService;
         }
 
         #endregion
@@ -98,5 +100,25 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new {message = e.Message});
             }
         }
+
+        [HttpPost("add/specializations/{number}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddRandomSpecializations([FromRoute] int number)
+        {
+            try
+            {
+                var result = _testingService.AddRandomSpecializations(number);
+                _logger.LogInformation($"created {result.Count} specializations");
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
     }
 }
