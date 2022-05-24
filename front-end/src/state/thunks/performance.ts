@@ -10,7 +10,7 @@ import {
 
 export const getGroups = createAsyncThunk('getGroups', async () => {
   try {
-    const response = await SECURE_API.get(`/admin/group/all`)
+    const response = await SECURE_API.get(`/group/all`)
     console.log('Response-start:\n', response, 'Response-end')
     const responseContent: Group[] = response.data
     return responseContent
@@ -21,7 +21,7 @@ export const getGroups = createAsyncThunk('getGroups', async () => {
 
 export const getSemesters = createAsyncThunk('getSemesters', async () => {
   try {
-    const response = await SECURE_API.get(`/admin/semester/all`)
+    const response = await SECURE_API.get(`/semester/all`)
     console.log('Response-start:\n', response, 'Response-end')
     const responseContent: SemesterReduced[] = response.data
     return responseContent
@@ -32,7 +32,7 @@ export const getSemesters = createAsyncThunk('getSemesters', async () => {
 
 export const getStudyYears = createAsyncThunk('getStudyYears', async () => {
   try {
-    const response = await SECURE_API.get(`/admin/studyYear/all`)
+    const response = await SECURE_API.get(`/year/all`)
     console.log('Response-start:\n', response, 'Response-end')
     const responseContent: StudyYearReduced[] = response.data
     return responseContent

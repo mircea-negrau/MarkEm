@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Persistence.Grades;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
+using Org.Webelopers.Api.Models.Dto;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -131,7 +132,48 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-        
+
+
+        [HttpPost("setPreference")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreference([FromBody] CoursePreferenceDto dto)
+        {
+            try
+            {
+                _optionalCourseService.SetCoursePreference(dto.ContractId, dto.OptionalCourseId, dto.Preference);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound(ex.Message);
+            }
+
+        }
+
+        [HttpPost("setAllPreferences")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreferences([FromBody] OptionalCoursePreferenceDto dto)
+        {
+            try
+            {
+                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.coursesIds);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound(ex.Message);
+            }
+
+        }
+
         [HttpGet("optional/{courseId}/students")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionalStudentsWithGradeResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

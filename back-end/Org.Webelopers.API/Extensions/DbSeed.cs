@@ -189,8 +189,9 @@ namespace Org.Webelopers.Api.Extensions
                 {
                     Id = Guid.NewGuid(),
                     TutorTeacherId = (Guid)tutorId,
-                    LeaderStudentId = (Guid)leaderId
-                });
+                    LeaderStudentId = (Guid)leaderId,
+                    Number = "Group" + i.ToString()
+                }) ;
                 groups.Add(new FacultyGroup
                 {
                     Id = Guid.NewGuid(),

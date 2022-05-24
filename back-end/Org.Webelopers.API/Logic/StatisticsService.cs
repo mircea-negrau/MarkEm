@@ -2,6 +2,7 @@
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.Persistence.Groups;
+using Org.Webelopers.Api.Models.Persistence.Performance;
 using Org.Webelopers.Api.Models.Persistence.Semester;
 using Org.Webelopers.Api.Models.Persistence.Students;
 using Org.Webelopers.Api.Models.Persistence.StudyYears;
@@ -20,34 +21,7 @@ namespace Org.Webelopers.Api.Logic
             _context = context;
         }
 
-        public List<GroupDto> GetAllGroups()
-        {
-            return _context.Groups.Select(group => new GroupDto()
-            {
-                GroupId = group.Id,
-                Number = group.Number
-            }).ToList();
-        }
-
-        public List<SemesterDto> GetAllSemesters()
-        {
-            return _context.StudySemesters.Select(semester => new SemesterDto()
-            {
-                Id = semester.Id,
-                Value = semester.Semester
-            }).ToList();
-        }
-
-        public List<StudyYearDto> GetAllYears()
-        {
-            return _context.StudyYears.Select(year => new StudyYearDto()
-            {
-                Id = year.Id,
-                EndDate = year.EndDate,
-                StartDate = year.StartDate,
-                SpecialisationName = year.Specialization.Name
-            }).ToList();
-        }
+        public List<StudentPerformanceDto> GetStudentsPerformance(Filter filter, int minimumAverage) => throw new NotImplementedException();
 
         public List<StudentAverageGradeDto> GetStudentsRankingByGroup(Guid groupId)
         {
@@ -66,12 +40,17 @@ namespace Org.Webelopers.Api.Logic
                 {
                     decimal averageGrade = gradesWeight / creditsWeight;
                     var student = _context.Accounts.FirstOrDefault(student => student.Id == contract.StudentId);
-                    groupStudentsAverageGrades.Add(new StudentAverageGradeDto()
-                    {
-                        StudentId = contract.StudentId,
-                        AverageGrade = averageGrade,
-                        StudentEmail = student.Email
-                    });
+                    var name = student.FirstName + " " + student.LastName;
+                    var username = student.Username;
+
+                    groupStudentsAverageGrades.Add(
+                        new StudentAverageGradeDto()
+                        {
+                            StudentId = contract.StudentId,
+                            AverageGrade = averageGrade,
+                            StudentName = name,
+                            StudentUser = username
+                        });
                 }
 
             }
@@ -100,13 +79,16 @@ namespace Org.Webelopers.Api.Logic
                     {
                         decimal averageGrade = gradesWeight / creditsWeight;
                         var student = _context.Accounts.FirstOrDefault(student => student.Id == contract.StudentId);
+                        var name = student.FirstName + " " + student.LastName;
+                        var username = student.Username;
 
                         semesterStudentsAverageGrades.Add(
                             new StudentAverageGradeDto()
                             {
                                 StudentId = contract.StudentId,
                                 AverageGrade = averageGrade,
-                                StudentEmail = student.Email
+                                StudentName = name,
+                                StudentUser = username
                             });
                     }
 
@@ -136,13 +118,16 @@ namespace Org.Webelopers.Api.Logic
                 {
                     decimal averageGrade = gradesWeight / creditsWeight;
                     var student = _context.Accounts.FirstOrDefault(student => student.Id == contract.StudentId);
+                    var name = student.FirstName + " " + student.LastName;
+                    var username = student.Username;
 
                     semesterStudentsAverageGrades.Add(
                         new StudentAverageGradeDto()
                         {
                             StudentId = contract.StudentId,
                             AverageGrade = averageGrade,
-                            StudentEmail = student.Email
+                            StudentName = name,
+                            StudentUser = username
                         });
                 }
 

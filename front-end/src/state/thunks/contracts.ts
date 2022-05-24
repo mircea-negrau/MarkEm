@@ -21,7 +21,7 @@ export const getAllContracts = createAsyncThunk(
       const response = await SECURE_API.get(
         `/student/contracts/all?studentId=${decoded.uid}`
       )
-      console.log('gettig all contracts')
+      console.log('getting all contracts')
       const responseContent: StudyContractEnriched[] = response.data
       return responseContent
     } catch (error) {
@@ -35,7 +35,7 @@ export const getSemesterContracts = createAsyncThunk(
   async (contractId: string) => {
     try {
       const response = await SECURE_API.get(
-        `/student/semesterContract/contract?contractId=${contractId}`
+        `/contract/semesterContract?contractId=${contractId}`
       )
       console.log('getting all semester contracts')
       const responseContent: SemesterContract[] = response.data
@@ -48,7 +48,7 @@ export const getSemesterContracts = createAsyncThunk(
 
 export const getFaculties = createAsyncThunk('getFaculties', async () => {
   try {
-    const response = await SECURE_API.get(`/student/faculties/all`)
+    const response = await SECURE_API.get(`/faculty/all`)
     console.log('getting all faculties')
     const responseContent: FacultyDetails = response.data
     return responseContent
@@ -62,10 +62,9 @@ export const getFacultySpecialisations = createAsyncThunk(
   async (data: { facultyId: string; degreeId: string }) => {
     try {
       const response = await SECURE_API.get(
-        `/student/faculties/specialisations?facultyId=${data.facultyId}&degreeId=${data.degreeId}`
+        `/faculty/specialisations?facultyId=${data.facultyId}&degreeId=${data.degreeId}`
       )
       console.log('getting all specialisations')
-      console.log(response.data)
       const responseContent: Specialisation[] = response.data
       return responseContent
     } catch (error) {

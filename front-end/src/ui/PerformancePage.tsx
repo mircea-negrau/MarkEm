@@ -23,10 +23,10 @@ const StudentGrade = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 300px;
+  width: 400px;
   background-color: #151a25;
   border-radius: 20px;
-  height: 30px;
+  height: 50px;
   margin-right: 25px;
   word-break: break-word;
   cursor: pointer;
@@ -147,7 +147,7 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(group.groupId)
                     }}
                   >
-                    {group.groupId}
+                    Group number : {group.number}
                   </div>
                 )}
                 {selectedItem == group.groupId && (
@@ -165,7 +165,7 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(group.groupId)
                     }}
                   >
-                    {group.groupId}
+                    Group number : {group.number}
                   </div>
                 )}
                 <br /> <br />
@@ -216,7 +216,9 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(studyYear.id)
                     }}
                   >
-                    {studyYear.id}
+                    Start date : {studyYear.startDate} <br />
+                    End Date : {studyYear.endDate} <br />
+                    Specialisation Name : {studyYear.specialisationName} <br />
                   </div>
                 )}
                 {selectedItem == studyYear.id && (
@@ -234,7 +236,9 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(studyYear.id)
                     }}
                   >
-                    {studyYear.id}
+                    Start date : {studyYear.startDate} <br />
+                    End Date : {studyYear.endDate} <br />
+                    Specialisation Name : {studyYear.specialisationName} <br />
                   </div>
                 )}
                 <br /> <br />
@@ -261,7 +265,10 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(semester.id)
                     }}
                   >
-                    {semester.id}
+                    Semester number of year : {semester.value} <br />
+                    Start date : {semester.yearStartDate} <br />
+                    End Date : {semester.yearEndDate} <br />
+                    Specialisation Name : {semester.specializationName} <br />
                   </div>
                 )}
                 {selectedItem == semester.id && (
@@ -279,7 +286,10 @@ export const PerformancePage: FunctionComponent = () => {
                       setSelectedItem(semester.id)
                     }}
                   >
-                    {semester.id}
+                    Semester number of year : {semester.value} <br />
+                    Start date : {semester.yearStartDate} <br />
+                    End Date : {semester.yearEndDate} <br />
+                    Specialisation Name : {semester.specializationName} <br />
                   </div>
                 )}
                 <br /> <br />
@@ -299,8 +309,9 @@ export const PerformancePage: FunctionComponent = () => {
         {state.students.map(student => (
           <div key={student.studentId}>
             <StudentGrade>
-              Student Email : {student.studentEmail} Average :
-              {student.averageGrade}
+              Student Name : {student.studentName} <br />
+              Username : {student.studentUser} <br />
+              <p style={{ float: 'right' }}>Average :{student.averageGrade}</p>
             </StudentGrade>
             <br />
             <br />

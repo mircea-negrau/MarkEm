@@ -50,7 +50,7 @@ export const getCoursesNamesByContract = createAsyncThunk(
     try {
       console.log('getting courses')
       const response = await SECURE_API.get(
-        `student/courses/contract?contractId=${contractId}`
+        `contract/courses?contractId=${contractId}`
       )
       console.log('Response-start:\n', response, 'Response-end')
       const responseContent: CourseShort[] = response.data

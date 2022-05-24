@@ -83,15 +83,30 @@ namespace Org.Webelopers.Api.Logic
                 .FirstOrDefault(grade => grade.StudentId == studentId && grade.CourseId == courseId);
 
 
-        public List<GradesDetailDto> GetStudentGrades(Guid studentId)
+        public List<StudentCourseGrades> GetStudentGrades(Guid studentId)
         {
-            return _context.Grades.Where(x => x.StudentId == studentId).Include(grade => grade.Course)
-                .Select(grade => new GradesDetailDto()
+            var courses = _context.Courses.ToList();
+            List<StudentCourseGrades> grades = new List<StudentCourseGrades>();
+
+            foreach(var course in courses)
+            {
+                StudentCourseGrades grade = new StudentCourseGrades
                 {
-                    GradeId = grade.Id,
-                    Grade = grade.Grade,
-                    CourseName = grade.Course.Name
+                    CourseName = course.Name
+                };
+
+                var gr = _context.Grades.Where(grad => grad.CourseId == course.Id && grad.StudentId == studentId).Select(grad => new GradesDetailDto()
+                {
+                    GradeId = grad.Id,
+                    Grade = grad.Grade,
+                    CourseName = course.Name
                 }).ToList();
+                grade.grades = gr;
+                if (grade.grades.Count > 0)
+                    grades.Add(grade);
+
+            }
+            return grades;
         }
         public HashSet<MandatoryCourseGrade> GetCourseGrades(Guid courseId) =>
             _context.Grades

@@ -7,8 +7,9 @@ export interface Group {
 
 export interface StudentAverageGrade {
   studentId: string
-  averageGrade?: number
-  studentEmail?: string
+  averageGrade: number
+  studentName: string
+  studentUser: string
 }
 
 export interface StudyYearReduced {
@@ -21,4 +22,7 @@ export interface StudyYearReduced {
 export interface SemesterReduced {
   id: string
   value?: number
+  specializationName: string
+  yearStartDate?: number
+  yearEndDate?: number
 }

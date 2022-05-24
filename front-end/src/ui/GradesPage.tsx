@@ -11,6 +11,7 @@ import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { getCoursesNamesByContract } from '../state/thunks/courses'
 import { getAllGrades } from '../state/thunks/grades'
+import { FetchStatus } from '../utility/fetchStatus'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -48,6 +49,8 @@ const EntryP = styled.p`
 export const GradesPage: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
   const grades = useSelector((state: AppState) => state.grades.grades)
+  const status = useSelector((state: AppState) => state.grades.gradeStatus)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -64,17 +67,18 @@ export const GradesPage: FunctionComponent = () => {
           display: 'inline-block'
         }}
       >
-        {grades.map(grade => (
-          <div key={grade.id}>
-            <Grade>
-              {' '}
-              <EntryP>
-                Course name : {grade.courseName}
-                &emsp;&emsp; Grade : {grade.grade}
-              </EntryP>
-            </Grade>
-            <br /> <br />
-          </div>
+        {grades.map(course => (
+          <>
+            <EntryP>Course : {course.courseName}</EntryP>
+            {course.grades.map(grade => (
+              <div key={grade.id}>
+                <Grade>
+                  <EntryP>Grade : {grade.grade}</EntryP>
+                </Grade>
+                <br /> <br />
+              </div>
+            ))}
+          </>
         ))}
       </div>
     </MainContainer>

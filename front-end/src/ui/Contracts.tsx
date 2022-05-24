@@ -12,6 +12,8 @@ import { AppState } from '../state/store'
 import { Button } from '@mui/material'
 import { useFormik } from 'formik'
 import { FetchStatus } from '../utility/fetchStatus'
+import { StudyContractEnriched } from '../utility/types/contractTypes'
+import { Faculty } from '../utility/types/studentTypes'
 
 const MainContainer = styled.div`
   display: inline-block;
@@ -42,9 +44,11 @@ export default function Contract({ contract }) {
 export const Contracts: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
   const state = useSelector((state: AppState) => state.contracts)
+  const facultyState = useSelector((state: AppState) => state.faculties)
   const dispatch = useDispatch()
 
   const [selectedContract, setSelectedContract] = useState('')
+  const [filteredFaculties, setFilteredFaculties] = useState<Faculty[]>([])
 
   const [specialisation, setSpecialisation] = useState('')
   const [faculty, setFaculty] = useState('')
@@ -53,10 +57,11 @@ export const Contracts: FunctionComponent = () => {
   const [degreeId, setDegreeId] = useState('')
   const [specialisationId, setSpecialisationId] = useState('')
 
-  const Dropdown = ({ options, field, val }) => {
+  const Dropdown = ({ options, field, val, disabled }) => {
     return (
       <select
         value={val}
+        disabled={disabled}
         onChange={e => {
           if (field == 'Faculty') {
             setFaculty(e.target.value), (formik.values.faculty = e.target.value)
@@ -131,9 +136,29 @@ export const Contracts: FunctionComponent = () => {
   }, [dispatch])
 
   useEffect(() => {
-    if (state.contractsStatus == FetchStatus.success)
-      dispatch(getFacultySpecialisations({ facultyId, degreeId }))
-  }, [degreeId, dispatch, faculty, facultyId, state.contractsStatus])
+    if (
+      state.contractsStatus === FetchStatus.success &&
+      facultyState.facultyStatus === FetchStatus.success
+    ) {
+      setFilteredFaculties(
+        facultyState.faculties.filter(
+          x => x.name != state.contracts[0]?.faculty
+        )
+      )
+      console.log('succes', facultyState.faculties, state.contracts)
+    }
+  }, [state.contractsStatus, facultyState.facultyStatus])
+
+  useEffect(() => {
+    if (facultyState.facultyStatus == FetchStatus.success) {
+      dispatch(
+        getFacultySpecialisations({
+          facultyId,
+          degreeId
+        })
+      )
+    }
+  }, [degreeId, dispatch, faculty, facultyId, facultyState.facultyStatus])
 
   return (
     <MainContainer>
@@ -251,23 +276,26 @@ export const Contracts: FunctionComponent = () => {
         <br /> <br />
         <p>Faculty : </p>
         <Dropdown
-          options={state.faculties}
+          options={filteredFaculties}
           field="Faculty"
           val={formik.values.faculty}
+          disabled={state.contracts.length >= 2}
         />
         <br /> <br />
         <p>Degree : </p>
         <Dropdown
-          options={state.degrees}
+          options={facultyState.degrees}
           field="Degree"
           val={formik.values.degree}
+          disabled={state.contracts.length >= 2}
         />
         <br /> <br />
         <p>Specialisation : </p>
         <Dropdown
-          options={state.specialisations}
+          options={facultyState.specialisations}
           field="Specialisation"
           val={formik.values.specialisation}
+          disabled={state.contracts.length >= 2}
         />
         <br />
         <br />

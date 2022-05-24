@@ -27,6 +27,9 @@ namespace Org.Webelopers.Api.Extensions
             services.AddScoped<IOptionalGradesService, OptionalGradesService>();
             services.AddScoped<IStatisticsService, StatisticsService>();
             services.AddScoped<ITestingService, TestingService>();
+            services.AddScoped<IGroupService, GroupService>();
+            services.AddScoped<IYearService, YearService>();
+            services.AddScoped<ISemesterService, SemesterService>();
         }
     }
 }

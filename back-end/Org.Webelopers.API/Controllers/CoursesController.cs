@@ -24,17 +24,20 @@ namespace Org.Webelopers.Api.Controllers
         private readonly IAuthTokenService _authTokenService;
         private readonly ICourseService _courseService;
         private readonly IGradesService _gradesService;
+        private readonly ICurriculumService _curriculumService;
 
         public CoursesController(ILogger<AuthController> logger,
             ICourseService courseService,
             IGradesService gradesService,
-            IAuthTokenService authTokenService
+            IAuthTokenService authTokenService,
+            ICurriculumService curriculumService
         )
         {
             _logger = logger;
             _authTokenService = authTokenService;
             _courseService = courseService;
             _gradesService = gradesService;
+            _curriculumService = curriculumService;
         }
 
         #endregion
@@ -139,6 +142,23 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        [HttpGet("year")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetYearCourses([FromBody] Guid yearId)
+        {
+            try
+            {
+                return Ok(_curriculumService.GetYearCurriculum(yearId));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+
+        }
         private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
         {
             if (!_courseService.IsCourseTaughtBy(courseId, teacherId))

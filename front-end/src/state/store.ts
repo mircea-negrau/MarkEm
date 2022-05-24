@@ -6,6 +6,7 @@ import { gradeReducer } from './slices/grades'
 import { performanceReducer } from './slices/performance'
 import { optionalCoursesReducer } from './slices/optionalCourses'
 import { profileReducer } from './slices/profile'
+import { facultyReducer } from './slices/faculties'
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
     grades: gradeReducer,
     optionalCourses: optionalCoursesReducer,
     profile: profileReducer,
-    performance: performanceReducer
+    performance: performanceReducer,
+    faculties: facultyReducer
   }
 })
 
