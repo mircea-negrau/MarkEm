@@ -4,11 +4,16 @@ import { AppState } from '../../state/store'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { getCourseById, getCourseGroups } from '../../state/thunks/courses'
+import {
+  getCourseById,
+  getCourseGroups,
+  getOptionalStudents
+} from '../../state/thunks/courses'
 import {
   GroupEnrichedWithStudents,
   TeacherEnrichedCourses
 } from '../../utility/types/courseTypes'
+import { GroupStudentsTable } from '../../ui-kit/Course/GroupStudentsTable'
 
 const MainContainerDiv = styled.div`
   padding: 20px;
@@ -26,7 +31,10 @@ const ValueNameSpan = styled.span`
 const CourseDetailsDiv = styled.div`
   padding: 5px;
 `
-
+// TODO:
+//  1. ask Mircea for the FunctionComponent variant of this
+//  2. move it to a different file
+//  3. replace <EntryP> with a function component that takes 2 arguments
 function CourseDetails(props: { course: TeacherEnrichedCourses }) {
   return (
     <CourseDetailsDiv>
@@ -63,26 +71,16 @@ function CourseDetails(props: { course: TeacherEnrichedCourses }) {
   )
 }
 
-export const CoursePage: FunctionComponent = () => {
+// TODO: move to a different file
+const CourseGroupsWithStudentsAndGradesComponent: FunctionComponent = () => {
   const { courseId } = useParams()
   const state = useSelector((state: AppState) => state.course)
-  const global = useSelector((state: AppState) => state.global)
 
   const dispatch = useDispatch()
-
-  if (global.userRole != `Teacher` || courseId == undefined) {
-    window.location.replace('/') // https://stackoverflow.com/questions/3846935/how-can-i-change-the-current-url
-  }
 
   const [selectedGroup, setSelectedGroup] = useState<
     GroupEnrichedWithStudents | undefined
   >(undefined)
-
-  useEffect(() => {
-    if (state.courseStatus != FetchStatus.success && courseId) {
-      dispatch(getCourseById(courseId))
-    }
-  }, [courseId, dispatch, state.courseStatus])
 
   useEffect(() => {
     if (state.groupsStatus != FetchStatus.success && courseId) {
@@ -91,24 +89,71 @@ export const CoursePage: FunctionComponent = () => {
   }, [courseId, dispatch, state.groupsStatus])
 
   return (
-    <MainContainerDiv>
-      <CourseDetails course={state.course} />
-      <div id="groupsDiv">
-        <span>Group</span>
-        {state.groups && (
-          <select
-            onChange={event =>
-              setSelectedGroup(state.groups[event.target.selectedIndex])
-            }
-          >
-            {state.groups.length &&
-              state.groups.map((group, index) => {
-                return <option key={`group-${index}`}>{group.number}</option>
-              })}
-          </select>
-        )}
-        <div id="groupDiv">{selectedGroup?.number}</div>
-      </div>
-    </MainContainerDiv>
+    <>
+      <span>Group</span>
+      {state.groups && (
+        <select
+          onChange={event =>
+            setSelectedGroup(state.groups[event.target.selectedIndex])
+          }
+        >
+          {state.groups.length &&
+            state.groups.map((group, index) => {
+              return <option key={`group-${index}`}>{group.number}</option>
+            })}
+        </select>
+      )}
+      {selectedGroup && (
+        <GroupStudentsTable students={selectedGroup.students} />
+      )}
+    </>
+  )
+}
+
+// TODO: move to a different file
+const OptionalStudentsWithGradesComponent: FunctionComponent = () => {
+  const { courseId } = useParams()
+  const state = useSelector((state: AppState) => state.course)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (state.studentsStatus != FetchStatus.success && courseId) {
+      dispatch(getOptionalStudents(courseId))
+    }
+  }, [courseId, dispatch, state.studentsStatus])
+
+  return <GroupStudentsTable students={state.optionalStudents} /> // TODO try it out
+}
+
+export const CoursePage: FunctionComponent = () => {
+  const { courseId } = useParams()
+  const state = useSelector((state: AppState) => state.course)
+  const global = useSelector((state: AppState) => state.global)
+
+  const dispatch = useDispatch()
+
+  if (global.userRole != `Teacher` || courseId == undefined) {
+    window.location.replace('/')
+  }
+  // TODO: [IDEA] /courses/7e90da60-2295-4170-b18d-7d87f71ed340 instead of /course/7e90da60-2295-4170-b18d-7d87f71ed340
+  useEffect(() => {
+    if (state.courseStatus != FetchStatus.success && courseId) {
+      // TODO: handle case for optional course, add similar method for optional course on BE
+      // TODO: maybe send the GradeType (which is actually course type) from the CoursesPage
+      // optional course for test0 account: http://localhost:3000/teacher/course/7e90da60-2295-4170-b18d-7d87f71ed340
+      dispatch(getCourseById(courseId))
+    }
+  }, [courseId, dispatch, state.courseStatus])
+
+  return (
+    state.course && (
+      <MainContainerDiv>
+        <CourseDetails course={state.course} />
+        {(state.course.isOptional && (
+          <OptionalStudentsWithGradesComponent />
+        )) || <CourseGroupsWithStudentsAndGradesComponent />}
+      </MainContainerDiv>
+    )
   )
 }

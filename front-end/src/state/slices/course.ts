@@ -1,16 +1,23 @@
 import {
   GroupEnrichedWithStudents,
+  StudentWithGrade,
   TeacherEnrichedCourses
 } from '../../utility/types/courseTypes'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { createSlice } from '@reduxjs/toolkit'
-import { getCourseById, getCourseGroups } from '../thunks/courses'
+import {
+  getCourseById,
+  getCourseGroups,
+  getOptionalStudents
+} from '../thunks/courses'
 
 interface CourseStateType {
   course: TeacherEnrichedCourses
   groups: GroupEnrichedWithStudents[]
+  optionalStudents: StudentWithGrade[]
   courseStatus: FetchStatus
   groupsStatus: FetchStatus
+  studentsStatus: FetchStatus
 }
 
 const initialState: CourseStateType = {
@@ -21,6 +28,7 @@ const initialState: CourseStateType = {
     semester: 0,
     startDate: 0,
     endDate: 0,
+    isOptional: false,
     facultyDetails: {
       faculty: '',
       specialization: '',
@@ -31,8 +39,10 @@ const initialState: CourseStateType = {
     }
   },
   groups: [],
+  optionalStudents: [],
   courseStatus: FetchStatus.idle,
-  groupsStatus: FetchStatus.idle
+  groupsStatus: FetchStatus.idle,
+  studentsStatus: FetchStatus.idle
 }
 
 export const courseSlice = createSlice({
@@ -70,6 +80,22 @@ export const courseSlice = createSlice({
       builder.addCase(getCourseGroups.rejected, (state, action) => {
         if (action.payload) {
           state.groupsStatus = FetchStatus.error
+        }
+      }),
+      builder.addCase(getOptionalStudents.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.optionalStudents = action.payload
+          state.courseStatus = FetchStatus.success
+        }
+      }),
+      builder.addCase(getOptionalStudents.pending, (state, action) => {
+        if (action.payload) {
+          state.courseStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getOptionalStudents.rejected, (state, action) => {
+        if (action.payload) {
+          state.courseStatus = FetchStatus.error
         }
       })
   }

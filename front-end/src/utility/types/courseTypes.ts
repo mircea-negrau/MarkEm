@@ -28,6 +28,7 @@ export interface TeacherEnrichedCourses {
   semester: number
   startDate: number
   endDate: number
+  isOptional: boolean
   facultyDetails: {
     faculty: string
     specialization: string

@@ -5,8 +5,10 @@ import jwt_decode from 'jwt-decode'
 import {
   CourseShort,
   GroupEnrichedWithStudents,
+  StudentWithGrade,
   TeacherEnrichedCourses
 } from '../../utility/types/courseTypes'
+import { SetGradeData } from '../../utility/types/gradeTypes'
 
 export const getCoursesByTeacher = createAsyncThunk(
   'getCoursesByTeacher',
@@ -62,6 +64,22 @@ export const getCoursesNamesByContract = createAsyncThunk(
   }
 )
 
+export const getCourseById = createAsyncThunk(
+  'getCourseById',
+  async (courseId: string) => {
+    try {
+      console.log('getting course by id')
+      const response = await SECURE_API.get(`/courses/course/${courseId}`)
+      const responseContent: TeacherEnrichedCourses = response.data
+      console.log('getting course by id - responseContent:', responseContent)
+
+      return responseContent
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
+
 export const getCourseGroups = createAsyncThunk(
   'getCourseGroups',
   async (courseId: string) => {
@@ -79,16 +97,45 @@ export const getCourseGroups = createAsyncThunk(
   }
 )
 
-export const getCourseById = createAsyncThunk(
-  'getCourseById',
+export const getOptionalStudents = createAsyncThunk(
+  'getOptionalStudents',
   async (courseId: string) => {
     try {
-      console.log('getting course by id')
-      const response = await SECURE_API.get(`/courses/course/${courseId}`)
-      const responseContent: TeacherEnrichedCourses = response.data
-      console.log('getting course by id - responseContent:', responseContent)
-
+      console.log('getting optional students')
+      const response = await SECURE_API.get(
+        `/courses/course/${courseId}/groups`
+      )
+      const responseContent: StudentWithGrade[] =
+        response.data.studentsWithGrade
+      console.log(
+        'getting optional students - responseContent:',
+        responseContent
+      )
       return responseContent
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
+
+export const setStudentGrade = createAsyncThunk(
+  'setStudentGrade',
+  async (setGradeData: SetGradeData) => {
+    try {
+      console.log(
+        `setting student grade for ${setGradeData.gradeType.type} course ${setGradeData.courseId} for student ${setGradeData.studentId} to ${setGradeData.grade}`
+      )
+      await SECURE_API.post(
+        // `/courses/course/${setGradeData.courseId}/gradeStudent`,
+        setGradeData.gradeType.getURL(setGradeData.courseId),
+        {
+          studentId: setGradeData.studentId,
+          value: setGradeData.grade
+        }
+      )
+      console.log(`setting student grade finish`)
+      // console.log(`setting student grade response:`, response)
+      // return response
     } catch (error) {
       alert(error)
     }
