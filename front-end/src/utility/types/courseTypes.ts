@@ -37,3 +37,16 @@ export interface TeacherEnrichedCourses {
     studyLineShort: string
   }
 }
+
+export interface StudentWithGrade {
+  id: string
+  lastName: string
+  firstName: string
+  grade: number
+}
+
+export interface Group {
+  id: string
+  number: string
+  students: StudentWithGrade[]
+}

@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { Dashboard } from '../Dashboard'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { getCoursesByTeacher } from '../../state/thunks/courses'
+import { TeacherEnrichedCourses } from '../../utility/types/courseTypes'
 
 const MainContainerDiv = styled.div`
   padding: 20px;
@@ -23,6 +24,42 @@ const ValueNameSpan = styled.span`
 const CourseDetailsDiv = styled.div`
   padding: 5px;
 `
+
+function CourseDetails(props: { course: TeacherEnrichedCourses }) {
+  return (
+    <CourseDetailsDiv>
+      <EntryP>
+        <ValueNameSpan>Course name: </ValueNameSpan>
+        {props.course.name}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course credits: </ValueNameSpan>
+        {props.course.credits}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course semester: </ValueNameSpan>
+        {props.course.semester}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course date: </ValueNameSpan>
+        {new Date(props.course.startDate * 1000).getFullYear()}-
+        {new Date(props.course.endDate * 1000).getFullYear()}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course study line: </ValueNameSpan>
+        {props.course.facultyDetails.studyLine}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course study specialization: </ValueNameSpan>
+        {props.course.facultyDetails.specialization}
+      </EntryP>
+      <EntryP>
+        <ValueNameSpan>Course study degree: </ValueNameSpan>
+        {props.course.facultyDetails.studyDegree}
+      </EntryP>
+    </CourseDetailsDiv>
+  )
+}
 
 export const CoursePage: FunctionComponent = () => {
   const { courseId } = useParams()
@@ -77,39 +114,36 @@ export const CoursePage: FunctionComponent = () => {
   //   </CourseDetailsDiv>
   // )
 
+  // TODO #1: get the groups
+  // TODO #2: map groups numbers to select options
+  // TODO #3: on select change: re
+
   return (
     <MainContainerDiv>
-      <CourseDetailsDiv>
-        <EntryP>
-          <ValueNameSpan>Course name: </ValueNameSpan>
-          {course.name}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course credits: </ValueNameSpan>
-          {course.credits}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course semester: </ValueNameSpan>
-          {course.semester}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course date: </ValueNameSpan>
-          {new Date(course.startDate * 1000).getFullYear()}-
-          {new Date(course.endDate * 1000).getFullYear()}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course study line: </ValueNameSpan>
-          {course.facultyDetails.studyLine}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course study specialization: </ValueNameSpan>
-          {course.facultyDetails.specialization}
-        </EntryP>
-        <EntryP>
-          <ValueNameSpan>Course study degree: </ValueNameSpan>
-          {course.facultyDetails.studyDegree}
-        </EntryP>
-      </CourseDetailsDiv>
+      <CourseDetails course={course} />
+      <div id="groupsDiv">
+        <span>Group</span>
+        <select
+          onChange={event =>
+            console.log(
+              'changed to event:',
+              event,
+              'target:',
+              event.target,
+              'event.target.selectedIndex: ',
+              event.target.selectedIndex
+            )
+          }
+        >
+          <option key={'option1Key'} value={'option1Value'}>
+            option1
+          </option>
+          <option key={'option2Key'} value={'option2Value'}>
+            option2
+          </option>
+        </select>
+        <div id="groupDiv">TODO</div>
+      </div>
     </MainContainerDiv>
   )
 }

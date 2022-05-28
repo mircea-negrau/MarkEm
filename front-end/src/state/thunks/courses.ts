@@ -4,6 +4,7 @@ import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
 import {
   CourseShort,
+  Group,
   TeacherEnrichedCourses
 } from '../../utility/types/courseTypes'
 
@@ -54,6 +55,23 @@ export const getCoursesNamesByContract = createAsyncThunk(
       )
       console.log('Response-start:\n', response, 'Response-end')
       const responseContent: CourseShort[] = response.data
+      return responseContent
+    } catch (error) {
+      alert(error)
+    }
+  }
+)
+
+export const getCourseGroups = createAsyncThunk(
+  'getCourseGroups',
+  async (courseId: string) => {
+    try {
+      console.log('getting course groups')
+      const response = await SECURE_API.get(
+        `/courses/course/${courseId}/groups`
+      )
+      console.log('getting course groups - response:', response)
+      const responseContent: Group[] = response.data
       return responseContent
     } catch (error) {
       alert(error)
