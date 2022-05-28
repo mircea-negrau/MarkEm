@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Types;
 
 namespace Org.Webelopers.Api.Controllers
@@ -120,5 +122,21 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        [HttpGet("faculty/{facultyId}/chief-teachers-with-courses-info")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)
+        {
+            try
+            {
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
     }
 }

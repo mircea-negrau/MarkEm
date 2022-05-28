@@ -35,5 +35,8 @@ namespace Org.Webelopers.Api.Models.DbEntities
                 Semester = (short) semester,
                 StudyYearId = studyYearId
             };
+
+        public short GetYearNumber() => 
+            (short) (Semester / 2 + Semester % 2);
     }
 }
