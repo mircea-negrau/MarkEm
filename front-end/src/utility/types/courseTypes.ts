@@ -45,7 +45,7 @@ export interface StudentWithGrade {
   grade: number
 }
 
-export interface Group {
+export interface GroupEnrichedWithStudents {
   id: string
   number: string
   students: StudentWithGrade[]
