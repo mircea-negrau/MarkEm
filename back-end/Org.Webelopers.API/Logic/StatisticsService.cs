@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
-using Org.Webelopers.Api.Models.Persistence.Groups;
 using Org.Webelopers.Api.Models.Persistence.Performance;
-using Org.Webelopers.Api.Models.Persistence.Semester;
 using Org.Webelopers.Api.Models.Persistence.Students;
 using Org.Webelopers.Api.Models.Persistence.StudyYears;
 using System;

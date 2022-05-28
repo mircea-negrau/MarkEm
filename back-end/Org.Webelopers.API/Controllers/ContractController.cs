@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.DbEntities;
-using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
