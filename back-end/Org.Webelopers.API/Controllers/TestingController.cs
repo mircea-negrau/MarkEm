@@ -122,23 +122,6 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("faculty/{facultyId}/chief-teachers-with-courses-info")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)
-        {
-            try
-            {
-                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.Message: {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
-
         [HttpPost("add/enrollments/{courseId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -157,6 +140,41 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 // _logger.LogError($"e.Message: {e.StackTrace}");
                 Console.Error.WriteLine($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
+        [HttpPost("add/groups")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSamplesForGetCourseGroups()
+        {
+            try
+            {
+                _testingService.AddSamplesForGetCourseGroups();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
+        [HttpGet("faculty/{facultyId}/chief-teachers-with-courses-info")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)
+        {
+            try
+            {
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
                 return BadRequest(new {message = e.Message});
             }
         }

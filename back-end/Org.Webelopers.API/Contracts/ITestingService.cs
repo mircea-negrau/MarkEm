@@ -7,7 +7,10 @@ namespace Org.Webelopers.Api.Contracts
     public interface ITestingService
     {
         public FacultySpecialization CreateRandomSpecialization(string name);
+        
         public HashSet<FacultySpecialization> AddRandomSpecializations(int noOfSpecializations);
+        
+        public void AddSamplesForGetCourseGroups();
 
         public void AddEnrollmentsToCourse(Guid courseId);
     }

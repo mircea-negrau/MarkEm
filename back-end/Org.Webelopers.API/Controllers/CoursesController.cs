@@ -121,24 +121,6 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpPost("courseGroupsAddSamples")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddSamplesForGetCourseGroups()
-        {
-            try
-            {
-                _courseService.AddSamplesForGetCourseGroups();
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
-
         [HttpPost("course/{courseId}/gradeStudent")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
