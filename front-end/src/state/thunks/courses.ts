@@ -70,7 +70,6 @@ export const getCourseGroups = createAsyncThunk(
       const response = await SECURE_API.get(
         `/courses/course/${courseId}/groups`
       )
-      console.log('getting course groups - response:', response)
       const responseContent: GroupEnrichedWithStudents[] = response.data
       return responseContent
     } catch (error) {
@@ -83,7 +82,7 @@ export const getCourseById = createAsyncThunk(
   'getCourseById',
   async (courseId: string) => {
     try {
-      const response = await SECURE_API.get(`/courses/${courseId}`)
+      const response = await SECURE_API.get(`/courses/course/${courseId}`)
       const responseContent: TeacherEnrichedCourses = response.data
       console.log('responseContent =', responseContent)
 

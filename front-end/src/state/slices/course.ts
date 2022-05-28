@@ -75,3 +75,4 @@ export const courseSlice = createSlice({
   }
 })
 export const courseReducer = courseSlice.reducer
+export const courseActions = courseSlice.actions

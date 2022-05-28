@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { Dashboard } from '../Dashboard'
 import { FetchStatus } from '../../utility/fetchStatus'
-import {
-  getCourseById,
-  getCourseGroups,
-  getCoursesByTeacher
-} from '../../state/thunks/courses'
+import { getCourseById, getCourseGroups } from '../../state/thunks/courses'
 import {
   GroupEnrichedWithStudents,
   TeacherEnrichedCourses
@@ -87,16 +82,13 @@ export const CoursePage: FunctionComponent = () => {
     if (state.courseStatus != FetchStatus.success && courseId) {
       dispatch(getCourseById(courseId))
     }
-  }, [dispatch, state.courseStatus])
+  }, [courseId, dispatch, state.courseStatus])
 
   useEffect(() => {
     if (state.groupsStatus != FetchStatus.success && courseId) {
       dispatch(getCourseGroups(courseId))
     }
-  }, [dispatch, state.groupsStatus])
-
-  // TODO #2: map groups numbers to select options
-  // TODO #3: on select change: re
+  }, [courseId, dispatch, state.groupsStatus])
 
   return (
     <MainContainerDiv>
@@ -109,9 +101,10 @@ export const CoursePage: FunctionComponent = () => {
               setSelectedGroup(state.groups[event.target.selectedIndex])
             }
           >
-            {state.groups.map((group, index) => {
-              return <option key={`group-${index}`}>{group.number}</option>
-            })}
+            {state.groups.length &&
+              state.groups.map((group, index) => {
+                return <option key={`group-${index}`}>{group.number}</option>
+              })}
           </select>
         )}
         <div id="groupDiv">{selectedGroup?.number}</div>
