@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Query;
 using Org.Webelopers.Api.Models.Persistence.Groups;
 
 namespace Org.Webelopers.Api.Logic
@@ -302,6 +303,51 @@ namespace Org.Webelopers.Api.Logic
                 .SelectMany(semester => semester.Courses)
                 .Distinct()
                 .ToHashSet();
+        }
+        
+        
+
+        public async Task<ChiefTeachersWithCoursesInfo> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)
+        {
+            // 1. get all the teachers with their profile from the facultyId
+            var courses = _context.Specialisations
+                .Where(specialization => specialization.FacultyId == facultyId)
+                .Include(specialization => specialization.StudyYears)
+                .SelectMany(specialization => specialization.StudyYears)
+                .Include(year => year.Semesters)
+                .SelectMany(year => year.Semesters)
+                .Include(semester => semester.Courses)
+                .SelectMany(semester => semester.Courses)
+                .Include(course => course.Teacher)
+                .ThenInclude(teacher => teacher.Account);
+                
+            // return new ChiefTeachersWithCoursesInfo {ChiefTeachersWithCoursesInfos = new List<ChiefTeachersWithCoursesInfo>()};
+            return new ChiefTeachersWithCoursesInfo {ChiefTeachersWithCoursesInfoList = await GetChiefTeachersWithCoursesFromCourses(courses)};
+        }
+
+        private static Task<List<ChiefTeacherWithCoursesInfo>> GetChiefTeachersWithCoursesFromCourses(IIncludableQueryable<MandatoryCourse, Account> courses)
+        {
+            var list = courses
+                .Select(course => course.Teacher)
+                .Distinct()
+                .ToList()
+                .Select(teacher => new ChiefTeacherWithCoursesInfo()
+                {
+                    TeacherName = $"{teacher.Account.LastName} {teacher.Account.FirstName}",
+                    ChiefTeacherCoursesInfo = courses.Where(course => course.TeacherId == teacher.AccountId)
+                        .Select(course => new ChiefTeacherCourseInfo
+                        {
+                            Specialization = course.Semester.StudyYear.Specialization.Name,
+                            Year = course.Semester.GetYearNumber(),
+                            Semester = course.Semester.Semester,
+                            Name = course.Name,
+                            Credits = course.Credits
+                        })
+                        .ToList()
+                })
+                .ToList();
+
+            return Task.FromResult(list);
         }
     }
 }

@@ -18,5 +18,6 @@ namespace Org.Webelopers.Api.Contracts
         public bool Exists(Guid courseId);
         public bool IsCourseTaughtBy(Guid courseId, Guid teacherId);
         public HashSet<MandatoryCourse> GetFacultyCourses(Guid facultyId);
+        public Task<ChiefTeachersWithCoursesInfo> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId);
     }
 }

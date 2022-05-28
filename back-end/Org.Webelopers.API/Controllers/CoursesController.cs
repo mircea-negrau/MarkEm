@@ -25,19 +25,21 @@ namespace Org.Webelopers.Api.Controllers
         private readonly ICourseService _courseService;
         private readonly IGradesService _gradesService;
         private readonly ICurriculumService _curriculumService;
+        private readonly IFacultyService _facultyService;
 
         public CoursesController(ILogger<AuthController> logger,
             ICourseService courseService,
             IGradesService gradesService,
             IAuthTokenService authTokenService,
-            ICurriculumService curriculumService
-        )
+            ICurriculumService curriculumService, 
+            IFacultyService facultyService)
         {
             _logger = logger;
             _authTokenService = authTokenService;
             _courseService = courseService;
             _gradesService = gradesService;
             _curriculumService = curriculumService;
+            _facultyService = facultyService;
         }
 
         #endregion
@@ -171,6 +173,29 @@ namespace Org.Webelopers.Api.Controllers
         {
             public InvalidCourseTeacher(string message) : base(message)
             {
+            }
+        }
+        
+        [HttpGet("chief-teachers-with-courses-info")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        public async Task<IActionResult> GetOptionalsChiefView()
+        {
+            try
+            {
+                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e) {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
             }
         }
     }
