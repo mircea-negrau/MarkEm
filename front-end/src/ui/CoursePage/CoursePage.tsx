@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppState } from '../state/store'
+import { AppState } from '../../state/store'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { Dashboard } from './Dashboard'
-import { FetchStatus } from '../utility/fetchStatus'
-import { getCoursesByTeacher } from '../state/thunks/courses'
+import { Dashboard } from '../Dashboard'
+import { FetchStatus } from '../../utility/fetchStatus'
+import { getCoursesByTeacher } from '../../state/thunks/courses'
 
 const MainContainerDiv = styled.div`
   padding: 20px;
