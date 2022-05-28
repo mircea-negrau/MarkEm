@@ -49,5 +49,42 @@ namespace Org.Webelopers.Api.Logic
             _context.SaveChanges();
             return specializations;
         }
+    
+        /// <summary>
+        /// assumes there are semester contracts
+        /// </summary>
+        public void AddEnrollmentsToCourse(Guid courseId)
+        {
+            const int numberOfGroups = 5;
+            const int studentsPerGroup = 10;
+            var groups = _context.Groups.Take(numberOfGroups).ToList();
+            var semesterContracts = _context.SemesterContracts
+                .Take(numberOfGroups * studentsPerGroup).ToList();
+            int skip = 0;
+            var enrollments = new List<StudentMandatoryCourseEnrollment>();
+            
+            Console.WriteLine($"Found {groups.Count} groups");
+            Console.WriteLine($"Found {semesterContracts.Count} semester contracts");
+            
+            foreach (var group in groups)
+            {
+                enrollments.AddRange(semesterContracts
+                    .Skip(skip)
+                    .Take(studentsPerGroup)
+                    .Select(semesterContract => new StudentMandatoryCourseEnrollment
+                    {
+                        Id = Guid.NewGuid(), 
+                        StudentContractSemesterId = semesterContract.Id, 
+                        MandatoryCourseId = courseId, 
+                        GroupId = group.Id,
+                    }));
+
+                skip += studentsPerGroup;
+            }
+            
+            Console.WriteLine($"Added {enrollments.Count} enrollments");
+            _context.StudentEnrolledCourse.AddRange(enrollments);
+            _context.SaveChanges();
+        }
     }
 }

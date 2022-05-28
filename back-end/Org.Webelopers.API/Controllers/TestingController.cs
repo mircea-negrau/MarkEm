@@ -138,5 +138,27 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new {message = e.Message});
             }
         }
+
+        [HttpPost("add/enrollments/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddEnrollmentsToCourse(Guid courseId)
+        {
+            try
+            {
+                _logger.LogInformation("AddEnrollmentsToCourse() start");
+                _testingService.AddEnrollmentsToCourse(courseId);
+                string result = $"AddEnrollmentsToCourse() finish: added enrollments to course {courseId}";
+                _logger.LogInformation(result);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                // _logger.LogError($"e.Message: {e.StackTrace}");
+                Console.Error.WriteLine($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
     }
 }
