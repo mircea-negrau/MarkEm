@@ -12,6 +12,7 @@ namespace Org.Webelopers.Api.Contracts
         public void AddCourse(string name, short credits, Guid semesterId, Guid teacherId);
         public void UpdateCourse(Guid courseId, string name, short? credits, Guid? semesterId, Guid? teacherId);
         public void DeleteCourse(Guid courseId);
+        public TeacherCourseDetailDto GetEnrichedCourseById(Guid courseId);
         public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
         public void AddSamplesForGetCourseGroups();
         public Task<TeacherGroupsResponse> GetCourseGroups(Guid courseId);

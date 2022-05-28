@@ -58,6 +58,49 @@ namespace Org.Webelopers.Api.Logic
             }
         }
 
+        public TeacherCourseDetailDto GetEnrichedCourseById(Guid courseId)
+        {
+            var course = _context.Courses
+             .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+            .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyDegree)
+            .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.Faculty)
+            .FirstOrDefault(x => x.Id == courseId);
+
+            if (course == null)
+            {
+                throw new Exception("Course ID is invalid!");
+            }
+
+            return new TeacherCourseDetailDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                Semester = course.Semester.Semester,
+                StartDate = course.Semester.StudyYear.StartDate,
+                EndDate = course.Semester.StudyYear.EndDate,
+                IsOptional = false,
+                FacultyDetails = new TeacherCourseFacultyDetailDto()
+                {
+                    Faculty = course.Semester.StudyYear.Specialization.Faculty.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    SpecializationSemesters = course.Semester.StudyYear.Specialization.Semesters,
+                    StudyDegree = course.Semester.StudyYear.Specialization.StudyDegree.Name,
+                    StudyLine = course.Semester.StudyYear.Specialization.StudyLine.Name,
+                    StudyLineShort = course.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                }
+            };
+        }
+
         public async Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId)
         {
             var courses = _context.Courses.AsNoTracking()
@@ -106,43 +149,43 @@ namespace Org.Webelopers.Api.Logic
             //                                                      -> Semester -> StudyYear
             //                                  -> Course -> Semester -> StudyYear
             //                                            -> Teacher ...
-            
+
             // out of all these dependencies,
             // we have: Course -> {Teacher,Semester -> StudyYear}, Student
             // we need: Group, SemesterContractCourses -> SemesterContract -> Contract
-            
+
             // steps:
             // 1. get some
-                // 1.1 random Course with its Semester (in order to access the StudyYearId)
-                // 1.2 random Students
+            // 1.1 random Course with its Semester (in order to access the StudyYearId)
+            // 1.2 random Students
             // 2. create groups for those students (like 3 groups or something)
-                // 2.1 remove the old groups
-                // 2.2 create the new groups
+            // 2.1 remove the old groups
+            // 2.2 create the new groups
             // 3. create for those students
-                // 3.1 Contracts
-                // 3.2 SemesterContracts
-                // 3.3 SemesterContractCourses
+            // 3.1 Contracts
+            // 3.2 SemesterContracts
+            // 3.3 SemesterContractCourses
             // 4. remove old grades (if any) AND add random grades (if random() <= 0.5)
-            
+
             const int noOfStudents = 50;
             const int noOfGroups = 3;
-            
+
             // 1
             var course = _context.Courses.Include(mandatoryCourse => mandatoryCourse.Semester).First();
             var studyYearId = course.Semester.StudyYearId;
             var students = _context.Students.Take(noOfStudents).ToList();
             int groupSize = (int)Math.Ceiling(students.Count * 1.0 / noOfGroups);
 
-            var groups = new List<FacultyGroup>();            
+            var groups = new List<FacultyGroup>();
             var contracts = new List<StudentContract>();
             var semesterContracts = new List<StudentContractSemester>();
 
             var currentTime = DateTimeOffset.Now;
             string groupNumberPrefix = $"{currentTime:yyyy-MM-dd HH:mm:ss}";
-            
+
             Console.WriteLine($"course.Id: {course.Id} course.Name: {course.Name}");
             Console.WriteLine($"currentTime: {currentTime}");
-            
+
             for (int i = 1; i <= noOfGroups; i++)
             {
                 var group = new FacultyGroup
@@ -189,12 +232,12 @@ namespace Org.Webelopers.Api.Logic
                     _context.Grades.Remove(mandatoryCourseGrade);
                 }
             }
-            
+
             foreach (StudentMandatoryCourseEnrollment studentMandatoryCourseEnrollment in _context.StudentEnrolledCourse.Where(enrollment => enrollment.MandatoryCourseId == course.Id))
             {
                 _context.StudentEnrolledCourse.Remove(studentMandatoryCourseEnrollment);
             }
-            
+
             _context.Groups.AddRange(groups);
             _context.Contracts.AddRange(contracts);
             _context.SemesterContracts.AddRange(semesterContracts);
@@ -206,7 +249,7 @@ namespace Org.Webelopers.Api.Logic
 
                 if (new Random().NextDouble() <= 0.5)
                 {
-                    short gradeValue = (short) new Random().Next(0, 11); 
+                    short gradeValue = (short)new Random().Next(0, 11);
                     _context.Grades.Add(new MandatoryCourseGrade
                     {
                         Id = Guid.NewGuid(),
@@ -221,7 +264,7 @@ namespace Org.Webelopers.Api.Logic
                 {
                     Console.WriteLine($"student {student.AccountId} has NO grade");
                 }
-            }      
+            }
             _context.SaveChanges();
         }
 
@@ -231,8 +274,8 @@ namespace Org.Webelopers.Api.Logic
         //     return grades.Any() ? grades.First().Grade : (short) -1;
         // }
 
-        private static short GetGrade2(List<short> grades) => 
-            (short) (grades.Any() ? grades.First() : -1);
+        private static short GetGrade2(List<short> grades) =>
+            (short)(grades.Any() ? grades.First() : -1);
 
         public async Task<TeacherGroupsResponse> GetCourseGroups(Guid courseId)
         {
@@ -273,16 +316,16 @@ namespace Org.Webelopers.Api.Logic
                 })
                 .OrderBy(group => group.Number)
                 .ToListAsync();
-            
+
             return new TeacherGroupsResponse
             {
                 Groups = enrichedGroups
             };
         }
-        
+
         public bool Exists(Guid courseId) => _context.FindEntity<MandatoryCourse>(course => course.Id == courseId) != default;
 
-        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
+        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) =>
             _context.Courses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
 
         public HashSet<MandatoryCourse> GetFacultyCourses(Guid facultyId)
@@ -304,8 +347,8 @@ namespace Org.Webelopers.Api.Logic
                 .Distinct()
                 .ToHashSet();
         }
-        
-        
+
+
 
         public async Task<ChiefTeachersWithCoursesInfo> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)
         {
@@ -320,9 +363,9 @@ namespace Org.Webelopers.Api.Logic
                 .SelectMany(semester => semester.Courses)
                 .Include(course => course.Teacher)
                 .ThenInclude(teacher => teacher.Account);
-                
+
             // return new ChiefTeachersWithCoursesInfo {ChiefTeachersWithCoursesInfos = new List<ChiefTeachersWithCoursesInfo>()};
-            return new ChiefTeachersWithCoursesInfo {ChiefTeachersWithCoursesInfoList = await GetChiefTeachersWithCoursesFromCourses(courses)};
+            return new ChiefTeachersWithCoursesInfo { ChiefTeachersWithCoursesInfoList = await GetChiefTeachersWithCoursesFromCourses(courses) };
         }
 
         private static Task<List<ChiefTeacherWithCoursesInfo>> GetChiefTeachersWithCoursesFromCourses(IIncludableQueryable<MandatoryCourse, Account> courses)
