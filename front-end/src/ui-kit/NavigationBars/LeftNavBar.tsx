@@ -174,6 +174,15 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
               <MenuItemText>Courses</MenuItemText>
             </MenuItem>
+            <MenuItem
+              isActive={location.pathname == '/teacher/optionals'}
+              onClick={() => {
+                window.location.replace('/teacher/optionals')
+              }}
+            >
+              <MenuBookIcon style={{ color: '#cfd8e3' }} />
+              <MenuItemText>Optionals</MenuItemText>
+            </MenuItem>
           </>
         )}
 

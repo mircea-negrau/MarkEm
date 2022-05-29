@@ -52,7 +52,10 @@ export interface GroupEnrichedWithStudents {
   students: StudentWithGrade[]
 }
 
-/// note that the URLs are for the API (BE)
+/**
+ * note that the URLs are for the API (BE) <br>
+ * {@link [https://refactoring.guru/design-patterns/singleton/typescript/example] Source}
+ */
 export class CourseType {
   public static MANDATORY: CourseType = new CourseType(
     'MANDATORY',
