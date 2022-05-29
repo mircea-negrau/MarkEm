@@ -70,7 +70,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
         
-        [HttpGet("all/by-teachers")]
+        [HttpGet("all/for-chief-teachers-disciplines-page")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize(Policy = "ChiefOfDepartmentRequirement")]

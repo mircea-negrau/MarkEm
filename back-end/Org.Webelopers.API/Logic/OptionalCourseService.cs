@@ -322,7 +322,9 @@ namespace Org.Webelopers.Api.Logic
                     Id = course.Id,
                     Name = course.Name,
                     Specialization = course.Semester.StudyYear.Specialization.Name,
-                    Semester = course.Semester.Semester
+                    Semester = course.Semester.Semester,
+                    IsProposed = course.IsProposed,
+                    IsApproved = course.IsApproved
                 })
                 .OrderBy(optional => optional.Name)
                 .ThenBy(optional => optional.Specialization)

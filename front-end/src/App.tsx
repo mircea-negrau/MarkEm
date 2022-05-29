@@ -16,6 +16,7 @@ import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
 import { CoursePage } from './ui/Teacher/CoursePage'
 import { CourseType } from './utility/types/courseTypes'
+import { OptionalsPage } from './ui/Teacher/OptionalsPage'
 
 const App: FunctionComponent = () => {
   return (
@@ -76,6 +77,14 @@ const App: FunctionComponent = () => {
             element={
               <AuthTeacher>
                 <CoursePage courseType={CourseType.OPTIONAL} />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/teacher/optionals'}
+            element={
+              <AuthTeacher>
+                <OptionalsPage />
               </AuthTeacher>
             }
           />
