@@ -65,10 +65,10 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("all/teacherPage")]
+        [HttpGet("all/for-teacher-optionals-page")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionals))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOptionalsForOptionalsPage()
+        public async Task<IActionResult> GetOptionalsForTeacherOptionalsPage()
         {
             try
             {

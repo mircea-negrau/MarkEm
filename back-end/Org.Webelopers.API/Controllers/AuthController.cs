@@ -35,6 +35,7 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Login([FromBody] LoginDto login)
         {
+            _logger.LogInformation($"[{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss}] Logging in {login.Email} ");
             var user = _authService.Authenticate(login.Email, login.Password);
             if (user == null)
             {
