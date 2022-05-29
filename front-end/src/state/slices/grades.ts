@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { StudentCourseGrades } from '../../utility/types/gradeTypes'
+import { StudentContractGrades } from '../../utility/types/gradeTypes'
 
 import { getAllGrades } from '../thunks/grades'
 
 interface GradeStateType {
-  grades: StudentCourseGrades[]
+  grades: StudentContractGrades[]
   gradeStatus: FetchStatus
 }
 
@@ -18,7 +18,7 @@ export const gradesSlice = createSlice({
   name: 'gradesSlice',
   initialState: initialState,
   reducers: {
-    setGrades: (state, action: PayloadAction<StudentCourseGrades[]>) => {
+    setGrades: (state, action: PayloadAction<StudentContractGrades[]>) => {
       state.grades = action.payload
     }
   },

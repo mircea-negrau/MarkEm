@@ -10,5 +10,8 @@ namespace Org.Webelopers.Api.Contracts
         public byte[] GetProfilePictureById(Guid userId);
 
         public ProfileResponseDto GetProfileByUsername(string username);
+
+        public void UpdatePassword(Guid userId, string passwordHash);
+        public void UpdateAbout(Guid userId, string about);
     }
 }

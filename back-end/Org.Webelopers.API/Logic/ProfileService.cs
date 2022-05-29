@@ -33,5 +33,19 @@ namespace Org.Webelopers.Api.Logic
             _context.Accounts.FirstOrDefault(x => x.Id == userId).Picture = pictureData;
             _context.SaveChanges();
         }
+
+        public void UpdatePassword(Guid userId, string passwordHash)
+        {
+            var account = _context.Accounts.FirstOrDefault(x => x.Id == userId);
+            account.PasswordHash = passwordHash;
+            _context.SaveChanges();
+        }
+
+        public void UpdateAbout(Guid userId, string about)
+        {
+            var account = _context.Accounts.FirstOrDefault(x => x.Id == userId);
+            account.About = about;
+            _context.SaveChanges();
+        }
     }
 }

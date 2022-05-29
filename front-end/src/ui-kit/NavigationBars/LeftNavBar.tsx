@@ -9,7 +9,7 @@ import { logout } from '../../state/thunks/global'
 import AssignmentIcon from '@mui/icons-material/Assignment'
 import SettingsIcon from '@mui/icons-material/Settings'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { UserType } from '../../utility/types/userTypes'
 
 interface LeftNavBarProps {
@@ -88,7 +88,6 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
   const dispatch = useDispatch()
   const location = useLocation()
-  const navigate = useNavigate()
   return (
     <MainContainer isActive={props.isActive}>
       <UserContainer>
@@ -105,7 +104,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
 
         <p
           onClick={() => {
-            navigate(`/profile/${state.username}`, { replace: true, state: {} })
+            window.location.replace(`/profile/${state.username}`)
           }}
           style={{
             color: '#e6e6e6',
@@ -118,7 +117,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         </p>
         <p
           onClick={() => {
-            navigate(`/profile/${state.username}`)
+            window.location.replace(`/profile/${state.username}`)
           }}
           style={{
             color: '#e6e6e6',
