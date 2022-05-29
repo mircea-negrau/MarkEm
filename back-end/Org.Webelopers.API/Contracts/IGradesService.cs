@@ -11,7 +11,7 @@ namespace Org.Webelopers.Api.Contracts
         public void UpdateGrade(Guid gradeId, short grade);
         public void DeleteGrade(Guid gradeId);
         public void SetGrade(Guid studentId, Guid courseId, short value);
-        public List<StudentCourseGrades> GetStudentGrades(Guid studentid);
+        public List<ContractSemesterGrades> GetStudentGrades(Guid studentid);
         public HashSet<MandatoryCourseGrade> GetCourseGrades(Guid courseId);
         public HashSet<MandatoryCourseGrade> GetTeacherGrades(Guid teacherId);
     }
