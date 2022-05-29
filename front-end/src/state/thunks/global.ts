@@ -102,3 +102,20 @@ export const changeAbout = createAsyncThunk(
     }
   }
 )
+
+export const getIsChief = createAsyncThunk(
+  'getIsChief',
+  async (userId: string) => {
+    try {
+      const response = await SECURE_API.get(
+        `/profile/isChiefOfDepartment?userId=${userId}`
+      )
+      console.log(response.data)
+      const isChief: boolean = response.data
+      return isChief
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+)

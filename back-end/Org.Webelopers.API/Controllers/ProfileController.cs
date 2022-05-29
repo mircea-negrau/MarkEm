@@ -134,5 +134,21 @@ namespace Org.Webelopers.Api.Controllers
                 return StatusCode(500, $"Internal server error: {e}");
             }
         }
+
+        [HttpGet("isChiefOfDepartment")]
+        [Authorize(Roles = "Student,Teacher,Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult GetIsChiefOfDepartment([FromQuery] string userId)
+        {
+            try
+            {
+                return Ok(_profileService.IsChiefOfDepartment(Guid.Parse(userId)));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Internal server error: {e}");
+            }
+        }
     }
 }

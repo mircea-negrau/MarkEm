@@ -8,6 +8,7 @@ import { performanceReducer } from './slices/performance'
 import { optionalCoursesReducer } from './slices/optionalCourses'
 import { profileReducer } from './slices/profile'
 import { facultyReducer } from './slices/faculties'
+import { chiefResultsReducer } from './slices/chiefResults'
 
 export const store = configureStore({
   reducer: {
@@ -19,7 +20,8 @@ export const store = configureStore({
     optionalCourses: optionalCoursesReducer,
     profile: profileReducer,
     performance: performanceReducer,
-    faculties: facultyReducer
+    faculties: facultyReducer,
+    chiefResults: chiefResultsReducer
   }
 })
 

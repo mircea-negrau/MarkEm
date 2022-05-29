@@ -47,5 +47,13 @@ namespace Org.Webelopers.Api.Logic
             account.About = about;
             _context.SaveChanges();
         }
+
+        public bool IsChiefOfDepartment(Guid userId)
+        {
+            var account = _context.Accounts.FirstOrDefault(x => x.Id == userId);
+            return account == null
+                ? false
+                : _context.Faculties.FirstOrDefault(x => x.ChiefOfDepartmentId == userId) != null;
+        }
     }
 }

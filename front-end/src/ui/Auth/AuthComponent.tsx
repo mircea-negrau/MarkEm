@@ -4,7 +4,11 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 import localforage from 'localforage'
 import { globalActions, UserDetails } from '../../state/slices/global'
 import jwt_decode from 'jwt-decode'
-import { getCurrentProfile, logout } from '../../state/thunks/global'
+import {
+  getCurrentProfile,
+  getIsChief,
+  logout
+} from '../../state/thunks/global'
 import { DefaultScaffold } from '../../ui-kit/DefaultScaffold'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { UserType } from '../../utility/types/userTypes'
@@ -50,8 +54,9 @@ export const AuthComponent: FunctionComponent<{
   useEffect(() => {
     if (isValidJwt) {
       store.dispatch(getCurrentProfile(state.username))
+      store.dispatch(getIsChief(state.userId))
     }
-  }, [isValidJwt, state.username])
+  }, [isValidJwt, state.userId, state.username])
 
   useEffect(() => {
     if (state.profileStatus === FetchStatus.success) setIsProfileReady(true)

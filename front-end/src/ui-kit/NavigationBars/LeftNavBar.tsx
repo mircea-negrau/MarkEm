@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { UserAvatar } from '../Avatars/UserAvatar'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew'
+import StarIcon from '@mui/icons-material/Star'
 import { logout } from '../../state/thunks/global'
 import AssignmentIcon from '@mui/icons-material/Assignment'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -208,6 +209,17 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
           <SettingsIcon style={{ color: '#cfd8e3' }} />
           <MenuItemText>Settings</MenuItemText>
         </MenuItem>
+        {state.isChief && (
+          <MenuItem
+            isActive={location.pathname == '/chief/results'}
+            onClick={() => {
+              window.location.replace('/chief/results')
+            }}
+          >
+            <StarIcon />
+            <MenuItemText>Chief of Department</MenuItemText>
+          </MenuItem>
+        )}
         <MenuItem
           onClick={() => {
             dispatch(logout())

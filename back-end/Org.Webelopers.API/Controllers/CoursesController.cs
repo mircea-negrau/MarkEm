@@ -34,7 +34,7 @@ namespace Org.Webelopers.Api.Controllers
             ICourseService courseService,
             IGradesService gradesService,
             IAuthTokenService authTokenService,
-            ICurriculumService curriculumService, 
+            ICurriculumService curriculumService,
             IFacultyService facultyService)
         {
             _logger = logger;
@@ -60,7 +60,7 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -69,8 +69,8 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-        
-        [HttpGet("all/for-chief-teachers-disciplines-page")]
+
+        [HttpGet("all/by-teachers")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize(Policy = "ChiefOfDepartmentRequirement")]
@@ -84,15 +84,16 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
         }
-    
+
         [HttpGet("course/{courseId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherCourseDetailDto))]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -106,11 +107,11 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -130,19 +131,19 @@ namespace Org.Webelopers.Api.Controllers
             {
                 ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
                 _gradesService.SetGrade(setGradeDto.StudentId, courseId, setGradeDto.Value);
-                return Ok(new {message = "success"});
+                return Ok(new { message = "success" });
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (NullReferenceException e)
             {
-                return NotFound(new {message = e.Message});
+                return NotFound(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -151,7 +152,7 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-    
+
         [HttpGet("course/{courseId}/groups")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -165,11 +166,11 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -198,7 +199,7 @@ namespace Org.Webelopers.Api.Controllers
         }
 
         #region PrivateMethods
-        
+
         private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
         {
             if (!_courseService.IsCourseTaughtBy(courseId, teacherId))
@@ -217,37 +218,27 @@ namespace Org.Webelopers.Api.Controllers
             {
             }
         }
-        
-        [HttpGet("chief-teachers-with-courses-info")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        #endregion
+
+        [HttpGet("results/teachers")]
         [Authorize(Policy = "ChiefOfDepartmentRequirement")]
-        public async Task<IActionResult> GetOptionalsChiefView()
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TeacherPerformanceDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetResultsTeachers([FromQuery] Guid chiefId)
         {
             try
             {
-                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
-                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
-                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+                Guid facultyId = _facultyService.GetFacultyIdBy(chiefId);
+                var teachers = _facultyService.GetFacultyTeachers(facultyId);
+
+                return Ok(_statisticsService.GetX(teachers));
             }
-            catch (IAuthTokenService.UidClaimNotFound e)
+            catch (Exception ex)
             {
-                return BadRequest(new {message = e.Message});
+                _logger.LogError(ex.Message);
+                return BadRequest();
             }
-            catch (Exception e) {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
-
-        [HttpGet("results/teachers")]
-        public List<TeacherPerformanceDto> GetResultsTeachers(Guid chiefId)
-        {
-            Guid facultyId = _facultyService.GetFacultyIdBy(chiefId);
-            var teachers = _facultyService.GetFacultyTeachers(facultyId);
-
-            return _statisticsService.GetX(teachers);
         }
     }
 }

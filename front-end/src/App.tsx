@@ -15,6 +15,7 @@ import { EditContractPage } from './ui/EditContractPage'
 import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
 import { CoursePage } from './ui/Teacher/CoursePage'
+import { ResultsPage } from './ui/ChiefOfDepartment/ResultsPage'
 import { CourseType } from './utility/types/courseTypes'
 import { OptionalsPage } from './ui/Teacher/OptionalsPage'
 
@@ -118,6 +119,14 @@ const App: FunctionComponent = () => {
           <Route path={'/login'} element={<LoginPage />} />
 
           <Route path={'/register'} element={<RegisterPage />} />
+          <Route
+            path={'/chief/results'}
+            element={
+              <AuthTeacher>
+                <ResultsPage />
+              </AuthTeacher>
+            }
+          />
           <Route
             path={'/'}
             element={

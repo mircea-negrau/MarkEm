@@ -13,5 +13,6 @@ namespace Org.Webelopers.Api.Contracts
 
         public void UpdatePassword(Guid userId, string passwordHash);
         public void UpdateAbout(Guid userId, string about);
+        public bool IsChiefOfDepartment(Guid userId);
     }
 }

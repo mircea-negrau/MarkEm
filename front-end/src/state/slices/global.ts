@@ -3,7 +3,7 @@ import { FetchStatus } from '../../utility/fetchStatus'
 import { getUserType } from '../../utility/getUserType'
 import { Profile } from '../../utility/types/profileTypes'
 import { UserType } from '../../utility/types/userTypes'
-import { getCurrentProfile, login, logout } from '../thunks/global'
+import { getCurrentProfile, getIsChief, login, logout } from '../thunks/global'
 
 interface GlobalStateType {
   accessToken: string
@@ -17,6 +17,8 @@ interface GlobalStateType {
   profilePicture: string
   profileStatus: FetchStatus
   profile: Profile
+  isChief: boolean
+  isChiefTokenStatus: FetchStatus
 }
 
 const initialState: GlobalStateType = {
@@ -36,7 +38,9 @@ const initialState: GlobalStateType = {
     username: '',
     firstName: '',
     lastName: ''
-  }
+  },
+  isChief: false,
+  isChiefTokenStatus: FetchStatus.idle
 }
 
 export interface UserDetails {
@@ -108,6 +112,21 @@ export const globalSlice = createSlice({
 
     builder.addCase(getCurrentProfile.rejected, state => {
       state.profileStatus = FetchStatus.error
+    })
+
+    builder.addCase(getIsChief.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.isChief = action.payload
+      }
+      state.isChiefTokenStatus = FetchStatus.success
+    })
+
+    builder.addCase(getIsChief.pending, state => {
+      state.isChiefTokenStatus = FetchStatus.loading
+    })
+
+    builder.addCase(getIsChief.rejected, state => {
+      state.isChiefTokenStatus = FetchStatus.error
     })
   }
 })
