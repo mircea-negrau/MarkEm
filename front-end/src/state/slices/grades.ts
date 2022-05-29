@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { Grade, StudentCourseGrades } from '../../utility/types/gradeTypes'
+import { StudentCourseGrades } from '../../utility/types/gradeTypes'
 
-import { getAllContracts } from '../thunks/contracts'
 import { getAllGrades } from '../thunks/grades'
 
 interface GradeStateType {
@@ -15,8 +14,8 @@ const initialState: GradeStateType = {
   gradeStatus: FetchStatus.idle
 }
 
-export const contractsSlice = createSlice({
-  name: 'grades',
+export const gradesSlice = createSlice({
+  name: 'gradesSlice',
   initialState: initialState,
   reducers: {
     setGrades: (state, action: PayloadAction<StudentCourseGrades[]>) => {
@@ -29,15 +28,14 @@ export const contractsSlice = createSlice({
       if (action.payload) {
         state.grades = action.payload
         state.gradeStatus = FetchStatus.success
-        console.log('fulfilled', action.payload, state.grades)
       }
     }),
-      builder.addCase(getAllContracts.pending, (state, action) => {
+      builder.addCase(getAllGrades.pending, (state, action) => {
         if (action.payload) {
           state.gradeStatus = FetchStatus.loading
         }
       }),
-      builder.addCase(getAllContracts.rejected, (state, action) => {
+      builder.addCase(getAllGrades.rejected, (state, action) => {
         if (action.payload) {
           state.gradeStatus = FetchStatus.error
         }
@@ -45,5 +43,5 @@ export const contractsSlice = createSlice({
   }
 })
 
-export const gradeActions = contractsSlice.actions
-export const gradeReducer = contractsSlice.reducer
+export const gradeActions = gradesSlice.actions
+export const gradeReducer = gradesSlice.reducer

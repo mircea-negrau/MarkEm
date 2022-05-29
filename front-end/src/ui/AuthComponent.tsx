@@ -1,14 +1,13 @@
-import { AppState, store } from '../../state/store'
+import { AppState, store } from '../state/store'
 import { useSelector } from 'react-redux'
 import { FunctionComponent, useEffect, useState } from 'react'
 import localforage from 'localforage'
-import { globalActions, UserDetails } from '../../state/slices/global'
+import { globalActions, UserDetails } from '../state/slices/global'
 import { Navigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
-import { getCurrentProfile, logout } from '../../state/thunks/global'
-import { DefaultScaffold } from '../../ui-kit/DefaultScaffold'
-import { getProfileByUsername } from '../../state/thunks/profile'
-import { FetchStatus } from '../../utility/fetchStatus'
+import { getCurrentProfile, logout } from '../state/thunks/global'
+import { DefaultScaffold } from '../ui-kit/DefaultScaffold'
+import { FetchStatus } from '../utility/fetchStatus'
 
 export const AuthComponent: FunctionComponent = props => {
   const state = useSelector((state: AppState) => state.global)

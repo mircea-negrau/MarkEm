@@ -13,6 +13,7 @@ import { Button, CircularProgress, TextField } from '@mui/material'
 import { FetchStatus } from '../utility/fetchStatus'
 import React from 'react'
 import EmailIcon from '@mui/icons-material/Email'
+import { useNavigate } from 'react-router-dom'
 
 const roleOptions = ['Student', 'Teacher', 'Admin']
 
@@ -58,6 +59,7 @@ export const RegisterPage: FunctionComponent = () => {
   const [userRole, setUserRole] = useState(roleOptions[0])
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const Dropdown = ({ options }) => {
     return (
@@ -115,8 +117,9 @@ export const RegisterPage: FunctionComponent = () => {
 
   useEffect(() => {
     if (state.accessToken != '') {
-      window.location.replace('/')
+      navigate('/')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.accessToken])
 
   let icon = <></>

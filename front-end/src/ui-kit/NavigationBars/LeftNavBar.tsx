@@ -9,7 +9,7 @@ import { logout } from '../../state/thunks/global'
 import AssignmentIcon from '@mui/icons-material/Assignment'
 import SettingsIcon from '@mui/icons-material/Settings'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 interface LeftNavBarProps {
   isActive: boolean
@@ -87,6 +87,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
   const dispatch = useDispatch()
   const location = useLocation()
+  const navigate = useNavigate()
   return (
     <MainContainer isActive={props.isActive}>
       <UserContainer>
@@ -103,7 +104,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
 
         <p
           onClick={() => {
-            window.location.replace(`/profile/${state.username}`)
+            navigate(`/profile/${state.username}`)
           }}
           style={{
             color: '#e6e6e6',
@@ -116,7 +117,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         </p>
         <p
           onClick={() => {
-            window.location.replace(`/profile/${state.username}`)
+            navigate(`/profile/${state.username}`, { state: null })
           }}
           style={{
             color: '#e6e6e6',
@@ -134,7 +135,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         <MenuItem
           isActive={location.pathname == '/'}
           onClick={() => {
-            window.location.replace('/')
+            navigate('/')
           }}
         >
           <DashboardIcon style={{ color: '#cfd8e3' }} />
@@ -145,7 +146,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/contracts'}
               onClick={() => {
-                window.location.replace('/contracts')
+                navigate('/contracts')
               }}
             >
               <AssignmentIcon style={{ color: '#cfd8e3' }} />
@@ -154,7 +155,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/grades'}
               onClick={() => {
-                window.location.replace('/grades')
+                navigate('/grades')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -167,7 +168,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/teacher/courses'}
               onClick={() => {
-                window.location.replace('/teacher/courses')
+                navigate('/teacher/courses')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -181,7 +182,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/admin/performance'}
               onClick={() => {
-                window.location.replace('/admin/performance')
+                navigate('/admin/performance')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -192,7 +193,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         <MenuItem
           isActive={location.pathname == '/settings'}
           onClick={() => {
-            window.location.replace('/settings')
+            navigate('/settings')
           }}
         >
           <SettingsIcon style={{ color: '#cfd8e3' }} />

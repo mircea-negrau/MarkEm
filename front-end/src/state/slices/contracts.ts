@@ -4,17 +4,7 @@ import {
   SemesterContract,
   StudyContractEnriched
 } from '../../utility/types/contractTypes'
-import {
-  Degree,
-  Faculty,
-  Specialisation
-} from '../../utility/types/studentTypes'
-import {
-  getAllContracts,
-  getFaculties,
-  getFacultySpecialisations,
-  getSemesterContracts
-} from '../thunks/contracts'
+import { getAllContracts, getSemesterContracts } from '../thunks/contracts'
 
 interface ContractsStateType {
   contracts: StudyContractEnriched[]
@@ -29,7 +19,7 @@ const initialState: ContractsStateType = {
 }
 
 export const contractsSlice = createSlice({
-  name: 'contracts',
+  name: 'contractsSlice',
   initialState: initialState,
   reducers: {
     setContracts: (state, action: PayloadAction<StudyContractEnriched[]>) => {

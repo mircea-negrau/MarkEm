@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { StudyYear } from '../../utility/types/facultyTypes'
-import { Grade } from '../../utility/types/gradeTypes'
 import {
   Group,
   SemesterReduced,
@@ -33,8 +31,8 @@ const initialState: PerformanceStateType = {
   performanceStatus: FetchStatus.idle
 }
 
-export const contractsSlice = createSlice({
-  name: 'performance',
+export const performanceSlice = createSlice({
+  name: 'performanceSlice',
   initialState: initialState,
   reducers: {
     setGroups: (state, action: PayloadAction<Group[]>) => {
@@ -154,5 +152,5 @@ export const contractsSlice = createSlice({
   }
 })
 
-export const performanceActions = contractsSlice.actions
-export const performanceReducer = contractsSlice.reducer
+export const performanceActions = performanceSlice.actions
+export const performanceReducer = performanceSlice.reducer

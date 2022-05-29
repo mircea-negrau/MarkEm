@@ -5,6 +5,7 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import ReactCountryFlag from 'react-country-flag'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
+import { useNavigate } from 'react-router-dom'
 
 interface TopNavBarProps {
   dockerAction: () => void
@@ -12,6 +13,7 @@ interface TopNavBarProps {
 
 export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -97,7 +99,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
               cursor: 'pointer'
             }}
             onClick={() => {
-              window.location.replace(`/profile/${state.username}`)
+              navigate(`/profile/${state.username}`)
             }}
           >
             {state.firstName + ' ' + state.lastName}
@@ -110,7 +112,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
                   : ''
               }
               onClick={() => {
-                window.location.replace(`/profile/${state.username}`)
+                navigate(`/profile/${state.username}`)
               }}
               style={{
                 width: '32px',
@@ -137,7 +139,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
                 userSelect: 'none'
               }}
               onClick={() => {
-                window.location.replace(`/profile/${state.username}`)
+                navigate(`/profile/${state.username}`)
               }}
             >
               {state.firstName.slice(0, 1)}

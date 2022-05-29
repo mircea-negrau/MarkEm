@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
 import { getProfileByUsername } from '../state/thunks/profile'
@@ -32,15 +32,17 @@ export const ProfilePage: FunctionComponent = () => {
   const global = useSelector((state: AppState) => state.global)
   const state = useSelector((state: AppState) => state.profile)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (username == undefined) {
-      window.location.replace('/error')
+      navigate('/error')
     } else {
       if (state.profileStatus != FetchStatus.success) {
         dispatch(getProfileByUsername(username))
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, state.profileStatus, username])
 
   const [file, setFile] = useState()

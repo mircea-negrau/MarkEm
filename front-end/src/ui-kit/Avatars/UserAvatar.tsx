@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Avatar = styled.div<{ image: string }>`
@@ -35,21 +36,20 @@ export const UserAvatar: FunctionComponent<{
   firstName: string
   lastName: string
 }> = props => {
+  const navigate = useNavigate()
   return (
     <>
       {(props.profilePicture && (
         <Avatar
           onClick={() => {
-            if (props.username)
-              window.location.replace(`/profile/${props.username}`)
+            if (props.username) navigate(`/profile/${props.username}`)
           }}
           image={props.profilePicture}
         />
       )) || (
         <AvatarPlaceholder
           onClick={() => {
-            if (props.username)
-              window.location.replace(`/profile/${props.username}`)
+            if (props.username) navigate(`/profile/${props.username}`)
           }}
         >
           <p>

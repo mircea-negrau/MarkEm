@@ -7,8 +7,8 @@ const Scaffold = styled.div`
   display: flex;
   padding-top: 61px;
   min-height: calc(100vh - 61px);
-  margin-left: 15%;
-  padding-right: 15%;
+  margin-left: 5%;
+  padding-right: 5%;
 `
 
 const Layout = styled.div`

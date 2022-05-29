@@ -48,14 +48,16 @@ const EntryP = styled.p`
 
 export const GradesPage: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
-  const grades = useSelector((state: AppState) => state.grades.grades)
-  const status = useSelector((state: AppState) => state.grades.gradeStatus)
+  const state = useSelector((state: AppState) => state.grades)
+
+  console.log(token, state)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllGrades(token))
-  }, [dispatch, token])
+    console.log(state)
+    if (state.gradeStatus !== FetchStatus.success) dispatch(getAllGrades(token))
+  }, [dispatch, state.gradeStatus, token])
 
   return (
     <MainContainer>
@@ -67,19 +69,23 @@ export const GradesPage: FunctionComponent = () => {
           display: 'inline-block'
         }}
       >
-        {grades.map(course => (
-          <>
-            <EntryP>Course : {course.courseName}</EntryP>
-            {course.grades.map(grade => (
-              <div key={grade.id}>
-                <Grade>
-                  <EntryP>Grade : {grade.grade}</EntryP>
-                </Grade>
-                <br /> <br />
-              </div>
-            ))}
-          </>
-        ))}
+        {state.grades.length > 0 &&
+          state.grades.map(course => {
+            console.log(course)
+            return (
+              <>
+                <EntryP>Course : {course.courseName}</EntryP>
+                {course.grades.map(grade => (
+                  <div key={grade.id}>
+                    <Grade>
+                      <EntryP>Grade : {grade.grade}</EntryP>
+                    </Grade>
+                    <br /> <br />
+                  </div>
+                ))}
+              </>
+            )
+          })}
       </div>
     </MainContainer>
   )

@@ -1,37 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
 import {
-  SemesterContract,
-  StudyContractEnriched
-} from '../../utility/types/contractTypes'
-import {
   Degree,
   Faculty,
   Specialisation
 } from '../../utility/types/studentTypes'
-import {
-  getAllContracts,
-  getFaculties,
-  getFacultySpecialisations,
-  getSemesterContracts
-} from '../thunks/contracts'
+import { getFaculties, getFacultySpecialisations } from '../thunks/contracts'
 
 interface FacultyStateType {
   faculties: Faculty[]
   degrees: Degree[]
   specialisations: Specialisation[]
   facultyStatus: FetchStatus
+  specialisationsStatus: FetchStatus
 }
 
 const initialState: FacultyStateType = {
   faculties: [],
   degrees: [],
   specialisations: [],
-  facultyStatus: FetchStatus.idle
+  facultyStatus: FetchStatus.idle,
+  specialisationsStatus: FetchStatus.idle
 }
 
-export const contractsSlice = createSlice({
-  name: 'contracts',
+export const facultiesSlice = createSlice({
+  name: 'facultiesSlice',
   initialState: initialState,
   reducers: {
     setFaculties: (state, action: PayloadAction<Faculty[]>) => {
@@ -61,11 +54,21 @@ export const contractsSlice = createSlice({
       builder.addCase(getFacultySpecialisations.fulfilled, (state, action) => {
         if (action.payload) {
           state.specialisations = action.payload
-          console.log('fulfilled getting specialisations', action.payload)
+          state.specialisationsStatus = FetchStatus.success
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.pending, (state, action) => {
+        if (action.payload) {
+          state.specialisationsStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getFacultySpecialisations.rejected, (state, action) => {
+        if (action.payload) {
+          state.specialisationsStatus = FetchStatus.error
         }
       })
   }
 })
 
-export const facultyActions = contractsSlice.actions
-export const facultyReducer = contractsSlice.reducer
+export const facultyActions = facultiesSlice.actions
+export const facultyReducer = facultiesSlice.reducer
