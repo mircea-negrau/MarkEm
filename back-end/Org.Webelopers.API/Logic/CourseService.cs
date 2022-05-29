@@ -62,7 +62,7 @@ namespace Org.Webelopers.Api.Logic
         {
             var courses = _context.Courses.AsNoTracking()
                 .Where(x => x.TeacherId == teacherId);
-            var enrichedCourses = await courses
+            var enrichedCourses = await courses.AsNoTracking()
             .Include(x => x.Semester)
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
@@ -75,6 +75,7 @@ namespace Org.Webelopers.Api.Logic
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
                 .ThenInclude(y => y.Faculty)
+            .AsSplitQuery()
             .Select(x => new TeacherCourseDetailDto()
             {
                 Id = x.Id,
@@ -241,13 +242,14 @@ namespace Org.Webelopers.Api.Logic
                 .Include(group => group.StudentEnrolledCourses)
                 .Where(group => group.StudentEnrolledCourses.FirstOrDefault(enrollment => enrollment.MandatoryCourseId == courseId) !=
                                 default);
-            var enrichedGroups = await groups
+            var enrichedGroups = await groups.AsNoTracking()
                 .Include(group => group.Contracts)
                     .ThenInclude(contract => contract.Student)
                     .ThenInclude(student => student.Account)
                 .Include(group => group.Contracts)
                     .ThenInclude(contract => contract.Student)
                     .ThenInclude(student => student.Grades)
+                .AsSplitQuery()
                 .Select(group => new TeacherGroup
                 {
                     Id = group.Id,

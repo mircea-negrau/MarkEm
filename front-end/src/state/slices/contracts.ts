@@ -34,6 +34,9 @@ export const contractsSlice = createSlice({
   reducers: {
     setContracts: (state, action: PayloadAction<StudyContractEnriched[]>) => {
       state.contracts = action.payload
+    },
+    resetContractsStatus: state => {
+      state.contractsStatus = FetchStatus.idle
     }
   },
 
@@ -42,7 +45,6 @@ export const contractsSlice = createSlice({
       if (action.payload) {
         state.contracts = action.payload
         state.contractsStatus = FetchStatus.success
-        console.log('fulfilled', action.payload, state.contracts)
       }
     }),
       builder.addCase(getAllContracts.pending, (state, action) => {

@@ -12,16 +12,26 @@ import { AppState } from '../state/store'
 import { Button } from '@mui/material'
 import { useFormik } from 'formik'
 import { FetchStatus } from '../utility/fetchStatus'
+import { Degree, Faculty, Specialisation } from '../utility/types/studentTypes'
 import { StudyContractEnriched } from '../utility/types/contractTypes'
-import { Faculty } from '../utility/types/studentTypes'
+import { contractActions } from '../state/slices/contracts'
 
 const MainContainer = styled.div`
-  display: inline-block;
-  flex-direction: column;
+  display: flex;
   padding: 40px 25px;
   width: 100%;
   height: 100%;
 `
+
+const ContractContainer = styled.div<{ isActive?: boolean }>`
+  width: 80%;
+  border: ${props => (props.isActive ? '5px solid green' : '5px solid green')};
+  border-color: ${props => (props.isActive ? '#96a2b4' : '#D6DEEA')};
+  padding: 50px;
+  border-radius: 25px;
+  ${props => (props.isActive ? 'background: #D6DEEA' : '')}
+`
+
 export default function Contract({ contract }) {
   return (
     <div
@@ -42,54 +52,33 @@ export default function Contract({ contract }) {
 }
 
 export const Contracts: FunctionComponent = () => {
-  const token = useSelector((state: AppState) => state.global.accessToken)
   const state = useSelector((state: AppState) => state.contracts)
   const facultyState = useSelector((state: AppState) => state.faculties)
+  const token = useSelector((state: AppState) => state.global.accessToken)
+
   const dispatch = useDispatch()
 
-  const [selectedContract, setSelectedContract] = useState('')
+  const [selectedContract, setSelectedContract] =
+    useState<StudyContractEnriched | null>()
   const [filteredFaculties, setFilteredFaculties] = useState<Faculty[]>([])
-
-  const [specialisation, setSpecialisation] = useState('')
-  const [faculty, setFaculty] = useState('')
-  const [degree, setDegree] = useState('')
-  const [facultyId, setFacultyId] = useState('')
-  const [degreeId, setDegreeId] = useState('')
-  const [specialisationId, setSpecialisationId] = useState('')
+  const [specialisation, setSpecialisation] = useState<Specialisation | null>()
+  const [faculty, setFaculty] = useState<Faculty | null>()
+  const [degree, setDegree] = useState<Degree | null>()
 
   const Dropdown = ({ options, field, val, disabled }) => {
     return (
       <select
         value={val}
-        disabled={disabled}
+        disabled={options.length == 0}
         onChange={e => {
           if (field == 'Faculty') {
-            setFaculty(e.target.value), (formik.values.faculty = e.target.value)
-
-            const id =
-              e.target.options[e.target.options.selectedIndex].getAttribute(
-                'id'
-              )
-            if (id != null) setFacultyId(id)
+            setFaculty(filteredFaculties[e.target.options.selectedIndex])
           } else if (field == 'Specialisation') {
-            setSpecialisation(e.target.value),
-              (formik.values.specialisation = e.target.value)
-            const id =
-              e.target.options[e.target.options.selectedIndex].getAttribute(
-                'id'
-              )
-
-            if (id != null) {
-              setSpecialisationId(id)
-              formik.values.specialisationId = id
-            }
+            setSpecialisation(
+              facultyState.specialisations[e.target.options.selectedIndex]
+            )
           } else if (field == 'Degree') {
-            setDegree(e.target.value), (formik.values.degree = e.target.value)
-            const id =
-              e.target.options[e.target.options.selectedIndex].getAttribute(
-                'id'
-              )
-            if (id != null) setDegreeId(id)
+            setDegree(facultyState.degrees[e.target.options.selectedIndex])
           }
         }}
         style={{
@@ -109,22 +98,6 @@ export const Contracts: FunctionComponent = () => {
     )
   }
 
-  const formik = useFormik({
-    initialValues: {
-      faculty: faculty,
-      specialisation: specialisation,
-      degree: degree,
-      facultyId: facultyId,
-      degreeId: degreeId,
-      specialisationId: specialisationId
-    },
-    onSubmit: values => {
-      dispatch(
-        addContract({ specialisationId: values.specialisationId, token: token })
-      )
-    }
-  })
-
   useEffect(() => {
     if (state.contractsStatus != FetchStatus.success) {
       dispatch(getAllContracts(token))
@@ -137,120 +110,94 @@ export const Contracts: FunctionComponent = () => {
 
   useEffect(() => {
     if (
+      facultyState.facultyStatus === FetchStatus.success &&
+      filteredFaculties
+    ) {
+      if (!faculty || !specialisation || !degree) {
+        setFaculty(filteredFaculties[0] ?? null)
+        setSpecialisation(facultyState.specialisations[0] ?? null)
+        setDegree(facultyState.degrees[0] ?? null)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [facultyState.facultyStatus, filteredFaculties])
+
+  useEffect(() => {
+    if (
       state.contractsStatus === FetchStatus.success &&
       facultyState.facultyStatus === FetchStatus.success
     ) {
+      const activeFaculties = state.contracts.map(contract => contract.faculty)
+      console.log(activeFaculties, facultyState.faculties)
       setFilteredFaculties(
-        facultyState.faculties.filter(
-          x => x.name != state.contracts[0]?.faculty
-        )
+        facultyState.faculties.filter(x => !activeFaculties.includes(x.name))
       )
-      console.log('succes', facultyState.faculties, state.contracts)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.contractsStatus, facultyState.facultyStatus])
 
   useEffect(() => {
-    if (facultyState.facultyStatus == FetchStatus.success) {
+    if (
+      facultyState.facultyStatus == FetchStatus.success &&
+      faculty &&
+      degree
+    ) {
       dispatch(
         getFacultySpecialisations({
-          facultyId,
-          degreeId
+          facultyId: faculty.id,
+          degreeId: degree.id
         })
       )
     }
-  }, [degreeId, dispatch, faculty, facultyId, facultyState.facultyStatus])
+  }, [dispatch, faculty, degree, facultyState.facultyStatus])
+
+  useEffect(() => {
+    setSpecialisation(facultyState.specialisations[0])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [facultyState.specialisations])
 
   return (
     <MainContainer>
-      Contracts
-      <br />
-      <br />
       <div
         style={{
-          width: '49%',
-          height: '100vh',
-          float: 'left'
-        }}
-      >
-        {state.contracts.map(contract => (
-          <p key={contract.id}>
-            {selectedContract == contract.id && (
-              <div
-                style={{
-                  width: '80%',
-                  border: '5px solid green',
-                  borderColor: '#96a2b4',
-                  padding: '50px',
-                  borderRadius: '25px',
-                  background: '#D6DEEA'
-                }}
-                onClick={() => {
-                  console.log('div with id ' + contract.id + ' was clicked')
-                  setSelectedContract(contract.id)
-                  console.log(selectedContract)
-                }}
-              >
-                Faculty name : {contract.faculty}
-                <br />
-                Specialisation : {contract.specialisation}
-                <br />
-                Signed At : {!contract.signedAt && 'not signed yet'}{' '}
-                {contract.signedAt && contract.signedAt}
-              </div>
-            )}
-            {selectedContract != contract.id && (
-              <div
-                style={{
-                  width: '80%',
-                  border: '5px solid green',
-                  borderColor: '#96a2b4',
-                  padding: '50px',
-                  borderRadius: '25px'
-                }}
-                onClick={() => {
-                  console.log('div with id ' + contract.id + ' was clicked')
-                  setSelectedContract(contract.id)
-                  console.log(selectedContract)
-                }}
-              >
-                Faculty name : {contract.faculty}
-                <br />
-                Specialisation : {contract.specialisation}
-                <br />
-                Signed At : {!contract.signedAt && 'not signed yet'}{' '}
-                {contract.signedAt && contract.signedAt}
-              </div>
-            )}
-            <br />
-            <br />
-          </p>
-        ))}
-      </div>
-      <div
-        style={{
+          paddingTop: '50px',
           width: '49%',
           height: '100vh',
           float: 'right'
         }}
       >
-        <form onSubmit={formik.handleSubmit}>
-          <Button
-            variant="outlined"
-            style={{ float: 'right', top: -50, marginLeft: 5 }}
-            type="submit"
-          >
-            +
-          </Button>
-        </form>
         <Button
           variant="outlined"
           style={{ float: 'right', top: -50, marginLeft: 5 }}
-          onClick={() => {
-            if (selectedContract != '') {
-              dispatch(
-                deleteContract({ contractId: selectedContract, token: token })
-              )
-              dispatch(getAllContracts(token))
+          onClick={async () => {
+            console.log(faculty, degree, specialisation)
+            if (specialisation) {
+              await Promise.all([
+                dispatch(
+                  addContract({
+                    specialisationId: specialisation.id,
+                    token: token
+                  })
+                )
+              ]).then(() => dispatch(contractActions.resetContractsStatus()))
+            }
+          }}
+        >
+          +
+        </Button>
+        <Button
+          variant="outlined"
+          style={{ float: 'right', top: -50, marginLeft: 5 }}
+          onClick={async () => {
+            if (selectedContract) {
+              await Promise.all([
+                dispatch(
+                  deleteContract({
+                    contractId: selectedContract?.id,
+                    token: token
+                  })
+                )
+              ]).then(() => dispatch(contractActions.resetContractsStatus()))
             }
           }}
         >
@@ -259,14 +206,14 @@ export const Contracts: FunctionComponent = () => {
         <Button
           variant="outlined"
           style={{ float: 'right', top: -50, marginLeft: 5 }}
+          disabled={!selectedContract}
           onClick={() => {
-            window.location.replace(`/contracts/${selectedContract}`)
+            window.location.replace(`/contracts/${selectedContract?.id}`)
           }}
         >
           edit
         </Button>
         <p>
-          {' '}
           <b>
             {state.contracts.length >= 2 &&
               'You cannot add more than two contracts'}
@@ -278,7 +225,7 @@ export const Contracts: FunctionComponent = () => {
         <Dropdown
           options={filteredFaculties}
           field="Faculty"
-          val={formik.values.faculty}
+          val={faculty?.name || 'Select'}
           disabled={state.contracts.length >= 2}
         />
         <br /> <br />
@@ -286,7 +233,7 @@ export const Contracts: FunctionComponent = () => {
         <Dropdown
           options={facultyState.degrees}
           field="Degree"
-          val={formik.values.degree}
+          val={degree?.name || 'Select'}
           disabled={state.contracts.length >= 2}
         />
         <br /> <br />
@@ -294,12 +241,42 @@ export const Contracts: FunctionComponent = () => {
         <Dropdown
           options={facultyState.specialisations}
           field="Specialisation"
-          val={formik.values.specialisation}
+          val={specialisation?.name || 'Select'}
           disabled={state.contracts.length >= 2}
         />
-        <br />
-        <br />
       </div>
+      {state.contracts.map(contract => (
+        <p key={`contract-${contract.id}`}>
+          {(selectedContract?.id == contract.id && (
+            <ContractContainer
+              isActive
+              onClick={() => {
+                setSelectedContract(null)
+              }}
+            >
+              Faculty name : {contract.faculty}
+              <br />
+              Specialisation : {contract.specialisation}
+              <br />
+              Signed At : {!contract.signedAt && 'not signed yet'}{' '}
+              {contract.signedAt && contract.signedAt}
+            </ContractContainer>
+          )) || (
+            <ContractContainer
+              onClick={() => {
+                setSelectedContract(contract)
+              }}
+            >
+              Faculty name : {contract.faculty}
+              <br />
+              Specialisation : {contract.specialisation}
+              <br />
+              Signed At : {!contract.signedAt && 'not signed yet'}{' '}
+              {contract.signedAt && contract.signedAt}
+            </ContractContainer>
+          )}
+        </p>
+      ))}
     </MainContainer>
   )
 }

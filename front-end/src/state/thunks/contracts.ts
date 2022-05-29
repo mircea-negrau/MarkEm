@@ -21,7 +21,6 @@ export const getAllContracts = createAsyncThunk(
       const response = await SECURE_API.get(
         `/student/contracts/all?studentId=${decoded.uid}`
       )
-      console.log('getting all contracts')
       const responseContent: StudyContractEnriched[] = response.data
       return responseContent
     } catch (error) {
@@ -84,7 +83,7 @@ export const deleteContract = createAsyncThunk(
       console.log(response.status, response.data)
       if (response.status == 200) console.log('succes')
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
