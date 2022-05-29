@@ -26,7 +26,7 @@ export const CoursePage: FunctionComponent<{
     state.course && (
       <div style={{ padding: '20px' }}>
         <CourseDetails />
-        <StudentsGrades courseType={courseType} />
+        <StudentsGrades />
       </div>
     )
   )

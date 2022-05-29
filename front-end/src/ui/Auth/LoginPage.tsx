@@ -76,7 +76,7 @@ export const LoginPage: FunctionComponent = () => {
 
   useEffect(() => {
     if (state.accessToken != '') {
-      navigate('/')
+      window.location.replace('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.accessToken])

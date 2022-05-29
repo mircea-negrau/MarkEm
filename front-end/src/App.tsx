@@ -87,6 +87,7 @@ const App: FunctionComponent = () => {
               </AuthComponent>
             }
           />
+
           <Route
             path={'/grades'}
             element={

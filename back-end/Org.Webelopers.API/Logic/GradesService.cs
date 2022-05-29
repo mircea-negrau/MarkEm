@@ -89,7 +89,7 @@ namespace Org.Webelopers.Api.Logic
             var contracts = _context.Contracts.Where(x => x.StudentId == studentId)
                 .Include(x => x.StudyYear)
                 .ThenInclude(x => x.Specialization)
-                .ThenInclude(x => x.Faculty).Where(x => x.StudyYear != null && x.StudyYear.Specialization != null && 
+                .ThenInclude(x => x.Faculty).Where(x => x.StudyYear != null && x.StudyYear.Specialization != null &&
                 x.StudyYear.Specialization.Faculty != null)
                 .ToList();
 
@@ -108,7 +108,10 @@ namespace Org.Webelopers.Api.Logic
                 {
 
                     List<StudentCourseGrades> courseGrades = new List<StudentCourseGrades>();
-                    var courses = _context.Courses.Where(x => x.SemesterId == semester.Id).ToList();
+                    var courses = _context.Courses.Include(x => x.Teacher)
+                        .ThenInclude(x => x.Account)
+                        .Where(x => x.SemesterId == semester.Id && x.Teacher != null 
+                    && x.Teacher.Account != null).ToList();
                     System.Diagnostics.Debug.WriteLine("courses count ", courses.Count);
                     System.Diagnostics.Debug.WriteLine(courses.Count);
 
@@ -117,94 +120,58 @@ namespace Org.Webelopers.Api.Logic
                     {
                         List<StudentCourseGrades> grades = new List<StudentCourseGrades>();
 
-                        var gr = _context.Grades.Where(grad => grad.CourseId == course.Id && grad.StudentId == studentId).Select(grad => new GradesDetailDto()
+                        var gr = _context.Grades.FirstOrDefault(grad => grad.CourseId == course.Id && grad.StudentId == studentId);
+                        if(gr != null)
                         {
-                            GradeId = grad.Id,
-                            Grade = grad.Grade,
-                            CourseName = course.Name
-                        }).ToList();
-                        if (gr.Count > 0)
-                        {
+                            var gr2 = new GradesDetailDto()
+                            {
+                                GradeId = gr.Id,
+                                Grade = gr.Grade,
+                                CourseName = course.Name,
+                                Credits = course.Credits
+                            };
+
                             courseGrades.Add(new StudentCourseGrades()
                             {
-                                Course = new Models.Persistence.Courses.CourseDto()
-                                {
-                                    Id = course.Id,
-                                    Name = course.Name
-                                },
-                                Grades = gr
+                                Id = course.Id,
+                                Name = course.Name,
+                                TeacherName = course.Teacher.Account.FirstName + " " + course.Teacher.Account.LastName,
+                                Grade = gr2
                             });
-
                             System.Diagnostics.Debug.WriteLine("at least one grade");
+
                         }
 
-                    }
 
-                    if (courseGrades.Count > 0)
-                    {
-                        semesterGrades.Add(new SemesterCourseGrades()
-                        {
-                            Semester = new Models.Persistence.Semester.SemesterDto()
-                            {
-                                Id = semester.Id,
-                                Value = semester.Semester,
-                                YearStartDate = semester.StudyYear.StartDate,
-                                YearEndDate = semester.StudyYear.EndDate,
-                                SpecializationName = semester.StudyYear.Specialization.Name
-                            },
-                            Courses = courseGrades
 
-                        });
-                        System.Diagnostics.Debug.WriteLine("at least one semester");
 
                     }
 
-
-                }
-                if (semesterGrades.Count > 0)
-                {
-                    contractGrades.Add(new ContractSemesterGrades()
+                    semesterGrades.Add(new SemesterCourseGrades()
                     {
-                        Contract = new Models.Persistence.Contracts.ContractEnriched()
-                        {
-                            Id = contract.Id,
-                            SignedAt = contract.SignedAt,
-                            Specialisation = contract.StudyYear.Specialization.Name,
-                            Faculty = contract.StudyYear.Specialization.Faculty.Name
-                        },
 
-                        Semesters = semesterGrades
+                        Id = semester.Id,
+                        Value = semester.Semester,
+                        YearStartDate = semester.StudyYear.StartDate,
+                        YearEndDate = semester.StudyYear.EndDate,
+                        SpecializationName = semester.StudyYear.Specialization.Name,
+                        Courses = courseGrades
+
                     });
-                    System.Diagnostics.Debug.WriteLine("at least one contract");
-
                 }
-            }
 
+                contractGrades.Add(new ContractSemesterGrades()
+                {
+
+                    Id = contract.Id,
+                    SignedAt = contract.SignedAt,
+                    Specialisation = contract.StudyYear.Specialization.Name,
+                    Faculty = contract.StudyYear.Specialization.Faculty.Name,
+                    Semesters = semesterGrades
+                });
+            }
 
             return contractGrades;
-
-            /*var courses = _context.Courses.ToList();
-            List<StudentCourseGrades> grades = new List<StudentCourseGrades>();
-
-            foreach(var course in courses)
-            {
-                StudentCourseGrades grade = new StudentCourseGrades
-                {
-                    CourseName = course.Name
-                };
-
-                var gr = _context.Grades.Where(grad => grad.CourseId == course.Id && grad.StudentId == studentId).Select(grad => new GradesDetailDto()
-                {
-                    GradeId = grad.Id,
-                    Grade = grad.Grade,
-                    CourseName = course.Name
-                }).ToList();
-                grade.grades = gr;
-                if (grade.grades.Count > 0)
-                    grades.Add(grade);
-
-            }
-            return grades;*/
         }
         public HashSet<MandatoryCourseGrade> GetCourseGrades(Guid courseId) =>
             _context.Grades

@@ -1,5 +1,6 @@
 using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace Org.Webelopers.Api.Contracts
         public void SetYearId(Guid contractId, Guid yearId);
         public void SetOptionalCourseId(Guid contractId, Guid optionalCourseId);
         public int GetNumberOfContracts(Guid studentId);
-        public List<MandatoryCourse> GetContractCourses(Guid contractId);
+        public List<OptionalCourseDto> GetContractCourses(Guid contractId);
         public void SignContract(Guid contractId);
         public OptionalCourse GetOptionalCourse(Guid contractId);
         public List<ContractEnriched> GetStudentContractsEnriched(Guid studentId);
