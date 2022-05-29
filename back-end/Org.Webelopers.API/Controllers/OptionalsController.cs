@@ -40,20 +40,6 @@ namespace Org.Webelopers.Api.Controllers
 
         #endregion
 
-        private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
-        {
-            if (!_optionalCourseService.IsCourseTaughtBy(courseId, teacherId))
-            {
-                throw new InvalidCourseTeacher($"course {courseId} doesn't belong to teacher {teacherId}");
-            }
-        }
-
-        private class InvalidCourseTeacher : Exception
-        {
-            public InvalidCourseTeacher(string message) : base(message)
-            {
-            }
-        }
 
         [HttpGet("all")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherCoursesResponse))]
@@ -101,7 +87,33 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpPost("course/{courseId}/gradeStudent")]
+        [HttpGet("optional/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherCourseDetailDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetCourseById([FromRoute] Guid courseId)
+        {
+            try
+            {
+                ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
+                return Ok(_optionalCourseService.GetEnrichedCourseById(courseId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (InvalidCourseTeacher e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                Console.Error.WriteLine($"e.StackTrace: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
+        [HttpPost("optional/{courseId}/gradeStudent")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -133,47 +145,6 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-
-        [HttpPost("setPreference")]
-        [Authorize(Roles = "Student")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult SetOptionalCoursesPreference([FromBody] CoursePreferenceDto dto)
-        {
-            try
-            {
-                _optionalCourseService.SetCoursePreference(dto.ContractId, dto.OptionalCourseId, dto.Preference);
-                return Ok();
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return NotFound(ex.Message);
-            }
-
-        }
-
-        [HttpPost("setAllPreferences")]
-        [Authorize(Roles = "Student")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult SetOptionalCoursesPreferences([FromBody] OptionalCoursePreferenceDto dto)
-        {
-            try
-            {
-                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.coursesIds);
-                return Ok();
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return NotFound(ex.Message);
-            }
-
-        }
-
         [HttpGet("optional/{courseId}/students")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherOptionalStudentsWithGradeResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -197,24 +168,6 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return NotFound(new { message = e.Message });
-            }
-        }
-        
-        [HttpPost("optionalStudentsAddSamples")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddSamplesForGetOptionalStudentsWithGrade()
-        {
-            try
-            {
-                _optionalCourseService.AddSamplesForGetOptionalStudentsWithGrade();
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
             }
         }
 
@@ -267,5 +220,68 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
+
+        [HttpPost("setPreference")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreference([FromBody] CoursePreferenceDto dto)
+        {
+            try
+            {
+                _optionalCourseService.SetCoursePreference(dto.ContractId, dto.OptionalCourseId, dto.Preference);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound(ex.Message);
+            }
+
+        }
+
+        [HttpPost("setAllPreferences")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreferences([FromBody] OptionalCoursePreferenceDto dto)
+        {
+            try
+            {
+                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.coursesIds);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound(ex.Message);
+            }
+
+        }
+
+        #region PrivateMethods
+
+        private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
+        {
+            if (!_optionalCourseService.IsCourseTaughtBy(courseId, teacherId))
+            {
+                throw new InvalidCourseTeacher($"course {courseId} doesn't belong to teacher {teacherId}");
+            }
+        }
+
+        #endregion
+
+        #region Exceptions
+
+        private class InvalidCourseTeacher : Exception
+        {
+            public InvalidCourseTeacher(string message) : base(message)
+            {
+            }
+        }
+
+        #endregion
     }
 }

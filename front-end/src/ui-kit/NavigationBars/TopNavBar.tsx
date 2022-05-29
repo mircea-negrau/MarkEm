@@ -5,6 +5,7 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import ReactCountryFlag from 'react-country-flag'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
+import { useNavigate } from 'react-router-dom'
 
 interface TopNavBarProps {
   dockerAction: () => void

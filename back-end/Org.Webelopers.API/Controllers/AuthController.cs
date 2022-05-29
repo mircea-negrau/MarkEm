@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
-using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -41,7 +41,7 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogInformation($"Authentication for email '{login.Email}' failed!");
                 return NotFound(new { message = "Invalid credentials!" });
             }
-            _logger.LogInformation($"Logged in {user.Username} ");
+            _logger.LogInformation($"[{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss}] Logged in {user.Username} ");
             string token = _authTokenService.GenerateAuthToken(user);
             return Ok(token);
         }
@@ -52,7 +52,8 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult Register([FromBody] RegisterDto register)
         {
-            string passwordHash = HashPassword(register.Password);
+            string passwordHash = 
+                (register.Password);
             var user = _authService.Register(register.UserType, register.Username, passwordHash, register.Email, register.FirstName, register.LastName);
 
             if (user == null)

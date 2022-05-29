@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import WelcomeImage from '../assets/welcome.png'
+import { AppState } from '../../state/store'
+import WelcomeImage from '../../assets/welcome.png'
 
 const MainContainer = styled.div`
   display: flex;

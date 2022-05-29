@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
+import { getUserType } from '../../utility/getUserType'
 import { Profile } from '../../utility/types/profileTypes'
+import { UserType } from '../../utility/types/userTypes'
 import { getCurrentProfile, login, logout } from '../thunks/global'
 
 interface GlobalStateType {
   accessToken: string
   accessTokenStatus: FetchStatus
   userId: string
-  userRole: 'Student' | 'Teacher' | 'Admin' | 'Guest'
+  userRole: UserType
   username: string
   firstName: string
   lastName: string
@@ -21,7 +23,7 @@ const initialState: GlobalStateType = {
   accessToken: '',
   accessTokenStatus: FetchStatus.idle,
   userId: '',
-  userRole: 'Guest',
+  userRole: UserType.Guest,
   username: '',
   firstName: '',
   lastName: '',
@@ -57,7 +59,7 @@ export const globalSlice = createSlice({
     },
     setUserDetails: (state, action: PayloadAction<UserDetails>) => {
       state.userId = action.payload.uid
-      state.userRole = action.payload.role as 'Student' | 'Teacher' | 'Admin'
+      state.userRole = getUserType(action.payload.role)
       state.username = action.payload.username
       state.expiration = action.payload.exp
       state.firstName = action.payload.firstName

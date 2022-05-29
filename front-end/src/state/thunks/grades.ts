@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { SECURE_API } from '../../utility/api'
 import { UserDetails } from '../slices/global'
 import jwt_decode from 'jwt-decode'
-import { Grade, StudentCourseGrades } from '../../utility/types/gradeTypes'
+import { StudentContractGrades } from '../../utility/types/gradeTypes'
 
 export const getAllGrades = createAsyncThunk(
   'getAllContracts',
@@ -13,12 +13,10 @@ export const getAllGrades = createAsyncThunk(
       const response = await SECURE_API.get(
         `/student/grades/all?studentId=${decoded.uid}`
       )
-      console.log('gettig all grades')
-      const responseContent: StudentCourseGrades[] = response.data
-      console.log(responseContent)
+      const responseContent: StudentContractGrades[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

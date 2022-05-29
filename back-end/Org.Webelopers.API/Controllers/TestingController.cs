@@ -33,6 +33,101 @@ namespace Org.Webelopers.Api.Controllers
 
         #endregion
 
+        [HttpPost("add/enrollments/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddEnrollmentsToCourse(Guid courseId)
+        {
+            try
+            {
+                _logger.LogInformation("AddEnrollmentsToCourse() start");
+                _testingService.AddEnrollmentsToCourse(courseId);
+                string result = $"AddEnrollmentsToCourse() finish: added enrollments to course {courseId}";
+                _logger.LogInformation(result);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                // _logger.LogError($"e.Message: {e.StackTrace}");
+                Console.Error.WriteLine($"e.StackTrace: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
+        [HttpPost("add/groups")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSamplesForGetCourseGroups()
+        {
+            try
+            {
+                _testingService.AddSamplesForGetCourseGroups();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
+        [HttpPost("add/specializations/{number}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddRandomSpecializations([FromRoute] int number)
+        {
+            try
+            {
+                var result = _testingService.AddRandomSpecializations(number);
+                _logger.LogInformation($"created {result.Count} specializations");
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.Message: {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+        
+        [HttpPost("add/students-with-grades-to-optional/")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddStudentsWithGradesToOptional()
+        {
+            try
+            {
+                _testingService.AddStudentsWithGradesToOptional();
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+        
+        [HttpPost("add/students-with-grades-to-optional/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddStudentsWithGradesToOptional(Guid courseId)
+        {
+            try
+            {
+                _testingService.AddStudentsWithGradesToOptional(courseId);
+                return Ok(new {message = "success"});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
+
         [HttpGet("faculties")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HashSet<Faculty>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -52,7 +147,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("faculty/{facultyId}/teachers")]
+        [HttpGet("faculties/{facultyId}/teachers")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HashSet<Teacher>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -78,7 +173,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpGet("faculty/{facultyId}/courses")]
+        [HttpGet("faculties/{facultyId}/courses")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HashSet<MandatoryCourse>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -103,26 +198,7 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
-        [HttpPost("add/specializations/{number}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddRandomSpecializations([FromRoute] int number)
-        {
-            try
-            {
-                var result = _testingService.AddRandomSpecializations(number);
-                _logger.LogInformation($"created {result.Count} specializations");
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.Message: {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
-
-        [HttpGet("faculty/{facultyId}/chief-teachers-with-courses-info")]
+        [HttpGet("faculties/{facultyId}/chief-teachers-with-courses-info")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetChiefChiefTeachersWithCoursesInfo(Guid facultyId)

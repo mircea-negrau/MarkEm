@@ -69,17 +69,40 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
+        
+        [HttpGet("all/by-teachers")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        public async Task<IActionResult> GetOptionalsChiefView()
+        {
+            try
+            {
+                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e) {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
     
-        [HttpGet("course/{courseId}/groups")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
+        [HttpGet("course/{courseId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherCourseDetailDto))]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetCourseGroups([FromRoute] Guid courseId)
+        public IActionResult GetCourseById([FromRoute] Guid courseId)
         {
             try
             {
                 ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
-                return Ok(await _courseService.GetCourseGroups(courseId));
+                return Ok(_courseService.GetEnrichedCourseById(courseId));
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
@@ -94,24 +117,6 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
                 return BadRequest(new { message = e.Message });
-            }
-        }
-
-        [HttpPost("courseGroupsAddSamples")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult AddSamplesForGetCourseGroups()
-        {
-            try
-            {
-                _courseService.AddSamplesForGetCourseGroups();
-                return Ok(new {message = "success"});
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
             }
         }
 
@@ -146,6 +151,33 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
+    
+        [HttpGet("course/{courseId}/groups")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetCourseGroups([FromRoute] Guid courseId)
+        {
+            try
+            {
+                ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
+                return Ok(await _courseService.GetCourseGroups(courseId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (InvalidCourseTeacher e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new { message = e.Message });
+            }
+        }
 
         [HttpGet("year")]
         [Authorize(Roles = "Student")]
@@ -164,6 +196,9 @@ namespace Org.Webelopers.Api.Controllers
             }
 
         }
+
+        #region PrivateMethods
+        
         private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
         {
             if (!_courseService.IsCourseTaughtBy(courseId, teacherId))
@@ -171,6 +206,10 @@ namespace Org.Webelopers.Api.Controllers
                 throw new InvalidCourseTeacher($"course {courseId} doesn't belong to teacher {teacherId}");
             }
         }
+
+        #endregion
+
+        #region Exceptions
 
         private class InvalidCourseTeacher : Exception
         {

@@ -8,6 +8,7 @@ using Org.Webelopers.Api.Models.Types;
 using System;
 using System.IO;
 using System.Linq;
+using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -73,6 +74,45 @@ namespace Org.Webelopers.Api.Controllers
                 {
                     return BadRequest();
                 }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Internal server error: {e}");
+            }
+        }
+
+        [HttpPost("passwordChange")]
+        [Authorize(Roles = "Student,Teacher,Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult UpdatePassword([FromBody] PasswordChangeRequestDto request)
+        {
+            try
+            {
+                var authorization = HttpContext.Request.Headers["Authorization"];
+                var token = _authTokenService.ParseAuthToken(authorization);
+                Guid userId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "uid")?.Value);
+                string passwordHash = HashPassword(request.Password);
+                _profileService.UpdatePassword(userId, passwordHash);
+                return Ok("Password saved.");
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Internal server error: {e}");
+            }
+        }
+
+        [HttpPost("setAbout")]
+        [Authorize(Roles = "Student,Teacher,Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult UpdateAbout([FromBody] AboutChangeRequestDto request)
+        {
+            try
+            {
+                var authorization = HttpContext.Request.Headers["Authorization"];
+                var token = _authTokenService.ParseAuthToken(authorization);
+                Guid userId = Guid.Parse(token.Claims.FirstOrDefault(x => x.Type == "uid")?.Value);
+                _profileService.UpdateAbout(userId, request.About);
+                return Ok("Password saved.");
             }
             catch (Exception e)
             {

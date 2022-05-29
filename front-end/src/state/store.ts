@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { contractReducer } from './slices/contracts'
 import { coursesReducer } from './slices/courses'
+import { courseReducer } from './slices/course'
 import { globalReducer } from './slices/global'
 import { gradeReducer } from './slices/grades'
 import { performanceReducer } from './slices/performance'
@@ -13,6 +14,7 @@ export const store = configureStore({
     global: globalReducer,
     contracts: contractReducer,
     courses: coursesReducer,
+    course: courseReducer,
     grades: gradeReducer,
     optionalCourses: optionalCoursesReducer,
     profile: profileReducer,

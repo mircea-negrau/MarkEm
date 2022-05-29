@@ -8,6 +8,7 @@ namespace Org.Webelopers.Api.Models.Persistence.Grades
 
         public short Grade { get; set; }
         public string CourseName { get; set; }
+        public int Credits { get; set; }
 
     }
 }

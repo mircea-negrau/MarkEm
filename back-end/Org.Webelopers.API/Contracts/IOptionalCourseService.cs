@@ -28,9 +28,9 @@ namespace Org.Webelopers.Api.Contracts
         public ProposedCoursesIds GetProposed(Guid teacherId);
         public void Propose(Guid course1Id, Guid course2Id);
         
+        public TeacherCourseDetailDto GetEnrichedCourseById(Guid courseId);
         public Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId);
         public Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId);
-        public void AddSamplesForGetOptionalStudentsWithGrade();
         public Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId);
         #endregion
 
