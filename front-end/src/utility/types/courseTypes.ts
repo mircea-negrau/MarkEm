@@ -28,6 +28,7 @@ export interface TeacherEnrichedCourses {
   semester: number
   startDate: number
   endDate: number
+  isOptional: boolean
   facultyDetails: {
     faculty: string
     specialization: string
@@ -36,4 +37,17 @@ export interface TeacherEnrichedCourses {
     studyLine: string
     studyLineShort: string
   }
+}
+
+export interface StudentWithGrade {
+  id: string
+  lastName: string
+  firstName: string
+  grade: number
+}
+
+export interface GroupEnrichedWithStudents {
+  id: string
+  number: string
+  students: StudentWithGrade[]
 }

@@ -205,9 +205,51 @@ namespace Org.Webelopers.Api.Logic
 
             _context.SaveChanges();
         }
-        
-        
 
+
+        public TeacherCourseDetailDto GetEnrichedCourseById(Guid courseId)
+        {
+            var course = _context.OptionalCourses
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyDegree)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.Faculty)
+                .FirstOrDefault(x => x.Id == courseId);
+
+            if (course == null)
+            {
+                throw new Exception("Course ID is invalid!");
+            }
+
+            return new TeacherCourseDetailDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                Semester = course.Semester.Semester,
+                StartDate = course.Semester.StudyYear.StartDate,
+                EndDate = course.Semester.StudyYear.EndDate,
+                IsOptional = true,
+                FacultyDetails = new TeacherCourseFacultyDetailDto()
+                {
+                    Faculty = course.Semester.StudyYear.Specialization.Faculty.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    SpecializationSemesters = course.Semester.StudyYear.Specialization.Semesters,
+                    StudyDegree = course.Semester.StudyYear.Specialization.StudyDegree.Name,
+                    StudyLine = course.Semester.StudyYear.Specialization.StudyLine.Name,
+                    StudyLineShort = course.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                }
+            };
+        }
+        
         public async Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId)
         {
             var courses = _context.OptionalCourses.AsNoTracking()
@@ -266,64 +308,6 @@ namespace Org.Webelopers.Api.Logic
 
             return new TeacherOptionalStudentsWithGradeResponse {StudentsWithGrade = studentsWithGrade};
         }
-
-        public void AddSamplesForGetOptionalStudentsWithGrade()
-        {
-            const int noOfStudents = 10;
-            
-            var course = _context.OptionalCourses.Include(optionalCourse => optionalCourse.Semester).First();
-            var studyYearId = course.Semester.StudyYearId;
-            var students = _context.Students.Take(noOfStudents).ToList();
-            var currentTime = DateTimeOffset.Now;
-            var grades = new List<OptionalCourseGrade>();
-            Console.WriteLine($"course.Id = {course.Id}");
-            Console.WriteLine($"currentTime = {currentTime:yyyy-MM-dd HH:mm:ss}");
-            Console.WriteLine($"noOfStudents = {students.Count}");
-
-            foreach (var student in students)
-            {
-                var contract = new StudentContract
-                {
-                    Id = Guid.NewGuid(),
-                    SignedAt = currentTime.ToUnixTimeSeconds(),
-                    StudentId = student.AccountId,
-                    StudyYearId = studyYearId
-                };
-                _context.Contracts.Add(contract);
-                _context.SemesterContracts.Add(new StudentContractSemester
-                {
-                    Id = Guid.NewGuid(),
-                    StudentContractId = contract.Id,
-                    StudySemesterId = course.SemesterId,
-                    OptionalCourseId = course.Id
-                });
-            }
-
-            foreach (var student in students)
-            {
-                _context.OptionalGrades.RemoveRange(GetStudentGrades(student, course));
-                if (new Random().NextDouble() <= 0.5)
-                {
-                    short gradeValue = (short) new Random().Next(0, 11);
-                    grades.Add(new OptionalCourseGrade
-                    {
-                        Id = Guid.NewGuid(),
-                        Grade = gradeValue,
-                        CreatedAt = currentTime.ToUnixTimeSeconds(),
-                        CourseId = course.Id,
-                        StudentId = student.AccountId
-                    });
-                    Console.WriteLine($"student {student.AccountId} has grade {gradeValue}");
-                }
-                else
-                {
-                    Console.WriteLine($"student {student.AccountId} has NO grade");
-                }
-            }
-            
-            _context.OptionalGrades.AddRange(grades);
-            _context.SaveChanges();
-        }
         
         public async Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId)
         {
@@ -347,8 +331,6 @@ namespace Org.Webelopers.Api.Logic
                 .ToListAsync();
             return new TeacherOptionals { Optionals = enrichedCourses };
         }
-
-        
         
         #region PrivateMethods
 
@@ -432,8 +414,6 @@ namespace Org.Webelopers.Api.Logic
             //     
             // }
         }
-        
-        
 
         public async Task<OptionalsChiefView> GetOptionalsChiefView(Guid chiefId)
         {
@@ -472,11 +452,6 @@ namespace Org.Webelopers.Api.Logic
                 .ToListAsync();
             return new OptionalsChiefView { Optionals = enrichedCourses };
         }
-        
-        
-
-        private List<OptionalCourseGrade> GetStudentGrades(Student student, OptionalCourse course) => 
-            _context.OptionalGrades.Where(grade => grade.StudentId == student.AccountId && grade.CourseId == course.Id).ToList();
 
         #endregion
 
