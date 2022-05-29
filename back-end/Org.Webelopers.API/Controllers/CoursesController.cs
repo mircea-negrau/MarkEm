@@ -66,31 +66,27 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-    
-        [HttpGet("course/{courseId}/groups")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        
+        [HttpGet("all/by-teachers")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetCourseGroups([FromRoute] Guid courseId)
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        public async Task<IActionResult> GetOptionalsChiefView()
         {
             try
             {
-                ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
-                return Ok(await _courseService.GetCourseGroups(courseId));
+                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
                 return BadRequest(new {message = e.Message});
             }
-            catch (InvalidCourseTeacher e)
-            {
-                return BadRequest(new {message = e.Message});
-            }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new { message = e.Message });
+                return BadRequest(new {message = e.Message});
             }
         }
     
@@ -152,6 +148,33 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
+    
+        [HttpGet("course/{courseId}/groups")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TeacherGroupsResponse))]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetCourseGroups([FromRoute] Guid courseId)
+        {
+            try
+            {
+                ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
+                return Ok(await _courseService.GetCourseGroups(courseId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (InvalidCourseTeacher e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new { message = e.Message });
+            }
+        }
 
         [HttpGet("year")]
         [Authorize(Roles = "Student")]
@@ -170,6 +193,9 @@ namespace Org.Webelopers.Api.Controllers
             }
 
         }
+
+        #region PrivateMethods
+        
         private void ValidateCourseTeacher(Guid courseId, Guid teacherId)
         {
             if (!_courseService.IsCourseTaughtBy(courseId, teacherId))
@@ -178,34 +204,17 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        #endregion
+
+        #region Exceptions
+
         private class InvalidCourseTeacher : Exception
         {
             public InvalidCourseTeacher(string message) : base(message)
             {
             }
         }
-        
-        [HttpGet("chief-teachers-with-courses-info")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
-        public async Task<IActionResult> GetOptionalsChiefView()
-        {
-            try
-            {
-                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
-                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
-                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
-            }
-            catch (IAuthTokenService.UidClaimNotFound e)
-            {
-                return BadRequest(new {message = e.Message});
-            }
-            catch (Exception e) {
-                _logger.LogError($"e.Message: {e.Message}");
-                _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
-            }
-        }
+
+        #endregion
     }
 }

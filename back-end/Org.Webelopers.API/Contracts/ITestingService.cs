@@ -9,9 +9,12 @@ namespace Org.Webelopers.Api.Contracts
         public FacultySpecialization CreateRandomSpecialization(string name);
         
         public HashSet<FacultySpecialization> AddRandomSpecializations(int noOfSpecializations);
-        
-        public void AddSamplesForGetCourseGroups();
 
         public void AddEnrollmentsToCourse(Guid courseId);
+        
+        public void AddSamplesForGetCourseGroups();
+        
+        public void AddStudentsWithGradesToOptional();
+        public void AddStudentsWithGradesToOptional(Guid courseId);
     }
 }

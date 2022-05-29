@@ -214,5 +214,132 @@ namespace Org.Webelopers.Api.Logic
             _context.StudentEnrolledCourse.AddRange(enrollments);
             _context.SaveChanges();
         }
+
+        public void AddStudentsWithGradesToOptional()
+        {
+            AddStudentsWithGradesToOptional(_context.OptionalCourses.Select(course => course.Id).First());
+            // const int noOfStudents = 10;
+            //
+            // var course = _context.OptionalCourses.Include(optionalCourse => optionalCourse.Semester).First();
+            // var studyYearId = course.Semester.StudyYearId;
+            // var students = _context.Students.Take(noOfStudents).ToList();
+            // var currentTime = DateTimeOffset.Now;
+            // var grades = new List<OptionalCourseGrade>();
+            // Console.WriteLine($"course.Id = {course.Id}");
+            // Console.WriteLine($"currentTime = {currentTime:yyyy-MM-dd HH:mm:ss}");
+            // Console.WriteLine($"noOfStudents = {students.Count}");
+            //
+            // foreach (var student in students)
+            // {
+            //     var contract = new StudentContract
+            //     {
+            //         Id = Guid.NewGuid(),
+            //         SignedAt = currentTime.ToUnixTimeSeconds(),
+            //         StudentId = student.AccountId,
+            //         StudyYearId = studyYearId
+            //     };
+            //     _context.Contracts.Add(contract);
+            //     _context.SemesterContracts.Add(new StudentContractSemester
+            //     {
+            //         Id = Guid.NewGuid(),
+            //         StudentContractId = contract.Id,
+            //         StudySemesterId = course.SemesterId,
+            //         OptionalCourseId = course.Id
+            //     });
+            // }
+            //
+            // foreach (var student in students)
+            // {
+            //     _context.OptionalGrades.RemoveRange(GetStudentGrades(student, course));
+            //     if (new Random().NextDouble() <= 0.5)
+            //     {
+            //         short gradeValue = (short) new Random().Next(0, 11);
+            //         grades.Add(new OptionalCourseGrade
+            //         {
+            //             Id = Guid.NewGuid(),
+            //             Grade = gradeValue,
+            //             CreatedAt = currentTime.ToUnixTimeSeconds(),
+            //             CourseId = course.Id,
+            //             StudentId = student.AccountId
+            //         });
+            //         Console.WriteLine($"student {student.AccountId} has grade {gradeValue}");
+            //     }
+            //     else
+            //     {
+            //         Console.WriteLine($"student {student.AccountId} has NO grade");
+            //     }
+            // }
+            //
+            // _context.OptionalGrades.AddRange(grades);
+            // _context.SaveChanges();
+        }
+
+        public void AddStudentsWithGradesToOptional(Guid courseId)
+        {
+            const int noOfStudents = 10;
+            
+            var course = _context.OptionalCourses
+                .Where(optionalCourse => optionalCourse.Id == courseId)
+                .Include(optionalCourse => optionalCourse.Semester)
+                .First();
+            var studyYearId = course.Semester.StudyYearId;
+            var students = _context.Students.Take(noOfStudents).ToList();
+            var currentTime = DateTimeOffset.Now;
+            var grades = new List<OptionalCourseGrade>();
+            Console.WriteLine($"course.Id = {course.Id}");
+            Console.WriteLine($"currentTime = {currentTime:yyyy-MM-dd HH:mm:ss}");
+            Console.WriteLine($"noOfStudents = {students.Count}");
+
+            foreach (var student in students)
+            {
+                var contract = new StudentContract
+                {
+                    Id = Guid.NewGuid(),
+                    SignedAt = currentTime.ToUnixTimeSeconds(),
+                    StudentId = student.AccountId,
+                    StudyYearId = studyYearId
+                };
+                _context.Contracts.Add(contract);
+                _context.SemesterContracts.Add(new StudentContractSemester
+                {
+                    Id = Guid.NewGuid(),
+                    StudentContractId = contract.Id,
+                    StudySemesterId = course.SemesterId,
+                    OptionalCourseId = course.Id
+                });
+            }
+
+            foreach (var student in students)
+            {
+                _context.OptionalGrades.RemoveRange(GetStudentGrades(student, course));
+                if (new Random().NextDouble() <= 0.5)
+                {
+                    short gradeValue = (short) new Random().Next(0, 11);
+                    grades.Add(new OptionalCourseGrade
+                    {
+                        Id = Guid.NewGuid(),
+                        Grade = gradeValue,
+                        CreatedAt = currentTime.ToUnixTimeSeconds(),
+                        CourseId = course.Id,
+                        StudentId = student.AccountId
+                    });
+                    Console.WriteLine($"student {student.AccountId} has grade {gradeValue}");
+                }
+                else
+                {
+                    Console.WriteLine($"student {student.AccountId} has NO grade");
+                }
+            }
+            Console.WriteLine($"nrOfAddedGrades = {grades.Count}");
+            _context.OptionalGrades.AddRange(grades);
+            _context.SaveChanges();
+        }
+
+        #region PrivateMethods
+
+        private List<OptionalCourseGrade> GetStudentGrades(Student student, OptionalCourse course) => 
+            _context.OptionalGrades.Where(grade => grade.StudentId == student.AccountId && grade.CourseId == course.Id).ToList();
+
+        #endregion
     }
 }
