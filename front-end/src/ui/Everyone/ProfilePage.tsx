@@ -2,10 +2,10 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import { getProfileByUsername } from '../state/thunks/profile'
-import { FetchStatus } from '../utility/fetchStatus'
-import { SECURE_API } from '../utility/api'
+import { AppState } from '../../state/store'
+import { getProfileByUsername } from '../../state/thunks/profile'
+import { FetchStatus } from '../../utility/fetchStatus'
+import { SECURE_API } from '../../utility/api'
 
 const Container = styled.div`
   padding: 60px;

@@ -1,7 +1,7 @@
 import {
   GroupEnrichedWithStudents,
   StudentWithGrade,
-  TeacherEnrichedCourses
+  TeacherEnrichedCourse
 } from '../../utility/types/courseTypes'
 import { FetchStatus } from '../../utility/fetchStatus'
 import { createSlice } from '@reduxjs/toolkit'
@@ -12,7 +12,7 @@ import {
 } from '../thunks/courses'
 
 interface CourseStateType {
-  course: TeacherEnrichedCourses
+  course: TeacherEnrichedCourse
   groups: GroupEnrichedWithStudents[]
   optionalStudents: StudentWithGrade[]
   courseStatus: FetchStatus

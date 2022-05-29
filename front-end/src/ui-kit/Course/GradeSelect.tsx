@@ -1,9 +1,8 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { number } from 'yup'
 import { setStudentGrade } from '../../state/thunks/courses'
 import { AppState } from '../../state/store'
-import { GradeType } from '../../utility/types/gradeTypes'
+import { CourseType } from '../../utility/types/courseTypes'
 
 interface GradeProps {
   courseId: string
@@ -27,9 +26,9 @@ export const GradeSelect: FunctionComponent<GradeProps> = props => {
             courseId: props.courseId,
             studentId: props.studentId,
             grade: Number(event.target.selectedOptions[0].value),
-            gradeType: state.course.isOptional
-              ? GradeType.OPTIONAL
-              : GradeType.MANDATORY
+            courseType: state.course.isOptional
+              ? CourseType.OPTIONAL
+              : CourseType.MANDATORY
           })
         )
       }}

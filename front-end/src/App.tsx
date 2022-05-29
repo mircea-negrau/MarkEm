@@ -1,21 +1,21 @@
 import React, { FunctionComponent } from 'react'
 import { GlobalStyle } from './ui-kit/styles/global-styles'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { LoginPage } from './ui/LoginPage'
-import { AuthComponent } from './ui/AuthComponent'
-import { Dashboard } from './ui/Dashboard'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { LoginPage } from './ui/Auth/LoginPage'
+import { AuthComponent, AuthTeacher } from './ui/Auth/AuthComponent'
+import { Dashboard } from './ui/Everyone/Dashboard'
 import { Contracts } from './ui/ContractsPage'
-import { Settings } from './ui/Settings'
+import { Settings } from './ui/Everyone/Settings'
 
-import { RegisterPage } from './ui/RegisterPage'
-import { ProfilePage } from './ui/ProfilePage'
+import { RegisterPage } from './ui/Auth/RegisterPage'
+import { ProfilePage } from './ui/Everyone/ProfilePage'
 import { ErrorPage } from './ui/ErrorPage'
-import { CoursesPage } from './ui/Teacher/Courses/CoursesPage'
-import { CoursePage } from './ui/Teacher/Courses/CoursePage'
+import { CoursesPage } from './ui/Teacher/CoursesPage'
 import { EditContractPage } from './ui/EditContractPage'
 import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
-import { UserType } from './utility/types/userTypes'
+import { CoursePage } from './ui/Teacher/CoursePage'
+import { CourseType } from './utility/types/courseTypes'
 
 const App: FunctionComponent = () => {
   return (
@@ -58,28 +58,35 @@ const App: FunctionComponent = () => {
           <Route
             path={'/teacher/courses'}
             element={
-              <AuthComponent>
+              <AuthTeacher>
                 <CoursesPage />
-              </AuthComponent>
+              </AuthTeacher>
             }
           />
           <Route
-            path={'/teacher/courses/:courseId'}
+            path={'/teacher/courses/mandatory/:courseId'}
             element={
-              <AuthComponent>
-                <CoursePage />
-              </AuthComponent>
+              <AuthTeacher>
+                <CoursePage courseType={CourseType.MANDATORY} />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/teacher/courses/optional/:courseId'}
+            element={
+              <AuthTeacher>
+                <CoursePage courseType={CourseType.OPTIONAL} />
+              </AuthTeacher>
             }
           />
           <Route
             path={'/student/course/:courseId'}
             element={
               <AuthComponent>
-                <CoursePage />
+                <p>aici era inainte un CoursePage FunctionComponent</p>
               </AuthComponent>
             }
           />
-
           <Route
             path={'/grades'}
             element={

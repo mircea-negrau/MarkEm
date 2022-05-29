@@ -1,15 +1,15 @@
-import { AppState, store } from '../state/store'
+import { AppState, store } from '../../state/store'
 import { useSelector } from 'react-redux'
-import { FunctionComponent, useEffect, useState } from 'react'
+import React, { FunctionComponent, useEffect, useState } from 'react'
 import localforage from 'localforage'
-import { globalActions, UserDetails } from '../state/slices/global'
+import { globalActions, UserDetails } from '../../state/slices/global'
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
-import { getCurrentProfile, logout } from '../state/thunks/global'
-import { DefaultScaffold } from '../ui-kit/DefaultScaffold'
-import { FetchStatus } from '../utility/fetchStatus'
-import { UserType } from '../utility/types/userTypes'
-import { getUserType } from '../utility/getUserType'
+import { getCurrentProfile, logout } from '../../state/thunks/global'
+import { DefaultScaffold } from '../../ui-kit/DefaultScaffold'
+import { FetchStatus } from '../../utility/fetchStatus'
+import { UserType } from '../../utility/types/userTypes'
+import { getUserType } from '../../utility/getUserType'
 
 export const AuthComponent: FunctionComponent<{
   roles?: UserType[]
@@ -67,5 +67,11 @@ export const AuthComponent: FunctionComponent<{
         <DefaultScaffold>{props.children}</DefaultScaffold>
       )}
     </>
+  )
+}
+
+export const AuthTeacher: FunctionComponent = props => {
+  return (
+    <AuthComponent roles={[UserType.Teacher]}>{props.children}</AuthComponent>
   )
 }

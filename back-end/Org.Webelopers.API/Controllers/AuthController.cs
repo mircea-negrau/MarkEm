@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -41,7 +42,7 @@ namespace Org.Webelopers.Api.Controllers
                 _logger.LogInformation($"Authentication for email '{login.Email}' failed!");
                 return NotFound(new { message = "Invalid credentials!" });
             }
-            _logger.LogInformation($"Logged in {user.Username} ");
+            _logger.LogInformation($"[{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss}] Logged in {user.Username} ");
             string token = _authTokenService.GenerateAuthToken(user);
             return Ok(token);
         }
