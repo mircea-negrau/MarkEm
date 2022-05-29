@@ -105,6 +105,7 @@ namespace Org.Webelopers.Api.Logic
                 .SelectMany(semester => semester.Courses)
                 .Include(course => course.Teacher)
                 .Select(course => course.Teacher)
+                .Include(teacher => teacher.Account)
                 .Distinct()
                 .ToHashSet();
         }

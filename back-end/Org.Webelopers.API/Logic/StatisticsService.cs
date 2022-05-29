@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
+using Org.Webelopers.Api.Models.DbEntities;
+using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Performance;
 using Org.Webelopers.Api.Models.Persistence.Students;
 using Org.Webelopers.Api.Models.Persistence.StudyYears;
@@ -132,6 +134,26 @@ namespace Org.Webelopers.Api.Logic
             }
             return semesterStudentsAverageGrades.Where(x => x.AverageGrade > minimumAverage).OrderBy(x => x.AverageGrade).ToList();
 
+        }
+
+        public List<TeacherPerformanceDto> GetX(HashSet<Teacher> teachers)
+        {
+            var x = teachers.Select(teacher => new TeacherPerformanceDto()
+            {
+                Id = teacher.AccountId,
+                LastName = teacher.Account.LastName,
+                FirstName = teacher.Account.FirstName,
+                TeacherPerformance = _context.Grades
+                    .Include(grade => grade.Course)
+                    .ThenInclude(course => course.Teacher)
+                    .ThenInclude(teacher => teacher.Account)
+                    .Where(y => _context.Courses.Where(x => x.TeacherId == teacher.AccountId)
+                    .Select(x => x.Id)
+                    .ToList()
+                    .Contains(y.CourseId)).Select(grade => Convert.ToInt32(grade.Grade)).Average()
+            }).ToList();
+
+            return x;
         }
 
     }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Persistence.Grades;
 using Org.Webelopers.Api.Models.Persistence.Groups;
+using Org.Webelopers.Api.Models.Dto;
+using System.Collections.Generic;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -26,6 +28,7 @@ namespace Org.Webelopers.Api.Controllers
         private readonly IGradesService _gradesService;
         private readonly ICurriculumService _curriculumService;
         private readonly IFacultyService _facultyService;
+        private readonly IStatisticsService _statisticsService;
 
         public CoursesController(ILogger<AuthController> logger,
             ICourseService courseService,
@@ -214,7 +217,37 @@ namespace Org.Webelopers.Api.Controllers
             {
             }
         }
+        
+        [HttpGet("chief-teachers-with-courses-info")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ChiefTeachersWithCoursesInfo))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        public async Task<IActionResult> GetOptionalsChiefView()
+        {
+            try
+            {
+                var chiefId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                var facultyId = _facultyService.GetFacultyIdBy(chiefId);
+                return Ok(await _courseService.GetChiefChiefTeachersWithCoursesInfo(facultyId));
+            }
+            catch (IAuthTokenService.UidClaimNotFound e)
+            {
+                return BadRequest(new {message = e.Message});
+            }
+            catch (Exception e) {
+                _logger.LogError($"e.Message: {e.Message}");
+                _logger.LogError($"e.StackTrace = {e.StackTrace}");
+                return BadRequest(new {message = e.Message});
+            }
+        }
 
-        #endregion
+        [HttpGet("results/teachers")]
+        public List<TeacherPerformanceDto> GetResultsTeachers(Guid chiefId)
+        {
+            Guid facultyId = _facultyService.GetFacultyIdBy(chiefId);
+            var teachers = _facultyService.GetFacultyTeachers(facultyId);
+
+            return _statisticsService.GetX(teachers);
+        }
     }
 }
