@@ -3,6 +3,7 @@ using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,7 +93,7 @@ namespace Org.Webelopers.Api.Logic
             }
         }
 
-        public List<MandatoryCourse> GetContractCourses(Guid contractid)
+        public List<OptionalCourseDto> GetContractCourses(Guid contractid)
         {
             var contract = _context.Contracts.FirstOrDefault(contr => contr.Id == contractid);
             _context.SaveChanges();
@@ -108,10 +109,20 @@ namespace Org.Webelopers.Api.Logic
                 return null;
             }
 
-            List<MandatoryCourse> curriculum = new List<MandatoryCourse>();
+            List<OptionalCourseDto> curriculum = new List<OptionalCourseDto>();
             foreach (var semester in semesters)
             {
-                List<MandatoryCourse> list = _context.Courses.Where(course => course.SemesterId == semester).ToList();
+                var list = _context.Courses.Where(course => course.SemesterId == semester
+                && course.Teacher != null && course.Teacher.Account != null)
+                    .Include(x => x.Teacher)
+                    .ThenInclude(x => x.Account)
+                    .Select(x => new OptionalCourseDto()
+                {
+                    Id = x.Id,
+                    Credits = x.Credits,
+                    Name = x.Name,
+                    TeacherName = x.Teacher.Account.FirstName + " " + x.Teacher.Account.LastName
+                }).ToList();
 
                 if (list.Count != 0)
                 {

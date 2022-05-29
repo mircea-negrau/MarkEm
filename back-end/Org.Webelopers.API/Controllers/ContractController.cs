@@ -43,11 +43,7 @@ namespace Org.Webelopers.Api.Controllers
             {
                 var response = _contractService.GetContractCourses(contractId);
                 return response != null
-                    ? Ok(response.Select(course => new OptionalCourseDto()
-                    {
-                        Name = course.Name,
-                        Id = course.Id
-                    }))
+                    ? Ok(response)
                     : NotFound();
             }
             catch (Exception ex)
