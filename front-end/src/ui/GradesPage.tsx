@@ -1,88 +1,147 @@
-import {
-  CollectionsBookmarkRounded,
-  CompareSharp,
-  CountertopsOutlined
-} from '@mui/icons-material'
-import { Button } from '@mui/material'
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { AppState } from '../state/store'
-import { getCoursesNamesByContract } from '../state/thunks/courses'
 import { getAllGrades } from '../state/thunks/grades'
 import { FetchStatus } from '../utility/fetchStatus'
+import { timestampToDate } from '../utility/timeParse'
+import {
+  StudentContractGrades,
+  StudentContractSemesterGrades
+} from '../utility/types/gradeTypes'
 
 const MainContainer = styled.div`
-  display: inline-block;
-  flex-direction: column;
+  display: flex;
   padding: 40px 25px;
   width: 100%;
   height: 100%;
 `
-const Grade = styled.div`
-  color: #96a2b4;
+
+const Contract = styled.div<{ isActive?: boolean }>`
   display: flex;
-  flex-direction: column;
-  padding: 40px;
-  width: 100px;
-  background-color: #151a25;
-  border-radius: 20px;
-  height: 15px;
-  width: 400px;
-  margin-right: 25px;
-  word-break: break-word;
+  align-items: center;
+  width: 175px;
+  height: 50px;
+  font-size: 24px;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: ${props => (props.isActive ? 'white' : 'transparent')};
+  color: ${props => (props.isActive ? 'black' : 'white')};
   cursor: pointer;
-  box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%),
-    0 0.9375rem 1.40625rem rgb(90 97 105 / 10%),
-    0 0.25rem 0.53125rem rgb(90 97 105 / 12%),
-    0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
   :hover {
-    background-color: #1a202e;
+    background-color: ${props => (props.isActive ? 'transparent' : 'white')};
+    color: ${props => (props.isActive ? 'white' : 'black')};
   }
 `
 
-const EntryP = styled.p`
+const Semester = styled.div<{ isActive?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 375px;
+  height: 100px;
   font-size: 24px;
+  justify-content: center;
+  border: 1px solid white;
+  background-color: ${props => (props.isActive ? 'white' : 'transparent')};
+  color: ${props => (props.isActive ? 'black' : 'white')};
+  cursor: pointer;
+  :hover {
+    background-color: ${props => (props.isActive ? 'transparent' : 'white')};
+    color: ${props => (props.isActive ? 'white' : 'black')};
+  }
+`
+
+const Course = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+  color: black;
+  padding: 15px;
+  margin-bottom: 15px;
 `
 
 export const GradesPage: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
   const state = useSelector((state: AppState) => state.grades)
 
+  const [activeContract, setActiveContract] =
+    useState<StudentContractGrades | null>()
+  const [activeSemester, setActiveSemester] =
+    useState<StudentContractSemesterGrades | null>()
+
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (state.gradeStatus !== FetchStatus.success) dispatch(getAllGrades(token))
-  }, [dispatch, state, state.gradeStatus, token])
+    if (state.enrichedContractsGradeStatus !== FetchStatus.success)
+      dispatch(getAllGrades(token))
+  }, [dispatch, state.enrichedContractsGradeStatus, token])
 
-  console.log(state.grades)
+  useEffect(() => {
+    if (
+      state.enrichedContractsGradeStatus === FetchStatus.success &&
+      activeContract == null
+    ) {
+      setActiveContract(state.enrichedContracts[0])
+      setActiveSemester(state.enrichedContracts[0].semesters[0])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, state.enrichedContractsGradeStatus])
+
+  useEffect(() => {
+    setActiveSemester(activeContract?.semesters[0])
+  }, [activeContract])
+
+  console.log(activeContract?.semesters[0]?.value ?? 0)
 
   return (
     <MainContainer>
-      <div
-        style={{
-          width: '100%',
-          height: '100vh',
-          float: 'left',
-          display: 'inline-block'
-        }}
-      >
-        {state.grades.length > 0 &&
-          state.grades.map(course => {
-            console.log(course)
+      <div>
+        {state.enrichedContracts &&
+          state.enrichedContracts.map(contract => (
+            <Contract
+              key={`contract-${contract.id}`}
+              onClick={() => setActiveContract(contract)}
+              isActive={activeContract === contract}
+            >
+              {contract.faculty}
+            </Contract>
+          ))}
+      </div>
+      <div>
+        {activeContract?.semesters.map(semester => (
+          <div key={`semester-${semester.id}`}>
+            <Semester
+              isActive={semester === activeSemester}
+              onClick={() => setActiveSemester(semester)}
+            >
+              <p>Semester {semester.value}</p>
+              <p>
+                (
+                {timestampToDate(semester.yearStartDate).toLocaleDateString(
+                  'default',
+                  { month: 'long', year: 'numeric' }
+                )}
+                {' - '}
+                {timestampToDate(semester.yearEndDate).toLocaleDateString(
+                  'default',
+                  { month: 'long', year: 'numeric' }
+                )}
+                )
+              </p>
+            </Semester>
+          </div>
+        ))}
+      </div>
+      <div style={{ paddingLeft: '50px' }}>
+        {activeSemester &&
+          activeSemester.courses.map((course, index) => {
             return (
-              <>
-                {/* <EntryP>Course : {course.courseName}</EntryP>
-                {course.grades.map(grade => (
-                  <div key={grade.id}>
-                    <Grade>
-                      <EntryP>Grade : {grade.grade}</EntryP>
-                    </Grade>
-                    <br /> <br />
-                  </div>
-                ))} */}
-              </>
+              <Course key={`course-${index}`}>
+                <p>Name: {course.name}</p>
+                <p>Grade: {course.grade.grade}</p>
+                <p>Teacher: {course.teacherName}</p>
+              </Course>
             )
           })}
       </div>

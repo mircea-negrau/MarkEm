@@ -9,12 +9,13 @@ import { unixSecondsToYear } from '../../utility/timeParse'
 import { TeacherEnrichedCourse } from '../../utility/types/courseTypes'
 
 const MainContainer = styled.div`
-  display: flex;
   padding: 60px;
 `
 
 const Container = styled(Link)`
   color: #96a2b4;
+  float: left;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -43,6 +44,13 @@ const Name = styled.p`
 const Specialization = styled.p`
   font-size: 22px;
   width: 325px;
+  padding-top: 10px;
+`
+
+const Semester = styled.p`
+  font-size: 22px;
+  width: 325px;
+  padding-top: 5px;
   padding-bottom: 10px;
 `
 
@@ -78,11 +86,14 @@ export const CoursesPage: FunctionComponent = () => {
                   {course.name}
                   &nbsp;({course.facultyDetails.studyLineShort})
                 </Name>
+                <hr style={{ width: '100%' }} />
                 <Specialization>
-                  {course.facultyDetails.specialization}&nbsp;(
-                  {course.semester}/
-                  {course.facultyDetails.specializationSemesters})
+                  {course.facultyDetails.specialization}&nbsp;
                 </Specialization>
+                <Semester>
+                  Semester ({course.semester}/
+                  {course.facultyDetails.specializationSemesters})
+                </Semester>
                 <div
                   style={{
                     display: 'flex',
