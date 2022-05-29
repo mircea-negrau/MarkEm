@@ -10,8 +10,8 @@ import { Settings } from './ui/Settings'
 import { RegisterPage } from './ui/RegisterPage'
 import { ProfilePage } from './ui/ProfilePage'
 import { ErrorPage } from './ui/ErrorPage'
-import { CoursesPage } from './ui/CoursesPage'
-import { CoursePage } from './ui/CoursePage/CoursePage'
+import { CoursesPage } from './ui/Teacher/Courses/CoursesPage'
+import { CoursePage } from './ui/Teacher/Courses/CoursePage'
 import { EditContractPage } from './ui/EditContractPage'
 import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
@@ -71,7 +71,7 @@ const App: FunctionComponent = () => {
             }
           />
           <Route
-            path={'/teacher/course/:courseId'}
+            path={'/teacher/courses/:courseId'}
             element={
               <AuthComponent>
                 <CoursePage />

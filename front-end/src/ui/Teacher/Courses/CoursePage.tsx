@@ -1,19 +1,19 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppState } from '../../state/store'
+import { AppState } from '../../../state/store'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { FetchStatus } from '../../utility/fetchStatus'
+import { FetchStatus } from '../../../utility/fetchStatus'
 import {
   getCourseById,
   getCourseGroups,
   getOptionalStudents
-} from '../../state/thunks/courses'
+} from '../../../state/thunks/courses'
 import {
   GroupEnrichedWithStudents,
   TeacherEnrichedCourses
-} from '../../utility/types/courseTypes'
-import { GroupStudentsTable } from '../../ui-kit/Course/GroupStudentsTable'
+} from '../../../utility/types/courseTypes'
+import { GroupStudentsTable } from '../../../ui-kit/Course/GroupStudentsTable'
 
 const MainContainerDiv = styled.div`
   padding: 20px;
@@ -136,15 +136,23 @@ export const CoursePage: FunctionComponent = () => {
   if (global.userRole != `Teacher` || courseId == undefined) {
     window.location.replace('/')
   }
-  // TODO: [IDEA] /courses/7e90da60-2295-4170-b18d-7d87f71ed340 instead of /course/7e90da60-2295-4170-b18d-7d87f71ed340
+
+  // TODO:
+  //   get course type
+  //    => depending on whether is optional or not call the apropriate getCourse
+
   useEffect(() => {
     if (state.courseStatus != FetchStatus.success && courseId) {
       // TODO: handle case for optional course, add similar method for optional course on BE
       // TODO: maybe send the GradeType (which is actually course type) from the CoursesPage
-      // optional course for test0 account: http://localhost:3000/teacher/course/7e90da60-2295-4170-b18d-7d87f71ed340
+      // optional course for test0 account: http://localhost:3000/teacher/courses/7e90da60-2295-4170-b18d-7d87f71ed340
       dispatch(getCourseById(courseId))
     }
   }, [courseId, dispatch, state.courseStatus])
+
+  if (state.course) {
+    console.log(state.course, 'isOptional:', state.course.isOptional)
+  }
 
   return (
     state.course && (

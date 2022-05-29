@@ -2,9 +2,9 @@ import { FunctionComponent, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import { getCoursesByTeacher } from '../state/thunks/courses'
-import { FetchStatus } from '../utility/fetchStatus'
+import { AppState } from '../../../state/store'
+import { getCoursesByTeacher } from '../../../state/thunks/courses'
+import { FetchStatus } from '../../../utility/fetchStatus'
 
 const MainContainer = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ export const CoursesPage: FunctionComponent = () => {
               return (
                 <Container
                   key={`course-${index}`}
-                  to={`/teacher/course/${course.id}`}
+                  to={`/teacher/courses/${course.id}`}
                   state={state}
                 >
                   <Name>
