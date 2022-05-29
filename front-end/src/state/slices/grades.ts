@@ -5,13 +5,13 @@ import { StudentContractGrades } from '../../utility/types/gradeTypes'
 import { getAllGrades } from '../thunks/grades'
 
 interface GradeStateType {
-  grades: StudentContractGrades[]
-  gradeStatus: FetchStatus
+  enrichedContracts: StudentContractGrades[]
+  enrichedContractsGradeStatus: FetchStatus
 }
 
 const initialState: GradeStateType = {
-  grades: [],
-  gradeStatus: FetchStatus.idle
+  enrichedContracts: [],
+  enrichedContractsGradeStatus: FetchStatus.idle
 }
 
 export const gradesSlice = createSlice({
@@ -19,25 +19,25 @@ export const gradesSlice = createSlice({
   initialState: initialState,
   reducers: {
     setGrades: (state, action: PayloadAction<StudentContractGrades[]>) => {
-      state.grades = action.payload
+      state.enrichedContracts = action.payload
     }
   },
 
   extraReducers: builder => {
     builder.addCase(getAllGrades.fulfilled, (state, action) => {
       if (action.payload) {
-        state.grades = action.payload
-        state.gradeStatus = FetchStatus.success
+        state.enrichedContracts = action.payload
+        state.enrichedContractsGradeStatus = FetchStatus.success
       }
     }),
       builder.addCase(getAllGrades.pending, (state, action) => {
         if (action.payload) {
-          state.gradeStatus = FetchStatus.loading
+          state.enrichedContractsGradeStatus = FetchStatus.loading
         }
       }),
       builder.addCase(getAllGrades.rejected, (state, action) => {
         if (action.payload) {
-          state.gradeStatus = FetchStatus.error
+          state.enrichedContractsGradeStatus = FetchStatus.error
         }
       })
   }
