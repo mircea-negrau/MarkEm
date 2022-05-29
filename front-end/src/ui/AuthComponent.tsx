@@ -3,18 +3,22 @@ import { useSelector } from 'react-redux'
 import { FunctionComponent, useEffect, useState } from 'react'
 import localforage from 'localforage'
 import { globalActions, UserDetails } from '../state/slices/global'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import { getCurrentProfile, logout } from '../state/thunks/global'
 import { DefaultScaffold } from '../ui-kit/DefaultScaffold'
 import { FetchStatus } from '../utility/fetchStatus'
+import { UserType } from '../utility/types/userTypes'
+import { getUserType } from '../utility/getUserType'
 
-export const AuthComponent: FunctionComponent = props => {
+export const AuthComponent: FunctionComponent<{
+  roles?: UserType[]
+}> = props => {
   const state = useSelector((state: AppState) => state.global)
-  const [isCheckingJwt, setIsCheckingJwt] = useState<boolean>(true)
   const [isValidJwt, setIsValidJwt] = useState<boolean>(false)
-  const [isFetchingProfile, setIsFetchingProfile] = useState<boolean>(false)
-  const [isDone, setIsDone] = useState<boolean>(false)
+  const [isProfileReady, setIsProfileReady] = useState<boolean>(false)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const validateLogin = async () => {
@@ -22,51 +26,46 @@ export const AuthComponent: FunctionComponent = props => {
         'AMS_access_token'
       )) as string
 
-      if (accessToken) {
-        const decoded = jwt_decode(accessToken) as UserDetails
-        const currentTimestamp = Math.floor(Date.now() / 1000)
-        if (decoded.exp - currentTimestamp < 0) {
-          store.dispatch(logout())
-          setIsValidJwt(false)
-        } else {
-          store.dispatch(globalActions.setAccessToken(accessToken))
-          store.dispatch(globalActions.setUserDetails(decoded))
-          setIsValidJwt(true)
-        }
-      } else {
-        setIsValidJwt(false)
-        setIsDone(true)
+      if (!accessToken) {
+        navigate('/login')
       }
 
-      setIsCheckingJwt(false)
+      const decoded = jwt_decode(accessToken) as UserDetails
+      const currentTimestamp = Math.floor(Date.now() / 1000)
+      if (decoded.exp - currentTimestamp < 0) {
+        await Promise.all([store.dispatch(logout())]).then(() =>
+          navigate('/login')
+        )
+      }
+
+      if (props.roles && !props.roles.includes(getUserType(decoded.role))) {
+        navigate('/error')
+      }
+
+      store.dispatch(globalActions.setAccessToken(accessToken))
+      store.dispatch(globalActions.setUserDetails(decoded))
+      setIsValidJwt(true)
     }
 
     validateLogin()
-  }, [state.accessToken])
+  }, [navigate, props.roles, state.accessToken])
 
   useEffect(() => {
-    if (!isCheckingJwt && !isFetchingProfile && !isDone) {
-      setIsFetchingProfile(true)
+    if (isValidJwt) {
       store.dispatch(getCurrentProfile(state.username))
     }
-    if (isFetchingProfile && state.profileStatus == FetchStatus.success) {
-      setIsFetchingProfile(false)
-      setIsDone(true)
-    }
-  }, [
-    isCheckingJwt,
-    isDone,
-    isFetchingProfile,
-    state.profileStatus,
-    state.username
-  ])
+  }, [isValidJwt, state.username])
+
+  useEffect(() => {
+    if (state.profileStatus === FetchStatus.success) setIsProfileReady(true)
+    else if (state.profileStatus === FetchStatus.error) navigate('/error')
+  }, [navigate, state.profileStatus])
 
   return (
     <>
-      {isDone && isValidJwt && (
+      {isValidJwt && isProfileReady && (
         <DefaultScaffold>{props.children}</DefaultScaffold>
       )}
-      {isDone && !isValidJwt && <Navigate to="/login" />}
     </>
   )
 }

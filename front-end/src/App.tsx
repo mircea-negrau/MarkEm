@@ -15,6 +15,7 @@ import { CoursePage } from './ui/Teacher/Courses/CoursePage'
 import { EditContractPage } from './ui/EditContractPage'
 import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
+import { UserType } from './utility/types/userTypes'
 
 const App: FunctionComponent = () => {
   return (
@@ -22,14 +23,6 @@ const App: FunctionComponent = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route
-            index
-            element={
-              <AuthComponent>
-                <Dashboard />
-              </AuthComponent>
-            }
-          />
           <Route
             path={'/contracts'}
             element={
@@ -108,6 +101,14 @@ const App: FunctionComponent = () => {
           <Route path={'/login'} element={<LoginPage />} />
 
           <Route path={'/register'} element={<RegisterPage />} />
+          <Route
+            path={'/'}
+            element={
+              <AuthComponent>
+                <Dashboard />
+              </AuthComponent>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>

@@ -10,6 +10,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment'
 import SettingsIcon from '@mui/icons-material/Settings'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { UserType } from '../../utility/types/userTypes'
 
 interface LeftNavBarProps {
   isActive: boolean
@@ -141,7 +142,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
           <DashboardIcon style={{ color: '#cfd8e3' }} />
           <MenuItemText>Dashboard</MenuItemText>
         </MenuItem>
-        {state.userRole == 'Student' && (
+        {state.userRole == UserType.Student && (
           <>
             <MenuItem
               isActive={location.pathname == '/contracts'}
@@ -163,7 +164,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             </MenuItem>
           </>
         )}
-        {state.userRole == 'Teacher' && (
+        {state.userRole == UserType.Teacher && (
           <>
             <MenuItem
               isActive={location.pathname == '/teacher/courses'}
@@ -177,7 +178,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
           </>
         )}
 
-        {state.userRole == 'Admin' && (
+        {state.userRole == UserType.Admin && (
           <>
             <MenuItem
               isActive={location.pathname == '/admin/performance'}
