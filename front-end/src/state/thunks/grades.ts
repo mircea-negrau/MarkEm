@@ -16,7 +16,7 @@ export const getAllGrades = createAsyncThunk(
       const responseContent: StudentContractGrades[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

@@ -15,17 +15,13 @@ export const GradeSelect: FunctionComponent<GradeProps> = props => {
   const dispatch = useDispatch()
   return (
     <select
-      defaultValue={props.grade} // TODO: fix this (see issue #!118
+      defaultValue={props.grade}
       onChange={event => {
-        console.log(
-          `changed selected grade to`,
-          event.target.selectedOptions[0].value
-        )
         dispatch(
           setStudentGrade({
             courseId: props.courseId,
             studentId: props.studentId,
-            grade: Number(event.target.selectedOptions[0].value),
+            grade: parseInt(event.target.value),
             courseType: state.course.isOptional
               ? CourseType.OPTIONAL
               : CourseType.MANDATORY

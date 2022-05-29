@@ -2,7 +2,7 @@ import { TeacherEnrichedCourse } from '../../utility/types/courseTypes'
 import { FunctionComponent } from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import { unixSecondsToYear } from '../../utility/various'
+import { unixSecondsToYear } from '../../utility/timeParse'
 
 const CourseDetailsEntry: FunctionComponent<{
   name: string

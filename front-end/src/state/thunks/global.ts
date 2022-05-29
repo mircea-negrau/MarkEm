@@ -22,7 +22,7 @@ export const login = createAsyncThunk(
       await localforage.setItem('AMS_access_token', responseContent)
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -48,10 +48,10 @@ export const register = createAsyncThunk(
       })
       const responseContent = response.status
       console.log(responseContent)
-      if (responseContent == 200) alert('You succesfully registered')
+      if (responseContent == 200) console.log('You succesfully registered')
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

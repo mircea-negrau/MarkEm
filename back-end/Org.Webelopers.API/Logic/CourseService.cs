@@ -118,7 +118,6 @@ namespace Org.Webelopers.Api.Logic
                 .ThenInclude(y => y.StudyYear)
                 .ThenInclude(y => y.Specialization)
                 .ThenInclude(y => y.Faculty)
-            .AsSplitQuery()
             .Select(x => new TeacherCourseDetailDto()
             {
                 Id = x.Id,
@@ -165,7 +164,6 @@ namespace Org.Webelopers.Api.Logic
                 .Include(group => group.Contracts)
                     .ThenInclude(contract => contract.Student)
                     .ThenInclude(student => student.Grades)
-                .AsSplitQuery()
                 .Select(group => new TeacherGroup
                 {
                     Id = group.Id,

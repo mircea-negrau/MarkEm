@@ -10,12 +10,14 @@ interface ContractsStateType {
   contracts: StudyContractEnriched[]
   semesterContracts: SemesterContract[]
   contractsStatus: FetchStatus
+  semesterContractsStatus: FetchStatus
 }
 
 const initialState: ContractsStateType = {
   contracts: [],
   semesterContracts: [],
-  contractsStatus: FetchStatus.idle
+  contractsStatus: FetchStatus.idle,
+  semesterContractsStatus: FetchStatus.idle
 }
 
 export const contractsSlice = createSlice({
@@ -50,18 +52,17 @@ export const contractsSlice = createSlice({
     builder.addCase(getSemesterContracts.fulfilled, (state, action) => {
       if (action.payload) {
         state.semesterContracts = action.payload
-        state.contractsStatus = FetchStatus.success
-        console.log('fulfilled', action.payload, state.contracts)
+        state.semesterContractsStatus = FetchStatus.success
       }
     }),
       builder.addCase(getSemesterContracts.pending, (state, action) => {
         if (action.payload) {
-          state.contractsStatus = FetchStatus.loading
+          state.semesterContractsStatus = FetchStatus.loading
         }
       }),
       builder.addCase(getSemesterContracts.rejected, (state, action) => {
         if (action.payload) {
-          state.contractsStatus = FetchStatus.error
+          state.semesterContractsStatus = FetchStatus.error
         }
       })
   }

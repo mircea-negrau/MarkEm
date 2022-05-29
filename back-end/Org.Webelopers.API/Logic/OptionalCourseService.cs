@@ -115,7 +115,6 @@ namespace Org.Webelopers.Api.Logic
 
         public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid semesterContractId)
         {
-
             var semesterId = _context.SemesterContracts.FirstOrDefault(contract => contract.Id == semesterContractId).StudySemesterId;
           
             return _context.OptionalCourses.Where(course => course.SemesterId == semesterId).Select(course => new OptionalCourseDto()

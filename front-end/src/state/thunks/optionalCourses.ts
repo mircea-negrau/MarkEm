@@ -11,11 +11,10 @@ export const getOptionalCoursesBySemesterContract = createAsyncThunk(
       const response = await SECURE_API.get(
         `/contract/optionalCourses/bySemesterContract?semesterContractId=${contractId}`
       )
-      console.log('printing data', response.data)
       const responseContent: OptionalCourse[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -38,7 +37,7 @@ export const setOptionalCoursesPreferences = createAsyncThunk(
       const responseContent: OptionalCourse[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
