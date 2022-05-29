@@ -105,7 +105,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
 
         <p
           onClick={() => {
-            navigate(`/profile/${state.username}`)
+            navigate(`/profile/${state.username}`, { replace: true, state: {} })
           }}
           style={{
             color: '#e6e6e6',
@@ -118,7 +118,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         </p>
         <p
           onClick={() => {
-            navigate(`/profile/${state.username}`, { state: null })
+            navigate(`/profile/${state.username}`)
           }}
           style={{
             color: '#e6e6e6',
@@ -136,7 +136,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         <MenuItem
           isActive={location.pathname == '/'}
           onClick={() => {
-            navigate('/')
+            window.location.replace('/')
           }}
         >
           <DashboardIcon style={{ color: '#cfd8e3' }} />
@@ -147,7 +147,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/contracts'}
               onClick={() => {
-                navigate('/contracts')
+                window.location.replace('/contracts')
               }}
             >
               <AssignmentIcon style={{ color: '#cfd8e3' }} />
@@ -156,7 +156,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/grades'}
               onClick={() => {
-                navigate('/grades')
+                window.location.replace('/grades')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -169,7 +169,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/teacher/courses'}
               onClick={() => {
-                navigate('/teacher/courses')
+                window.location.replace('/teacher/courses')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -183,7 +183,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItem
               isActive={location.pathname == '/admin/performance'}
               onClick={() => {
-                navigate('/admin/performance')
+                window.location.replace('/admin/performance')
               }}
             >
               <MenuBookIcon style={{ color: '#cfd8e3' }} />
@@ -194,7 +194,7 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
         <MenuItem
           isActive={location.pathname == '/settings'}
           onClick={() => {
-            navigate('/settings')
+            window.location.replace('/settings')
           }}
         >
           <SettingsIcon style={{ color: '#cfd8e3' }} />

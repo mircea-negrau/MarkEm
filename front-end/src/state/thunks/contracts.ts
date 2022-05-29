@@ -6,7 +6,6 @@ import {
   FacultyDetails,
   Specialisation
 } from '../../utility/types/studentTypes'
-import { Course } from '../../utility/types/courseTypes'
 import {
   SemesterContract,
   StudyContractEnriched

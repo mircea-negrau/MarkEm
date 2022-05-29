@@ -27,19 +27,19 @@ export const AuthComponent: FunctionComponent<{
       )) as string
 
       if (!accessToken) {
-        navigate('/login')
+        window.location.replace('/login')
       }
 
       const decoded = jwt_decode(accessToken) as UserDetails
       const currentTimestamp = Math.floor(Date.now() / 1000)
       if (decoded.exp - currentTimestamp < 0) {
         await Promise.all([store.dispatch(logout())]).then(() =>
-          navigate('/login')
+          window.location.replace('/login')
         )
       }
 
       if (props.roles && !props.roles.includes(getUserType(decoded.role))) {
-        navigate('/error')
+        window.location.replace('/error')
       }
 
       store.dispatch(globalActions.setAccessToken(accessToken))
@@ -48,7 +48,7 @@ export const AuthComponent: FunctionComponent<{
     }
 
     validateLogin()
-  }, [navigate, props.roles, state.accessToken])
+  }, [props.roles, state.accessToken])
 
   useEffect(() => {
     if (isValidJwt) {
@@ -58,8 +58,9 @@ export const AuthComponent: FunctionComponent<{
 
   useEffect(() => {
     if (state.profileStatus === FetchStatus.success) setIsProfileReady(true)
-    else if (state.profileStatus === FetchStatus.error) navigate('/error')
-  }, [navigate, state.profileStatus])
+    else if (state.profileStatus === FetchStatus.error)
+      window.location.replace('/error')
+  }, [state.profileStatus])
 
   return (
     <>

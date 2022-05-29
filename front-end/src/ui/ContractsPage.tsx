@@ -14,7 +14,6 @@ import { FetchStatus } from '../utility/fetchStatus'
 import { Degree, Faculty, Specialisation } from '../utility/types/studentTypes'
 import { StudyContractEnriched } from '../utility/types/contractTypes'
 import { contractActions } from '../state/slices/contracts'
-import { useNavigate } from 'react-router-dom'
 
 const MainContainer = styled.div`
   display: flex;
@@ -69,7 +68,6 @@ export const Contracts: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const [selectedContract, setSelectedContract] =
     useState<StudyContractEnriched | null>()
@@ -79,10 +77,10 @@ export const Contracts: FunctionComponent = () => {
   const [degree, setDegree] = useState<Degree | null>()
 
   useEffect(() => {
-    if (state.contractsStatus != FetchStatus.success) {
+    if (state.contractsStatus !== FetchStatus.success) {
       dispatch(getAllContracts(token))
     }
-  }, [dispatch, state.contractsStatus, token])
+  }, [dispatch, state.contracts, state.contractsStatus, token])
 
   useEffect(() => {
     dispatch(getFaculties())
@@ -113,7 +111,6 @@ export const Contracts: FunctionComponent = () => {
         facultyState.faculties.filter(x => !activeFaculties.includes(x.name))
       )
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.contractsStatus, facultyState.facultyStatus])
 
   useEffect(() => {
@@ -238,7 +235,7 @@ export const Contracts: FunctionComponent = () => {
             variant="outlined"
             disabled={!selectedContract}
             onClick={() => {
-              navigate(`/contracts/${selectedContract?.id}`)
+              window.location.replace(`/contracts/${selectedContract?.id}`)
             }}
           >
             edit

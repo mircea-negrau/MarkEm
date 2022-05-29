@@ -50,14 +50,11 @@ export const GradesPage: FunctionComponent = () => {
   const token = useSelector((state: AppState) => state.global.accessToken)
   const state = useSelector((state: AppState) => state.grades)
 
-  console.log(token, state)
-
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(state)
     if (state.gradeStatus !== FetchStatus.success) dispatch(getAllGrades(token))
-  }, [dispatch, state.gradeStatus, token])
+  }, [dispatch, state, state.gradeStatus, token])
 
   return (
     <MainContainer>

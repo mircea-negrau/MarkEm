@@ -36,7 +36,7 @@ export const ProfilePage: FunctionComponent = () => {
 
   useEffect(() => {
     if (username == undefined) {
-      navigate('/error')
+      window.location.replace('/error')
     } else {
       if (state.profileStatus != FetchStatus.success) {
         dispatch(getProfileByUsername(username))

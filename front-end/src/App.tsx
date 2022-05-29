@@ -15,7 +15,6 @@ import { CoursePage } from './ui/Teacher/Courses/CoursePage'
 import { EditContractPage } from './ui/EditContractPage'
 import { GradesPage } from './ui/GradesPage'
 import { PerformancePage } from './ui/PerformancePage'
-import { UserType } from './utility/types/userTypes'
 
 const App: FunctionComponent = () => {
   return (
