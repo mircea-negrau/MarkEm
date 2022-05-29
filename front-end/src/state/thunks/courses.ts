@@ -43,7 +43,7 @@ export const getCoursesByTeacher = createAsyncThunk(
       console.log('responseContent =', responseContent)
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -52,15 +52,13 @@ export const getCoursesNamesByContract = createAsyncThunk(
   'getCoursesNamesByContract',
   async (contractId: string) => {
     try {
-      console.log('getting courses')
       const response = await SECURE_API.get(
         `contract/courses?contractId=${contractId}`
       )
-      console.log('Response-start:\n', response, 'Response-end')
       const responseContent: CourseShort[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -76,7 +74,7 @@ export const getCoursesNamesByContract = createAsyncThunk(
 //
 //       return responseContent
 //     } catch (error) {
-//       alert(error)
+//       console.log(error)
 //     }
 //   }
 // )
@@ -100,7 +98,7 @@ export const getCourseById = createAsyncThunk(
       return responseContent
     } catch (error) {
       console.log(logMessage + ` - error: ${error}`)
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -120,7 +118,7 @@ export const getCourseGroups = createAsyncThunk(
 
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -141,7 +139,7 @@ export const getOptionalStudents = createAsyncThunk(
       )
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -168,7 +166,7 @@ export const setStudentGrade = createAsyncThunk(
 
       // return response
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

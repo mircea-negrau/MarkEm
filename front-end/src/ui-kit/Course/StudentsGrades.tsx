@@ -8,23 +8,30 @@ import {
   getOptionalStudents
 } from '../../state/thunks/courses'
 import { GroupStudentsTable } from './GroupStudentsTable'
+import { FetchStatus } from '../../utility/fetchStatus'
 
 const MandatoryCourseStudentsAndGrades: FunctionComponent = () => {
-  const { courseId } = useParams()
   const state = useSelector((state: AppState) => state.course)
+  const { courseId } = useParams()
 
   const dispatch = useDispatch()
 
-  const [selectedGroup, setSelectedGroup] = useState<
-    GroupEnrichedWithStudents | undefined
-  >(undefined)
+  const [selectedGroup, setSelectedGroup] =
+    useState<GroupEnrichedWithStudents | null>(null)
 
   useEffect(() => {
     // if (state.groupsStatus != FetchStatus.success && courseId) {
     if (courseId) {
       dispatch(getCourseGroups(courseId))
     }
-  }, [courseId, dispatch, state.groupsStatus])
+  }, [dispatch, courseId, state.groupsStatus])
+
+  useEffect(() => {
+    if (state.groupsStatus === FetchStatus.success && selectedGroup == null) {
+      setSelectedGroup(state.groups[0])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.groupsStatus])
 
   return (
     <>
@@ -66,23 +73,22 @@ const OptionalCourseStudentsAndGrades: FunctionComponent = () => {
 
 export const StudentsGrades: FunctionComponent = () => {
   const state = useSelector((state: AppState) => state.course)
-  const course = state.course
 
-  // const studentAndGrades: FunctionComponent = course.isOptional
-  //   ? MandatoryCourseStudentsAndGrades
-  //   : OptionalCourseStudentsAndGrades
+  const [isReady, setIsReady] = useState(false)
+
+  useEffect(() => {
+    if (state.courseStatus === FetchStatus.success) {
+      setIsReady(true)
+    }
+  }, [state.courseStatus])
 
   return (
-    course && (
+    (isReady && (
       <div style={{ padding: '20px' }}>
-        {/*{studentAndGrades}*/}
-        {/*TODO: problem on next line, the call to groups is inside MandatoryCourseStudentsAndGrades, but for optionals that shouldn't be rendered*/}
-        {course.isOptional || <MandatoryCourseStudentsAndGrades />}{' '}
-        {course.isOptional && <OptionalCourseStudentsAndGrades />}
-        {/*{(course.isOptional && <OptionalCourseStudentsAndGrades />) || (*/}
-        {/*  <MandatoryCourseStudentsAndGrades />*/}
-        {/*)}*/}
+        {(state.course.isOptional && <OptionalCourseStudentsAndGrades />) || (
+          <MandatoryCourseStudentsAndGrades />
+        )}
       </div>
-    )
+    )) || <p>Loading...</p>
   )
 }

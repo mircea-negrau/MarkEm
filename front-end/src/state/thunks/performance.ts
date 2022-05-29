@@ -15,7 +15,7 @@ export const getGroups = createAsyncThunk('getGroups', async () => {
     const responseContent: Group[] = response.data
     return responseContent
   } catch (error) {
-    alert(error)
+    console.log(error)
   }
 })
 
@@ -26,7 +26,7 @@ export const getSemesters = createAsyncThunk('getSemesters', async () => {
     const responseContent: SemesterReduced[] = response.data
     return responseContent
   } catch (error) {
-    alert(error)
+    console.log(error)
   }
 })
 
@@ -37,7 +37,7 @@ export const getStudyYears = createAsyncThunk('getStudyYears', async () => {
     const responseContent: StudyYearReduced[] = response.data
     return responseContent
   } catch (error) {
-    alert(error)
+    console.log(error)
   }
 })
 
@@ -52,7 +52,7 @@ export const getPerformanceByGroup = createAsyncThunk(
       const responseContent: StudentAverageGrade[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -68,7 +68,7 @@ export const getPerformanceBySemester = createAsyncThunk(
       const responseContent: StudentAverageGrade[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -85,7 +85,7 @@ export const getPerformanceByYearWithCriteria = createAsyncThunk(
       const responseContent: StudentAverageGrade[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

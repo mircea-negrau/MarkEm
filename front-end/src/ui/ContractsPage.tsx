@@ -5,7 +5,8 @@ import {
   deleteContract,
   getAllContracts,
   getFaculties,
-  getFacultySpecialisations
+  getFacultySpecialisations,
+  signContract
 } from '../state/thunks/contracts'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../state/store'
@@ -14,6 +15,7 @@ import { FetchStatus } from '../utility/fetchStatus'
 import { Degree, Faculty, Specialisation } from '../utility/types/studentTypes'
 import { StudyContractEnriched } from '../utility/types/contractTypes'
 import { contractActions } from '../state/slices/contracts'
+import { timestampToDate } from '../utility/timeParse'
 
 const MainContainer = styled.div`
   display: flex;
@@ -30,7 +32,7 @@ const ContractContainer = styled.div<{ isActive?: boolean }>`
   ${props => (props.isActive ? 'background: #1b1c1e' : '')}
 `
 
-const Column = styled.div`
+const Column = styled.div<{ right?: boolean; left?: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 2%;
@@ -39,6 +41,10 @@ const Column = styled.div`
   border: 2px solid black;
   background: linear-gradient(#1c212d, #1a202e);
   border-radius: 20px;
+  ${props => (props.left ? 'border-top-right-radius: 0px;' : '')}
+  ${props => (props.left ? 'border-bottom-right-radius: 0px;' : '')}
+  ${props => (props.right ? 'border-top-left-radius: 0px;' : '')}
+  ${props => (props.right ? 'border-bottom-left-radius: 0px;' : '')}
 `
 
 const DropdownSelector = styled.select`
@@ -161,7 +167,7 @@ export const Contracts: FunctionComponent = () => {
 
   return (
     <MainContainer>
-      <Column>
+      <Column left>
         <ErrorText>
           {state.contracts.length >= 2 &&
             'You cannot add more than two contracts!'}
@@ -238,13 +244,37 @@ export const Contracts: FunctionComponent = () => {
               window.location.replace(`/contracts/${selectedContract?.id}`)
             }}
           >
-            edit
+            view
+          </ButtonStyled>
+          <ButtonStyled
+            variant="outlined"
+            disabled={!selectedContract || !!selectedContract.signedAt}
+            onClick={async () => {
+              if (
+                confirm(
+                  "Are you sure you want to sign this contract?\nYou won't be able to edit afterwards."
+                )
+              )
+                if (selectedContract) {
+                  await Promise.resolve(
+                    dispatch(signContract(selectedContract?.id))
+                  ).then(() => {
+                    dispatch(contractActions.resetContractsStatus())
+                    setSelectedContract(null)
+                  })
+                }
+            }}
+          >
+            Sign
           </ButtonStyled>
         </div>
       </Column>
-      <Column>
+      <Column right>
         {state.contracts.map(contract => {
           const isActive = selectedContract?.id == contract.id
+          const signedDate = contract.signedAt
+            ? timestampToDate(contract.signedAt as number)
+            : null
           return (
             <ContractContainer
               isActive={isActive}
@@ -253,11 +283,17 @@ export const Contracts: FunctionComponent = () => {
                 setSelectedContract(isActive ? null : contract)
               }}
             >
-              <p>Faculty name: {contract.faculty}</p>
-              <p>Specialisation: {contract.specialisation}</p>
+              <p>Faculty: {contract.faculty}</p>
+              <p>{contract.specialisation}</p>
               <p>
-                {(!contract.signedAt && 'Unsigned!') ||
-                  'Signed at: ' + contract.signedAt}
+                Signed at:&nbsp;
+                {signedDate
+                  ? `${signedDate.toLocaleString('default', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: '2-digit'
+                    })}`
+                  : 'Unsigned!'}
               </p>
             </ContractContainer>
           )

@@ -16,6 +16,8 @@ export interface StudyContractEnriched {
 
 export interface SemesterContract {
   id: string
+  contractId: string
+  semester: number
   optionaCourseId: string
   optionalCourseName: string
 }

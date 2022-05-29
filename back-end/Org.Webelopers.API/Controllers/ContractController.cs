@@ -4,12 +4,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
-using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
+using Org.Webelopers.Api.Models.Persistence.Courses;
 using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -34,14 +33,14 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpGet("courses")]
         [Authorize(Roles = "Student")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<MandatoryCourse>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ContractCourseResponse>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetContractClasses([FromQuery] Guid contractId)
         {
             try
             {
-                var response = _contractService.GetContractCourses(contractId);
+                var response = _contractService.GetContractMandatoryCourses(contractId);
                 return response != null
                     ? Ok(response)
                     : NotFound();
@@ -107,7 +106,5 @@ namespace Org.Webelopers.Api.Controllers
                 return NotFound();
             }
         }
-
-
     }
 }

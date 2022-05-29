@@ -23,7 +23,7 @@ export const getAllContracts = createAsyncThunk(
       const responseContent: StudyContractEnriched[] = response.data
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -35,11 +35,11 @@ export const getSemesterContracts = createAsyncThunk(
       const response = await SECURE_API.get(
         `/contract/semesterContract?contractId=${contractId}`
       )
-      console.log('getting all semester contracts')
       const responseContent: SemesterContract[] = response.data
+      responseContent.sort((a, b) => a.semester - b.semester)
       return responseContent
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -51,7 +51,7 @@ export const getFaculties = createAsyncThunk('getFaculties', async () => {
     const responseContent: FacultyDetails = response.data
     return responseContent
   } catch (error) {
-    alert(error)
+    console.log(error)
   }
 })
 
@@ -106,7 +106,7 @@ export const addContract = createAsyncThunk(
       console.log(response.status, response.data)
       if (response.status == 200) console.log('succes')
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )
@@ -115,14 +115,9 @@ export const signContract = createAsyncThunk(
   'signContract',
   async (contractId: string) => {
     try {
-      console.log(contractId)
-      const response = await SECURE_API.post(
-        `/student/sign?contractId=${contractId}`
-      )
-      console.log(response.status, response.data)
-      if (response.status == 200) console.log('succes')
+      await SECURE_API.post(`/student/sign?contractId=${contractId}`)
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
   }
 )

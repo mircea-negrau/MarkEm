@@ -12,13 +12,17 @@ export interface Course {
 export interface CourseShort {
   id: string
   name: string
+  credits: number
+  semester: number
+  teacherFirstName: string
+  teacherLastName: string
 }
 
 export interface OptionalCourse {
   id: string
   name: string
-  maxNumberOfStudent: number
   credits: number
+  maxNumberOfStudent: number
 }
 
 export interface TeacherEnrichedCourse {

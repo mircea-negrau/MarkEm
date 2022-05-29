@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { AppState } from '../../state/store'
 import { getCoursesByTeacher } from '../../state/thunks/courses'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { unixSecondsToYear } from '../../utility/various'
+import { unixSecondsToYear } from '../../utility/timeParse'
 import { TeacherEnrichedCourse } from '../../utility/types/courseTypes'
 
 const MainContainer = styled.div`
