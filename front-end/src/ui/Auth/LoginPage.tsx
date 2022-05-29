@@ -1,16 +1,16 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import { login } from '../state/thunks/global'
-import Image from '../assets/login-icon.png'
+import { AppState } from '../../state/store'
+import { login } from '../../state/thunks/global'
+import Image from '../../assets/login-icon.png'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import PersonIcon from '@mui/icons-material/Person'
 import { Button, Checkbox, CircularProgress, TextField } from '@mui/material'
-import { FetchStatus } from '../utility/fetchStatus'
+import { FetchStatus } from '../../utility/fetchStatus'
 
 const GreyTextField = styled(TextField)`
   & label.Mui-focused {

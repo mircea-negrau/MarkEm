@@ -4,13 +4,9 @@ import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
 import { GradeSelect } from './GradeSelect'
 
-interface StudentsWithGradeProps {
+export const GroupStudentsTable: FunctionComponent<{
   students: StudentWithGrade[]
-}
-
-export const GroupStudentsTable: FunctionComponent<
-  StudentsWithGradeProps
-> = props => {
+}> = props => {
   const state = useSelector((state: AppState) => state.course)
   return (
     <table>

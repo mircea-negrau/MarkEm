@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
 import {
   CourseShort,
-  TeacherEnrichedCourses
+  TeacherEnrichedCourse
 } from '../../utility/types/courseTypes'
 import {
   getCoursesByTeacher,
@@ -10,7 +10,7 @@ import {
 } from '../thunks/courses'
 
 interface CoursesStateType {
-  courses: TeacherEnrichedCourses[]
+  courses: TeacherEnrichedCourse[]
   coursesNames: CourseShort[]
   coursesStatus: FetchStatus
 }

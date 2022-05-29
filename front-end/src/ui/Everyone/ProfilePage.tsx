@@ -1,11 +1,11 @@
 import { FunctionComponent, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import { getProfileByUsername } from '../state/thunks/profile'
-import { FetchStatus } from '../utility/fetchStatus'
+import { AppState } from '../../state/store'
+import { getProfileByUsername } from '../../state/thunks/profile'
+import { FetchStatus } from '../../utility/fetchStatus'
 import { useParams } from 'react-router-dom'
-import { ProfilePicturePlaceholder } from '../ui-kit/Avatars/ProfilePicturePlaceholder'
+import { ProfilePicturePlaceholder } from '../../ui-kit/Avatars/ProfilePicturePlaceholder'
 
 const Container = styled.div`
   padding: 60px;

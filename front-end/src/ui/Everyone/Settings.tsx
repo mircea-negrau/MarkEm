@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { AppState } from '../state/store'
-import { changeAbout, changePassword } from '../state/thunks/global'
-import { getProfileByUsername } from '../state/thunks/profile'
-import { ProfilePicturePlaceholder } from '../ui-kit/Avatars/ProfilePicturePlaceholder'
-import { SECURE_API } from '../utility/api'
-import { FetchStatus } from '../utility/fetchStatus'
+import { AppState } from '../../state/store'
+import { changeAbout, changePassword } from '../../state/thunks/global'
+import { getProfileByUsername } from '../../state/thunks/profile'
+import { ProfilePicturePlaceholder } from '../../ui-kit/Avatars/ProfilePicturePlaceholder'
+import { SECURE_API } from '../../utility/api'
+import { FetchStatus } from '../../utility/fetchStatus'
 
 const MainContainer = styled.div`
   display: flex;
