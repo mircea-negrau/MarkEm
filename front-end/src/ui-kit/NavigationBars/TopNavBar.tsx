@@ -13,7 +13,6 @@ interface TopNavBarProps {
 
 export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
-  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -99,7 +98,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
               cursor: 'pointer'
             }}
             onClick={() => {
-              navigate(`/profile/${state.username}`)
+              window.location.replace(`/profile/${state.username}`)
             }}
           >
             {state.firstName + ' ' + state.lastName}
@@ -112,7 +111,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
                   : ''
               }
               onClick={() => {
-                navigate(`/profile/${state.username}`)
+                window.location.replace(`/profile/${state.username}`)
               }}
               style={{
                 width: '32px',
@@ -139,7 +138,7 @@ export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
                 userSelect: 'none'
               }}
               onClick={() => {
-                navigate(`/profile/${state.username}`)
+                window.location.replace(`/profile/${state.username}`)
               }}
             >
               {state.firstName.slice(0, 1)}

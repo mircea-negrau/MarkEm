@@ -152,7 +152,7 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpGet("grades/all")]
         [Authorize(Roles = "Student")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<GradesDetailDto>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ContractSemesterGrades>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetGrades([FromQuery] Guid studentId)
         {

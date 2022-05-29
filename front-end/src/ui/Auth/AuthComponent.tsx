@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import localforage from 'localforage'
 import { globalActions, UserDetails } from '../../state/slices/global'
-import { useNavigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import { getCurrentProfile, logout } from '../../state/thunks/global'
 import { DefaultScaffold } from '../../ui-kit/DefaultScaffold'
@@ -17,8 +16,6 @@ export const AuthComponent: FunctionComponent<{
   const state = useSelector((state: AppState) => state.global)
   const [isValidJwt, setIsValidJwt] = useState<boolean>(false)
   const [isProfileReady, setIsProfileReady] = useState<boolean>(false)
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     const validateLogin = async () => {

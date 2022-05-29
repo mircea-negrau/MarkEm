@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Types;
-using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Controllers
 {
@@ -53,7 +52,8 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public IActionResult Register([FromBody] RegisterDto register)
         {
-            string passwordHash = HashPassword(register.Password);
+            string passwordHash = 
+                (register.Password);
             var user = _authService.Register(register.UserType, register.Username, passwordHash, register.Email, register.FirstName, register.LastName);
 
             if (user == null)

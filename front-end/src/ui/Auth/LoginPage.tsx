@@ -11,7 +11,6 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import PersonIcon from '@mui/icons-material/Person'
 import { Button, Checkbox, CircularProgress, TextField } from '@mui/material'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { useNavigate } from 'react-router-dom'
 
 const GreyTextField = styled(TextField)`
   & label.Mui-focused {
@@ -54,7 +53,6 @@ export const LoginPage: FunctionComponent = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Enter a valid email'),

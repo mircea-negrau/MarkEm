@@ -56,6 +56,8 @@ export const GradesPage: FunctionComponent = () => {
     if (state.gradeStatus !== FetchStatus.success) dispatch(getAllGrades(token))
   }, [dispatch, state, state.gradeStatus, token])
 
+  console.log(state.grades)
+
   return (
     <MainContainer>
       <div
@@ -71,7 +73,7 @@ export const GradesPage: FunctionComponent = () => {
             console.log(course)
             return (
               <>
-                <EntryP>Course : {course.courseName}</EntryP>
+                {/* <EntryP>Course : {course.courseName}</EntryP>
                 {course.grades.map(grade => (
                   <div key={grade.id}>
                     <Grade>
@@ -79,7 +81,7 @@ export const GradesPage: FunctionComponent = () => {
                     </Grade>
                     <br /> <br />
                   </div>
-                ))}
+                ))} */}
               </>
             )
           })}

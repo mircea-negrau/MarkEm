@@ -37,8 +37,6 @@ export const register = createAsyncThunk(
     firstName: string
     lastName: string
   }) => {
-    console.log({ aici: requestData })
-
     try {
       const response = await API.post(`/auth/register`, {
         userType: requestData.userType,
@@ -75,6 +73,32 @@ export const getCurrentProfile = createAsyncThunk(
       return profile
     } catch (error) {
       console.log(error)
+    }
+  }
+)
+
+export const changePassword = createAsyncThunk(
+  'changePassword',
+  async (password: string) => {
+    try {
+      await SECURE_API.post(`/profile/passwordChange`, { password: password })
+      return true
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+)
+
+export const changeAbout = createAsyncThunk(
+  'changeAbout',
+  async (about: string) => {
+    try {
+      await SECURE_API.post(`/profile/setAbout`, { about: about })
+      return true
+    } catch (error) {
+      console.log(error)
+      return false
     }
   }
 )
