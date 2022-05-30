@@ -240,5 +240,23 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet("results/courses")]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TeacherPerformanceDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetResultsCourses([FromQuery] Guid chiefId)
+        {
+            try
+            {
+                var test = _statisticsService.GetCoursesPerformanceRanking(chiefId);
+                return Ok(test);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
     }
 }
