@@ -221,7 +221,7 @@ export const Contracts: FunctionComponent = () => {
           </ButtonStyled>
           <ButtonStyled
             variant="outlined"
-            disabled={!selectedContract}
+            disabled={!selectedContract || !!selectedContract.signedAt}
             onClick={async () => {
               if (selectedContract) {
                 await Promise.all([
