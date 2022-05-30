@@ -77,7 +77,7 @@ export const OptionalsPage: FunctionComponent = () => {
         <div title={'available optionals panel'}>
           <h3>Available</h3>
           <div style={{ width: '100px', border: '2px', borderColor: 'black' }}>
-            {teacherOptionals &&
+            {teacherOptionals?.length > 0 &&
               teacherOptionals
                 .filter(optional => !optional.isProposed)
                 .map((optional, index) => {
@@ -99,7 +99,9 @@ export const OptionalsPage: FunctionComponent = () => {
         </div>
         <button
           disabled={
-            teacherOptionals.filter(optional => optional.isProposed).length == 2
+            teacherOptionals.length > 0 &&
+            teacherOptionals?.filter(optional => optional.isProposed).length ==
+              2
           }
           style={{ cursor: 'pointer' }}
           onClick={() => {
@@ -126,14 +128,15 @@ export const OptionalsPage: FunctionComponent = () => {
         <br />
         <button
           style={{ display: 'default' }}
-          onClick={() => {
-            console.log(`clicked save button`)
+          onClick={async () => {
             const proposed = teacherOptionals.filter(
               optional => optional.isProposed
             )
             const first = proposed.length >= 1 ? proposed[0].id : GUID_EMPTY
-            const second = proposed.length == 2 ? proposed[0].id : GUID_EMPTY
-            dispatch(proposeOptionals({ first: first, second: second }))
+            const second = proposed.length == 2 ? proposed[1].id : GUID_EMPTY
+            await Promise.resolve(
+              dispatch(proposeOptionals({ first: first, second: second }))
+            ).then(() => window.location.reload())
           }}
         >
           Save
