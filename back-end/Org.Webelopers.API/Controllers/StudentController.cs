@@ -7,6 +7,7 @@ using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Contracts;
 using Org.Webelopers.Api.Models.Persistence.Grades;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,18 +22,21 @@ namespace Org.Webelopers.Api.Controllers
         private readonly IContractService _contractService;
         private readonly IGradesService _gradeService;
         private readonly IAuthTokenService _authTokenService;
+        private readonly IOptionalCourseService _optionalCourseService;
 
         public StudentController(
             ILogger<AuthController> logger,
             IContractService contractService,
             IGradesService gradeService,
-            IAuthTokenService authTokenService
+            IAuthTokenService authTokenService,
+            IOptionalCourseService optionalCourseService
             )
         {
             _logger = logger;
             _contractService = contractService;
             _gradeService = gradeService;
             _authTokenService = authTokenService;
+            _optionalCourseService = optionalCourseService;
         }
 
 
@@ -124,6 +128,25 @@ namespace Org.Webelopers.Api.Controllers
             }
         }
 
+        [HttpPost("setAllPreferences")]
+        [Authorize(Roles = "Student")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult SetOptionalCoursesPreferences([FromBody] OptionalCoursePreferenceDto dto)
+        {
+            try
+            {
+                _optionalCourseService.SetCoursesPreferences(dto.ContractId, dto.CoursesIds);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return NotFound(ex.Message);
+            }
+
+        }
 
         [HttpPost("sign")]
         [Authorize(Roles = "Student")]

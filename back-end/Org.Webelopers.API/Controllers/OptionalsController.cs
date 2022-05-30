@@ -27,8 +27,8 @@ namespace Org.Webelopers.Api.Controllers
         private readonly IOptionalGradesService _optionalGradesService;
 
         public OptionalsController(ILogger<AuthController> logger,
-            IAuthTokenService authTokenService, 
-            IOptionalCourseService optionalCourseService, 
+            IAuthTokenService authTokenService,
+            IOptionalCourseService optionalCourseService,
             IOptionalGradesService optionalGradesService
         )
         {
@@ -55,7 +55,7 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -77,13 +77,13 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
                 _logger.LogError($"e.Message: {e.Message}");
                 _logger.LogError($"e.StackTrace = {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
         }
 
@@ -99,17 +99,17 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
                 _logger.LogError($"e.Message: {e.Message}");
                 Console.Error.WriteLine($"e.StackTrace: {e.StackTrace}");
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
         }
 
@@ -123,19 +123,19 @@ namespace Org.Webelopers.Api.Controllers
             {
                 ValidateCourseTeacher(courseId, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
                 _optionalGradesService.SetGrade(setGradeDto.StudentId, courseId, setGradeDto.Value);
-                return Ok(new {message = "success"});
+                return Ok(new { message = "success" });
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (NullReferenceException e)
             {
-                return NotFound(new {message = e.Message});
+                return NotFound(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -157,11 +157,11 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -181,15 +181,15 @@ namespace Org.Webelopers.Api.Controllers
                 ValidateCourseTeacher(proposedCoursesIds.First, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
                 ValidateCourseTeacher(proposedCoursesIds.Second, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
                 _optionalCourseService.Propose(proposedCoursesIds.First, proposedCoursesIds.Second);
-                return Ok(new {message = "success"});
+                return Ok(new { message = "success" });
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (InvalidCourseTeacher e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -198,7 +198,7 @@ namespace Org.Webelopers.Api.Controllers
                 return BadRequest(new { message = e.Message });
             }
         }
-        
+
         [HttpGet("proposed")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProposedCoursesIds))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -211,7 +211,7 @@ namespace Org.Webelopers.Api.Controllers
             }
             catch (IAuthTokenService.UidClaimNotFound e)
             {
-                return BadRequest(new {message = e.Message});
+                return BadRequest(new { message = e.Message });
             }
             catch (Exception e)
             {
@@ -241,25 +241,7 @@ namespace Org.Webelopers.Api.Controllers
 
         }
 
-        [HttpPost("setAllPreferences")]
-        [Authorize(Roles = "Student")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult SetOptionalCoursesPreferences([FromBody] OptionalCoursePreferenceDto dto)
-        {
-            try
-            {
-                _optionalCourseService.SetCoursesPreferences(dto.contractId, dto.coursesIds);
-                return Ok();
 
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);
-                return NotFound(ex.Message);
-            }
-
-        }
 
         #region PrivateMethods
 
