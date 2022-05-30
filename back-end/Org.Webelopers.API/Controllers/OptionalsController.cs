@@ -178,9 +178,21 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                ValidateCourseTeacher(proposedCoursesIds.First, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
-                ValidateCourseTeacher(proposedCoursesIds.Second, _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]));
-                _optionalCourseService.Propose(proposedCoursesIds.First, proposedCoursesIds.Second);
+                var teacherId = _authTokenService.GetAccountId(HttpContext.Request.Headers["Authorization"]);
+                var first = proposedCoursesIds.First;
+                var second = proposedCoursesIds.Second;
+                
+                if (first != default)
+                {
+                    ValidateCourseTeacher(first, teacherId);
+                }
+
+                if (second != default)
+                {
+                    
+                    ValidateCourseTeacher(second, teacherId);
+                }
+                _optionalCourseService.Propose(teacherId, first, second);
                 return Ok(new {message = "success"});
             }
             catch (IAuthTokenService.UidClaimNotFound e)

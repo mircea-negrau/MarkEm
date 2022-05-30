@@ -194,14 +194,17 @@ namespace Org.Webelopers.Api.Logic
             };
         }
         
-        public void Propose(Guid course1Id, Guid course2Id)
+        public void Propose(Guid teacherId, Guid course1Id, Guid course2Id)
         {
-            var course1 = FindOptionalCourseByIdAndThrowIfNullReference(course1Id);
-            var course2 = FindOptionalCourseByIdAndThrowIfNullReference(course2Id);
-            
-            ClearProposedCourses(course1.TeacherId);
-            course1.IsProposed = course2.IsProposed = true;
-
+            ClearProposedCourses(teacherId);
+            if (course1Id != default)
+            {
+                FindOptionalCourseByIdAndThrowIfNullReference(course1Id).IsProposed = true;
+            }
+            if (course2Id != default)
+            {
+                FindOptionalCourseByIdAndThrowIfNullReference(course2Id).IsProposed = true;
+            }
             _context.SaveChanges();
         }
 
