@@ -60,6 +60,9 @@ namespace Org.Webelopers.Api.Logic
         
         public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds)
         {
+            System.Diagnostics.Debug.Write(studentContractSemesterId);
+            System.Diagnostics.Debug.Write(coursesIds[0]);
+            System.Diagnostics.Debug.Write(coursesIds[1]);
             Func<Guid, Predicate<OptionalCoursePreference>> getPredicate = courseId =>
                 preference =>
                     preference.StudentContractSemesterId == studentContractSemesterId &&
@@ -73,13 +76,16 @@ namespace Org.Webelopers.Api.Logic
                 
                 // var preference =  _context.OptionalCoursePreferences.FirstOrDefault(preference => predicate(preference));
 
-                var preference = _context.OptionalCoursePreferences.FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
+                var preference = _context.OptionalCoursePreferences.ToList().
+                    FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
                 
                 if (preference != null)
                 {
                     preference.Preference = (short) i;
                 }
             }
+            _context.SaveChanges();
+
         }
         
 
@@ -423,17 +429,19 @@ namespace Org.Webelopers.Api.Logic
         {
             var courses = _context.Faculties
                 .AsNoTracking()
-                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId)
+                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId);
+            var test1 = courses
                 .Include(faculty => faculty.Specialisations)
                 .ThenInclude(specialization => specialization.StudyYears)
                 .ThenInclude(year => year.Semesters)
-                .ThenInclude(semester => semester.OptionalCourses)
+                .ThenInclude(semester => semester.OptionalCourses);
+            var test2 = test1
                 .SelectMany(faculty => faculty.Specialisations)
                 .SelectMany(specialization => specialization.StudyYears)
                 .SelectMany(year => year.Semesters)
                 .SelectMany(semester => semester.OptionalCourses)
                 .Where(course => course.IsProposed);
-            var enrichedCourses = await courses
+            var enrichedCourses = await test2
                 .Include(course => course.Semester.StudyYear.Specialization.StudyDegree)
                 .Include(course => course.Semester.StudyYear.Specialization.StudyLine)
                 .Include(course => course.Teacher)

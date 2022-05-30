@@ -5,8 +5,8 @@ namespace Org.Webelopers.Api.Models.Persistence.OptionalCourses
 {
     public class OptionalCoursePreferenceDto
     {
-        public Guid contractId { get; set; }
+        public Guid ContractId { get; set; }
 
-        public List<Guid> coursesIds { get; set; }
+        public List<Guid> CoursesIds { get; set; }
 }
 }

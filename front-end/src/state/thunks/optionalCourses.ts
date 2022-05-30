@@ -30,7 +30,7 @@ export const setOptionalCoursesPreferences = createAsyncThunk(
 
     console.log(Data.contractId, newList)
     try {
-      const response = await SECURE_API.post(`/optionals/setAllPreferences`, {
+      const response = await SECURE_API.post(`/student/setAllPreferences`, {
         contractId: Data.contractId,
         coursesIds: newList
       })

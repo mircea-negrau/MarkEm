@@ -220,6 +220,28 @@ export const LeftNavBar: FunctionComponent<LeftNavBarProps> = props => {
             <MenuItemText>Chief of Department</MenuItemText>
           </MenuItem>
         )}
+        {state.isChief && (
+          <MenuItem
+            isActive={location.pathname == '/chief/optionalCourses'}
+            onClick={() => {
+              window.location.replace('/chief/optionalCourses')
+            }}
+          >
+            <StarIcon />
+            <MenuItemText>See optional courses</MenuItemText>
+          </MenuItem>
+        )}
+        {state.isChief && (
+          <MenuItem
+            isActive={location.pathname == '/chief/disciplines'}
+            onClick={() => {
+              window.location.replace('/chief/disciplines')
+            }}
+          >
+            <StarIcon />
+            <MenuItemText>Disciplines</MenuItemText>
+          </MenuItem>
+        )}
         <MenuItem
           onClick={() => {
             dispatch(logout())

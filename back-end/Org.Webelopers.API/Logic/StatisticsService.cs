@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
-using Org.Webelopers.Api.Models.DbEntities;
 using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Performance;
 using Org.Webelopers.Api.Models.Persistence.Students;
@@ -136,24 +135,68 @@ namespace Org.Webelopers.Api.Logic
 
         }
 
-        public List<TeacherPerformanceDto> GetX(HashSet<Teacher> teachers)
+        public List<TeacherPerformanceDto> GetTeachersPerformanceRanking(Guid chiefId)
         {
-            var x = teachers.Select(teacher => new TeacherPerformanceDto()
+            var facultyId = _context.Faculties.FirstOrDefault(x => x.ChiefOfDepartmentId == chiefId)?.Id;
+            if (facultyId == null)
             {
-                Id = teacher.AccountId,
-                LastName = teacher.Account.LastName,
-                FirstName = teacher.Account.FirstName,
-                TeacherPerformance = _context.Grades
-                    .Include(grade => grade.Course)
-                    .ThenInclude(course => course.Teacher)
-                    .ThenInclude(teacher => teacher.Account)
-                    .Where(y => _context.Courses.Where(x => x.TeacherId == teacher.AccountId)
-                    .Select(x => x.Id)
-                    .ToList()
-                    .Contains(y.CourseId)).Select(grade => Convert.ToInt32(grade.Grade)).Average()
-            }).ToList();
+                throw new Exception("Given chief id is invalid!");
+            }
+            var courseGrades = _context.Courses.Include(x => x.Grades).ToList();
+            var specialisations = _context.Specialisations.Where(x => x.FacultyId == facultyId).Select(x => x.Id).ToList();
+            var studyYears = _context.StudyYears.Where(x => specialisations.Contains(x.SpecializationId)).Select(x => x.Id).ToList();
+            var semesters = _context.StudySemesters.Where(x => studyYears.Contains(x.StudyYearId)).Select(x => x.Id).ToList();
+            var courses = _context.Courses.Include(x => x.Grades).Include(x => x.Teacher).Where(x => semesters.Contains(x.SemesterId)).ToList();
+            var coursesGroupedByTeacher = courses.GroupBy(x => x.Teacher).ToList();
+            return coursesGroupedByTeacher
+                .Select(group =>
+                {
+                    var grades = group.SelectMany(course => course.Grades).Select(x => Convert.ToInt32(x.Grade)).ToList();
+                    double? performance = null;
+                    if (grades.Count > 0)
+                    {
+                        performance = group.SelectMany(course => course.Grades).Select(x => Convert.ToInt32(x.Grade)).Average();
+                    }
+                    return new TeacherPerformanceDto
+                    {
+                        TeacherId = group.Key.AccountId,
+                        TeacherFirstName = _context.Accounts.FirstOrDefault(x => x.Id == group.Key.AccountId).FirstName,
+                        TeacherLastName = _context.Accounts.FirstOrDefault(x => x.Id == group.Key.AccountId).LastName,
+                        TeacherPerformance = performance
+                    };
+                })
+                .ToList();
+        }
 
-            return x;
+        public List<CoursePerformanceDto> GetCoursesPerformanceRanking(Guid chiefId)
+        {
+            var facultyId = _context.Faculties.FirstOrDefault(x => x.ChiefOfDepartmentId == chiefId)?.Id;
+            if (facultyId == null)
+            {
+                throw new Exception("Given chief id is invalid!");
+            }
+            var courseGrades = _context.Courses.Include(x => x.Grades).ToList();
+            var specialisations = _context.Specialisations.Where(x => x.FacultyId == facultyId).Select(x => x.Id).ToList();
+            var studyYears = _context.StudyYears.Where(x => specialisations.Contains(x.SpecializationId)).Select(x => x.Id).ToList();
+            var semesters = _context.StudySemesters.Where(x => studyYears.Contains(x.StudyYearId)).Select(x => x.Id).ToList();
+            var courses = _context.Courses.Include(x => x.Grades).Where(x => semesters.Contains(x.SemesterId)).ToList();
+            return courses
+                .Select(course =>
+                {
+                    var grades = course.Grades.Select(x => Convert.ToInt32(x.Grade)).ToList();
+                    double? performance = null;
+                    if (grades.Count > 0)
+                    {
+                        performance = grades.Average();
+                    }
+                    return new CoursePerformanceDto
+                    {
+                        CourseId = course.Id,
+                        CourseName = course.Name,
+                        CoursePerformance = performance
+                    };
+                })
+                .ToList();
         }
 
     }

@@ -125,6 +125,13 @@ export const PerformancePage: FunctionComponent = () => {
         }}
       >
         <Dropdown options={performanceOptions} />
+        <button
+          onClick={() => {
+            print()
+          }}
+        >
+          Print!
+        </button>
         <br />
         <br />
 

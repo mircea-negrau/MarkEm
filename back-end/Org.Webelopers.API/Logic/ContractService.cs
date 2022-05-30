@@ -64,6 +64,10 @@ namespace Org.Webelopers.Api.Logic
             var contract = _context.Contracts.FirstOrDefault(contr => contr.Id == contractId);
             if (contract != null)
             {
+                var semesterContracts = _context.SemesterContracts.Where(x => x.StudentContractId == contractId).ToList();
+                var enrolledCourses = _context.StudentEnrolledCourse.Where(x => semesterContracts.Select(y => y.Id).Contains(x.StudentContractSemesterId));
+                _context.StudentEnrolledCourse.RemoveRange(enrolledCourses);
+                _context.SemesterContracts.RemoveRange(semesterContracts);
                 _context.Contracts.Remove(contract);
                 _context.SaveChanges();
             }

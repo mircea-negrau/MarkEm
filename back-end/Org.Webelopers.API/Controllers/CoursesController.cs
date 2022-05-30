@@ -35,7 +35,8 @@ namespace Org.Webelopers.Api.Controllers
             IGradesService gradesService,
             IAuthTokenService authTokenService,
             ICurriculumService curriculumService,
-            IFacultyService facultyService)
+            IFacultyService facultyService,
+            IStatisticsService statisticsService)
         {
             _logger = logger;
             _authTokenService = authTokenService;
@@ -43,6 +44,7 @@ namespace Org.Webelopers.Api.Controllers
             _gradesService = gradesService;
             _curriculumService = curriculumService;
             _facultyService = facultyService;
+            _statisticsService = statisticsService;
         }
 
         #endregion
@@ -229,10 +231,26 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                Guid facultyId = _facultyService.GetFacultyIdBy(chiefId);
-                var teachers = _facultyService.GetFacultyTeachers(facultyId);
+                var test = _statisticsService.GetTeachersPerformanceRanking(chiefId);
+                return Ok(test);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest();
+            }
+        }
 
-                return Ok(_statisticsService.GetX(teachers));
+        [HttpGet("results/courses")]
+        [Authorize(Policy = "ChiefOfDepartmentRequirement")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CoursePerformanceDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetResultsCourses([FromQuery] Guid chiefId)
+        {
+            try
+            {
+                var test = _statisticsService.GetCoursesPerformanceRanking(chiefId);
+                return Ok(test);
             }
             catch (Exception ex)
             {

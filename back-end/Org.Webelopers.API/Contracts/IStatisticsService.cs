@@ -1,5 +1,4 @@
-﻿using Org.Webelopers.Api.Models.DbEntities;
-using Org.Webelopers.Api.Models.Dto;
+﻿using Org.Webelopers.Api.Models.Dto;
 using Org.Webelopers.Api.Models.Persistence.Performance;
 using Org.Webelopers.Api.Models.Persistence.Students;
 using System;
@@ -16,6 +15,7 @@ namespace Org.Webelopers.Api.Contracts
         public List<StudentAverageGradeDto> GetStudentsRankingBySemester(Guid semesterId);
         public List<StudentPerformanceDto> GetStudentsPerformance(Filter filter, int minimumAverage);
 
-        public List<TeacherPerformanceDto> GetX(HashSet<Teacher> teachers);
+        public List<TeacherPerformanceDto> GetTeachersPerformanceRanking(Guid chiefId);
+        public List<CoursePerformanceDto> GetCoursesPerformanceRanking(Guid chiefId);
     }
 }

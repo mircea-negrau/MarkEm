@@ -18,6 +18,8 @@ import { CoursePage } from './ui/Teacher/CoursePage'
 import { ResultsPage } from './ui/ChiefOfDepartment/ResultsPage'
 import { CourseType } from './utility/types/courseTypes'
 import { OptionalsPage } from './ui/Teacher/OptionalsPage'
+import { ChiefOfDepartmentOptionalsPage } from './ui/ChiefOfDepartment/OptionalsPage'
+import { TeacherDisciplinesPage } from './ui/ChiefOfDepartment/TeachersDisciplines'
 
 const App: FunctionComponent = () => {
   return (
@@ -115,6 +117,7 @@ const App: FunctionComponent = () => {
               </AuthComponent>
             }
           />
+
           <Route path={'/error'} element={<ErrorPage />} />
           <Route path={'/login'} element={<LoginPage />} />
 
@@ -124,6 +127,30 @@ const App: FunctionComponent = () => {
             element={
               <AuthTeacher>
                 <ResultsPage />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/chief/teachers'}
+            element={
+              <AuthTeacher>
+                <TeacherDisciplinesPage />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/chief/optionalCourses'}
+            element={
+              <AuthTeacher>
+                <ChiefOfDepartmentOptionalsPage />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/chief/disciplines'}
+            element={
+              <AuthTeacher>
+                <TeacherDisciplinesPage />
               </AuthTeacher>
             }
           />

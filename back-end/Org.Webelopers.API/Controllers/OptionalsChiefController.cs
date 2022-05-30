@@ -144,7 +144,7 @@ namespace Org.Webelopers.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult SetOptionalCapacity([FromRoute] Guid courseId, [FromBody] int capacity)
+        public IActionResult SetOptionalCapacity([FromRoute] Guid courseId, [FromQuery] int capacity)
         {
             try
             {
