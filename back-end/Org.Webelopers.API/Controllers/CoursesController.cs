@@ -243,7 +243,7 @@ namespace Org.Webelopers.Api.Controllers
 
         [HttpGet("results/courses")]
         [Authorize(Policy = "ChiefOfDepartmentRequirement")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TeacherPerformanceDto>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CoursePerformanceDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetResultsCourses([FromQuery] Guid chiefId)
         {
