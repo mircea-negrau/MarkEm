@@ -80,13 +80,13 @@ export const EditContractPage: FunctionComponent = () => {
   const optionalCourses = useSelector(
     (state: AppState) => state.optionalCourses.courses
   )
-  // const [optionalList, setOptionalList] = useState(optionalCourses)
-  // const [bringElementDown, setBringElementDown] = useState(false)
-  // const [bringElementUp, setBringElementUp] = useState(false)
-  // const [preferences, setPreferences] = useState(false)
-  // const [selectedCourse, setSelectedCourse] = useState('')
+  const [optionalList, setOptionalList] = useState(optionalCourses)
+  const [bringElementDown, setBringElementDown] = useState(false)
+  const [bringElementUp, setBringElementUp] = useState(false)
+  const [preferences, setPreferences] = useState(false)
+  const [selectedCourse, setSelectedCourse] = useState('')
   const [selectedSemesterContract, setSelectedSemesterContract] =
-    useState<SemesterContract | null>()
+    useState<SemesterContract>()
 
   useEffect(() => {
     if (contractId != undefined) {
@@ -105,68 +105,68 @@ export const EditContractPage: FunctionComponent = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contracts.semesterContracts, contracts.semesterContractsStatus])
 
-  // useEffect(() => {
-  //   if (selectedSemesterContract != undefined) {
-  //     dispatch(
-  //       getOptionalCoursesBySemesterContract(
-  //         selectedSemesterContract.contractId
-  //       )
-  //     )
-  //   }
-  // }, [selectedSemesterContract, dispatch])
-  // useEffect(() => {
-  //   setOptionalList(optionalCourses)
-  // }, [dispatch, optionalCourses])
+  useEffect(() => {
+    if (selectedSemesterContract != undefined) {
+      dispatch(
+        getOptionalCoursesBySemesterContract(selectedSemesterContract.id)
+      )
+      console.log(contracts.semesterContracts)
+    }
+  }, [selectedSemesterContract, dispatch])
+  useEffect(() => {
+    setOptionalList(optionalCourses)
+  }, [dispatch, optionalCourses])
 
-  // useEffect(() => {
-  //   if (bringElementDown == true) {
-  //     const index = optionalList.findIndex(
-  //       optional => optional.id === selectedCourse
-  //     )
-  //     if (index < optionalList.length - 1) {
-  //       const newList = [
-  //         ...optionalList.slice(0, index),
-  //         optionalList[index + 1],
-  //         optionalList[index],
-  //         ...optionalList.slice(index + 2)
-  //       ]
-  //       setOptionalList(newList)
-  //       setBringElementDown(false)
-  //     }
-  //   }
-  // }, [bringElementDown])
+  useEffect(() => {
+    if (bringElementDown == true) {
+      const index = optionalList.findIndex(
+        optional => optional.id === selectedCourse
+      )
+      if (index < optionalList.length - 1) {
+        const newList = [
+          ...optionalList.slice(0, index),
+          optionalList[index + 1],
+          optionalList[index],
+          ...optionalList.slice(index + 2)
+        ]
+        setOptionalList(newList)
+        setBringElementDown(false)
+      }
+    }
+  }, [bringElementDown])
 
-  // useEffect(() => {
-  //   if (preferences == true) {
-  //     if (contractId != undefined && selectedSemesterContract != undefined) {
-  //       dispatch(
-  //         setOptionalCoursesPreferences({
-  //           contractId: selectedSemesterContract?.contractId,
-  //           optionalCoursesList: optionalList
-  //         })
-  //       )
-  //       setPreferences(false)
-  //     }
-  //   }
-  // }, [preferences, dispatch])
+  useEffect(() => {
+    if (preferences == true) {
+      if (contractId != undefined && selectedSemesterContract != undefined) {
+        if (selectedSemesterContract != undefined)
+          dispatch(
+            setOptionalCoursesPreferences({
+              contractId: selectedSemesterContract.contractId,
+              optionalCoursesList: optionalList
+            })
+          )
+        setPreferences(false)
+      }
+    }
+  }, [preferences, dispatch])
 
-  // useEffect(() => {
-  //   if (bringElementUp == true) {
-  //     const index = optionalList.findIndex(
-  //       optional => optional.id === selectedCourse
-  //     )
-  //     if (index > 0) {
-  //       const newList = [
-  //         ...optionalList.slice(0, index - 1),
-  //         optionalList[index],
-  //         optionalList[index - 1],
-  //         ...optionalList.slice(index + 1)
-  //       ]
-  //       setOptionalList(newList)
-  //       setBringElementUp(false)
-  //     }
-  //   }
-  // }, [bringElementUp])
+  useEffect(() => {
+    if (bringElementUp == true) {
+      const index = optionalList.findIndex(
+        optional => optional.id === selectedCourse
+      )
+      if (index > 0) {
+        const newList = [
+          ...optionalList.slice(0, index - 1),
+          optionalList[index],
+          optionalList[index - 1],
+          ...optionalList.slice(index + 1)
+        ]
+        setOptionalList(newList)
+        setBringElementUp(false)
+      }
+    }
+  }, [bringElementUp])
 
   return (
     <MainContainer>
@@ -179,6 +179,8 @@ export const EditContractPage: FunctionComponent = () => {
                 isActive={isActive}
                 onClick={() => {
                   setSelectedSemesterContract(semester)
+                  console.log(semester)
+                  console.log(optionalCourses)
                 }}
               >
                 Semester {semester.semester}
@@ -210,7 +212,7 @@ export const EditContractPage: FunctionComponent = () => {
           variant="outlined"
           style={{ float: 'right', top: 0, marginLeft: 5 }}
           onClick={() => {
-            // setPreferences(true)
+            setPreferences(true)
           }}
         >
           Set preferences
@@ -220,23 +222,22 @@ export const EditContractPage: FunctionComponent = () => {
           style={{ float: 'right', top: 0, marginLeft: 5 }}
           type="submit"
           onClick={() => {
-            // setBringElementDown(true)
+            setBringElementDown(true)
           }}
         >
           ↓
         </Button>
-
         <Button
           variant="outlined"
           style={{ float: 'right', top: 0, marginLeft: 5 }}
           onClick={() => {
-            // setBringElementUp(true)
+            setBringElementUp(true)
           }}
         >
           ↥
         </Button>
-
-        {/* {optionalList.map(course => (
+        <br /> <br />
+        {optionalList.map(course => (
           <div key={course.id}>
             {selectedCourse != course.id && (
               <div
@@ -277,7 +278,7 @@ export const EditContractPage: FunctionComponent = () => {
             )}
             <br /> <br />
           </div>
-        ))} */}
+        ))}
       </RightContainer>
     </MainContainer>
   )

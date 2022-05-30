@@ -60,6 +60,9 @@ namespace Org.Webelopers.Api.Logic
         
         public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds)
         {
+            System.Diagnostics.Debug.Write(studentContractSemesterId);
+            System.Diagnostics.Debug.Write(coursesIds[0]);
+            System.Diagnostics.Debug.Write(coursesIds[1]);
             Func<Guid, Predicate<OptionalCoursePreference>> getPredicate = courseId =>
                 preference =>
                     preference.StudentContractSemesterId == studentContractSemesterId &&
@@ -73,13 +76,16 @@ namespace Org.Webelopers.Api.Logic
                 
                 // var preference =  _context.OptionalCoursePreferences.FirstOrDefault(preference => predicate(preference));
 
-                var preference = _context.OptionalCoursePreferences.FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
+                var preference = _context.OptionalCoursePreferences.ToList().
+                    FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
                 
                 if (preference != null)
                 {
                     preference.Preference = (short) i;
                 }
             }
+            _context.SaveChanges();
+
         }
         
 
