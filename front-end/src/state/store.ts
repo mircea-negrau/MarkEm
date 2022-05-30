@@ -25,7 +25,6 @@ export const store = configureStore({
     faculties: facultyReducer,
     chiefResults: chiefResultsReducer,
     teacherOptionals: teacherOptionalsReducer,
-    chiefResults: chiefResultsReducer,
     chiefOfDepartment: chiefOfDepartmentReducer
   }
 })
