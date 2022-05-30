@@ -1,6 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { SECURE_API } from '../../utility/api'
-import { optionalsChiefView as optionalsChiefView } from '../../utility/types/chiefOfDepartmentTypes'
+import {
+  chiefTeachersWithCoursesInfo,
+  optionalsChiefView as optionalsChiefView
+} from '../../utility/types/chiefOfDepartmentTypes'
 import { OptionalCourse } from '../../utility/types/courseTypes'
 
 export const getOptionalsChiefView = createAsyncThunk(
@@ -10,6 +13,21 @@ export const getOptionalsChiefView = createAsyncThunk(
       const response = await SECURE_API.get(`/optionals/all/chiefPage`)
       console.log('getting chief view')
       const responseContent: optionalsChiefView = response.data
+      console.log(responseContent)
+      return responseContent
+    } catch (error) {
+      console.log(error)
+    }
+  }
+)
+
+export const getChiefCoursesByTeacher = createAsyncThunk(
+  'getChiefCoursesByTeacher',
+  async () => {
+    try {
+      const response = await SECURE_API.get(`/courses/all/by-teachers`)
+      console.log('getting chief view')
+      const responseContent: chiefTeachersWithCoursesInfo = response.data
       console.log(responseContent)
       return responseContent
     } catch (error) {

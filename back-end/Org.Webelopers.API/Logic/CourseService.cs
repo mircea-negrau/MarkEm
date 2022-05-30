@@ -250,6 +250,7 @@ namespace Org.Webelopers.Api.Logic
                 .Select(teacher => new ChiefTeacherWithCoursesInfo()
                 {
                     TeacherName = $"{teacher.Account.LastName} {teacher.Account.FirstName}",
+                    TeacherId = teacher.AccountId,
                     ChiefTeacherCoursesInfo = courses.Where(course => course.TeacherId == teacher.AccountId)
                         .Select(course => new ChiefTeacherCourseInfo
                         {

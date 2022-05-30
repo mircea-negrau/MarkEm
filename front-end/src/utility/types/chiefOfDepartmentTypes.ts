@@ -16,3 +16,21 @@ export interface view {
 export interface optionalsChiefView {
   optionals: view[]
 }
+
+export interface chiefTeacherWithCoursesInfo {
+  teacherName: string
+  teacherId: string
+  chiefTeacherCoursesInfo: chiefTeacherCourseInfo[]
+}
+
+export interface chiefTeacherCourseInfo {
+  specialization: string
+  year: number
+  semester: number
+  name: string
+  credits: number
+}
+
+export interface chiefTeachersWithCoursesInfo {
+  chiefTeachersWithCoursesInfoList: chiefTeacherWithCoursesInfo[]
+}

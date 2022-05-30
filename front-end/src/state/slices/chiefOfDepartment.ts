@@ -1,21 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { optionalsChiefView } from '../../utility/types/chiefOfDepartmentTypes'
+import {
+  chiefTeachersWithCoursesInfo,
+  optionalsChiefView
+} from '../../utility/types/chiefOfDepartmentTypes'
 import {
   SemesterContract,
   StudyContractEnriched
 } from '../../utility/types/contractTypes'
-import { getOptionalsChiefView } from '../thunks/chiefOfDepartment'
+import {
+  getChiefCoursesByTeacher,
+  getOptionalsChiefView
+} from '../thunks/chiefOfDepartment'
 import { getAllContracts, getSemesterContracts } from '../thunks/contracts'
 
 interface ChiefOfDepartmentStateType {
   optionalViews: optionalsChiefView
+  teachers: chiefTeachersWithCoursesInfo
   chiefOfDepartmentStatus: FetchStatus
+  teachersStatus: FetchStatus
 }
 
 const initialState: ChiefOfDepartmentStateType = {
   optionalViews: { optionals: [] },
-  chiefOfDepartmentStatus: FetchStatus.idle
+  teachers: { chiefTeachersWithCoursesInfoList: [] },
+  chiefOfDepartmentStatus: FetchStatus.idle,
+  teachersStatus: FetchStatus.idle
 }
 
 export const chiefOfDepartmentSlice = createSlice({
@@ -45,6 +55,22 @@ export const chiefOfDepartmentSlice = createSlice({
       builder.addCase(getOptionalsChiefView.rejected, (state, action) => {
         if (action.payload) {
           state.chiefOfDepartmentStatus = FetchStatus.error
+        }
+      }),
+      builder.addCase(getChiefCoursesByTeacher.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.teachers = action.payload
+          state.teachersStatus = FetchStatus.success
+        }
+      }),
+      builder.addCase(getChiefCoursesByTeacher.pending, (state, action) => {
+        if (action.payload) {
+          state.teachersStatus = FetchStatus.loading
+        }
+      }),
+      builder.addCase(getChiefCoursesByTeacher.rejected, (state, action) => {
+        if (action.payload) {
+          state.teachersStatus = FetchStatus.error
         }
       })
   }
