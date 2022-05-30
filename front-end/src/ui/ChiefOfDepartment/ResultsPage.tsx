@@ -13,16 +13,25 @@ export const ResultsPage: FunctionComponent = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (state.teacherPerformancesStatus !== FetchStatus.success) {
-      dispatch(getChiefTeacherResults(global.userId))
-    }
-  }, [dispatch, global.userId, state.teacherPerformancesStatus])
-
-  useEffect(() => {
-    if (state.coursePerformancesStatus !== FetchStatus.success) {
+    const a = async () => {
       dispatch(getChiefCourseResults(global.userId))
     }
-  }, [dispatch, global.userId, state.coursePerformancesStatus])
+    const b = async () => {
+      dispatch(getChiefTeacherResults(global.userId))
+    }
+
+    if (
+      state.teacherPerformancesStatus !== FetchStatus.success ||
+      state.coursePerformancesStatus !== FetchStatus.success
+    ) {
+      Promise.resolve(a()).then(() => b())
+    }
+  }, [
+    dispatch,
+    global.userId,
+    state.coursePerformancesStatus,
+    state.teacherPerformancesStatus
+  ])
 
   return (
     <div style={{ display: 'flex', paddingTop: '75px' }}>
