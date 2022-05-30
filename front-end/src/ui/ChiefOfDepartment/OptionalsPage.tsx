@@ -10,14 +10,22 @@ import {
 } from '../../state/thunks/chiefOfDepartment'
 import { useFormik } from 'formik'
 
-const OptionalContainer = styled.div`
+const OptionalContainer = styled.div<{ isActive?: boolean }>`
   border: 1px solid green;
-  border-color: #3a3f47';
+  border-color: #3a3f47;
   padding: 40px;
   cursor: pointer;
   background: #1b1c1e;
-  width:30%;
-  height:100px;
+  width: 30%;
+  height: auto;
+  ${props => (props.isActive ? 'background-color: white;' : '')}
+`
+
+const StyledButton = styled(Button)`
+  width: 175px;
+  height: 50px;
+  background: #cfd8e3 !important;
+  border: black !important;
 `
 
 const MainContainer = styled.div`
@@ -55,7 +63,6 @@ export const ChiefOfDepartmentOptionalsPage: FunctionComponent = () => {
   const dispatch = useDispatch()
   const state = useSelector((state: AppState) => state.chiefOfDepartment)
   const [selectedOptional, setSelectedOptional] = useState('')
-  const [capacity, setCapacity] = useState(0)
 
   useEffect(() => {
     dispatch(getOptionalsChiefView())
@@ -77,6 +84,7 @@ export const ChiefOfDepartmentOptionalsPage: FunctionComponent = () => {
         {state.optionalViews.optionals.map(optional => (
           <div key={optional.id}>
             <OptionalContainer
+              isActive={selectedOptional == optional.id}
               onClick={() => {
                 console.log('clicked')
                 setSelectedOptional(optional.id)
@@ -117,31 +125,31 @@ export const ChiefOfDepartmentOptionalsPage: FunctionComponent = () => {
           </div>
         ))}
       </div>
-      <div style={{ width: '25%', float: 'right' }}>
-        <Button
-          onClick={() => {
-            console.log('clicked button')
-            dispatch(approveOptional(selectedOptional))
+      <div style={{ display: 'flex', flexDirection: 'row', width: '25%' }}>
+        <StyledButton
+          onClick={async () => {
+            await Promise.resolve(
+              dispatch(approveOptional(selectedOptional))
+            ).then(() => window.location.reload())
           }}
-          style={{ background: 'green' }}
         >
           Approve
-        </Button>
+        </StyledButton>
         <br /> <br />
-        <Button
-          style={{ background: 'green' }}
-          onClick={() => {
-            console.log('clicked button')
-            dispatch(
-              setOptionalCapacity({
-                optionalId: selectedOptional,
-                capacity: formik.values.capacity
-              })
-            )
+        <StyledButton
+          onClick={async () => {
+            await Promise.resolve(
+              dispatch(
+                setOptionalCapacity({
+                  optionalId: selectedOptional,
+                  capacity: formik.values.capacity
+                })
+              )
+            ).then(() => window.location.reload())
           }}
         >
           Set capacity
-        </Button>
+        </StyledButton>
         <br /> <br />
         <GreyTextField
           fullWidth

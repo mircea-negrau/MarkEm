@@ -121,3 +121,14 @@ export const signContract = createAsyncThunk(
     }
   }
 )
+
+export const getStudentsAssigned = createAsyncThunk(
+  'getStudentsAssigned',
+  async () => {
+    try {
+      await SECURE_API.post(`/optionals/assign`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+)

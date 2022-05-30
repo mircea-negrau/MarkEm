@@ -5,6 +5,7 @@ import {
   getChiefCourseResults,
   getChiefTeacherResults
 } from '../../state/thunks/chief'
+import { getStudentsAssigned } from '../../state/thunks/contracts'
 import { FetchStatus } from '../../utility/fetchStatus'
 
 export const ResultsPage: FunctionComponent = () => {
@@ -34,35 +35,46 @@ export const ResultsPage: FunctionComponent = () => {
   ])
 
   return (
-    <div style={{ display: 'flex', paddingTop: '75px' }}>
-      <div style={{ paddingRight: '50px' }}>
-        {state.teacherPerformances
-          .filter(x => x.teacherPerformance)
-          .map((performance, index) => (
-            <div key={`performance-teacher-${performance.teacherId}`}>
-              <p>
-                {index + 1}. {performance.teacherFirstName}{' '}
-                {performance.teacherLastName}{' '}
-                {performance.teacherPerformance
-                  ? performance.teacherPerformance.toPrecision(3)
-                  : 'NaN'}
-              </p>
-            </div>
-          ))}
+    <div>
+      <div style={{ display: 'flex', paddingTop: '75px' }}>
+        <div style={{ paddingRight: '50px' }}>
+          {state.teacherPerformances
+            .filter(x => x.teacherPerformance)
+            .map((performance, index) => (
+              <div key={`performance-teacher-${performance.teacherId}`}>
+                <p>
+                  {index + 1}. {performance.teacherFirstName}{' '}
+                  {performance.teacherLastName}{' '}
+                  {performance.teacherPerformance
+                    ? performance.teacherPerformance.toPrecision(3)
+                    : 'NaN'}
+                </p>
+              </div>
+            ))}
+        </div>
+        <div>
+          {state.coursePerformances
+            .filter(x => x.coursePerformance)
+            .map((performance, index) => (
+              <div key={`performance-course-${performance.courseId}`}>
+                <p>
+                  {index + 1}. {performance.courseName}{' '}
+                  {performance.coursePerformance
+                    ? performance.coursePerformance.toPrecision(3)
+                    : 'NaN'}
+                </p>
+              </div>
+            ))}
+        </div>
       </div>
       <div>
-        {state.coursePerformances
-          .filter(x => x.coursePerformance)
-          .map((performance, index) => (
-            <div key={`performance-course-${performance.courseId}`}>
-              <p>
-                {index + 1}. {performance.courseName}{' '}
-                {performance.coursePerformance
-                  ? performance.coursePerformance.toPrecision(3)
-                  : 'NaN'}
-              </p>
-            </div>
-          ))}
+        <button
+          onClick={() => {
+            dispatch(getStudentsAssigned())
+          }}
+        >
+          Launch the rockets!
+        </button>
       </div>
     </div>
   )

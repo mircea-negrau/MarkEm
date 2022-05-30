@@ -139,6 +139,22 @@ const App: FunctionComponent = () => {
             }
           />
           <Route
+            path={'/chief/optionalCourses'}
+            element={
+              <AuthTeacher>
+                <ChiefOfDepartmentOptionalsPage />
+              </AuthTeacher>
+            }
+          />
+          <Route
+            path={'/chief/disciplines'}
+            element={
+              <AuthTeacher>
+                <TeacherDisciplinesPage />
+              </AuthTeacher>
+            }
+          />
+          <Route
             path={'/'}
             element={
               <AuthComponent>

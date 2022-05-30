@@ -426,17 +426,19 @@ namespace Org.Webelopers.Api.Logic
         {
             var courses = _context.Faculties
                 .AsNoTracking()
-                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId)
+                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId);
+            var test1 = courses
                 .Include(faculty => faculty.Specialisations)
                 .ThenInclude(specialization => specialization.StudyYears)
                 .ThenInclude(year => year.Semesters)
-                .ThenInclude(semester => semester.OptionalCourses)
+                .ThenInclude(semester => semester.OptionalCourses);
+            var test2 = test1
                 .SelectMany(faculty => faculty.Specialisations)
                 .SelectMany(specialization => specialization.StudyYears)
                 .SelectMany(year => year.Semesters)
                 .SelectMany(semester => semester.OptionalCourses)
                 .Where(course => course.IsProposed);
-            var enrichedCourses = await courses
+            var enrichedCourses = await test2
                 .Include(course => course.Semester.StudyYear.Specialization.StudyDegree)
                 .Include(course => course.Semester.StudyYear.Specialization.StudyLine)
                 .Include(course => course.Teacher)
