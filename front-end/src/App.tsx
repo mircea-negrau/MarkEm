@@ -18,6 +18,7 @@ import { CoursePage } from './ui/Teacher/CoursePage'
 import { ResultsPage } from './ui/ChiefOfDepartment/ResultsPage'
 import { CourseType } from './utility/types/courseTypes'
 import { OptionalsPage } from './ui/Teacher/OptionalsPage'
+import { ChiefOfDepartmentOptionalsPage } from './ui/ChiefOfDepartment/OptionalsPage'
 
 const App: FunctionComponent = () => {
   return (
@@ -115,6 +116,7 @@ const App: FunctionComponent = () => {
               </AuthComponent>
             }
           />
+
           <Route path={'/error'} element={<ErrorPage />} />
           <Route path={'/login'} element={<LoginPage />} />
 
