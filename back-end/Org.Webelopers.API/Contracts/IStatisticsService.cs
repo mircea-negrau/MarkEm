@@ -16,6 +16,6 @@ namespace Org.Webelopers.Api.Contracts
         public List<StudentAverageGradeDto> GetStudentsRankingBySemester(Guid semesterId);
         public List<StudentPerformanceDto> GetStudentsPerformance(Filter filter, int minimumAverage);
 
-        public List<TeacherPerformanceDto> GetX(HashSet<Teacher> teachers);
+        public List<TeacherPerformanceDto> GetTeachersPerformanceRanking(Guid chiefId);
     }
 }

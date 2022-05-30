@@ -136,24 +136,32 @@ namespace Org.Webelopers.Api.Logic
 
         }
 
-        public List<TeacherPerformanceDto> GetX(HashSet<Teacher> teachers)
+        public List<TeacherPerformanceDto> GetTeachersPerformanceRanking(Guid chiefId)
         {
-            var x = teachers.Select(teacher => new TeacherPerformanceDto()
+            var facultyId = _context.Faculties.FirstOrDefault(x => x.ChiefOfDepartmentId == chiefId)?.Id;
+            if (facultyId == null)
             {
-                Id = teacher.AccountId,
-                LastName = teacher.Account.LastName,
-                FirstName = teacher.Account.FirstName,
-                TeacherPerformance = _context.Grades
+                throw new Exception("Given chief id is invalid!");
+            }
+            return _context.Courses
+                .Include(x => x.Semester)
+                    .ThenInclude(y => y.StudyYear)
+                    .ThenInclude(z => z.Specialization)
+                .Where(x => x.Semester.StudyYear.Specialization.FacultyId == facultyId && x.Semester != null && x.Semester.StudyYear != null && x.Semester.StudyYear.Specialization != null)
+                .Select(course => new TeacherPerformanceDto
+                {
+                    Id = course.TeacherId,
+                    TeacherPerformance = _context.Grades
                     .Include(grade => grade.Course)
-                    .ThenInclude(course => course.Teacher)
-                    .ThenInclude(teacher => teacher.Account)
-                    .Where(y => _context.Courses.Where(x => x.TeacherId == teacher.AccountId)
-                    .Select(x => x.Id)
-                    .ToList()
-                    .Contains(y.CourseId)).Select(grade => Convert.ToInt32(grade.Grade)).Average()
-            }).ToList();
-
-            return x;
+                        .ThenInclude(course => course.Teacher)
+                        .ThenInclude(teacher => teacher.Account)
+                    .Where(y => _context.Courses.Where(x => x.TeacherId == course.TeacherId)
+                        .Select(x => x.Id)
+                        .ToList()
+                        .Contains(y.CourseId))
+                    .Select(grade => Convert.ToInt32(grade.Grade)).Average()
+                })
+                .ToList(); ;
         }
 
     }

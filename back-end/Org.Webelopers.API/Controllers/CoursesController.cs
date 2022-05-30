@@ -35,7 +35,8 @@ namespace Org.Webelopers.Api.Controllers
             IGradesService gradesService,
             IAuthTokenService authTokenService,
             ICurriculumService curriculumService,
-            IFacultyService facultyService)
+            IFacultyService facultyService,
+            IStatisticsService statisticsService)
         {
             _logger = logger;
             _authTokenService = authTokenService;
@@ -43,6 +44,7 @@ namespace Org.Webelopers.Api.Controllers
             _gradesService = gradesService;
             _curriculumService = curriculumService;
             _facultyService = facultyService;
+            _statisticsService = statisticsService;
         }
 
         #endregion
@@ -229,10 +231,8 @@ namespace Org.Webelopers.Api.Controllers
         {
             try
             {
-                Guid facultyId = _facultyService.GetFacultyIdBy(chiefId);
-                var teachers = _facultyService.GetFacultyTeachers(facultyId);
-
-                return Ok(_statisticsService.GetX(teachers));
+                var test = _statisticsService.GetTeachersPerformanceRanking(chiefId);
+                return Ok(test);
             }
             catch (Exception ex)
             {

@@ -64,6 +64,8 @@ namespace Org.Webelopers.Api.Logic
             var contract = _context.Contracts.FirstOrDefault(contr => contr.Id == contractId);
             if (contract != null)
             {
+                var semesterContracts = _context.SemesterContracts.Where(x => x.StudentContractId == contractId);
+                _context.SemesterContracts.RemoveRange(semesterContracts);
                 _context.Contracts.Remove(contract);
                 _context.SaveChanges();
             }
