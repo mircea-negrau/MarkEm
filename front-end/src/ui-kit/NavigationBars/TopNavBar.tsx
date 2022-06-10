@@ -5,9 +5,13 @@ import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsAc
 import ReactCountryFlag from 'react-country-flag'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../state/store'
-import ProfilePicture from '../../assets/dummy-profile-picture.jpg'
+import { useNavigate } from 'react-router-dom'
 
-export const TopNavBar: FunctionComponent = () => {
+interface TopNavBarProps {
+  dockerAction: () => void
+}
+
+export const TopNavBar: FunctionComponent<TopNavBarProps> = props => {
   const state = useSelector((state: AppState) => state.global)
   return (
     <div
@@ -16,23 +20,10 @@ export const TopNavBar: FunctionComponent = () => {
         width: '100%',
         height: '61px',
         position: 'fixed',
-        background: 'linear-gradient(#1c212d, #1a202e)'
+        background: 'linear-gradient(#1c212d, #1a202e)',
+        zIndex: '1'
       }}
     >
-      <a
-        href="/"
-        style={{
-          display: 'flex',
-          padding: '8px',
-          minWidth: '244px',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRight: '1px solid #323538',
-          cursor: 'pointer'
-        }}
-      >
-        <p style={{ color: 'white', fontSize: '24px' }}>{"Mark'Em"}</p>
-      </a>
       <div
         style={{
           display: 'flex',
@@ -42,7 +33,26 @@ export const TopNavBar: FunctionComponent = () => {
           paddingLeft: '27px'
         }}
       >
-        <MenuIcon style={{ color: 'white', cursor: 'pointer' }} />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <MenuIcon
+            style={{ color: 'white', cursor: 'pointer' }}
+            onClick={() => {
+              props.dockerAction()
+            }}
+          />
+          <a
+            href="/"
+            style={{
+              padding: '8px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer',
+              paddingLeft: '30px'
+            }}
+          >
+            <p style={{ color: 'white', fontSize: '24px' }}>{"Mark'Em"}</p>
+          </a>
+        </div>
         <div
           style={{
             display: 'flex',
@@ -87,22 +97,54 @@ export const TopNavBar: FunctionComponent = () => {
               color: '#e6e6e6',
               cursor: 'pointer'
             }}
+            onClick={() => {
+              window.location.replace(`/profile/${state.username}`)
+            }}
           >
             {state.firstName + ' ' + state.lastName}
           </p>
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '24px',
-              backgroundImage: `url(${ProfilePicture})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              marginRight: '25px',
-              cursor: 'pointer'
-            }}
-          />
+          {(state.profile.picture && (
+            <img
+              src={
+                state.profile.picture
+                  ? `data:image/png;base64,${state.profile.picture}`
+                  : ''
+              }
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer'
+              }}
+            />
+          )) || (
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '24px',
+                marginRight: '25px',
+                cursor: 'pointer',
+                backgroundColor: 'darkcyan',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                color: 'black',
+                fontWeight: '600',
+                userSelect: 'none'
+              }}
+              onClick={() => {
+                window.location.replace(`/profile/${state.username}`)
+              }}
+            >
+              {state.firstName.slice(0, 1)}
+              {state.lastName.slice(0, 1)}
+            </div>
+          )}
         </div>
       </div>
     </div>

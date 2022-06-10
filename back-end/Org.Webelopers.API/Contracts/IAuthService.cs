@@ -4,7 +4,7 @@ namespace Org.Webelopers.Api.Contracts
 {
     public interface IAuthService
     {
-        Account Authenticate(string username, string password);
+        Account Authenticate(string email, string password);
         Account Register(string userType, string username, string password, string email, string firstName, string lastName);
     }
 }

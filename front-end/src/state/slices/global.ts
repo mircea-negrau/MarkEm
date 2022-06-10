@@ -1,29 +1,46 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { FetchStatus } from '../../utility/fetchStatus'
-import { login, logout } from '../thunks/global'
+import { getUserType } from '../../utility/getUserType'
+import { Profile } from '../../utility/types/profileTypes'
+import { UserType } from '../../utility/types/userTypes'
+import { getCurrentProfile, getIsChief, login, logout } from '../thunks/global'
 
 interface GlobalStateType {
   accessToken: string
   accessTokenStatus: FetchStatus
   userId: string
-  userRole: 'Student' | 'Teacher' | 'Admin' | 'Guest'
+  userRole: UserType
   username: string
   firstName: string
   lastName: string
-  dateOfBirth?: string
   expiration: number
+  profilePicture: string
+  profileStatus: FetchStatus
+  profile: Profile
+  isChief: boolean
+  isChiefTokenStatus: FetchStatus
 }
 
 const initialState: GlobalStateType = {
   accessToken: '',
   accessTokenStatus: FetchStatus.idle,
   userId: '',
-  userRole: 'Guest',
+  userRole: UserType.Guest,
   username: '',
   firstName: '',
   lastName: '',
-  dateOfBirth: undefined,
-  expiration: 0
+  expiration: 0,
+  profilePicture: '',
+  profileStatus: FetchStatus.idle,
+  profile: {
+    id: '',
+    role: '',
+    username: '',
+    firstName: '',
+    lastName: ''
+  },
+  isChief: false,
+  isChiefTokenStatus: FetchStatus.idle
 }
 
 export interface UserDetails {
@@ -33,7 +50,6 @@ export interface UserDetails {
   username: string
   firstName: string
   lastName: string
-  dateOfBirth: string
   iss: string
   exp: number
 }
@@ -47,12 +63,11 @@ export const globalSlice = createSlice({
     },
     setUserDetails: (state, action: PayloadAction<UserDetails>) => {
       state.userId = action.payload.uid
-      state.userRole = action.payload.role as 'Student' | 'Teacher' | 'Admin'
+      state.userRole = getUserType(action.payload.role)
       state.username = action.payload.username
       state.expiration = action.payload.exp
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
-      state.dateOfBirth = action.payload.dateOfBirth ?? undefined
     }
   },
   extraReducers: builder => {
@@ -82,6 +97,36 @@ export const globalSlice = createSlice({
 
     builder.addCase(logout.rejected, state => {
       state.accessTokenStatus = FetchStatus.error
+    })
+
+    builder.addCase(getCurrentProfile.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.profile = action.payload
+      }
+      state.profileStatus = FetchStatus.success
+    })
+
+    builder.addCase(getCurrentProfile.pending, state => {
+      state.profileStatus = FetchStatus.loading
+    })
+
+    builder.addCase(getCurrentProfile.rejected, state => {
+      state.profileStatus = FetchStatus.error
+    })
+
+    builder.addCase(getIsChief.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.isChief = action.payload
+      }
+      state.isChiefTokenStatus = FetchStatus.success
+    })
+
+    builder.addCase(getIsChief.pending, state => {
+      state.isChiefTokenStatus = FetchStatus.loading
+    })
+
+    builder.addCase(getIsChief.rejected, state => {
+      state.isChiefTokenStatus = FetchStatus.error
     })
   }
 })

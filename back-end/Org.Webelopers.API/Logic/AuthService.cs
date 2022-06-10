@@ -5,6 +5,7 @@ using Org.Webelopers.Api.Models.DbEntities.BaseClasses;
 using Org.Webelopers.Api.Models.Types;
 using System;
 using System.Linq;
+using static BCrypt.Net.BCrypt;
 
 namespace Org.Webelopers.Api.Logic.Auth
 {
@@ -17,17 +18,17 @@ namespace Org.Webelopers.Api.Logic.Auth
             _context = context;
         }
 
-        public Account Authenticate(string username, string password)
+        public Account Authenticate(string email, string password)
         {
-            var account = _context.Accounts.FirstOrDefault(x => x.Username == username);
+            var account = _context.Accounts.FirstOrDefault(x => x.Email == email);
             return account != null
                 ? ValidatePassword(password, account)
                 : null;
         }
 
-        public Account Register(string userType, string username, string passwordHash, string emailHash, string firstName, string lastName)
+        public Account Register(string userType, string username, string passwordHash, string email, string firstName, string lastName)
         {
-            if (IsUsernameTaken(username))
+            if (IsUsernameTaken(username) || IsEmailUsed(email))
             {
                 return null;
             }
@@ -37,7 +38,7 @@ namespace Org.Webelopers.Api.Logic.Auth
                 Id = Guid.NewGuid(),
                 Role = userType,
                 Username = username,
-                EmailHash = emailHash,
+                Email = email,
                 PasswordHash = passwordHash,
                 FirstName = firstName,
                 LastName = lastName
@@ -53,6 +54,8 @@ namespace Org.Webelopers.Api.Logic.Auth
 
         private Account CreateAccount<AccountType>(Account account) where AccountType : BaseAccount, new()
         {
+            _context.Add(account);
+            _context.SaveChanges();
             var newAccount = new AccountType() { AccountId = account.Id };
             _context.Add(newAccount);
             _context.SaveChanges();
@@ -60,11 +63,13 @@ namespace Org.Webelopers.Api.Logic.Auth
         }
 
         private bool IsUsernameTaken(string username) =>
-            _context.Accounts.FirstOrDefault(x => x.Username == username) == null;
+            _context.Accounts.FirstOrDefault(x => x.Username == username) != null;
 
+        private bool IsEmailUsed(string email) =>
+            _context.Accounts.FirstOrDefault(x => x.Email == email) != null;
 
         private static Account ValidatePassword(string password, Account account) =>
-            BCrypt.Net.BCrypt.Verify(password, account.PasswordHash)
+            Verify(password, account.PasswordHash)
                 ? account
                 : null;
     }

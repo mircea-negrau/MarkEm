@@ -10,8 +10,54 @@ const Avatar = styled.div<{ image: string }>`
   background-size: cover;
   border-radius: 15%;
   border: 2px solid white;
+  cursor: pointer;
+`
+
+const AvatarPlaceholder = styled.div`
+  width: 71px;
+  height: 71px;
+  border-radius: 15%;
+  border: 2px solid white;
+  cursor: pointer;
+  background-color: darkcyan;
+  color: black;
+  font-size: 28px;
+  display: flex;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 `
 
 export const UserAvatar: FunctionComponent<{
   profilePicture: string
-}> = props => <Avatar image={props.profilePicture} />
+  username: string
+  firstName: string
+  lastName: string
+}> = props => {
+  return (
+    <>
+      {(props.profilePicture && (
+        <Avatar
+          onClick={() => {
+            if (props.username)
+              window.location.replace(`/profile/${props.username}`)
+          }}
+          image={props.profilePicture}
+        />
+      )) || (
+        <AvatarPlaceholder
+          onClick={() => {
+            if (props.username)
+              window.location.replace(`/profile/${props.username}`)
+          }}
+        >
+          <p>
+            {props.firstName.slice(0, 1)}
+            {props.lastName.slice(0, 1)}
+          </p>
+        </AvatarPlaceholder>
+      )}
+    </>
+  )
+}

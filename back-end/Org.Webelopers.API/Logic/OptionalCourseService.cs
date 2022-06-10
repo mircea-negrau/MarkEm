@@ -1,185 +1,476 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Org.Webelopers.Api.Contracts;
 using Org.Webelopers.Api.Extensions;
 using Org.Webelopers.Api.Models.DbEntities;
-using Org.Webelopers.Api.Models.Persistence.OptionalCoursesService;
+using Org.Webelopers.Api.Models.Persistence.Courses;
+using Org.Webelopers.Api.Models.Persistence.Groups;
+using Org.Webelopers.Api.Models.Persistence.OptionalCourses;
+
+
 
 namespace Org.Webelopers.Api.Logic
 {
     public class OptionalCourseService : IOptionalCourseService
     {
+        #region FieldsAndConstructor
+
         private readonly DatabaseContext _context;
+        private readonly OptionalCourseAssigner _optionalCourseAssigner;
 
         public OptionalCourseService(DatabaseContext context)
         {
             _context = context;
+            _optionalCourseAssigner = new OptionalCourseAssigner(_context);
         }
 
-        public List<OptionalCourse> GetOptionalCourses() => _context.OptionalCourses.ToList();
+        #endregion
 
-        public bool SetStudentOptionalCoursesPreference(short preference, Guid contractId, Guid optionalCourseId)
+        #region PrivateFindMethods
+        
+        private OptionalCourse FindOptionalCourseAndThrowIfNullReference(Predicate<OptionalCourse> predicate, String exceptionMessage) => 
+            Utils.ThrowIfNullReference(_context.FindEntity(predicate), exceptionMessage);
+
+        private OptionalCourse FindOptionalCourseByIdAndThrowIfNullReference(Guid courseId) => FindOptionalCourseAndThrowIfNullReference(
+            course => course.Id == courseId, 
+            $"OptionalCourse with id: {courseId} was not found\n");
+
+        #endregion
+
+        public List<OptionalCourse> FilterCourses(Predicate<OptionalCourse> filterPredicate) =>
+            // _context.FindEntity<OptionalCourse>(filterPredicate).ToList();
+            _context.OptionalCourses.ToList().Where(course => filterPredicate(course)).ToList();
+
+
+        #region Student
+        
+        public void SetCoursePreference(Guid studentContractSemesterId, Guid courseId, short preferenceValue)
         {
-            // parameters conditions checking
-            if (preference < 0) { return false; }
+            Utils.ThrowIf<InvalidEnumArgumentException>(preferenceValue < 0, $"Expected preference value >= 0. Got {preferenceValue}");
+            OptionalCoursePreference optionalCoursePreference = GetCourseInContractAndThrowIfNullReference(studentContractSemesterId, courseId);
 
-            var contract = _context.Contracts.FirstOrDefault(contract => contract.Id == contractId);
-            if (contract == null) return false; // if no contract was found
+            UpdateCoursePreferenceValue(studentContractSemesterId, courseId, preferenceValue, optionalCoursePreference);
 
-            if (_context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null) { return false; } // if no optional course was found
-
-            // add/update the preference
-
-            // TODO: Update to fit database rebuilt version
-            //var optionalCoursePreference = _context.OptionalCoursePreferences.FirstOrDefault(coursePreference => coursePreference.StudyContractId == contractId &&
-            //    coursePreference.OptionalCourseId == optionalCourseId);
-            //if (optionalCoursePreference == null)
-            //{
-            //    optionalCoursePreference = new OptionalCoursePreference()
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Preference = preference,
-            //StudyContractId = contractId, 
-            //        OptionalCourseId = optionalCourseId
-            //    };
-            //    _context.OptionalCoursePreferences.Add(optionalCoursePreference);
-            //}
-            //else
-            //{
-            //    optionalCoursePreference.Preference = preference;
-            //}
-            //_context.SaveChanges();
-
-            return true;
+            _context.SaveChanges();
         }
-
-        public List<OptionalCourse> GetProposedOptionalCourses(Guid teacherId) => _context.OptionalCourses.Where(course => course.TeacherId == teacherId && course.IsProposed).ToList();
-
-        public bool AddOptionalCourse(string name, short credits, Guid semesterId, Guid teacherId)
+        
+        public void SetCoursesPreferences(Guid studentContractSemesterId, List<Guid> coursesIds)
         {
-            // parameters conditions checking
-
-            // TODO: Update to fit database rebuilt version
-            //if (credits < 1) { return false; }
-            //if (_context.StudySemesters.FirstOrDefault(semester => semester.Id == semesterId) == null) { return false; }
-            //if (_context.Teachers.FirstOrDefault(teacher => teacher.Id == teacherId) == null) { return false; }
-            //if (_context.OptionalCourses.FirstOrDefault(course => course.TeacherId == teacherId &&
-            //                                                course.Name == name) == null) { return false; }
-
-            //_context.OptionalCourses.Add(new OptionalCourse()
-            //{
-            //    Credits = credits,
-            //    Id = Guid.NewGuid(),
-            //    IsApproved = false,
-
-            //});
-            //_context.SaveChanges();
-
-            return true;
-        }
-
-        public bool ProposeOptionalCourse(Guid optionalCourseId, Guid teacherId)
-        {
-            var optionalCourse = _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId);
-            if (optionalCourse == null) return false;
-
-            var proposedOptionalCourses = GetProposedOptionalCourses(teacherId);
-            if (proposedOptionalCourses.Count == 2 || proposedOptionalCourses.Exists(course => course.Id == optionalCourseId))
+            System.Diagnostics.Debug.Write(studentContractSemesterId);
+            System.Diagnostics.Debug.Write(coursesIds[0]);
+            System.Diagnostics.Debug.Write(coursesIds[1]);
+            Func<Guid, Predicate<OptionalCoursePreference>> getPredicate = courseId =>
+                preference =>
+                    preference.StudentContractSemesterId == studentContractSemesterId &&
+                    preference.OptionalCourseId == courseId;
+                
+            for (int i = 0; i < coursesIds.Count; i++)
             {
-                return false;
+                // Predicate<OptionalCoursePreference> predicate = preference => 
+                //     preference.StudentContractSemesterId == studentContractSemesterId && 
+                //     preference.OptionalCourseId == coursesIds[i];
+                
+                // var preference =  _context.OptionalCoursePreferences.FirstOrDefault(preference => predicate(preference));
+
+                var preference = _context.OptionalCoursePreferences.ToList().
+                    FirstOrDefault(preference => getPredicate(coursesIds[i])(preference));
+                
+                if (preference != null)
+                {
+                    preference.Preference = (short) i;
+                }
+            }
+            _context.SaveChanges();
+
+        }
+        
+
+        
+        public List<OptionalCourseDto> GetOptionalCoursesByContractId(Guid contractId)
+        {
+            var yearId = _context.Contracts.FirstOrDefault(contract => contract.Id == contractId).StudyYearId;
+
+            var semesters = _context.StudySemesters.Where(semester => semester.StudyYearId == yearId).ToList();
+
+
+            List<OptionalCourse> result = new List<OptionalCourse>();
+
+            semesters.ForEach(semester => result.AddRange(_context.OptionalCourses.Where(course => course.SemesterId == semester.Id).ToList()));
+            /*return _context.OptionalCourses.Where(course => course.SemesterId == semesters[0].Id).Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                TeacherId = course.TeacherId,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+
+            }).ToList();*/
+            return result.Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+
+            }).ToList();
+        }
+
+        public List<OptionalCourseDto> GetOptionalCoursesBySemesterContractId(Guid semesterContractId)
+        {
+            var semesterId = _context.SemesterContracts.FirstOrDefault(contract => contract.Id == semesterContractId).StudySemesterId;
+          
+            return _context.OptionalCourses.Where(course => course.SemesterId == semesterId).Select(course => new OptionalCourseDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                MaxNumberOfStudent = course.MaxNumberOfStudent
+            }).ToList();
+        }
+        
+        
+        
+        #region PrivateSetCoursePreferenceMethods
+        
+        private void UpdateCoursePreferenceValue(Guid studentContractSemesterId, Guid courseId, short preferenceValue,
+            OptionalCoursePreference optionalCoursePreference)
+        {
+            if (optionalCoursePreference == null) // create OptionalCoursePreference if doesn't exist
+            {
+                _context.Add(new OptionalCoursePreference()
+                {
+                    Id = Guid.NewGuid(),
+                    Preference = preferenceValue,
+                    StudentContractSemesterId = studentContractSemesterId,
+                    OptionalCourseId = courseId
+                });
+            }
+            else // update OptionalCoursePreference if exists
+            {
+                optionalCoursePreference.Preference = preferenceValue;
+            }
+        }
+
+        private OptionalCoursePreference GetCourseInContractAndThrowIfNullReference(Guid studentContractSemesterId,
+            Guid courseId)
+        {
+            CheckIfCourseInContractAndThrowIfNullReference(studentContractSemesterId, courseId);
+
+            return _context.FindEntity<OptionalCoursePreference>(
+                coursePreference => coursePreference.StudentContractSemesterId == studentContractSemesterId &&
+                                    coursePreference.OptionalCourseId == courseId
+            );
+        }
+
+        private void CheckIfCourseInContractAndThrowIfNullReference(Guid studentContractSemesterId, Guid courseId)
+        {
+            var studentContractSemester = _context.FindEntityAndThrowIfNullReference<StudentContractSemester>(
+                semester => semester.Id == studentContractSemesterId,
+                $"StudentContractSemester with id: {studentContractSemesterId} was not found\n"
+            );
+
+            _context.FindEntityAndThrowIfNullReference<OptionalCourse>(
+                course => course.Id == courseId && course.SemesterId == studentContractSemester.StudySemesterId,
+                $"OptionalCourse with id: {courseId}, in semester with id: {studentContractSemesterId} was not found\n"
+            );
+        }
+
+        #endregion
+        
+        #endregion
+
+        
+        #region Teacher
+        
+        public ProposedCoursesIds GetProposed(Guid teacherId)
+        {
+            var coursesIds = GetCourses(teacherId)
+                .Where(course => course.IsProposed)
+                .Select(course => course.Id)
+                .Take(2).ToList();
+
+            return new ProposedCoursesIds
+            {
+                First = coursesIds.Count >= 1 ? coursesIds[0] : Guid.Empty,
+                Second = coursesIds.Count >= 2 ? coursesIds[1] : Guid.Empty,
+            };
+        }
+        
+        public void Propose(Guid teacherId, Guid course1Id, Guid course2Id)
+        {
+            ClearProposedCourses(teacherId);
+            if (course1Id != default)
+            {
+                FindOptionalCourseByIdAndThrowIfNullReference(course1Id).IsProposed = true;
+            }
+            if (course2Id != default)
+            {
+                FindOptionalCourseByIdAndThrowIfNullReference(course2Id).IsProposed = true;
+            }
+            _context.SaveChanges();
+        }
+
+
+        public TeacherCourseDetailDto GetEnrichedCourseById(Guid courseId)
+        {
+            var course = _context.OptionalCourses
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyDegree)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.Faculty)
+                .FirstOrDefault(x => x.Id == courseId);
+
+            if (course == null)
+            {
+                throw new Exception("Course ID is invalid!");
             }
 
-            optionalCourse.IsProposed = true;
-            _context.SaveChanges();
-
-            return true;
+            return new TeacherCourseDetailDto()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Credits = course.Credits,
+                Semester = course.Semester.Semester,
+                StartDate = course.Semester.StudyYear.StartDate,
+                EndDate = course.Semester.StudyYear.EndDate,
+                IsOptional = true,
+                FacultyDetails = new TeacherCourseFacultyDetailDto()
+                {
+                    Faculty = course.Semester.StudyYear.Specialization.Faculty.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    SpecializationSemesters = course.Semester.StudyYear.Specialization.Semesters,
+                    StudyDegree = course.Semester.StudyYear.Specialization.StudyDegree.Name,
+                    StudyLine = course.Semester.StudyYear.Specialization.StudyLine.Name,
+                    StudyLineShort = course.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                }
+            };
         }
-
-        public bool SetOptionalCourseApproval(Guid optionalCourseId)
+        
+        public async Task<TeacherCoursesResponse> GetEnrichedCoursesByTeacher(Guid teacherId)
         {
-            var optionalCourse = _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId);
-            if (optionalCourse == null) return false;
+            var courses = _context.OptionalCourses.AsNoTracking()
+                .Where(x => x.TeacherId == teacherId);
+            var enrichedCourses = await courses
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.StudyLine)
+                .Include(x => x.Semester)
+                .ThenInclude(y => y.StudyYear)
+                .ThenInclude(y => y.Specialization)
+                .ThenInclude(y => y.Faculty)
+                .Select(x => new TeacherCourseDetailDto()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Credits = x.Credits,
+                    Semester = x.Semester.Semester,
+                    StartDate = x.Semester.StudyYear.StartDate,
+                    EndDate = x.Semester.StudyYear.EndDate,
+                    IsOptional = true,
+                    FacultyDetails = new TeacherCourseFacultyDetailDto()
+                    {
+                        Faculty = x.Semester.StudyYear.Specialization.Faculty.Name,
+                        Specialization = x.Semester.StudyYear.Specialization.Name,
+                        SpecializationSemesters = x.Semester.StudyYear.Specialization.Semesters,
+                        StudyDegree = x.Semester.StudyYear.Specialization.StudyDegree.Name,
+                        StudyLine = x.Semester.StudyYear.Specialization.StudyLine.Name,
+                        StudyLineShort = x.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                    }
+                })
+                .ToListAsync();
+            return new TeacherCoursesResponse { Courses = enrichedCourses };
+        }
+        
+        public async Task<TeacherOptionalStudentsWithGradeResponse> GetStudentsWithGrade(Guid courseId)
+        {
+            var students = GetEnrolledStudents(courseId);
+
+            var studentsWithGrade = await students
+                .Include(student => student.Account)
+                .Include(student => student.OptionalGrades)
+                .Select(student => new StudentWithGrade
+                {
+                    Id = student.AccountId,
+                    LastName = student.Account.LastName,
+                    FirstName = student.Account.FirstName,
+                    Grade = GetGrade(student.OptionalGrades.Where(grade => grade.CourseId == courseId).Select(grade => grade.Grade).ToList())
+                })
+                .ToListAsync();
+
+            return new TeacherOptionalStudentsWithGradeResponse {StudentsWithGrade = studentsWithGrade};
+        }
+        
+        public async Task<TeacherOptionals> GetEnrichedCoursesForTeacherOptionalsPage(Guid teacherId)
+        {
+            var courses = _context.OptionalCourses
+                .AsNoTracking()
+                .Where(course => course.TeacherId == teacherId);
+            var enrichedCourses = await courses
+                .Include(course => course.Semester)
+                .ThenInclude(semester => semester.StudyYear)
+                .ThenInclude(year => year.Specialization)
+                .Select(course => new TeacherOptional
+                {
+                    Id = course.Id,
+                    Name = course.Name,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                    Semester = course.Semester.Semester,
+                    IsProposed = course.IsProposed,
+                    IsApproved = course.IsApproved
+                })
+                .OrderBy(optional => optional.Name)
+                .ThenBy(optional => optional.Specialization)
+                .ThenBy(optional => optional.Semester)
+                .ToListAsync();
+            return new TeacherOptionals { Optionals = enrichedCourses };
+        }
+        
+        #region PrivateMethods
+
+        private List<OptionalCourse> GetCourses(Guid teacherId) =>
+            FilterCourses(course => course.TeacherId == teacherId).ToList();
+        private static short GetGrade(IReadOnlyCollection<short> grades) =>
+            (short) (grades.Any() ? grades.First() : -1);
+        
+        private void ClearProposedCourses(Guid teacherId)
+        {
+            foreach (OptionalCourse optionalCourse in _context.OptionalCourses
+                         .Where(course => course.TeacherId == teacherId && course.IsProposed))
+            {
+                optionalCourse.IsProposed = false;
+            }
+        }
+        
+        private IQueryable<Student> GetEnrolledStudents(Guid courseId) =>
+            _context.Students
+                .AsNoTracking()
+                .Include(student => student.Contracts)
+                .ThenInclude(contract => contract.SemesterContracts)
+                .Where(student => student.Contracts
+                    .Any(contract => contract.SemesterContracts
+                        .Any(semesterContract => semesterContract.OptionalCourseId == courseId)));
+
+        #endregion
+        
+        #endregion
+
+        
+        #region Chief
+
+        public void ApproveCourse(Guid courseId)
+        {
+            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
 
             optionalCourse.IsApproved = true;
-            _context.SaveChanges();
-
-            return true;
-        }
-
-        public bool SetOptionalCourseMaxStudent(Guid optionalCourseId, int maxNumberOfStudents)
-        {
-            if (maxNumberOfStudents < 0) return false;
-            var optionalCourse = _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId);
-            if (optionalCourse == null) return false;
-
-            optionalCourse.MaxNumberOfStudent = maxNumberOfStudents;
-            _context.SaveChanges();
-
-            return true;
-        }
-
-        /// <summary>
-        /// Get the number of preferences of an optional course.
-        /// </summary>
-        /// <param name="optionalCourseId">the id of the optional course</param>
-        /// <returns>The number of preferences for the given optional course. -1, if there's no optional course with the given id.</returns>
-        private int GetNumberOfFollowers(Guid optionalCourseId) =>
-            _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
-                ? -1
-                : _context.OptionalCoursePreferences.Count(preference => preference.OptionalCourseId == optionalCourseId);
-
-        /// <summary>
-        /// Gets the number of students enrolled in an optional course.
-        /// </summary>
-        /// <param name="optionalCourseId">the id of the optional course</param>
-        /// <returns>The number of students enrolled in the given optional course. -1, if there's no optional course with the given id</returns>
-        //private int GetNumberOfEnrollments(Guid optionalCourseId) =>
-        //    _context.OptionalCourses.FirstOrDefault(course => course.Id == optionalCourseId) == null
-        //        ? -1
-        //    : 0;
-        //Todo: Update to fit database rebuilt version
-        //: _context.Contracts.Count(contract => contract.OptionalCourse.Id == optionalCourseId);
-
-        public OptionalCoursesAssignmentResults StartOptionalCoursesAssignment()
-        {
-            // 1. get all approved optional courses with at least 20 followers
-            var selectedOptionalCourses = _context.OptionalCourses.Where(course => course.IsApproved && GetNumberOfFollowers(course.Id) >= 20);
-            int numberOfStudentsWithRandomOptionalCourseAssigned = 0;
-            int numberOfStudentsWithNoOptionalCourseAssigned = 0;
-
-            // 2. for each student, assign the the optional course with the highest priority that is selected
             
-            // Todo: Update to fit database rebuilt version
-            //foreach (StudyContract studyContract in _context.StudyContracts)
-            //{
-            //    var selectedPreferenceOptionalCourseId = _context.OptionalCoursePreferences
-            //        .Where(preference => preference.StudyContract == studyContract)
-            //        .OrderBy(preference => preference.Preference)
-            //        .Select(preference => preference.OptionalCourseId) // the OptionalCourseIds of the preference of studyContract, sorted by preference value
-            //        .FirstOrDefault(courseId =>
-            //            courseId == selectedOptionalCourses
-            //                .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-            //                .Select(course => course.Id)
-            //                .FirstOrDefault(id => id == courseId));
-
-            //    if (selectedPreferenceOptionalCourseId == Guid.Empty)
-            //    {
-            //        selectedPreferenceOptionalCourseId = selectedOptionalCourses
-            //            .Where(course => GetNumberOfEnrollments(course.Id) < course.MaxNumberOfStudent)
-            //            .Select(course => course.Id).FirstOrDefault();
-            //    }
-
-            //    if (selectedPreferenceOptionalCourseId == Guid.Empty)
-            //        numberOfStudentsWithNoOptionalCourseAssigned++;
-            //    else
-            //    {
-            //        numberOfStudentsWithRandomOptionalCourseAssigned++;
-            //        studyContract.OptionalCourseId = selectedPreferenceOptionalCourseId;
-            //    }
-            //}
-            //_context.SaveChanges();
-            return new OptionalCoursesAssignmentResults(selectedOptionalCourses.ToList(), numberOfStudentsWithRandomOptionalCourseAssigned, numberOfStudentsWithNoOptionalCourseAssigned);
+            _context.SaveChanges();
         }
+
+        public void DisapproveCourse(Guid courseId)
+        {
+            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
+
+            optionalCourse.IsApproved = false;
+            
+            _context.SaveChanges();
+        }
+
+        public void SetCourseCapacity(Guid courseId, int capacity)
+        {
+            Utils.ThrowIf<ArgumentOutOfRangeException>(capacity <= 0, $"Expected capacity > 0. Got {capacity}");
+            var optionalCourse = FindOptionalCourseByIdAndThrowIfNullReference(courseId);
+
+            optionalCourse.MaxNumberOfStudent = capacity;
+
+            _context.SaveChanges();
+        }
+        
+        public int AssignCoursesToStudents(bool assignToContractsWithNoPreference) => 
+            _optionalCourseAssigner.AssignCoursesToStudents(assignToContractsWithNoPreference);
+
+        public void AddSamplesForAssignCoursesToStudents() // TODO: use it for groups
+        {
+            // const int noOfStudentsMinIncl = 70 - 28;
+            // const int noOfStudentsMaxExcl = 70 + 1;
+            //
+            // var specializations = _context.Specialisations.AsNoTracking();
+            //
+            // foreach (var specialization in specializations)
+            // {
+            //     for (short year = 1; year <= specialization.Semesters / 2; year++)
+            //     {
+            //         var studyYear = StudyYear.Create(DateTimeOffset.UtcNow, specialization.Id);
+            //         var semester1 = StudySemester.Create(2 * year - 1, studyYear.Id);
+            //         var semester2 = StudySemester.Create(2 * year, studyYear.Id);
+            //
+            //     }
+            //     
+            // }
+        }
+
+        public async Task<OptionalsChiefView> GetOptionalsChiefView(Guid chiefId)
+        {
+            var courses = _context.Faculties
+                .AsNoTracking()
+                .Where(faculty => faculty.ChiefOfDepartmentId == chiefId);
+            var test1 = courses
+                .Include(faculty => faculty.Specialisations)
+                .ThenInclude(specialization => specialization.StudyYears)
+                .ThenInclude(year => year.Semesters)
+                .ThenInclude(semester => semester.OptionalCourses);
+            var test2 = test1
+                .SelectMany(faculty => faculty.Specialisations)
+                .SelectMany(specialization => specialization.StudyYears)
+                .SelectMany(year => year.Semesters)
+                .SelectMany(semester => semester.OptionalCourses)
+                .Where(course => course.IsProposed);
+            var enrichedCourses = await test2
+                .Include(course => course.Semester.StudyYear.Specialization.StudyDegree)
+                .Include(course => course.Semester.StudyYear.Specialization.StudyLine)
+                .Include(course => course.Teacher)
+                .ThenInclude(teacher => teacher.Account)
+                .Select(course => new OptionalChiefView
+                {
+                    Id = course.Id,
+                    Name = course.Name,
+                    Credits = course.Credits,
+                    TeacherLastName = course.Teacher.Account.LastName,
+                    TeacherFirstName = course.Teacher.Account.FirstName,
+                    Semester = course.Semester.Semester,
+                    IsApproved = course.IsApproved,
+                    Capacity = course.MaxNumberOfStudent,
+                    StudyDegree = course.Semester.StudyYear.Specialization.StudyDegree.Name,
+                    StudyLine = course.Semester.StudyYear.Specialization.StudyLine.Name,
+                    StudyLineShort = course.Semester.StudyYear.Specialization.StudyLine.ShortName,
+                    Specialization = course.Semester.StudyYear.Specialization.Name,
+                })
+                .ToListAsync();
+            return new OptionalsChiefView { Optionals = enrichedCourses };
+        }
+
+        #endregion
+
+
+        public bool Exists(Guid courseId) => _context.FindEntity<OptionalCourse>(course => course.Id == courseId) != default;
+        
+        public bool IsCourseTaughtBy(Guid courseId, Guid teacherId) => 
+            _context.OptionalCourses.FirstOrDefault(course => course.Id == courseId && course.TeacherId == teacherId) != default;
     }
 }

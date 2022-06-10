@@ -1,15 +1,19 @@
-export interface StudyContractType {
+export interface Faculty {
   id: string
-  signedAt?: number
-  studentId: string
-  groupId?: string
-  optionalCourseId?: string
-  yearId?: string
+  name: string
 }
 
-export interface StudyContractTypeEnriched {
+export interface Degree {
   id: string
-  signedAt?: number
-  specialisation?: string
-  faculty?: string
+  name: string
+}
+
+export interface Specialisation {
+  id: string
+  name: string
+}
+
+export interface FacultyDetails {
+  faculties: Faculty[]
+  degrees: Degree[]
 }
