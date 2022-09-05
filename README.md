@@ -1,7 +1,7 @@
-## System for Managing Academic Information
-The process of managing informaton required in an academic environment is a time-consuming actvity.  <br/>
-In order to produce and manage this information, using a dedicated software application is from far the best solution.  <br/>
-Mainly it is about classroom activities engaging students and teachers. <br/>
-The System will keep track of information for each student starting with the first undergraduate year and finishing with the last one or with the last master year.<br/>
-Each faculty may have different specialisations both for the undergraduate and master degrees; a student is enrolled in one of these.<br/>
-Each faculty year will have a contract of studies, a curriculum (list of mandatory disciplines + 1 optional discipline).<br/>
+# Feature breakdown
+[In progress!]
+
+## Credits
+<img src="https://avatars.githubusercontent.com/u/74305289?v=4" width="64" height="64" /> - <a href="https://github.com/mircea-negrau">Mircea Negrău </br></a>
+<img src="https://avatars.githubusercontent.com/u/56311915?v=4" width="64" height="64" /> - <a href="https://github.com/PopEmanuel">Emanuel Pop </br></a>
+<img src="https://avatars.githubusercontent.com/u/72080700?v=4" width="64" height="64" /> - <a href="https://github.com/Patrulescu-Ronald-Sandrino">Sandrino-Ronald Pătrulescu</a>
