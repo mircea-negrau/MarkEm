@@ -1,4 +1,4 @@
-**‼ Project overview and features breakdown are work-in-progress!**
+**‼‼ Project overview and features breakdown soon to be added!**
 
 ## Techstack
 Back-end: <b>C# .NET Core 5.0 with Code-First Entity Framework & SQL Server</b></br>
