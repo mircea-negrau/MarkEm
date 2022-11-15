@@ -1,0 +1,2826 @@
+---
+openapi: 3.0.1
+info:
+  title: Org.Webelopers.Api
+  version: '1.0'
+paths:
+  "/admin/performance/byGroup":
+    get:
+      tags:
+      - Admin
+      parameters:
+      - name: groupId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+  "/admin/performance/bySemester":
+    get:
+      tags:
+      - Admin
+      parameters:
+      - name: semesterId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+  "/admin/performance/byStudyYear":
+    post:
+      tags:
+      - Admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/StudyYearCriteriaDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/StudyYearCriteriaDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/StudyYearCriteriaDto"
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudentAverageGradeDto"
+  "/auth/login":
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/LoginDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/LoginDto"
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/auth/register":
+    post:
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RegisterDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/RegisterDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/RegisterDto"
+      responses:
+        '200':
+          description: Success
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/contract/courses":
+    get:
+      tags:
+      - Contract
+      parameters:
+      - name: contractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractCourseResponse"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractCourseResponse"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractCourseResponse"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/contract/semesterContract":
+    get:
+      tags:
+      - Contract
+      parameters:
+      - name: contractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterContractDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterContractDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterContractDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/contract/optionalCourses":
+    get:
+      tags:
+      - Contract
+      parameters:
+      - name: contractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/contract/optionalCourses/bySemesterContract":
+    get:
+      tags:
+      - Contract
+      parameters:
+      - name: semesterContractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/OptionalCourseDto"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/all":
+    get:
+      tags:
+      - Courses
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherCoursesResponse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/all/by-teachers":
+    get:
+      tags:
+      - Courses
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ChiefTeachersWithCoursesInfo"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/course/{courseId}":
+    get:
+      tags:
+      - Courses
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherCourseDetailDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/course/{courseId}/gradeStudent":
+    post:
+      tags:
+      - Courses
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/course/{courseId}/groups":
+    get:
+      tags:
+      - Courses
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherGroupsResponse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/year":
+    get:
+      tags:
+      - Courses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              format: uuid
+          text/json:
+            schema:
+              type: string
+              format: uuid
+          application/*+json:
+            schema:
+              type: string
+              format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/results/teachers":
+    get:
+      tags:
+      - Courses
+      parameters:
+      - name: chiefId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/TeacherPerformanceDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/courses/results/courses":
+    get:
+      tags:
+      - Courses
+      parameters:
+      - name: chiefId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/CoursePerformanceDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/faculty/all":
+    get:
+      tags:
+      - Faculty
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/FacultyDetailDto"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FacultyDetailDto"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/FacultyDetailDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/faculty/specialisations":
+    get:
+      tags:
+      - Faculty
+      parameters:
+      - name: facultyId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: degreeId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SpecialisationDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SpecialisationDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SpecialisationDto"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/group/all":
+    get:
+      tags:
+      - Group
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/GroupDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/GroupDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/GroupDto"
+  "/optionals/all":
+    get:
+      tags:
+      - Optionals
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherCoursesResponse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/all/for-teacher-optionals-page":
+    get:
+      tags:
+      - Optionals
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherOptionals"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}":
+    get:
+      tags:
+      - Optionals
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherCourseDetailDto"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}/gradeStudent":
+    post:
+      tags:
+      - Optionals
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/SetGradeDto"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}/students":
+    get:
+      tags:
+      - Optionals
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/TeacherOptionalStudentsWithGradeResponse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/propose":
+    post:
+      tags:
+      - Optionals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProposedCoursesIds"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ProposedCoursesIds"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ProposedCoursesIds"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/proposed":
+    get:
+      tags:
+      - Optionals
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProposedCoursesIds"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/setPreference":
+    post:
+      tags:
+      - Optionals
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CoursePreferenceDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CoursePreferenceDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CoursePreferenceDto"
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/all/chiefPage":
+    get:
+      tags:
+      - OptionalsChief
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/OptionalsChiefView"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/assign":
+    post:
+      tags:
+      - OptionalsChief
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/assignAddSamples":
+    post:
+      tags:
+      - OptionalsChief
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}/approve":
+    post:
+      tags:
+      - OptionalsChief
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}/disapprove":
+    post:
+      tags:
+      - OptionalsChief
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/optionals/optional/{courseId}/setCapacity":
+    post:
+      tags:
+      - OptionalsChief
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: capacity
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/profile/{username}":
+    get:
+      tags:
+      - Profile
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProfileResponseDto"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/profile/picture/upload":
+    post:
+      tags:
+      - Profile
+      responses:
+        '200':
+          description: Success
+  "/profile/passwordChange":
+    post:
+      tags:
+      - Profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/PasswordChangeRequestDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/PasswordChangeRequestDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/PasswordChangeRequestDto"
+      responses:
+        '200':
+          description: Success
+  "/profile/setAbout":
+    post:
+      tags:
+      - Profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AboutChangeRequestDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AboutChangeRequestDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AboutChangeRequestDto"
+      responses:
+        '200':
+          description: Success
+  "/profile/picture":
+    get:
+      tags:
+      - Profile
+      parameters:
+      - name: userId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+  "/profile/isChiefOfDepartment":
+    get:
+      tags:
+      - Profile
+      parameters:
+      - name: userId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '500':
+          description: Server Error
+  "/semester/all":
+    get:
+      tags:
+      - Semester
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SemesterDto"
+  "/student/enroll":
+    post:
+      tags:
+      - Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/EnrollDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/EnrollDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/EnrollDto"
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/student/dummy":
+    post:
+      tags:
+      - Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GradeDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/GradeDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/GradeDto"
+      responses:
+        '200':
+          description: Success
+  "/student/disenroll":
+    post:
+      tags:
+      - Student
+      parameters:
+      - name: contractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/student/contracts/number":
+    get:
+      tags:
+      - Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              format: uuid
+          text/json:
+            schema:
+              type: string
+              format: uuid
+          application/*+json:
+            schema:
+              type: string
+              format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+            application/json:
+              schema:
+                type: integer
+                format: int32
+            text/json:
+              schema:
+                type: integer
+                format: int32
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/student/setAllPreferences":
+    post:
+      tags:
+      - Student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/OptionalCoursePreferenceDto"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/OptionalCoursePreferenceDto"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/OptionalCoursePreferenceDto"
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/student/sign":
+    post:
+      tags:
+      - Student
+      parameters:
+      - name: contractId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+  "/student/grades/all":
+    get:
+      tags:
+      - Student
+      parameters:
+      - name: studentId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractSemesterGrades"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractSemesterGrades"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractSemesterGrades"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/student/contracts/all":
+    get:
+      tags:
+      - Student
+      parameters:
+      - name: studentId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractEnriched"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractEnriched"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ContractEnriched"
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/add/enrollments/{courseId}":
+    post:
+      tags:
+      - Testing
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/add/groups":
+    post:
+      tags:
+      - Testing
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/add/specializations/{number}":
+    post:
+      tags:
+      - Testing
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/add/students-with-grades-to-optional":
+    post:
+      tags:
+      - Testing
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/add/students-with-grades-to-optional/{courseId}":
+    post:
+      tags:
+      - Testing
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/faculties":
+    get:
+      tags:
+      - Testing
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Faculty"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/faculties/{facultyId}/teachers":
+    get:
+      tags:
+      - Testing
+      parameters:
+      - name: facultyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Teacher"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/faculties/{facultyId}/courses":
+    get:
+      tags:
+      - Testing
+      parameters:
+      - name: facultyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  "$ref": "#/components/schemas/MandatoryCourse"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/testing/faculties/{facultyId}/chief-teachers-with-courses-info":
+    get:
+      tags:
+      - Testing
+      parameters:
+      - name: facultyId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ChiefTeachersWithCoursesInfo"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/year/all":
+    get:
+      tags:
+      - Year
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudyYearDto"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudyYearDto"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/StudyYearDto"
+components:
+  schemas:
+    AboutChangeRequestDto:
+      type: object
+      properties:
+        about:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Account:
+      required:
+      - firstName
+      - lastName
+      - role
+      - username
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        role:
+          maxLength: 256
+          minLength: 0
+          type: string
+        username:
+          maxLength: 256
+          minLength: 0
+          type: string
+        firstName:
+          maxLength: 128
+          minLength: 0
+          type: string
+        lastName:
+          maxLength: 128
+          minLength: 0
+          type: string
+        picture:
+          type: string
+          format: byte
+          nullable: true
+        about:
+          maxLength: 1024
+          minLength: 0
+          type: string
+          nullable: true
+      additionalProperties: false
+    ChiefTeacherCourseInfo:
+      type: object
+      properties:
+        specialization:
+          type: string
+          nullable: true
+        year:
+          type: integer
+          format: int32
+        semester:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        credits:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ChiefTeacherWithCoursesInfo:
+      type: object
+      properties:
+        teacherName:
+          type: string
+          nullable: true
+        teacherId:
+          type: string
+          format: uuid
+        chiefTeacherCoursesInfo:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ChiefTeacherCourseInfo"
+          nullable: true
+      additionalProperties: false
+    ChiefTeachersWithCoursesInfo:
+      type: object
+      properties:
+        chiefTeachersWithCoursesInfoList:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ChiefTeacherWithCoursesInfo"
+          nullable: true
+      additionalProperties: false
+    ContractCourseResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        semester:
+          type: integer
+          format: int32
+        credits:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        teacherFirstName:
+          type: string
+          nullable: true
+        teacherLastName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ContractEnriched:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        signedAt:
+          type: integer
+          format: int64
+          nullable: true
+        specialisation:
+          type: string
+          nullable: true
+        faculty:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ContractSemesterGrades:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        signedAt:
+          type: integer
+          format: int64
+          nullable: true
+        specialisation:
+          type: string
+          nullable: true
+        faculty:
+          type: string
+          nullable: true
+        semesters:
+          type: array
+          items:
+            "$ref": "#/components/schemas/SemesterCourseGrades"
+          nullable: true
+      additionalProperties: false
+    CoursePerformanceDto:
+      type: object
+      properties:
+        courseId:
+          type: string
+          format: uuid
+        courseName:
+          type: string
+          nullable: true
+        coursePerformance:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    CoursePreferenceDto:
+      type: object
+      properties:
+        preference:
+          type: integer
+          format: int32
+        contractId:
+          type: string
+          format: uuid
+        optionalCourseId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    EnrollDto:
+      type: object
+      properties:
+        studentID:
+          type: string
+          format: uuid
+        specialisationId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    Faculty:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 128
+          minLength: 0
+          type: string
+        chiefOfDepartmentId:
+          type: string
+          format: uuid
+          nullable: true
+        chiefOfDepartment:
+          "$ref": "#/components/schemas/Teacher"
+        specialisations:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FacultySpecialization"
+          nullable: true
+      additionalProperties: false
+    FacultyDetailDto:
+      type: object
+      properties:
+        faculties:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FacultyDto"
+          nullable: true
+        degrees:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudyDegreeDto"
+          nullable: true
+      additionalProperties: false
+    FacultyDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FacultyGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        number:
+          type: string
+          nullable: true
+        tutorTeacherId:
+          type: string
+          format: uuid
+          nullable: true
+        leaderStudentId:
+          type: string
+          format: uuid
+          nullable: true
+        studyYearId:
+          type: string
+          format: uuid
+          nullable: true
+        tutorTeacher:
+          "$ref": "#/components/schemas/Teacher"
+        leaderStudent:
+          "$ref": "#/components/schemas/Student"
+        contracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContract"
+          nullable: true
+        studentEnrolledCourses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentMandatoryCourseEnrollment"
+          nullable: true
+        studyYear:
+          "$ref": "#/components/schemas/StudyYear"
+      additionalProperties: false
+    FacultySpecialization:
+      required:
+      - name
+      - semesters
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 128
+          minLength: 0
+          type: string
+        semesters:
+          type: integer
+          format: int32
+        facultyId:
+          type: string
+          format: uuid
+        studyDegreeId:
+          type: string
+          format: uuid
+        studyLineId:
+          type: string
+          format: uuid
+        faculty:
+          "$ref": "#/components/schemas/Faculty"
+        studyDegree:
+          "$ref": "#/components/schemas/FacultyStudyDegree"
+        studyLine:
+          "$ref": "#/components/schemas/FacultyStudyLine"
+        studyYears:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudyYear"
+          nullable: true
+      additionalProperties: false
+    FacultyStudyDegree:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 256
+          minLength: 0
+          type: string
+        specialisations:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FacultySpecialization"
+          nullable: true
+      additionalProperties: false
+    FacultyStudyLine:
+      required:
+      - id
+      - name
+      - shortName
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 256
+          minLength: 0
+          type: string
+        shortName:
+          maxLength: 8
+          minLength: 0
+          type: string
+        specialisations:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FacultySpecialization"
+          nullable: true
+      additionalProperties: false
+    GradeDto:
+      type: object
+      properties:
+        grade:
+          type: integer
+          format: int32
+        courseId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    GradesDetailDto:
+      type: object
+      properties:
+        gradeId:
+          type: string
+          format: uuid
+        grade:
+          type: integer
+          format: int32
+        courseName:
+          type: string
+          nullable: true
+        credits:
+          type: integer
+          format: int32
+      additionalProperties: false
+    GroupDto:
+      type: object
+      properties:
+        groupId:
+          type: string
+          format: uuid
+        number:
+          type: string
+          nullable: true
+      additionalProperties: false
+    LoginDto:
+      type: object
+      properties:
+        email:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MandatoryCourse:
+      required:
+      - credits
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 128
+          minLength: 0
+          type: string
+        credits:
+          type: integer
+          format: int32
+        semesterId:
+          type: string
+          format: uuid
+        teacherId:
+          type: string
+          format: uuid
+        semester:
+          "$ref": "#/components/schemas/StudySemester"
+        teacher:
+          "$ref": "#/components/schemas/Teacher"
+        grades:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MandatoryCourseGrade"
+          nullable: true
+        semesterContractCourses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentMandatoryCourseEnrollment"
+          nullable: true
+      additionalProperties: false
+    MandatoryCourseGrade:
+      required:
+      - createdAt
+      - grade
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        grade:
+          type: integer
+          format: int32
+        createdAt:
+          type: integer
+          format: int64
+        courseId:
+          type: string
+          format: uuid
+        studentId:
+          type: string
+          format: uuid
+        student:
+          "$ref": "#/components/schemas/Student"
+        course:
+          "$ref": "#/components/schemas/MandatoryCourse"
+      additionalProperties: false
+    OptionalChiefView:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        credits:
+          type: integer
+          format: int32
+        teacherLastName:
+          type: string
+          nullable: true
+        teacherFirstName:
+          type: string
+          nullable: true
+        semester:
+          type: integer
+          format: int32
+        isApproved:
+          type: boolean
+        capacity:
+          type: integer
+          format: int32
+        studyDegree:
+          type: string
+          nullable: true
+        studyLine:
+          type: string
+          nullable: true
+        studyLineShort:
+          type: string
+          nullable: true
+        specialization:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OptionalCourse:
+      required:
+      - credits
+      - isApproved
+      - isProposed
+      - maxNumberOfStudent
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 128
+          minLength: 0
+          type: string
+        credits:
+          type: integer
+          format: int32
+        semesterId:
+          type: string
+          format: uuid
+        teacherId:
+          type: string
+          format: uuid
+        semester:
+          "$ref": "#/components/schemas/StudySemester"
+        teacher:
+          "$ref": "#/components/schemas/Teacher"
+        isProposed:
+          type: boolean
+        isApproved:
+          type: boolean
+        maxNumberOfStudent:
+          type: integer
+          format: int32
+        contracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContractSemester"
+          nullable: true
+        grades:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCourseGrade"
+          nullable: true
+        optionalCoursePreferences:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCoursePreference"
+          nullable: true
+      additionalProperties: false
+    OptionalCourseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        maxNumberOfStudent:
+          type: integer
+          format: int32
+          nullable: true
+        credits:
+          type: integer
+          format: int32
+        teacherName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OptionalCourseGrade:
+      required:
+      - createdAt
+      - grade
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        grade:
+          type: integer
+          format: int32
+        createdAt:
+          type: integer
+          format: int64
+        courseId:
+          type: string
+          format: uuid
+        studentId:
+          type: string
+          format: uuid
+        student:
+          "$ref": "#/components/schemas/Student"
+        course:
+          "$ref": "#/components/schemas/OptionalCourse"
+      additionalProperties: false
+    OptionalCoursePreference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        preference:
+          type: integer
+          format: int32
+        studentContractSemesterId:
+          type: string
+          format: uuid
+        optionalCourseId:
+          type: string
+          format: uuid
+        optionalCourse:
+          "$ref": "#/components/schemas/OptionalCourse"
+        studentContractSemester:
+          "$ref": "#/components/schemas/StudentContractSemester"
+      additionalProperties: false
+    OptionalCoursePreferenceDto:
+      type: object
+      properties:
+        contractId:
+          type: string
+          format: uuid
+        coursesIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      additionalProperties: false
+    OptionalsChiefView:
+      type: object
+      properties:
+        optionals:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalChiefView"
+          nullable: true
+      additionalProperties: false
+    PasswordChangeRequestDto:
+      type: object
+      properties:
+        password:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    ProfileResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        role:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        picture:
+          type: string
+          format: byte
+          nullable: true
+        about:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProposedCoursesIds:
+      type: object
+      properties:
+        first:
+          type: string
+          format: uuid
+        second:
+          type: string
+          format: uuid
+      additionalProperties: false
+    RegisterDto:
+      type: object
+      properties:
+        userType:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SemesterContractDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        contractId:
+          type: string
+          format: uuid
+        semester:
+          type: integer
+          format: int32
+        optionalCourseId:
+          type: string
+          format: uuid
+          nullable: true
+        optionalCourseName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SemesterCourseGrades:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        value:
+          type: integer
+          format: int32
+        yearStartDate:
+          type: integer
+          format: int64
+        yearEndDate:
+          type: integer
+          format: int64
+        specializationName:
+          type: string
+          nullable: true
+        courses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentCourseGrades"
+          nullable: true
+      additionalProperties: false
+    SemesterDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        value:
+          type: integer
+          format: int32
+        yearStartDate:
+          type: integer
+          format: int64
+        yearEndDate:
+          type: integer
+          format: int64
+        specializationName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SetGradeDto:
+      type: object
+      properties:
+        studentId:
+          type: string
+          format: uuid
+        value:
+          type: integer
+          format: int32
+      additionalProperties: false
+    SpecialisationDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Student:
+      required:
+      - accountId
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        account:
+          "$ref": "#/components/schemas/Account"
+        grades:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MandatoryCourseGrade"
+          nullable: true
+        optionalGrades:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCourseGrade"
+          nullable: true
+        contracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContract"
+          nullable: true
+      additionalProperties: false
+    StudentAverageGradeDto:
+      type: object
+      properties:
+        studentId:
+          type: string
+          format: uuid
+        averageGrade:
+          type: number
+          format: double
+        studentUser:
+          type: string
+          nullable: true
+        studentName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    StudentContract:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        signedAt:
+          type: integer
+          format: int64
+          nullable: true
+        studentId:
+          type: string
+          format: uuid
+        studyYearId:
+          type: string
+          format: uuid
+        groupId:
+          type: string
+          format: uuid
+          nullable: true
+        student:
+          "$ref": "#/components/schemas/Student"
+        studyYear:
+          "$ref": "#/components/schemas/StudyYear"
+        group:
+          "$ref": "#/components/schemas/FacultyGroup"
+        semesterContracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContractSemester"
+          nullable: true
+      additionalProperties: false
+    StudentContractSemester:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        studentContractId:
+          type: string
+          format: uuid
+        studySemesterId:
+          type: string
+          format: uuid
+        optionalCourseId:
+          type: string
+          format: uuid
+          nullable: true
+        studentContract:
+          "$ref": "#/components/schemas/StudentContract"
+        studySemester:
+          "$ref": "#/components/schemas/StudySemester"
+        optionalCourse:
+          "$ref": "#/components/schemas/OptionalCourse"
+        optionalCoursePreferences:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCoursePreference"
+          nullable: true
+        studentEnrolledCourses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentMandatoryCourseEnrollment"
+          nullable: true
+      additionalProperties: false
+    StudentCourseGrades:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        teacherName:
+          type: string
+          nullable: true
+        grade:
+          "$ref": "#/components/schemas/GradesDetailDto"
+      additionalProperties: false
+    StudentMandatoryCourseEnrollment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        studentContractSemesterId:
+          type: string
+          format: uuid
+        mandatoryCourseId:
+          type: string
+          format: uuid
+        groupId:
+          type: string
+          format: uuid
+          nullable: true
+        mandatoryCourse:
+          "$ref": "#/components/schemas/MandatoryCourse"
+        studentContractSemester:
+          "$ref": "#/components/schemas/StudentContractSemester"
+        group:
+          "$ref": "#/components/schemas/FacultyGroup"
+      additionalProperties: false
+    StudentWithGrade:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        lastName:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        grade:
+          type: integer
+          format: int32
+      additionalProperties: false
+    StudyDegreeDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    StudySemester:
+      required:
+      - semester
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        semester:
+          type: integer
+          format: int32
+        studyYearId:
+          type: string
+          format: uuid
+        studyYear:
+          "$ref": "#/components/schemas/StudyYear"
+        courses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MandatoryCourse"
+          nullable: true
+        optionalCourses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCourse"
+          nullable: true
+        semesterContracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContractSemester"
+          nullable: true
+      additionalProperties: false
+    StudyYear:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        startDate:
+          type: integer
+          format: int64
+        endDate:
+          type: integer
+          format: int64
+        specializationId:
+          type: string
+          format: uuid
+        studentLeaderId:
+          type: string
+          format: uuid
+          nullable: true
+        specialization:
+          "$ref": "#/components/schemas/FacultySpecialization"
+        studentLeader:
+          "$ref": "#/components/schemas/Student"
+        semesters:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudySemester"
+          nullable: true
+        contracts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentContract"
+          nullable: true
+        groups:
+          type: array
+          items:
+            "$ref": "#/components/schemas/FacultyGroup"
+          nullable: true
+      additionalProperties: false
+    StudyYearCriteriaDto:
+      type: object
+      properties:
+        yearId:
+          type: string
+          format: uuid
+        minimumAverage:
+          type: integer
+          format: int32
+      additionalProperties: false
+    StudyYearDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        startDate:
+          type: integer
+          format: int64
+        endDate:
+          type: integer
+          format: int64
+        specialisationName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Teacher:
+      required:
+      - accountId
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+        account:
+          "$ref": "#/components/schemas/Account"
+        teacherDegreeId:
+          type: string
+          format: uuid
+          nullable: true
+        courses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MandatoryCourse"
+          nullable: true
+        optionalCourses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/OptionalCourse"
+          nullable: true
+        teacherDegree:
+          "$ref": "#/components/schemas/TeacherDegree"
+        tutoredGroup:
+          "$ref": "#/components/schemas/FacultyGroup"
+      additionalProperties: false
+    TeacherCourseDetailDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        credits:
+          type: integer
+          format: int32
+        semester:
+          type: integer
+          format: int32
+        startDate:
+          type: integer
+          format: int64
+        endDate:
+          type: integer
+          format: int64
+        isOptional:
+          type: boolean
+        facultyDetails:
+          "$ref": "#/components/schemas/TeacherCourseFacultyDetailDto"
+      additionalProperties: false
+    TeacherCourseFacultyDetailDto:
+      type: object
+      properties:
+        faculty:
+          type: string
+          nullable: true
+        specialization:
+          type: string
+          nullable: true
+        specializationSemesters:
+          type: integer
+          format: int32
+        studyDegree:
+          type: string
+          nullable: true
+        studyLine:
+          type: string
+          nullable: true
+        studyLineShort:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TeacherCoursesResponse:
+      type: object
+      properties:
+        courses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TeacherCourseDetailDto"
+          nullable: true
+      additionalProperties: false
+    TeacherDegree:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          maxLength: 128
+          minLength: 0
+          type: string
+        rank:
+          type: integer
+          format: int32
+        teachers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Teacher"
+          nullable: true
+      additionalProperties: false
+    TeacherGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        number:
+          type: string
+          nullable: true
+        students:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentWithGrade"
+          nullable: true
+      additionalProperties: false
+    TeacherGroupsResponse:
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TeacherGroup"
+          nullable: true
+      additionalProperties: false
+    TeacherOptional:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        specialization:
+          type: string
+          nullable: true
+        semester:
+          type: integer
+          format: int32
+        isProposed:
+          type: boolean
+        isApproved:
+          type: boolean
+      additionalProperties: false
+    TeacherOptionalStudentsWithGradeResponse:
+      type: object
+      properties:
+        studentsWithGrade:
+          type: array
+          items:
+            "$ref": "#/components/schemas/StudentWithGrade"
+          nullable: true
+      additionalProperties: false
+    TeacherOptionals:
+      type: object
+      properties:
+        optionals:
+          type: array
+          items:
+            "$ref": "#/components/schemas/TeacherOptional"
+          nullable: true
+      additionalProperties: false
+    TeacherPerformanceDto:
+      type: object
+      properties:
+        teacherId:
+          type: string
+          format: uuid
+        teacherFirstName:
+          type: string
+          nullable: true
+        teacherLastName:
+          type: string
+          nullable: true
+        teacherPerformance:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
